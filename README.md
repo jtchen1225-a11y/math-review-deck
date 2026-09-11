@@ -126,10 +126,13 @@ npx wrangler pages deploy 我的複習網站 --project-name 我的專案名 --br
 
 ```bash
 # Claude Code
-git clone https://github.com/mathruffian-dot/math-review-deck.git ~/.claude/skills/math-review-deck
+git clone https://github.com/jtchen1225-a11y/math-review-deck.git ~/.claude/skills/math-review-deck
+
+# Google Antigravity
+git clone https://github.com/jtchen1225-a11y/math-review-deck.git ~/.gemini/config/skills/math-review-deck
 
 # 或 Codex / OpenCode
-git clone https://github.com/mathruffian-dot/math-review-deck.git ~/.codex/skills/math-review-deck
+git clone https://github.com/jtchen1225-a11y/math-review-deck.git ~/.codex/skills/math-review-deck
 ```
 
 裝好後直接說「幫我做一份 XX 的全冊複習簡報」即可觸發。
