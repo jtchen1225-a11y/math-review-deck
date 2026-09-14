@@ -152,6 +152,23 @@
     showZoom(s, '試題講解');
     typeset(document.getElementById('zoomBody'));
   }
+  function openSolModal(s) {
+    ensureZoom();
+    document.getElementById('zoomSol').style.display = 'none';
+    const stepsHtml = (s.solution && s.solution.steps && s.solution.steps.length)
+      ? `<ol class="zoom-steps">${s.solution.steps.map(t => `<li>${t}</li>`).join('')}</ol>`
+      : '';
+    document.getElementById('zoomBody').innerHTML =
+      `<div class="zoom-sol-full">
+         <div class="zoom-sol-badge">${s.year ? s.year + '年 ' : ''}${s.paper || ''} · ${s.qNum || s.sec || ''} 【規範解答與評分標準】</div>
+         ${s.solution && s.solution.thinking ? `<div class="zoom-thinking"><b>【解題思路】：</b>${Array.isArray(s.solution.thinking) ? s.solution.thinking.join('<br>') : s.solution.thinking}</div>` : ''}
+         ${stepsHtml}
+         ${s.solution && s.solution.ans ? `<div class="zoom-ans">參考答案：${s.solution.ans}</div>` : ''}
+         ${s.solution && s.solution.quickTip ? `<div class="zoom-quick-tip">⚡ <b>聯考速解訣竅：</b>${s.solution.quickTip}</div>` : ''}
+       </div>`;
+    showZoom(s, '解答詳析');
+    typeset(document.getElementById('zoomBody'));
+  }
   // 放大層：把 host 內容等比放大到填滿整頁
   // 繪圖 SVG 有 viewBox，寬度撐滿就會連同裡面的字一起放大，不必特別處理；
   // 但「重點整理／易錯對照」這類 HTML 內容（fbox 公式卡、表格）字級是固定 px，
@@ -367,10 +384,13 @@
           <div class="jae-sol-header">
             <div class="jae-sol-title">💡 解題思維與規範步驟</div>
             ${hasSteps ? `
-              <button class="jae-sol-toggle-btn" title="快速鍵：A">
-                <span class="btn-text">揭曉解答</span>
-                <span class="btn-key">A</span>
-              </button>
+              <div class="jae-sol-actions">
+                <button class="jae-sol-zoom" title="放大解答與評分標準至全黑板，方便用畫筆講解">🔍 放大解答</button>
+                <button class="jae-sol-toggle-btn" title="快速鍵：A">
+                  <span class="btn-text">揭曉解答</span>
+                  <span class="btn-key">A</span>
+                </button>
+              </div>
             ` : ''}
           </div>
           
@@ -431,6 +451,10 @@
       // 試題放大按鈕
       const qz = info.querySelector('.jae-q-zoom');
       if (qz) qz.onclick = () => openJaeModal(s);
+
+      // 解答放大按鈕
+      const solZoom = vis.querySelector('.jae-sol-zoom');
+      if (solZoom) solZoom.onclick = () => openSolModal(s);
 
       // 解答展開/隱藏切換（預設隱藏，點擊按鈕或按 A 鍵才揭曉）
       const solBtn = vis.querySelector('.jae-sol-toggle-btn');

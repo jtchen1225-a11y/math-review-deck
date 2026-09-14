@@ -756,6 +756,28 @@ svg .dim { fill: var(--muted); }
   font-size: 14px;
   color: var(--ink);
 }
+.jae-sol-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.jae-sol-zoom {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.jae-sol-zoom:hover {
+  background: var(--ct);
+  color: #fff;
+  border-color: var(--ct);
+  transform: translateY(-1px);
+}
 .jae-sol-toggle-btn {
   display: inline-flex;
   align-items: center;
@@ -976,4 +998,26 @@ svg .dim { fill: var(--muted); }
   font-size: clamp(16px, 2.2vw, 26px);
   color: #854d0e;
 }
+.zoom-sol-full {
+  width: 100%;
+}
+.zoom-sol-badge {
+  font-size: clamp(18px, 2.4vw, 28px);
+  font-weight: 900;
+  color: var(--ct);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--line);
+}
+.zoom-steps {
+  margin: 16px 0;
+  padding-left: 28px;
+}
+.zoom-steps li {
+  font-size: clamp(16px, 2.2vw, 26px);
+  line-height: 1.7;
+  color: #1e293b;
+  margin-bottom: 12px;
+}
+
 
