@@ -542,3 +542,394 @@ svg .dim { fill: var(--muted); }
   .slide { padding: 20px; gap: 18px; }
   .nav-btn { padding: 10px 14px; font-size: 14px; }
 }
+
+/* ===================== 澳門四校聯考（JAE）專屬排版 ===================== */
+.jae-slide {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 22px;
+}
+
+/* 左欄：試題與正下方核心知識點 */
+.jae-problem-col {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+.jae-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.jae-badge {
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: #fff;
+  background: var(--ct);
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+.jae-topic-tag {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ct);
+  background: color-mix(in srgb, var(--ct) 10%, #fff);
+  border: 1px solid color-mix(in srgb, var(--ct) 25%, #fff);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.jae-score-tag {
+  font-size: 12px;
+  font-weight: 800;
+  color: #475569;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+.jae-q-zoom {
+  margin-left: auto;
+  border: 1px solid var(--ct);
+  color: var(--ct);
+  background: #fff;
+  border-radius: 999px;
+  padding: 3px 11px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.4;
+  cursor: pointer;
+}
+.jae-q-zoom:hover { background: var(--ct); color: #fff; }
+
+.jae-q-card {
+  background: #ffffff;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 18px;
+  box-shadow: var(--shadow-sm);
+}
+.jae-q-text {
+  font-size: 16px;
+  line-height: 1.68;
+  color: var(--ink);
+  font-weight: 500;
+}
+.jae-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 16px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+}
+.jae-opt-item {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+/* 核心知識點卡片（題目正下方） */
+.jae-knowledge-card {
+  margin-top: 12px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--ct) 6%, #fff), #ffffff);
+  border: 1.5px solid color-mix(in srgb, var(--ct) 28%, var(--line));
+  border-left: 5px solid var(--ct);
+  border-radius: 14px;
+  padding: 12px 16px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+}
+.jae-kn-head {
+  font-weight: 900;
+  font-size: 13.5px;
+  color: var(--ct);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.jae-kn-icon { font-size: 15px; }
+.jae-kn-formulas {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.jae-formula-item {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid color-mix(in srgb, var(--ct) 20%, #e2e8f0);
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 14.5px;
+  overflow-x: auto;
+}
+.jae-kn-points {
+  margin: 0 0 6px;
+  padding-left: 18px;
+}
+.jae-kn-points li {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #334155;
+  margin-bottom: 4px;
+}
+.jae-kn-pitfall {
+  margin-top: 6px;
+  padding: 6px 10px;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  border-radius: 8px;
+  font-size: 12.5px;
+  color: #be123c;
+  line-height: 1.5;
+}
+.pitfall-badge { font-weight: 800; margin-right: 4px; }
+
+/* 右欄：動態圖解與規範解答 */
+.jae-sol-col {
+  padding: 16px 18px;
+  background: linear-gradient(180deg, #fbfcfe, #f3f6fb);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+.jae-sol-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  gap: 12px;
+  transform-origin: top center;
+}
+.jae-vis-container {
+  position: relative;
+  background: #ffffff;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 10px 12px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.jae-vis-host {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.jae-vis-host svg {
+  max-height: 240px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.jae-vis-container .vis-zoom {
+  top: 8px;
+  right: 8px;
+}
+
+/* 解答卡片 */
+.jae-sol-card {
+  flex: 1 1 auto;
+  background: #ffffff;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 18px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+.jae-sol-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: none;
+}
+.jae-sol-title {
+  font-weight: 900;
+  font-size: 14px;
+  color: var(--ink);
+}
+.jae-sol-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--ct);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 12.5px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.jae-sol-toggle-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+.jae-sol-toggle-btn .btn-key {
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 11px;
+  font-family: monospace;
+}
+.jae-sol-content {
+  display: none;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+}
+.jae-sol-content.show {
+  display: block;
+  animation: slidein 0.25s ease;
+}
+.jae-sol-thinking {
+  background: #f8fafc;
+  border-left: 3px solid #64748b;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+.thinking-label {
+  font-weight: 800;
+  font-size: 12px;
+  color: #334155;
+  margin-bottom: 3px;
+}
+.jae-sol-steps {
+  margin-bottom: 10px;
+}
+.jae-sol-steps ol {
+  margin: 0;
+  padding-left: 20px;
+}
+.jae-sol-steps li {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+.jae-ans-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 6px 12px;
+  background: color-mix(in srgb, var(--ct) 8%, #fff);
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--ct) 24%, #fff);
+}
+.jae-ans-badge {
+  font-size: 12px;
+  font-weight: 900;
+  color: #fff;
+  background: var(--ct);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+.jae-ans-value {
+  font-size: 15px;
+  font-weight: 900;
+  color: var(--ink);
+}
+.jae-quick-tip {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #fefce8;
+  border: 1px solid #fef08a;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #854d0e;
+  line-height: 1.5;
+}
+.tip-badge {
+  font-weight: 800;
+  color: #b45309;
+  margin-right: 4px;
+}
+
+/* 放大講解 Modal 中的專用樣式 */
+.zoom-q-badge {
+  font-size: clamp(16px, 2.2vw, 24px);
+  font-weight: 900;
+  color: var(--ct);
+  margin-bottom: 12px;
+}
+.zoom-q-text {
+  font-size: clamp(22px, 3.2vw, 38px);
+  line-height: 1.7;
+  font-weight: 500;
+}
+.zoom-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 24px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 2px dashed #cdd6e2;
+}
+.zoom-opt-item {
+  font-size: clamp(18px, 2.5vw, 30px);
+  font-weight: 500;
+}
+.zoom-knowledge {
+  margin-top: 22px;
+  padding: 18px 24px;
+  background: #f8fafc;
+  border-left: 6px solid var(--ct);
+  border-radius: 14px;
+}
+.zoom-kn-title {
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-weight: 900;
+  color: var(--ct);
+  margin-bottom: 10px;
+}
+.zoom-kn-formulas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: clamp(18px, 2.5vw, 28px);
+}
+.zoom-knowledge ul {
+  margin: 10px 0;
+  padding-left: 28px;
+  font-size: clamp(16px, 2.2vw, 24px);
+  line-height: 1.6;
+}
+.zoom-kn-pitfall {
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  border-radius: 10px;
+  font-size: clamp(15px, 2vw, 22px);
+  color: #be123c;
+}
+.zoom-thinking {
+  font-size: clamp(16px, 2.2vw, 26px);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  color: #475569;
+}
+.zoom-quick-tip {
+  margin-top: 16px;
+  padding: 12px 18px;
+  background: #fefce8;
+  border: 1px solid #fef08a;
+  border-radius: 12px;
+  font-size: clamp(16px, 2.2vw, 26px);
+  color: #854d0e;
+}
+

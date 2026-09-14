@@ -41,10 +41,13 @@
     if (info) fitEl(info, info.querySelector('.col-fit'));
     const vis = slideEl.querySelector('.slide-visual');
     if (vis) {
-      const host = vis.querySelector('.visual-host');
-      // 視覺欄一律等比縮放：把「圖＋滑桿／按鈕」當成一整組縮到欄內，
-      // 確保矮螢幕下滑桿也不會被裁掉或被推到看不見（原本只縮靜態圖，互動頁會爆版）
-      if (host) fitEl(host, host);
+      const solWrapper = vis.querySelector('.jae-sol-wrapper');
+      if (solWrapper) {
+        fitEl(vis, solWrapper);
+      } else {
+        const host = vis.querySelector('.visual-host');
+        if (host) fitEl(host, host);
+      }
     }
   }
   // MathJax 排版完成後才量高縮放（公式高度需排版後才確定）
@@ -80,7 +83,10 @@
   }
   function showZoom(s, badgeTail) {
     ensureZoom();
-    document.getElementById('zoomBadge').innerHTML = `第 ${s.ch} 章 · ${s.sec} ${s.secName || ''}　${badgeTail}`;
+    const chLabel = typeof s.ch === 'number' || /^\d+$/.test(s.ch) ? `第 ${s.ch} 章` : s.ch;
+    const secLabel = s.qNum || s.sec || '';
+    const titleLabel = s.topic || s.secName || s.title || '';
+    document.getElementById('zoomBadge').innerHTML = `${chLabel} · ${secLabel} ${titleLabel}　${badgeTail}`;
     document.getElementById('zoomModal').style.setProperty('--ct', s.color);
     document.getElementById('zoomBar').style.setProperty('--ct', s.color);
     document.getElementById('zoomModal').classList.remove('hidden');
@@ -97,6 +103,39 @@
          ${s.example.ans ? `<div class="zoom-ans">答：${s.example.ans}</div>` : ''}
        </div>`;
     showZoom(s, '範例');
+    typeset(document.getElementById('zoomBody'));
+  }
+  function openJaeModal(s) {
+    ensureZoom();
+    document.getElementById('zoomSol').style.display = '';
+    document.getElementById('zoomSol').textContent = '顯示解答';
+    let optHtml = '';
+    if (s.options && s.options.length) {
+      optHtml = `<div class="zoom-options">${s.options.map(o => `<div class="zoom-opt-item">${o}</div>`).join('')}</div>`;
+    }
+    let knHtml = '';
+    if (s.knowledge) {
+      knHtml = `<div class="zoom-knowledge">
+        <div class="zoom-kn-title">🎯 核心知識點 & 必背公式</div>
+        ${s.knowledge.formulas && s.knowledge.formulas.length ? `<div class="zoom-kn-formulas">${s.knowledge.formulas.map(f => `<div>$$${f}$$</div>`).join('')}</div>` : ''}
+        ${s.knowledge.points && s.knowledge.points.length ? `<ul>${s.knowledge.points.map(p => `<li>${p}</li>`).join('')}</ul>` : ''}
+        ${s.knowledge.pitfall ? `<div class="zoom-kn-pitfall">⚠️ 易錯警示：${s.knowledge.pitfall}</div>` : ''}
+      </div>`;
+    }
+    document.getElementById('zoomBody').innerHTML =
+      `<div class="zoom-q">
+        <div class="zoom-q-badge">${s.year ? s.year + '年 ' : ''}${s.paper || ''} · ${s.qNum || s.sec || ''} ${s.topic ? '· ' + s.topic : ''} ${s.score ? `(${s.score})` : ''}</div>
+        <div class="zoom-q-text">${s.q}</div>
+        ${optHtml}
+        ${knHtml}
+       </div>
+       <div class="zoom-sol" id="zoomSolBox">
+         ${s.solution && s.solution.thinking ? `<div class="zoom-thinking"><b>【解題思路】：</b>${Array.isArray(s.solution.thinking) ? s.solution.thinking.join('<br>') : s.solution.thinking}</div>` : ''}
+         ${s.solution && s.solution.steps ? `<ol>${s.solution.steps.map(t => `<li>${t}</li>`).join('')}</ol>` : ''}
+         ${s.solution && s.solution.ans ? `<div class="zoom-ans">參考答案：${s.solution.ans}</div>` : ''}
+         ${s.solution && s.solution.quickTip ? `<div class="zoom-quick-tip">⚡ <b>聯考速解訣竅：</b>${s.solution.quickTip}</div>` : ''}
+       </div>`;
+    showZoom(s, '試題講解');
     typeset(document.getElementById('zoomBody'));
   }
   // 放大層：把 host 內容等比放大到填滿整頁
@@ -173,19 +212,22 @@
   // ---- 封面章節卡 ----
   (function buildCover() {
     const host = $('coverChapters');
+    if (!host) return;
     DECK.forEach(c => {
       const card = document.createElement('div');
       card.className = 'cover-card';
       card.style.setProperty('--ct', c.color);
-      card.innerHTML = `<div class="cc-num">第 ${c.ch} 章</div>
+      const chLabel = typeof c.ch === 'number' || /^\d+$/.test(c.ch) ? `第 ${c.ch} 章` : c.ch;
+      card.innerHTML = `<div class="cc-num">${chLabel}</div>
         <div class="cc-title">${c.title}</div>
-        <div class="cc-list">${c.sections.join('　')}</div>`;
+        <div class="cc-list">${c.sections ? c.sections.join('　') : ''}</div>`;
       host.appendChild(card);
     });
   })();
 
   // ---- 目錄 ----
   function buildTOC() {
+    if (!tocEl) return;
     tocEl.innerHTML = '';
     DECK.forEach(chap => {
       const wrap = document.createElement('div');
@@ -193,7 +235,8 @@
       wrap.style.setProperty('--ct', chap.color);
       const head = document.createElement('div');
       head.className = 'toc-chead';
-      head.innerHTML = `<span class="toc-dot"></span>第 ${chap.ch} 章　${chap.title}`;
+      const chLabel = typeof chap.ch === 'number' || /^\d+$/.test(chap.ch) ? `第 ${chap.ch} 章` : chap.ch;
+      head.innerHTML = `<span class="toc-dot"></span>${chLabel}　${chap.title}`;
       head.onclick = () => wrap.classList.toggle('open');
       wrap.appendChild(head);
       const items = document.createElement('div');
@@ -203,7 +246,9 @@
         const b = document.createElement('button');
         b.className = 'toc-item';
         b.dataset.i = i;
-        b.innerHTML = `<span class="ti-sec">${s.sec}</span>${s.title}`;
+        const secLabel = s.qNum || s.sec || '';
+        const titleLabel = s.topic || s.title || (s.q ? (s.q.replace(/<[^>]+>/g, '').substring(0, 16) + '...') : '');
+        b.innerHTML = `<span class="ti-sec">${secLabel}</span>${titleLabel}`;
         b.onclick = () => { go(i); if (window.innerWidth <= 1080) tocEl.classList.remove('open'); };
         items.appendChild(b);
       });
@@ -225,13 +270,164 @@
 
     if (s.type === 'divider') {
       slideEl.className = 'slide divider';
+      const chLabel = typeof s.ch === 'number' || /^\d+$/.test(s.ch) ? `第 ${s.ch} 章` : s.ch;
       slideEl.innerHTML = `
         <div>
-          <div class="dv-num">第 ${s.ch} 章</div>
+          <div class="dv-num">${chLabel}</div>
           <div class="dv-title">${s.title}</div>
-          <div class="dv-list">${s.sections.map(x => `<span class="dv-chip">${x}</span>`).join('')}</div>
+          <div class="dv-list">${(s.sections || []).map(x => `<span class="dv-chip">${x}</span>`).join('')}</div>
         </div>`;
-      crumbEl.innerHTML = `第 ${s.ch} 章　<b>${s.title}</b>`;
+      crumbEl.innerHTML = `${chLabel}　<b>${s.title}</b>`;
+    } else if (s.q) {
+      // ===== 澳門四校聯考（JAE）試題專屬版面 =====
+      // 一頁一題：左題右解答，題目下方呈現核心知識點
+      slideEl.className = 'slide jae-slide';
+
+      // 左欄：試題標題、題幹、選項、題目正下方的核心知識點
+      const info = document.createElement('div');
+      info.className = 'slide-info jae-problem-col';
+
+      let html = `
+        <div class="jae-header">
+          <span class="jae-badge">${s.year ? s.year + '年 ' : ''}${s.paper || ''} · ${s.qNum || s.sec || ''}</span>
+          ${s.topic ? `<span class="jae-topic-tag">${s.topic}</span>` : ''}
+          ${s.score ? `<span class="jae-score-tag">${s.score}</span>` : ''}
+          <button class="jae-q-zoom" title="放大題目與解答，方便用畫筆講解">🔍 放大</button>
+        </div>
+        <div class="jae-q-card">
+          <div class="jae-q-text">${s.q}</div>
+          ${s.options && s.options.length ? `
+            <div class="jae-options-grid ${s.options.length > 4 ? 'grid-opt-5' : ''}">
+              ${s.options.map(opt => `<div class="jae-opt-item">${opt}</div>`).join('')}
+            </div>
+          ` : ''}
+        </div>
+      `;
+
+      // 核心知識點（題目正下方）
+      if (s.knowledge) {
+        html += `
+          <div class="jae-knowledge-card">
+            <div class="jae-kn-head"><span class="jae-kn-icon">🎯</span> 核心知識點 & 必背公式</div>
+            ${s.knowledge.formulas && s.knowledge.formulas.length ? `
+              <div class="jae-kn-formulas">
+                ${s.knowledge.formulas.map(f => `<div class="jae-formula-item">$$${f}$$</div>`).join('')}
+              </div>
+            ` : ''}
+            ${s.knowledge.points && s.knowledge.points.length ? `
+              <ul class="jae-kn-points">
+                ${s.knowledge.points.map(pt => `<li>${pt}</li>`).join('')}
+              </ul>
+            ` : ''}
+            ${s.knowledge.pitfall ? `
+              <div class="jae-kn-pitfall">
+                <span class="pitfall-badge">⚠️ 易錯警示</span> ${s.knowledge.pitfall}
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }
+
+      info.innerHTML = '<div class="col-fit">' + html + '</div>';
+
+      // 右欄：動態圖解（如有）+ 解題步驟與解答
+      const vis = document.createElement('div');
+      vis.className = 'slide-visual jae-sol-col' + (s.visual ? ' has-visual' : ' no-visual');
+
+      let solHtml = `<div class="col-fit jae-sol-wrapper">`;
+
+      if (s.visual) {
+        solHtml += `
+          <div class="jae-vis-container">
+            <div class="visual-host jae-vis-host"></div>
+            ${s.caption ? `<div class="visual-caption">${s.caption}</div>` : ''}
+            <button class="vis-zoom" title="放大圖解成整頁，方便用畫筆講解">🔍 放大圖解</button>
+          </div>
+        `;
+      }
+
+      // 解答卡片（預設展開或可折疊，快速鍵 A）
+      const hasSteps = s.solution && ((s.solution.steps && s.solution.steps.length) || s.solution.thinking || s.solution.ans);
+      solHtml += `
+        <div class="jae-sol-card">
+          <div class="jae-sol-header">
+            <div class="jae-sol-title">💡 解題思維與規範步驟</div>
+            ${hasSteps ? `
+              <button class="jae-sol-toggle-btn" title="快速鍵：A">
+                <span class="btn-text">${s.showSolution ? '收起解答' : '顯示解答'}</span>
+                <span class="btn-key">A</span>
+              </button>
+            ` : ''}
+          </div>
+          <div class="jae-sol-content ${s.showSolution ? 'show' : ''}" id="jaeSolContent">
+            ${s.solution && s.solution.thinking ? `
+              <div class="jae-sol-thinking">
+                <div class="thinking-label">【解題思路】</div>
+                <div>${Array.isArray(s.solution.thinking) ? s.solution.thinking.join('<br>') : s.solution.thinking}</div>
+              </div>
+            ` : ''}
+            ${s.solution && s.solution.steps && s.solution.steps.length ? `
+              <div class="jae-sol-steps">
+                <ol>
+                  ${s.solution.steps.map(step => `<li>${step}</li>`).join('')}
+                </ol>
+              </div>
+            ` : ''}
+            ${s.solution && s.solution.ans ? `
+              <div class="jae-ans-row">
+                <span class="jae-ans-badge">參考答案</span>
+                <span class="jae-ans-value">${s.solution.ans}</span>
+              </div>
+            ` : ''}
+            ${s.solution && s.solution.quickTip ? `
+              <div class="jae-quick-tip">
+                <span class="tip-badge">⚡ 聯考速解訣竅</span> ${s.solution.quickTip}
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      </div>`;
+
+      vis.innerHTML = solHtml;
+
+      slideEl.innerHTML = '';
+      slideEl.appendChild(info);
+      slideEl.appendChild(vis);
+
+      // 掛載視覺動態函式或 HTML
+      if (s.visual) {
+        const host = vis.querySelector('.visual-host');
+        if (typeof s.visual === 'function') {
+          try { s.visual(host); } catch (e) { host.innerHTML = '<p style="color:#e11d48">視覺載入失敗</p>'; console.error(e); }
+        } else {
+          host.innerHTML = s.visual || '';
+        }
+        const vz = vis.querySelector('.vis-zoom');
+        if (vz) vz.onclick = () => openVisualModal(s, host);
+      }
+
+      // 試題放大按鈕
+      const qz = info.querySelector('.jae-q-zoom');
+      if (qz) qz.onclick = () => openJaeModal(s);
+
+      // 解答展開/隱藏切換
+      const solBtn = vis.querySelector('.jae-sol-toggle-btn');
+      const solContent = vis.querySelector('#jaeSolContent');
+      if (solBtn && solContent) {
+        solBtn.onclick = () => {
+          solContent.classList.toggle('show');
+          const isShow = solContent.classList.contains('show');
+          solBtn.querySelector('.btn-text').textContent = isShow ? '收起解答' : '顯示解答';
+          if (isShow) {
+            typesetAndFit(solContent);
+          } else {
+            fitSlide();
+          }
+        };
+      }
+
+      const chLabel = typeof s.ch === 'number' || /^\d+$/.test(s.ch) ? `第 ${s.ch} 章` : s.ch;
+      crumbEl.innerHTML = `${chLabel} · ${s.paper ? s.paper + ' · ' : ''}<b>${s.qNum || s.sec || ''} ${s.topic || s.title || ''}</b>`;
     } else {
       slideEl.className = 'slide';
       // 左：概念欄
@@ -489,6 +685,12 @@
     else if (e.key === 'l' || e.key === 'L') setLaser(!laserOn);
     else if (e.key === 'p' || e.key === 'P') setPen(!penOn);
     else if (e.key === 'c' || e.key === 'C') clearPen();
+    else if (e.key === 'a' || e.key === 'A') {
+      const jaeBtn = slideEl.querySelector('.jae-sol-toggle-btn');
+      if (jaeBtn) { jaeBtn.click(); return; }
+      const exTog = slideEl.querySelector('.ex-toggle');
+      if (exTog) { exTog.click(); return; }
+    }
   });
 
   buildTOC();
