@@ -27,6 +27,7 @@
   });
 
   let idx = 0;
+  let subStep = 0; // 0: 題目審題, 1: 核心考點&公式, 2: 規範步驟與解答
 
   // ---- MathJax 排版（載入前先重試，載入後自動補排版）----
   function typeset(el, tries = 0) {
@@ -121,35 +122,55 @@
   }
   function openJaeModal(s) {
     ensureZoom();
-    document.getElementById('zoomSol').style.display = '';
-    document.getElementById('zoomSol').textContent = '顯示解答';
+    document.getElementById('zoomSol').style.display = 'none';
     let optHtml = '';
     if (s.options && s.options.length) {
-      optHtml = `<div class="zoom-options">${s.options.map(o => `<div class="zoom-opt-item">${o}</div>`).join('')}</div>`;
-    }
-    let knHtml = '';
-    if (s.knowledge) {
-      knHtml = `<div class="zoom-knowledge">
-        <div class="zoom-kn-title">🎯 核心知識點 & 必背公式</div>
-        ${s.knowledge.formulas && s.knowledge.formulas.length ? `<div class="zoom-kn-formulas">${s.knowledge.formulas.map(f => `<div>$$${f}$$</div>`).join('')}</div>` : ''}
-        ${s.knowledge.points && s.knowledge.points.length ? `<ul>${s.knowledge.points.map(p => `<li>${p}</li>`).join('')}</ul>` : ''}
-        ${s.knowledge.pitfall ? `<div class="zoom-kn-pitfall">⚠️ 易錯警示：${s.knowledge.pitfall}</div>` : ''}
-      </div>`;
+      optHtml = `<div class="zoom-options ${s.options.length > 4 ? 'grid-opt-5' : ''}">${s.options.map(o => `<div class="zoom-opt-item">${o}</div>`).join('')}</div>`;
     }
     document.getElementById('zoomBody').innerHTML =
-      `<div class="zoom-q">
+      `<div class="zoom-q-full">
         <div class="zoom-q-badge">${s.year ? s.year + '年 ' : ''}${s.paper || ''} · ${s.qNum || s.sec || ''} ${s.topic ? '· ' + s.topic : ''} ${s.score ? `(${s.score})` : ''}</div>
         <div class="zoom-q-text">${s.q}</div>
         ${optHtml}
-        ${knHtml}
-       </div>
-       <div class="zoom-sol" id="zoomSolBox">
-         ${s.solution && s.solution.thinking ? `<div class="zoom-thinking"><b>【解題思路】：</b>${Array.isArray(s.solution.thinking) ? s.solution.thinking.join('<br>') : s.solution.thinking}</div>` : ''}
-         ${s.solution && s.solution.steps ? `<ol>${s.solution.steps.map(t => `<li>${t}</li>`).join('')}</ol>` : ''}
-         ${s.solution && s.solution.ans ? `<div class="zoom-ans">參考答案：${s.solution.ans}</div>` : ''}
-         ${s.solution && s.solution.quickTip ? `<div class="zoom-quick-tip">⚡ <b>聯考速解訣竅：</b>${s.solution.quickTip}</div>` : ''}
        </div>`;
-    showZoom(s, '試題講解');
+    showZoom(s, '試題題幹放大');
+    typeset(document.getElementById('zoomBody'));
+  }
+  function openKpModal(s) {
+    ensureZoom();
+    document.getElementById('zoomSol').style.display = 'none';
+    const kn = s.knowledge;
+    if (!kn) return;
+    let formHtml = '';
+    if (kn.formulas && kn.formulas.length) {
+      formHtml = `<div class="zoom-kn-box">
+        <div class="zoom-kn-subtitle">📐 必背核心公式與定理</div>
+        <div class="zoom-kn-formulas">${kn.formulas.map(f => `<div class="zoom-formula-card">$$${f}$$</div>`).join('')}</div>
+      </div>`;
+    }
+    let pointsHtml = '';
+    if (kn.points && kn.points.length) {
+      pointsHtml = `<div class="zoom-kn-box">
+        <div class="zoom-kn-subtitle">🎯 聯考破題切入點</div>
+        <ul class="zoom-kn-list">${kn.points.map(pt => `<li>${pt}</li>`).join('')}</ul>
+      </div>`;
+    }
+    let pitHtml = '';
+    if (kn.pitfall) {
+      pitHtml = `<div class="zoom-kn-pitfall-box">
+        <div class="zoom-pit-head">⚠️ 考生常見易錯盲區</div>
+        <div class="zoom-pit-body">${kn.pitfall}</div>
+      </div>`;
+    }
+    document.getElementById('zoomBody').innerHTML =
+      `<div class="zoom-kp-full">
+        <div class="zoom-kp-badge">${s.year ? s.year + '年 ' : ''}${s.paper || ''} · ${s.qNum || s.sec || ''} 【核心知識點 & 必背公式】</div>
+        ${s.topic ? `<div class="zoom-kp-topic"><b>考查考點：</b>${s.topic}</div>` : ''}
+        ${formHtml}
+        ${pointsHtml}
+        ${pitHtml}
+      </div>`;
+    showZoom(s, '核心考點放大');
     typeset(document.getElementById('zoomBody'));
   }
   function openSolModal(s) {
@@ -160,13 +181,13 @@
       : '';
     document.getElementById('zoomBody').innerHTML =
       `<div class="zoom-sol-full">
-         <div class="zoom-sol-badge">${s.year ? s.year + '年 ' : ''}${s.paper || ''} · ${s.qNum || s.sec || ''} 【規範解答與評分標準】</div>
+         <div class="zoom-sol-badge">${s.year ? s.year + '年 ' : ''}${s.paper || ''} · ${s.qNum || s.sec || ''} 【解題思維與規範步驟】</div>
          ${s.solution && s.solution.thinking ? `<div class="zoom-thinking"><b>【解題思路】：</b>${Array.isArray(s.solution.thinking) ? s.solution.thinking.join('<br>') : s.solution.thinking}</div>` : ''}
          ${stepsHtml}
          ${s.solution && s.solution.ans ? `<div class="zoom-ans">參考答案：${s.solution.ans}</div>` : ''}
          ${s.solution && s.solution.quickTip ? `<div class="zoom-quick-tip">⚡ <b>聯考速解訣竅：</b>${s.solution.quickTip}</div>` : ''}
        </div>`;
-    showZoom(s, '解答詳析');
+    showZoom(s, '規範解答放大');
     typeset(document.getElementById('zoomBody'));
   }
   // 放大層：把 host 內容等比放大到填滿整頁
@@ -280,7 +301,7 @@
         const secLabel = s.qNum || s.sec || '';
         const titleLabel = s.topic || s.title || (s.q ? (s.q.replace(/<[^>]+>/g, '').substring(0, 16) + '...') : '');
         b.innerHTML = `<span class="ti-sec">${secLabel}</span>${titleLabel}`;
-        b.onclick = () => { go(i); if (window.innerWidth <= 1080) tocEl.classList.remove('open'); };
+        b.onclick = () => { go(i, 0); if (window.innerWidth <= 1080) tocEl.classList.remove('open'); };
         items.appendChild(b);
       });
       wrap.appendChild(items);
@@ -311,10 +332,10 @@
       crumbEl.innerHTML = `${chLabel}　<b>${s.title}</b>`;
     } else if (s.q) {
       // ===== 澳門四校聯考（JAE）試題專屬版面 =====
-      // 一頁一題：左題右解答，題目下方呈現核心知識點
+      // 一頁一題：左上題目，左下核心知識點&必背公式，右側解題思維與規範步驟
       slideEl.className = 'slide jae-slide';
 
-      // 左欄：試題標題、題幹、選項、題目正下方的核心知識點
+      // 左欄：左上題目卡片 + 左下核心知識點卡片（分開兩個獨立區域）
       const info = document.createElement('div');
       info.className = 'slide-info jae-problem-col';
 
@@ -323,9 +344,21 @@
           <span class="jae-badge">${s.year ? s.year + '年 ' : ''}${s.paper || ''} · ${s.qNum || s.sec || ''}</span>
           ${s.topic ? `<span class="jae-topic-tag">${s.topic}</span>` : ''}
           ${s.score ? `<span class="jae-score-tag">${s.score}</span>` : ''}
-          <button class="jae-q-zoom" title="放大題目與解答，方便用畫筆講解">🔍 放大</button>
+          <div class="jae-flow-steps" id="jaeFlowSteps">
+            <button class="flow-step-btn active" data-step="0" title="階段一：審題閱讀">① 審題閱讀</button>
+            <span class="flow-arrow">→</span>
+            <button class="flow-step-btn" data-step="1" title="階段二：核心考點與必背公式">② 核心考點&公式</button>
+            <span class="flow-arrow">→</span>
+            <button class="flow-step-btn" data-step="2" title="階段三：解題思維與規範步驟">③ 規範解答與速解</button>
+          </div>
         </div>
+
+        <!-- 區域 1 (左上)：題目題幹與選項 -->
         <div class="jae-q-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-size:13px; font-weight:800; color:var(--ink);">📝 試題題幹與選項</span>
+            <button class="jae-q-zoom" title="全螢幕放大題目題幹與選項">🔍 放大題目</button>
+          </div>
           <div class="jae-q-text">${s.q}</div>
           ${s.options && s.options.length ? `
             <div class="jae-options-grid ${s.options.length > 4 ? 'grid-opt-5' : ''}">
@@ -333,31 +366,47 @@
             </div>
           ` : ''}
         </div>
-      `;
 
-      // 核心知識點（題目正下方）
-      if (s.knowledge) {
-        html += `
-          <div class="jae-knowledge-card">
-            <div class="jae-kn-head"><span class="jae-kn-icon">🎯</span> 核心知識點 & 必背公式</div>
-            ${s.knowledge.formulas && s.knowledge.formulas.length ? `
-              <div class="jae-kn-formulas">
-                ${s.knowledge.formulas.map(f => `<div class="jae-formula-item">$$${f}$$</div>`).join('')}
+        <!-- 區域 2 (左下)：核心知識點 & 必背公式（獨立卡片，支援放大） -->
+        ${s.knowledge ? `
+          <div class="jae-kp-card" id="jaeKpCard">
+            <div class="jae-kp-header">
+              <div class="jae-kp-title"><span class="jae-kp-icon">🎯</span> 核心知識點 & 必背公式</div>
+              <div class="jae-kp-actions">
+                <button class="jae-kp-zoom" title="全螢幕放大核心考點與必背公式，方便黑板講解">🔍 放大知識點</button>
+                <button class="jae-kp-toggle-btn" title="快捷鍵：K">
+                  <span class="btn-text">揭曉考點</span>
+                  <span class="btn-key">K</span>
+                </button>
               </div>
-            ` : ''}
-            ${s.knowledge.points && s.knowledge.points.length ? `
-              <ul class="jae-kn-points">
-                ${s.knowledge.points.map(pt => `<li>${pt}</li>`).join('')}
-              </ul>
-            ` : ''}
-            ${s.knowledge.pitfall ? `
-              <div class="jae-kn-pitfall">
-                <span class="pitfall-badge">⚠️ 易錯警示</span> ${s.knowledge.pitfall}
-              </div>
-            ` : ''}
+            </div>
+
+            <!-- 預設隱藏時顯示的思考提示卡 -->
+            <div class="jae-kp-prompt" id="jaeKpPrompt">
+              <span>💡 <b>思考引導：</b>本題涉及哪些核心公式與切入點？按下一步或 [K] 鍵揭曉</span>
+            </div>
+
+            <!-- 展開後呈現公式、重點與易錯警示 -->
+            <div class="jae-kp-content" id="jaeKpContent">
+              ${s.knowledge.formulas && s.knowledge.formulas.length ? `
+                <div class="jae-kn-formulas">
+                  ${s.knowledge.formulas.map(f => `<div class="jae-formula-item">$$${f}$$</div>`).join('')}
+                </div>
+              ` : ''}
+              ${s.knowledge.points && s.knowledge.points.length ? `
+                <ul class="jae-kn-points">
+                  ${s.knowledge.points.map(pt => `<li>${pt}</li>`).join('')}
+                </ul>
+              ` : ''}
+              ${s.knowledge.pitfall ? `
+                <div class="jae-kn-pitfall">
+                  <span class="pitfall-badge">⚠️ 易錯警示</span> ${s.knowledge.pitfall}
+                </div>
+              ` : ''}
+            </div>
           </div>
-        `;
-      }
+        ` : ''}
+      `;
 
       info.innerHTML = '<div class="col-fit">' + html + '</div>';
 
@@ -377,16 +426,16 @@
         `;
       }
 
-      // 解答卡片（翻到某一題時預設隱藏，點擊按鈕或按快捷鍵 A 才揭曉，方便課堂提問）
+      // 區域 3：解答卡片（翻到某一題時預設隱藏，按下一步或 A 鍵才揭曉，方便課堂提問）
       const hasSteps = s.solution && ((s.solution.steps && s.solution.steps.length) || s.solution.thinking || s.solution.ans);
       solHtml += `
-        <div class="jae-sol-card">
+        <div class="jae-sol-card" id="jaeSolCard">
           <div class="jae-sol-header">
             <div class="jae-sol-title">💡 解題思維與規範步驟</div>
             ${hasSteps ? `
               <div class="jae-sol-actions">
                 <button class="jae-sol-zoom" title="放大解答與評分標準至全黑板，方便用畫筆講解">🔍 放大解答</button>
-                <button class="jae-sol-toggle-btn" title="快速鍵：A">
+                <button class="jae-sol-toggle-btn" title="快捷鍵：A">
                   <span class="btn-text">揭曉解答</span>
                   <span class="btn-key">A</span>
                 </button>
@@ -398,7 +447,7 @@
           <div class="jae-sol-prompt" id="jaeSolPrompt">
             <div class="prompt-icon">🎯</div>
             <div class="prompt-title">課堂思考與提問環節</div>
-            <div class="prompt-sub">請學生先觀察左欄條件與知識點，構思解題步驟<br>按下鍵盤 <kbd>A</kbd> 或點擊右上角按鈕揭曉規範解答與秒殺訣竅</div>
+            <div class="prompt-sub">請學生先觀察左欄條件與知識點，構思解題步驟<br>按下鍵盤 <kbd>A</kbd> 或按下一步揭曉規範解答與秒殺訣竅</div>
           </div>
 
           <div class="jae-sol-content" id="jaeSolContent">
@@ -452,27 +501,58 @@
       const qz = info.querySelector('.jae-q-zoom');
       if (qz) qz.onclick = () => openJaeModal(s);
 
+      // 知識點放大按鈕
+      const kpZoom = info.querySelector('.jae-kp-zoom');
+      if (kpZoom) kpZoom.onclick = () => openKpModal(s);
+
       // 解答放大按鈕
       const solZoom = vis.querySelector('.jae-sol-zoom');
       if (solZoom) solZoom.onclick = () => openSolModal(s);
 
-      // 解答展開/隱藏切換（預設隱藏，點擊按鈕或按 A 鍵才揭曉）
-      const solBtn = vis.querySelector('.jae-sol-toggle-btn');
-      const solContent = vis.querySelector('#jaeSolContent');
-      const solPrompt = vis.querySelector('#jaeSolPrompt');
-      if (solBtn && solContent) {
-        solBtn.onclick = () => {
-          solContent.classList.toggle('show');
-          const isShow = solContent.classList.contains('show');
-          solBtn.querySelector('.btn-text').textContent = isShow ? '收起解答' : '揭曉解答';
-          if (solPrompt) solPrompt.style.display = isShow ? 'none' : 'flex';
-          if (isShow) {
-            typesetAndFit(solContent);
-          } else {
-            fitSlide();
+      // 知識點展開/收起互動
+      const kpBtn = info.querySelector('.jae-kp-toggle-btn');
+      const kpPrompt = info.querySelector('#jaeKpPrompt');
+      if (kpBtn) {
+        kpBtn.onclick = () => {
+          if (subStep === 0) applySubStep(1);
+          else if (subStep === 1) applySubStep(0);
+          else {
+            const kc = info.querySelector('#jaeKpContent');
+            if (kc) {
+              kc.classList.toggle('show');
+              const isShow = kc.classList.contains('show');
+              kpBtn.querySelector('.btn-text').textContent = isShow ? '收起考點' : '揭曉考點';
+              if (kpPrompt) kpPrompt.style.display = isShow ? 'none' : 'flex';
+              if (isShow) typeset(kc);
+              fitSlide();
+            }
           }
         };
       }
+      if (kpPrompt) {
+        kpPrompt.onclick = () => applySubStep(1);
+      }
+
+      // 解答展開/收起互動
+      const solBtn = vis.querySelector('.jae-sol-toggle-btn');
+      const solPrompt = vis.querySelector('#jaeSolPrompt');
+      if (solBtn) {
+        solBtn.onclick = () => {
+          if (subStep < 2) applySubStep(2);
+          else applySubStep(1);
+        };
+      }
+      if (solPrompt) {
+        solPrompt.onclick = () => applySubStep(2);
+      }
+
+      // 頂部動線步驟按鈕直接點擊
+      info.querySelectorAll('.flow-step-btn').forEach(btn => {
+        btn.onclick = () => applySubStep(+btn.dataset.step);
+      });
+
+      // 依當前 subStep 初始化 UI 顯隱狀態
+      applySubStep(subStep);
 
       const chLabel = typeof s.ch === 'number' || /^\d+$/.test(s.ch) ? `第 ${s.ch} 章` : s.ch;
       crumbEl.innerHTML = `<b>${chLabel}</b> · ${s.qNum || s.sec || ''} <b>${s.topic || s.title || ''}</b>`;
@@ -555,8 +635,7 @@
     // 進度
     progFill.style.width = ((idx + 1) / flat.length * 100) + '%';
     progText.textContent = `${idx + 1} / ${flat.length}`;
-    prevBtn.disabled = idx === 0;
-    nextBtn.disabled = idx === flat.length - 1;
+    updateNavButtons();
     markTOC();
 
     // MathJax（若尚未載入完成，typeset 會自動重試補上）；排版後自動縮放使整頁免捲動
@@ -565,13 +644,115 @@
     if (typeof clearPen === 'function') clearPen(); // 換頁清除筆跡
   }
 
-  function go(i) {
+  function updateNavButtons() {
+    const s = flat[idx];
+    if (!s) return;
+
+    if (s.type === 'divider') {
+      prevBtn.disabled = idx === 0;
+      nextBtn.disabled = idx === flat.length - 1;
+      prevBtn.textContent = '‹ 上一頁';
+      nextBtn.textContent = '開始本卷 ›';
+      return;
+    }
+
+    if (s.q) {
+      prevBtn.disabled = (idx === 0 && subStep === 0);
+      nextBtn.disabled = (idx === flat.length - 1 && subStep === 2);
+
+      if (subStep === 0) {
+        nextBtn.textContent = '下一步：核心考點 ›';
+        prevBtn.textContent = idx === 0 ? '‹ 上一頁' : '‹ 上一題';
+      } else if (subStep === 1) {
+        nextBtn.textContent = '下一步：規範解答 ›';
+        prevBtn.textContent = '‹ 上一步';
+      } else {
+        nextBtn.textContent = idx === flat.length - 1 ? '結束複習' : '下一題 ›';
+        prevBtn.textContent = '‹ 上一步';
+      }
+    } else {
+      prevBtn.disabled = idx === 0;
+      nextBtn.disabled = idx === flat.length - 1;
+      prevBtn.textContent = '‹ 上一頁';
+      nextBtn.textContent = idx === flat.length - 1 ? '結束' : '下一頁 ›';
+    }
+  }
+
+  function applySubStep(step) {
+    const s = flat[idx];
+    if (!s || s.type !== 'slide' || !s.q) return;
+
+    subStep = Math.max(0, Math.min(2, step));
+
+    // 1. 更新頂部動線按鈕 (① 審題閱讀 -> ② 核心考點&公式 -> ③ 規範解答與速解)
+    slideEl.querySelectorAll('.flow-step-btn').forEach(btn => {
+      const bStep = +btn.dataset.step;
+      btn.classList.toggle('active', bStep === subStep);
+      btn.classList.toggle('done', bStep < subStep);
+    });
+
+    // 2. 區域 2 (左下)：核心知識點 & 必背公式
+    const kpContent = slideEl.querySelector('#jaeKpContent');
+    const kpPrompt = slideEl.querySelector('#jaeKpPrompt');
+    const kpBtn = slideEl.querySelector('.jae-kp-toggle-btn');
+    if (kpContent) {
+      const showKp = subStep >= 1;
+      kpContent.classList.toggle('show', showKp);
+      if (kpPrompt) kpPrompt.style.display = showKp ? 'none' : 'flex';
+      if (kpBtn) {
+        const btnText = kpBtn.querySelector('.btn-text');
+        if (btnText) btnText.textContent = showKp ? '收起考點' : '揭曉考點';
+      }
+      if (showKp) typeset(kpContent);
+    }
+
+    // 3. 區域 3 (右側)：解題思維與規範步驟
+    const solContent = slideEl.querySelector('#jaeSolContent');
+    const solPrompt = slideEl.querySelector('#jaeSolPrompt');
+    const solBtn = slideEl.querySelector('.jae-sol-toggle-btn');
+    if (solContent) {
+      const showSol = subStep >= 2;
+      solContent.classList.toggle('show', showSol);
+      if (solPrompt) solPrompt.style.display = showSol ? 'none' : 'flex';
+      if (solBtn) {
+        const btnText = solBtn.querySelector('.btn-text');
+        if (btnText) btnText.textContent = showSol ? '收起解答' : '揭曉解答';
+      }
+      if (showSol) typeset(solContent);
+    }
+
+    // 4. 更新導航按鈕文字與狀態
+    updateNavButtons();
+
+    // 5. 重新自適應縮放，確保全螢幕不產生垂直捲軸
+    fitSlide();
+  }
+
+  function go(i, initialSubStep = 0) {
     closeZoom();
     idx = Math.max(0, Math.min(flat.length - 1, i));
+    subStep = initialSubStep;
     render();
   }
-  function next() { if (idx < flat.length - 1) go(idx + 1); }
-  function prev() { if (idx > 0) go(idx - 1); }
+  function next() {
+    const s = flat[idx];
+    if (s && s.type === 'slide' && s.q && subStep < 2) {
+      applySubStep(subStep + 1);
+      return;
+    }
+    if (idx < flat.length - 1) go(idx + 1, 0);
+  }
+  function prev() {
+    const s = flat[idx];
+    if (s && s.type === 'slide' && s.q && subStep > 0) {
+      applySubStep(subStep - 1);
+      return;
+    }
+    if (idx > 0) {
+      const prevS = flat[idx - 1];
+      go(idx - 1, (prevS && prevS.type === 'slide' && prevS.q) ? 2 : 0);
+    }
+  }
 
   // ---- 事件 ----
   const app = $('app');
@@ -585,7 +766,7 @@
   nextBtn.onclick = next;
   $('tocToggle').onclick = toggleSidebar;
   $('homeBtn').onclick = () => { app.classList.add('hidden'); $('cover').classList.remove('hidden'); };
-  $('startBtn').onclick = () => { $('cover').classList.add('hidden'); app.classList.remove('hidden'); fitPen(); render(); };
+  $('startBtn').onclick = () => { $('cover').classList.add('hidden'); app.classList.remove('hidden'); fitPen(); go(0, 0); };
 
   /* ================= 授課教具 ================= */
   const canvas = $('penCanvas'), penCtx = canvas.getContext('2d');
@@ -727,17 +908,25 @@
     }
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); next(); }
     else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
-    else if (e.key === 'Home') go(0);
-    else if (e.key === 'End') go(flat.length - 1);
+    else if (e.key === 'Home') go(0, 0);
+    else if (e.key === 'End') go(flat.length - 1, 0);
     else if (e.key === 'Escape') { closeZoom(); setLaser(false); setPen(false); }
     else if (e.key === 'l' || e.key === 'L') setLaser(!laserOn);
     else if (e.key === 'p' || e.key === 'P') setPen(!penOn);
     else if (e.key === 'c' || e.key === 'C') clearPen();
+    else if (e.key === 'k' || e.key === 'K') {
+      const kpBtn = slideEl.querySelector('.jae-kp-toggle-btn');
+      if (kpBtn) { kpBtn.click(); return; }
+    }
     else if (e.key === 'a' || e.key === 'A') {
       const jaeBtn = slideEl.querySelector('.jae-sol-toggle-btn');
       if (jaeBtn) { jaeBtn.click(); return; }
       const exTog = slideEl.querySelector('.ex-toggle');
       if (exTog) { exTog.click(); return; }
+    }
+    else if (e.key === 'q' || e.key === 'Q') {
+      const qz = slideEl.querySelector('.jae-q-zoom');
+      if (qz) { qz.click(); return; }
     }
   });
 
@@ -751,7 +940,7 @@
       $('cover').classList.add('hidden');
       $('app').classList.remove('hidden');
       fitPen();
-      go(m ? +m[1] : 0);
+      go(m ? +m[1] : 0, 0);
     }
   })();
   // 不自動 render，等按「開始複習」；但若直接想看也可預先 render
