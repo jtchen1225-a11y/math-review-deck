@@ -1,18 +1,25 @@
 /* ============================================================
-   ch-jae-example.js — 澳門四校聯考（正卷與附加卷）真題精選教學模組
-   特點：一頁一題、左題右解、題目下方呈現核心知識點、拖滑桿動態探究
+   ch-jae-example.js — 澳門四校聯考（JAE）歷屆試卷互動複習模組
+   試題組織架構：按年份與卷別嚴格排序（2024 正卷、2024 附加卷、2023 正卷、2023 附加卷...）
+   解答初始狀態：翻到每題預設隱藏，按 A 鍵或點擊按鈕揭曉解答，方便課堂提問
    ============================================================ */
 (function () {
   const DECK = window.DECK = window.DECK || [];
 
-  // ========================== 第一章：正卷真題精選 ==========================
+  // ========================== 【2024 正卷】 ==========================
   DECK.push({
-    ch: "2024-正卷",
-    title: "澳門四校聯考 數學正卷精選",
+    ch: "2024 正卷",
+    year: "2024",
+    paper: "正卷",
+    title: "2024 澳門四校聯考 數學正卷精選",
     color: "#2563eb",
-    sections: ["選擇題 第7題 · 三角函數與正弦定理", "選擇題 第11題 · 解析幾何弦長", "解答題 第1題 · 等差與等比數列"],
+    sections: [
+      "選擇題 第7題 · 三角函數與正弦定理",
+      "選擇題 第11題 · 解析幾何直線與圓相交弦長",
+      "解答題 第1題 · 等差與等比數列綜合求和"
+    ],
     slides: [
-      // ---------- 題 1：正弦定理與外接圓 ----------
+      // ---------- 2024 正卷 Q7 ----------
       {
         year: "2024",
         paper: "正卷",
@@ -31,9 +38,9 @@
             "\\frac{a}{\\sin A} = \\frac{b}{\\sin B} = \\frac{c}{\\sin C} = 2R"
           ],
           points: [
-            "<b>正弦定理核心</b>：三角形任一邊與其對角正弦之比，恆等於該三角形外接圓的直徑 $2R$。",
-            "<b>聯考思維導向</b>：題幹中一旦出現「外接圓半徑 $R$」或「外接圓直徑 $2R$」，第一反應直覺聯想正弦定理。",
-            "<b>常考變式</b>：求外接圓面積 $S = \\pi R^2 = \\pi \\left(\\frac{a}{2\\sin A}\\right)^2$。"
+            "<b>正弦定理核心</b>：三角形任一邊與其對角正弦之比，恆等於外接圓直徑 $2R$。",
+            "<b>聯考思維導向</b>：題幹出現「外接圓半徑 $R$」或「外接圓直徑 $2R$」，第一反應直覺聯想正弦定理。",
+            "<b>常考變式</b>：外接圓面積 $S = \\pi R^2 = \\pi \\left(\\frac{a}{2\\sin A}\\right)^2$。"
           ],
           pitfall: "審題注意問的是「直徑 $2R$」還是「半徑 $R$」！每年皆有考生算出 $2R = 8$ 卻手快選成半徑 4。"
         },
@@ -59,9 +66,7 @@
 
           function draw(posDeg) {
             const W = 360, H = 220;
-            const cx = 180, cy = 115, R = 75; // 外接圓半徑 75px 代表真實 R=4
-            // 底邊 BC 固定，對應圓心角 60 度，圓周角 A = 30 度
-            // B 設在 240 度，C 設在 300 度
+            const cx = 180, cy = 115, R = 75;
             const radB = (240 * Math.PI) / 180;
             const radC = (300 * Math.PI) / 180;
             const bx = cx + R * Math.cos(radB);
@@ -69,7 +74,6 @@
             const cxPt = cx + R * Math.cos(radC);
             const cyPt = cy + R * Math.sin(radC);
 
-            // A 點在上方優弧滑動 (從 40 度到 140 度)
             const radA = ((-posDeg) * Math.PI) / 180;
             const ax = cx + R * Math.cos(radA);
             const ay = cy + R * Math.sin(radA);
@@ -77,26 +81,16 @@
             valLabel.textContent = posDeg + '°';
 
             let s = `<svg viewBox="0 0 ${W} ${H}">`;
-            // 外接圓
             s += SVG.circle(cx, cy, R, { stroke: '#94a3b8', strokeWidth: 1.5, strokeDash: '4,3', fill: 'none' });
             s += SVG.point(cx, cy, { color: '#64748b', size: 3, label: 'O (圓心)', labelPos: 'b' });
-
-            // 三角形 ABC 填色與邊線
             s += `<polygon points="${ax},${ay} ${bx},${by} ${cxPt},${cyPt}" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="2" />`;
-
-            // 底邊 a
             s += SVG.segment(bx, by, cxPt, cyPt, { color: '#e11d48', strokeWidth: 2.5 });
             s += SVG.text((bx + cxPt) / 2, by + 16, 'a = 4', { color: '#e11d48', fontSize: 13, bold: true, align: 'center' });
-
-            // 頂點標記
             s += SVG.point(ax, ay, { color: '#2563eb', size: 5, label: 'A (30°)', labelPos: 't' });
             s += SVG.point(bx, by, { color: '#1e293b', size: 4, label: 'B', labelPos: 'bl' });
             s += SVG.point(cxPt, cyPt, { color: '#1e293b', size: 4, label: 'C', labelPos: 'br' });
-
-            // 直徑提示線
             s += SVG.segment(cx - R, cy, cx + R, cy, { color: '#059669', strokeWidth: 1.2, strokeDash: '3,3' });
             s += SVG.text(cx, cy - 8, '直徑 2R = 8', { color: '#059669', fontSize: 11, align: 'center', bold: true });
-
             s += `</svg>`;
             svgHost.innerHTML = s;
           }
@@ -113,11 +107,11 @@
             "因此，該三角形外接圓的直徑為 $8$。"
           ],
           ans: "(C)",
-          quickTip: "聯考速秒法：特殊角 $30^\\circ$ 的正弦值為 $0.5$。直徑等於邊長除以 $0.5$（即邊長乘 $2$），$4 \\times 2 = 8$ 秒答選 (C)！"
+          quickTip: "特殊角 $30^\\circ$ 正弦值為 $0.5$。直徑等於邊長除以 $0.5$（即邊長乘 $2$），$4 \\times 2 = 8$ 秒答選 (C)！"
         }
       },
 
-      // ---------- 題 2：解析幾何弦長 ----------
+      // ---------- 2024 正卷 Q11 ----------
       {
         year: "2024",
         paper: "正卷",
@@ -138,9 +132,9 @@
           ],
           points: [
             "<b>弦心距直角三角形</b>：圓心到直線距離 $d$、半徑 $r$、半弦長 $\\frac{L}{2}$ 必滿足勾股定理 $r^2 = d^2 + (L/2)^2$。",
-            "<b>幾何法 vs 代數法</b>：四校聯考中求解圓與直線弦長問題，強烈優先採用「點到直線距離公式（幾何法）」，嚴禁聯立方程展開判別式，節省大量運算時間。"
+            "<b>幾何法 vs 代數法</b>：求圓與直線弦長問題，優先採用「點到直線距離公式（幾何法）」，嚴禁聯立方程展開判別式。"
           ],
-          pitfall: "去絕對值符號時必有正負雙解：$|k| = 15 \\implies k = \\pm 15$，千萬不要忽略對稱的另一側直線。"
+          pitfall: "去絕對值符號時必有正負雙解：$|k| = 15 \\implies k = \\pm 15$，切勿忽略負根。"
         },
         visual: function (host) {
           host.innerHTML = `
@@ -164,10 +158,8 @@
           function draw(k) {
             valLabel.textContent = k;
             const W = 360, H = 220;
-            const ox = 180, oy = 110, scale = 14; // 1 單位 = 14px，r=5 => 70px
+            const ox = 180, oy = 110, scale = 14;
             const rPx = 5 * scale;
-
-            // 弦心距 d = |k| / 5
             const d = Math.abs(k) / 5;
             const isIntersect = d <= 5;
             const halfChord = isIntersect ? Math.sqrt(25 - d * d) : 0;
@@ -177,44 +169,26 @@
             if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([infoEl]).catch(() => {});
 
             let s = `<svg viewBox="0 0 ${W} ${H}">`;
-            // 座標軸
             s += SVG.axes(W, H, ox, oy, { stroke: '#cbd5e1', labelColor: '#94a3b8' });
-
-            // 圓 C: x^2 + y^2 = 25
             s += SVG.circle(ox, oy, rPx, { stroke: '#2563eb', strokeWidth: 2, fill: 'rgba(37,99,235,0.05)' });
             s += SVG.point(ox, oy, { color: '#1e293b', size: 3.5, label: 'O(0,0)', labelPos: 'bl' });
 
-            // 直線 3x - 4y + k = 0 => y = (3x + k) / 4
-            // 取 x = -12 到 12
             const x1 = -12, y1 = (3 * x1 + k) / 4;
             const x2 = 12, y2 = (3 * x2 + k) / 4;
-            const sx1 = ox + x1 * scale, sy1 = oy - y1 * scale;
-            const sx2 = ox + x2 * scale, sy2 = oy - y2 * scale;
+            s += SVG.line(ox + x1 * scale, oy - y1 * scale, ox + x2 * scale, oy - y2 * scale, {
+              color: Math.abs(k) === 15 ? '#059669' : '#e11d48', strokeWidth: 2
+            });
 
-            s += SVG.line(sx1, sy1, sx2, sy2, { color: Math.abs(k) === 15 ? '#059669' : '#e11d48', strokeWidth: 2 });
-
-            // 弦心距垂足
-            // 法向量 (3, -4)，單位法向量 (3/5, -4/5)
-            // 垂足坐標: ( -3k/25, 4k/25 )
             const fx = -3 * k / 25, fy = 4 * k / 25;
-            const sfx = ox + fx * scale, sfy = oy - fy * scale;
-            s += SVG.segment(ox, oy, sfx, sfy, { color: '#7c3aed', strokeWidth: 1.5, strokeDash: '3,3' });
+            s += SVG.segment(ox, oy, ox + fx * scale, oy - fy * scale, { color: '#7c3aed', strokeWidth: 1.5, strokeDash: '3,3' });
 
-            // 若相交，畫出交點 A, B
             if (isIntersect && halfChord > 0.1) {
-              // 直線方向向量: (4, 3)，單位方向向量: (4/5, 3/5)
-              const ax = fx + halfChord * (4 / 5);
-              const ay = fy + halfChord * (3 / 5);
-              const bx = fx - halfChord * (4 / 5);
-              const by = fy - halfChord * (3 / 5);
-              const sax = ox + ax * scale, say = oy - ay * scale;
-              const sbx = ox + bx * scale, sby = oy - by * scale;
-
-              s += SVG.segment(sax, say, sbx, sby, { color: '#059669', strokeWidth: 3.5 });
-              s += SVG.point(sax, say, { color: '#059669', size: 4, label: 'A', labelPos: 'tr' });
-              s += SVG.point(sbx, sby, { color: '#059669', size: 4, label: 'B', labelPos: 'bl' });
+              const ax = fx + halfChord * (4 / 5), ay = fy + halfChord * (3 / 5);
+              const bx = fx - halfChord * (4 / 5), by = fy - halfChord * (3 / 5);
+              s += SVG.segment(ox + ax * scale, oy - ay * scale, ox + bx * scale, oy - by * scale, { color: '#059669', strokeWidth: 3.5 });
+              s += SVG.point(ox + ax * scale, oy - ay * scale, { color: '#059669', size: 4, label: 'A', labelPos: 'tr' });
+              s += SVG.point(ox + bx * scale, oy - by * scale, { color: '#059669', size: 4, label: 'B', labelPos: 'bl' });
             }
-
             s += `</svg>`;
             svgHost.innerHTML = s;
           }
@@ -223,22 +197,20 @@
           draw(+slider.value);
         },
         solution: {
-          thinking: "本題若將直線與圓聯立方程運算極其繁瑣。應利用圓的幾何性質：半徑 $r$、弦心距 $d$ 與半弦長構成直角三角形，由勾股定理先求出 $d$，再利用點到直線距離公式反解 $k$。",
+          thinking: "利用幾何弦心距三角形求解：半徑 $r=5$，半弦長為 4，勾股定理得弦心距 $d=3$，代入點到直線距離公式反解 $k$。",
           steps: [
-            "由圓方程 $C: x^2 + y^2 = 25$ 可知，圓心為 $O(0,0)$，半徑 $r = 5$。",
-            "已知截得的弦長 $|AB| = 8$，則半弦長為 $\\frac{|AB|}{2} = \\frac{8}{2} = 4$。",
-            "由直角三角形勾股定理，圓心到直線的距離（弦心距）$d$ 為：",
-            "$$d = \\sqrt{r^2 - \\left(\\frac{|AB|}{2}\\right)^2} = \\sqrt{5^2 - 4^2} = \\sqrt{25 - 16} = 3$$",
-            "由點到直線距離公式，圓心 $(0,0)$ 到直線 $3x - 4y + k = 0$ 的距離為：",
-            "$$d = \\frac{|3(0) - 4(0) + k|}{\\sqrt{3^2 + (-4)^2}} = \\frac{|k|}{5}$$",
-            "令 $\\frac{|k|}{5} = 3$，解得 $|k| = 15$，即 $k = \\pm 15$。"
+            "由圓方程 $C: x^2 + y^2 = 25$ 得圓心 $O(0,0)$，半徑 $r = 5$。",
+            "已知截得的弦長 $|AB| = 8$，則半弦長為 $\\frac{|AB|}{2} = 4$。",
+            "由勾股定理，圓心到直線距離（弦心距）為：$$d = \\sqrt{5^2 - 4^2} = \\sqrt{9} = 3$$",
+            "由點到直線距離公式得：$$d = \\frac{|3(0) - 4(0) + k|}{\\sqrt{3^2 + (-4)^2}} = \\frac{|k|}{5}$$",
+            "令 $\\frac{|k|}{5} = 3$，解得 $|k| = 15 \\implies k = \\pm 15$。"
           ],
           ans: "(B)",
-          quickTip: "勾股神數秒殺：經典直角三角形 3-4-5！半徑 5、半弦長 4，弦心距必為 3。直線係數為 3 與 -4，分母 $\\sqrt{3^2+(-4)^2} = 5$。故分子 $|k| = 3 \\times 5 = 15 \\implies k = \\pm 15$。"
+          quickTip: "勾股神數秒殺：直角三角形 3-4-5！半徑 5、半弦長 4，弦心距必為 3。直線係數平方和為 25，分母為 5，故 $|k| = 3 \\times 5 = 15$。"
         }
       },
 
-      // ---------- 題 3：等差與等比數列 ----------
+      // ---------- 2024 正卷 解答題 Q1 ----------
       {
         year: "2024",
         paper: "正卷",
@@ -249,48 +221,49 @@
         knowledge: {
           formulas: [
             "a_n = a_1 + (n - 1)d",
-            "b^2 = a \\cdot c \\quad (\\text{等比中項性質})",
+            "a_3^2 = a_1 \\cdot a_9 \\quad (\\text{等比中項性質})",
             "S_n = \\frac{b_1(1 - q^n)}{1 - q} = \\frac{b_1(q^n - 1)}{q - 1}"
           ],
           points: [
             "<b>等比中項列方程</b>：三項成等比，中間項平方等於前後兩項乘積 $a_3^2 = a_1 a_9$。",
-            "<b>非零條件檢驗</b>：題幹明確給出 $d \\ne 0$，因式分解 $4d(d - 1) = 0$ 必須明確寫出捨去 $d = 0$ 的判斷步驟。",
-            "<b>指數型求和轉化</b>：若 $a_n$ 是等差數列，則 $b_n = A^{a_n} = A^{a_1 + (n-1)d}$ 必然構成等比數列，首項為 $A^{a_1}$，公比為 $A^d$。"
+            "<b>非零條件檢驗</b>：題幹明確給出 $d \\ne 0$，因式分解 $4d(d - 1) = 0$ 必須寫出捨去 $d = 0$。",
+            "<b>指數型求和轉化</b>：若 $a_n$ 是等差數列，則 $b_n = 2^{a_n}$ 必然構成等比數列。"
           ],
-          pitfall: "第 (2) 小問求和套用公式時，注意公比 $q = 2$ 且首項 $b_1 = 2^1 = 2$，切勿將首項誤寫成 $1$。"
+          pitfall: "第 (2) 問求和套用公式時，首項 $b_1 = 2^1 = 2$，切勿將首項誤寫成 $1$。"
         },
         solution: {
-          thinking: "第 (1) 問利用等差數列通項公式將 $a_3, a_9$ 用首項 $a_1$ 和公差 $d$ 表示，利用等比中項列方程求解 $d$；第 (2) 問代入通項後識別出 $\\{b_n\\}$ 為等比數列，直接套用等比數列前 $n$ 項和公式。",
+          thinking: "第 (1) 問由等差數列通項公式與等比中項求解 $d$；第 (2) 問識別出 $\\{b_n\\}$ 為等比數列，直接套用前 $n$ 項和公式。",
           steps: [
             "<b>(1) 解：</b>",
-            "因為 $\\{a_n\\}$ 是公差為 $d$ 的等差數列，且 $a_1 = 1$，所以：",
-            "$$a_3 = a_1 + 2d = 1 + 2d, \\quad a_9 = a_1 + 8d = 1 + 8d$$",
-            "又因 $a_1, a_3, a_9$ 成等比數列，由等比中項性質得 $a_3^2 = a_1 \\cdot a_9$：",
+            "由等差數列通項公式得：$a_3 = 1 + 2d$，$a_9 = 1 + 8d$。",
+            "因為 $a_1, a_3, a_9$ 成等比數列，故 $a_3^2 = a_1 \\cdot a_9$：",
             "$$(1 + 2d)^2 = 1 \\cdot (1 + 8d) \\implies 1 + 4d + 4d^2 = 1 + 8d$$",
-            "整理得 $4d^2 - 4d = 0 \\implies 4d(d - 1) = 0$。",
-            "因題設 $d \\ne 0$，故 $d = 1$。",
-            "所以數列 $\\{a_n\\}$ 的通項公式為：$a_n = a_1 + (n - 1)d = 1 + (n - 1) \\times 1 = n$。",
+            "化簡得 $4d^2 - 4d = 0 \\implies 4d(d - 1) = 0$。因 $d \\ne 0$，解得 $d = 1$。",
+            "所以通項公式為：$a_n = 1 + (n - 1) \\times 1 = n$。",
             "<b>(2) 解：</b>",
-            "由 (1) 得 $a_n = n$，所以 $b_n = 2^{a_n} = 2^n$。",
-            "數列 $\\{b_n\\}$ 是以 $b_1 = 2^1 = 2$ 為首項，公比 $q = 2$ 的等比數列。",
-            "則數列 $\\{b_n\\}$ 的前 $n$ 項和 $S_n$ 為：",
-            "$$S_n = \\frac{b_1(1 - q^n)}{1 - q} = \\frac{2(1 - 2^n)}{1 - 2} = 2(2^n - 1) = 2^{n+1} - 2$$"
+            "由 (1) 得 $b_n = 2^{a_n} = 2^n$。數列 $\\{b_n\\}$ 是以 $b_1 = 2$ 為首項，公比 $q = 2$ 的等比數列。",
+            "前 $n$ 項和為：$$S_n = \\frac{2(1 - 2^n)}{1 - 2} = 2(2^n - 1) = 2^{n+1} - 2$$"
           ],
           ans: "(1) d = 1, a_n = n; (2) S_n = 2^{n+1} - 2",
-          quickTip: "答題規範避坑：四校聯考閱卷對解答題採「步驟踩點給分」，等比中項公式 2 分、解出公差 2 分、通項 1 分、識別等比數列 2 分、求和公式化簡 3 分。務必條理分明。"
+          quickTip: "踩點給分原則：等比中項公式 2 分、因式分解得公差 2 分、通項 1 分、識別等比數列 2 分、求和化簡 3 分。"
         }
       }
     ]
   });
 
-  // ========================== 第二章：附加卷真題精選 ==========================
+  // ========================== 【2024 附加卷】 ==========================
   DECK.push({
-    ch: "2024-附加卷",
-    title: "澳門四校聯考 數學附加卷精選",
+    ch: "2024 附加卷",
+    year: "2024",
+    paper: "附加卷",
+    title: "2024 澳門四校聯考 數學附加卷精選",
     color: "#7c3aed",
-    sections: ["解答題 第2題 · 導數與三次函數切線極值", "解答題 第4題 · 複數棣美弗定理與旋轉"],
+    sections: [
+      "解答題 第2題 · 微積分切線與三次函數極值",
+      "解答題 第4題 · 複數棣美弗定理與旋轉"
+    ],
     slides: [
-      // ---------- 題 4：微積分三次函數 ----------
+      // ---------- 2024 附加卷 Q2 ----------
       {
         year: "2024",
         paper: "附加卷",
@@ -300,15 +273,14 @@
         q: "設函數 $f(x) = \\frac{1}{3}x^3 - x^2 - 3x + 1$。<br>(1) 求曲線 $y = f(x)$ 在點 $(0, 1)$ 處的切線方程式；<br>(2) 求函數 $f(x)$ 的單調區間以及極大值與極小值。",
         knowledge: {
           formulas: [
-            "k = f'(x_0) = \\lim_{\\Delta x \\to 0} \\frac{f(x_0 + \\Delta x) - f(x_0)}{\\Delta x}",
-            "y - y_0 = f'(x_0)(x - x_0) \\quad (\\text{點斜式切線方程})",
+            "k = f'(x_0), \\quad y - y_0 = f'(x_0)(x - x_0)",
             "f'(x) > 0 \\implies \\text{單調遞增}, \\quad f'(x) < 0 \\implies \\text{單調遞減}"
           ],
           points: [
-            "<b>切線幾何意義</b>：曲線在 $x_0$ 處的切線斜率恰等於導函數在該點的值 $f'(x_0)$。",
-            "<b>極值判定規範三部曲</b>：1. 求導 $f'(x)$；2. 令 $f'(x)=0$ 找駐點；3. 列符號判定表（或因式符號分析）確認增減性與極大/極小值。"
+            "<b>切線斜率</b>：曲線在 $x_0$ 處切線斜率恰等於一階導數值 $f'(x_0)$。",
+            "<b>極值判定規範</b>：1. 求導；2. 找駐點；3. 列一階導數正負號表格分析增減區間。"
           ],
-          pitfall: "極值是「函數值 $y$」，而非「坐標點 $(x, y)$」或「自變量 $x$」！若寫「極大值為 $(-1, 8/3)$」會被聯考閱卷扣分，必須清楚作答「當 $x = -1$ 時取得極大值 $\\frac{8}{3}$」。"
+          pitfall: "極值是「函數值 $y$」，而非自變量 $x$！請作答「當 $x = -1$ 時取得極大值 $\\frac{8}{3}$」。"
         },
         visual: function (host) {
           host.innerHTML = `
@@ -337,35 +309,19 @@
             const y0 = f(x0);
             const slope = df(x0);
 
-            infoEl.innerHTML = `切點 $(x_0, y_0) = (${x0.toFixed(1)}, ${y0.toFixed(2)})$，斜率 $f'(x_0) = <b>${slope.toFixed(2)}</b>$ ${x0 === 0 ? '🎯 (此處為題目所求切點！)' : ''}`;
+            infoEl.innerHTML = `切點 $(x_0, y_0) = (${x0.toFixed(1)}, ${y0.toFixed(2)})$，斜率 $f'(x_0) = <b>${slope.toFixed(2)}</b>$ ${x0 === 0 ? '🎯 (題目所求切點！)' : ''}`;
             if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([infoEl]).catch(() => {});
 
             const W = 360, H = 220;
-            const ox = 150, oy = 110, kx = 28, ky = 8; // 坐標縮放
+            const ox = 150, oy = 110, kx = 28, ky = 8;
 
             let s = `<svg viewBox="0 0 ${W} ${H}">`;
             s += SVG.axes(W, H, ox, oy, { stroke: '#cbd5e1', labelColor: '#94a3b8' });
-
-            // 畫三次曲線 f(x)
-            s += SVG.func(f, -3.2, 5.0, {
-              ox: ox, oy: oy, kx: kx, ky: ky,
-              color: '#2563eb', strokeWidth: 2.2, samples: 100
-            });
-
-            // 標示兩個極值點：極大點 (-1, 8/3)，極小點 (3, -8)
-            const maxPx = ox + (-1) * kx, maxPy = oy - (8 / 3) * ky;
-            const minPx = ox + 3 * kx, minPy = oy - (-8) * ky;
-            s += SVG.point(maxPx, maxPy, { color: '#059669', size: 4, label: '極大(-1, 2.67)', labelPos: 't' });
-            s += SVG.point(minPx, minPy, { color: '#e11d48', size: 4, label: '極小(3, -8)', labelPos: 'b' });
-
-            // 畫當前切點的切線
-            s += SVG.tangent(f, x0, {
-              ox: ox, oy: oy, kx: kx, ky: ky,
-              color: '#7c3aed', strokeWidth: 1.8, strokeDash: '4,2', len: 120
-            });
-            const curPx = ox + x0 * kx, curPy = oy - y0 * ky;
-            s += SVG.point(curPx, curPy, { color: '#7c3aed', size: 4.5, label: `P(${x0.toFixed(1)})`, labelPos: 'tl' });
-
+            s += SVG.func(f, -3.2, 5.0, { ox: ox, oy: oy, kx: kx, ky: ky, color: '#2563eb', strokeWidth: 2.2 });
+            s += SVG.point(ox + (-1) * kx, oy - (8 / 3) * ky, { color: '#059669', size: 4, label: '極大(-1, 2.67)', labelPos: 't' });
+            s += SVG.point(ox + 3 * kx, oy - (-8) * ky, { color: '#e11d48', size: 4, label: '極小(3, -8)', labelPos: 'b' });
+            s += SVG.tangent(f, x0, { ox: ox, oy: oy, kx: kx, ky: ky, color: '#7c3aed', strokeWidth: 1.8, strokeDash: '4,2', len: 120 });
+            s += SVG.point(ox + x0 * kx, oy - y0 * ky, { color: '#7c3aed', size: 4.5, label: `P(${x0.toFixed(1)})`, labelPos: 'tl' });
             s += `</svg>`;
             svgHost.innerHTML = s;
           }
@@ -374,33 +330,24 @@
           draw(+slider.value);
         },
         solution: {
-          thinking: "微積分題型是附加卷每年必出 20 分的大題！第 (1) 問求導數代入切點坐標求斜率，寫出點斜式；第 (2) 問求導函數的零點，透過一階導數符號表嚴格給出單調區間與極值。",
+          thinking: "第 (1) 問求導數代入切點坐標求斜率，寫出點斜式；第 (2) 問求導函數駐點，透過一階導數符號表給出單調區間與極值。",
           steps: [
             "<b>(1) 解：</b>",
-            "對函數 $f(x) = \\frac{1}{3}x^3 - x^2 - 3x + 1$ 求導：",
-            "$$f'(x) = x^2 - 2x - 3$$",
-            "當 $x = 0$ 時，切線斜率為 $k = f'(0) = 0^2 - 2(0) - 3 = -3$。",
-            "又切點坐標為 $(0, f(0)) = (0, 1)$，由點斜式得切線方程式為：",
-            "$$y - 1 = -3(x - 0) \\implies 3x + y - 1 = 0$$",
+            "對函數求導得：$f'(x) = x^2 - 2x - 3$。",
+            "在 $x = 0$ 處，切線斜率 $k = f'(0) = -3$。切線方程為：$y - 1 = -3(x - 0) \\implies 3x + y - 1 = 0$。",
             "<b>(2) 解：</b>",
-            "令 $f'(x) = 0$，即 $x^2 - 2x - 3 = 0$，因式分解得：",
-            "$$(x - 3)(x + 1) = 0 \\implies x_1 = -1, \\quad x_2 = 3$$",
-            "列表分析 $f'(x)$ 的正負號與 $f(x)$ 的單調性：",
-            "• 當 $x < -1$ 時，$f'(x) > 0$，$f(x)$ 單調遞增；",
-            "• 當 $-1 < x < 3$ 時，$f'(x) < 0$，$f(x)$ 單調遞減；",
-            "• 當 $x > 3$ 時，$f'(x) > 0$，$f(x)$ 單調遞增。",
-            "因此，$f(x)$ 的<b>單調遞增區間</b>為 $(-\\infty, -1)$ 與 $(3, +\\infty)$；<b>單調遞減區間</b>為 $(-1, 3)$。",
-            "當 $x = -1$ 時，$f(x)$ 取得<b>極大值</b>：",
-            "$$f(-1) = \\frac{1}{3}(-1)^3 - (-1)^2 - 3(-1) + 1 = -\\frac{1}{3} - 1 + 3 + 1 = \\frac{8}{3}$$",
-            "當 $x = 3$ 時，$f(x)$ 取得<b>極小值</b>：",
-            "$$f(3) = \\frac{1}{3}(27) - 9 - 3(3) + 1 = 9 - 9 - 9 + 1 = -8$$"
+            "令 $f'(x) = (x - 3)(x + 1) = 0$，得駐點 $x_1 = -1, x_2 = 3$。",
+            "• 當 $x < -1$ 或 $x > 3$ 時，$f'(x) > 0$（遞增）；",
+            "• 當 $-1 < x < 3$ 時，$f'(x) < 0$（遞減）。",
+            "單調遞增區間為 $(-\\infty, -1)$ 與 $(3, +\\infty)$；單調遞減區間為 $(-1, 3)$。",
+            "極大值為 $f(-1) = \\frac{8}{3}$；極小值為 $f(3) = -8$。"
           ],
           ans: "(1) 3x + y - 1 = 0; (2) 遞增區間: (-\\infty, -1), (3, +\\infty); 遞減區間: (-1, 3); 極大值 8/3, 極小值 -8",
-          quickTip: "高分規範細節：單調區間若寫並集符號「$\\cup$」在四校聯考嚴格閱卷中常被扣 1 分，請務必用「和」或「逗號」分開書寫！"
+          quickTip: "單調區間若寫聯集符號「$\\cup$」在四校聯考嚴格閱卷中常被扣 1 分，請務必用「和」或「逗號」分開書寫！"
         }
       },
 
-      // ---------- 題 5：複數棣美弗定理 ----------
+      // ---------- 2024 附加卷 Q4 ----------
       {
         year: "2024",
         paper: "附加卷",
@@ -410,21 +357,21 @@
         q: "已知複數 $z = \\sqrt{3} + i$。<br>(1) 求複數 $z$ 的模長 $|z|$ 及主輻角 $\\text{Arg}(z)$，並寫出其三角形式；<br>(2) 利用棣美弗定理計算 $z^6$ 的值；<br>(3) 若複數 $w = 2\\left(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}\\right)$，求 $\\frac{z}{w}$ 的代數形式 $a + bi$。",
         knowledge: {
           formulas: [
-            "z = r(\\cos \\theta + i\\sin \\theta), \\quad r = \\sqrt{a^2 + b^2}, \\quad \\tan\\theta = \\frac{b}{a}",
-            "z^n = [r(\\cos \\theta + i\\sin \\theta)]^n = r^n (\\cos n\\theta + i\\sin n\\theta)",
+            "z = r(\\cos \\theta + i\\sin \\theta), \\quad r = \\sqrt{a^2 + b^2}",
+            "z^n = r^n (\\cos n\\theta + i\\sin n\\theta) \\quad (\\text{棣美弗定理})",
             "\\frac{z_1}{z_2} = \\frac{r_1}{r_2}[\\cos(\\theta_1 - \\theta_2) + i\\sin(\\theta_1 - \\theta_2)]"
           ],
           points: [
-            "<b>棣美弗定理本質</b>：複數高次冪在幾何上等於「模長做 $n$ 次乘方，輻角做 $n$ 倍旋轉」。",
-            "<b>主輻角範圍</b>：四校聯考附加卷規定主輻角 $\\text{Arg}(z) \\in (-\\pi, \\pi]$ 或 $[0, 2\\pi)$，求輻角時務必確認象限。",
-            "<b>商的幾何旋轉</b>：兩複數相除，模長相除、輻角相減（順時針旋轉角度）。"
+            "<b>棣美弗幾何本質</b>：模長做 $n$ 次乘方，輻角做 $n$ 倍旋轉。",
+            "<b>主輻角約定</b>：四校聯考附加卷主輻角 $\\text{Arg}(z) \\in (-\\pi, \\pi]$ 或 $[0, 2\\pi)$。",
+            "<b>除法旋轉</b>：兩複數相除，模長相除、輻角相減。"
           ],
-          pitfall: "第 (3) 問求代數形式 $a + bi$，最後一步必須化簡為精確根式（如 $\\frac{\\sqrt{6}+\\sqrt{2}}{4}$），切忌停留在三角函數形式。"
+          pitfall: "第 (3) 問求代數形式 $a + bi$，最後一步必須化簡為精確根式，切忌停留在三角函數形式。"
         },
         visual: function (host) {
           host.innerHTML = `
             <div style="font-size:13px; font-weight:800; color:var(--ct); margin-bottom:4px;">
-              📐 動態探究：棣美弗定理 $z^n = r^n(\\cos n\\theta + i\\sin n\\theta)$ 在複平面的步進旋轉
+              📐 動態探究：棣美弗定理 $z^n = r^n(\\cos n\\theta + i\\sin n\\theta)$ 步進旋轉
             </div>
             <div id="vis-cplx-svg" style="width:100%; max-width:380px;"></div>
             <div class="ictrl">
@@ -442,10 +389,9 @@
 
           function draw(n) {
             valLabel.textContent = n;
-            const thetaDeg = n * 30; // 每個 step 旋轉 30 度 (pi/6)
+            const thetaDeg = n * 30;
             const rN = Math.pow(2, n);
-
-            infoEl.innerHTML = `當 $n = ${n}$ 時：輻角 $\\theta = ${n} \\times 30^\\circ = <b>${thetaDeg}^\\circ$</b>，模長 $2^{${n}} = ${rN}$ ${n === 6 ? '🎯 (旋轉剛好落在負實軸上，即 $z^6 = -64$！)' : ''}`;
+            infoEl.innerHTML = `當 $n = ${n}$ 時：輻角 $\\theta = ${thetaDeg}^\\circ$，模長 $2^{${n}} = ${rN}$ ${n === 6 ? '🎯 (旋轉落在負實軸上，即 $z^6 = -64$！)' : ''}`;
             if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([infoEl]).catch(() => {});
 
             const W = 360, H = 220;
@@ -453,27 +399,163 @@
 
             let s = `<svg viewBox="0 0 ${W} ${H}">`;
             s += SVG.complexPlane(W, H, ox, oy, { stroke: '#cbd5e1', labelColor: '#94a3b8' });
-
-            // 畫出從 1 到 n 各點的軌跡
             for (let i = 1; i <= n; i++) {
               const deg = i * 30;
               const rad = (deg * Math.PI) / 180;
               const ri = 25 + i * 10;
               const px = ox + ri * Math.cos(rad);
               const py = oy - ri * Math.sin(rad);
-
               const isCurrent = i === n;
-              s += SVG.vector(ox, oy, px, py, {
-                color: isCurrent ? '#7c3aed' : '#94a3b8',
-                strokeWidth: isCurrent ? 2.5 : 1.2
-              });
-              s += SVG.point(px, py, {
-                color: isCurrent ? '#7c3aed' : '#64748b',
-                size: isCurrent ? 5 : 3,
-                label: `z^${i}`,
-                labelPos: 't'
-              });
+              s += SVG.vector(ox, oy, px, py, { color: isCurrent ? '#7c3aed' : '#94a3b8', strokeWidth: isCurrent ? 2.5 : 1.2 });
+              s += SVG.point(px, py, { color: isCurrent ? '#7c3aed' : '#64748b', size: isCurrent ? 5 : 3, label: `z^${i}`, labelPos: 't' });
             }
+            s += `</svg>`;
+            svgHost.innerHTML = s;
+          }
+
+          slider.oninput = () => draw(+slider.value);
+          draw(+slider.value);
+        },
+        solution: {
+          thinking: "第 (1) 問算模與輻角；第 (2) 問代入棣美弗定理；第 (3) 問利用複數除法三角形式運算，最後化簡為根式代數形式。",
+          steps: [
+            "<b>(1) 解：</b>",
+            "模長 $|z| = \\sqrt{(\\sqrt{3})^2 + 1^2} = 2$。因 $z$ 在第一象限，$\\tan\\theta = \\frac{1}{\\sqrt{3}} \\implies \\text{Arg}(z) = \\frac{\\pi}{6}$。",
+            "三角形式為：$z = 2\\left(\\cos\\frac{\\pi}{6} + i\\sin\\frac{\\pi}{6}\\right)$。",
+            "<b>(2) 解：</b>",
+            "由棣美弗定理：$$z^6 = 2^6 \\left[\\cos\\left(6 \\times \\frac{\\pi}{6}\\right) + i\\sin\\left(6 \\times \\frac{\\pi}{6}\\right)\\right] = 64(\\cos\\pi + i\\sin\\pi) = -64$$",
+            "<b>(3) 解：</b>",
+            "$$\\frac{z}{w} = \\frac{2}{2}\\left[\\cos\\left(\\frac{\\pi}{6} - \\frac{\\pi}{4}\\right) + i\\sin\\left(\\frac{\\pi}{6} - \\frac{\\pi}{4}\\right)\\right] = \\cos\\left(-\\frac{\\pi}{12}\\right) + i\\sin\\left(-\\frac{\\pi}{12}\\right)$$",
+            "由差角公式得：$$\\frac{z}{w} = \\frac{\\sqrt{6} + \\sqrt{2}}{4} - \\frac{\\sqrt{6} - \\sqrt{2}}{4}i$$"
+          ],
+          ans: "(1) 2(\\cos(\\pi/6)+i\\sin(\\pi/6)); (2) -64; (3) (\\sqrt{6}+\\sqrt{2})/4 - ((\\sqrt{6}-\\sqrt{2})/4)i",
+          quickTip: "代數檢驗法：直接有理化分母 $\\frac{\\sqrt{3}+i}{\\sqrt{2}+\\sqrt{2}i} = \\frac{(\\sqrt{3}+i)(\\sqrt{2}-\\sqrt{2}i)}{4} = \\frac{(\\sqrt{6}+\\sqrt{2})+(\\sqrt{2}-\\sqrt{6})i}{4}$ 迅速核驗。"
+        }
+      }
+    ]
+  });
+
+  // ========================== 【2023 正卷】 ==========================
+  DECK.push({
+    ch: "2023 正卷",
+    year: "2023",
+    paper: "正卷",
+    title: "2023 澳門四校聯考 數學正卷精選",
+    color: "#059669",
+    sections: [
+      "選擇題 第5題 · 對數方程與真數定義域",
+      "選擇題 第9題 · 二次函數閉區間極值"
+    ],
+    slides: [
+      // ---------- 2023 正卷 Q5 ----------
+      {
+        year: "2023",
+        paper: "正卷",
+        qNum: "選擇題 第5題",
+        topic: "指數與對數 · 對數方程與定義域陷阱",
+        score: "4分",
+        q: "方程式 $\\log_2(x - 1) + \\log_2(x + 1) = 3$ 的實數解為？",
+        options: [
+          "(A) 2",
+          "(B) 3",
+          "(C) $\\pm 3$",
+          "(D) 4"
+        ],
+        knowledge: {
+          formulas: [
+            "\\log_a u + \\log_a v = \\log_a(uv) \\quad (a > 0, a \\ne 1, u > 0, v > 0)",
+            "\\log_a N = b \\iff N = a^b"
+          ],
+          points: [
+            "<b>對數運算法則</b>：同底對數相加，真數相乘 $\\log_2[(x-1)(x+1)] = 3$。",
+            "<b>定義域優先法則</b>：對數方程求解前必須先寫出真數大於 0 的定義域限制！"
+          ],
+          pitfall: "真數必須嚴格大於 0：$x - 1 > 0 \\implies x > 1$。解方程得 $x^2 = 9 \\implies x = \\pm 3$，若選 (C) 則落入負根陷阱！"
+        },
+        solution: {
+          thinking: "先寫出真數大於 0 的約束條件，再利用對數乘法性質化為代數二次方程求解，最後檢驗根是否在定義域內。",
+          steps: [
+            "原方程有意義，必須滿足真數大於零：",
+            "$$\\begin{cases} x - 1 > 0 \\implies x > 1 \\\\ x + 1 > 0 \\implies x > -1 \\end{cases} \\implies x > 1$$",
+            "由對數性質化簡原方程：",
+            "$$\\log_2[(x - 1)(x + 1)] = 3 \\implies (x - 1)(x + 1) = 2^3$$",
+            "$$x^2 - 1 = 8 \\implies x^2 = 9 \\implies x = \\pm 3$$",
+            "結合定義域 $x > 1$，捨去負根 $x = -3$，故唯一實數解為 $x = 3$。"
+          ],
+          ans: "(B)",
+          quickTip: "代入排除法：直接代入選項！(A) $x=2 \\implies \\log_2 1 + \\log_2 3 = \\log_2 3 \\ne 3$；(B) $x=3 \\implies \\log_2 2 + \\log_2 4 = 1 + 2 = 3$ 吻合！選項 (C) 包含負數直接排除。"
+        }
+      },
+
+      // ---------- 2023 正卷 Q9 ----------
+      {
+        year: "2023",
+        paper: "正卷",
+        qNum: "選擇題 第9題",
+        topic: "函數 · 二次函數在閉區間上的最值",
+        score: "4分",
+        q: "已知二次函數 $f(x) = -x^2 + 4x + c$ 在閉區間 $[0, 3]$ 上的最大值為 $7$，則常數 $c$ 之值為？",
+        options: [
+          "(A) 1",
+          "(B) 2",
+          "(C) 3",
+          "(D) 4"
+        ],
+        knowledge: {
+          formulas: [
+            "f(x) = a(x - h)^2 + k \\quad (\\text{頂點式配方法})",
+            "x = -\\frac{b}{2a} \\quad (\\text{拋物線對稱軸})"
+          ],
+          points: [
+            "<b>配方定位頂點</b>：$f(x) = -(x - 2)^2 + c + 4$，頂點為 $(2, c + 4)$，對稱軸為 $x = 2$。",
+            "<b>區間最值位置判定</b>：因開口向下且對稱軸 $x = 2 \\in [0, 3]$，最大值必然在頂點處取得，即 $f(2) = c + 4 = 7$。"
+          ],
+          pitfall: "若對稱軸不在給定區間內，最大值會在區間端點取得；本題務必先確認對稱軸是否在 $[0, 3]$ 內！"
+        },
+        visual: function (host) {
+          host.innerHTML = `
+            <div style="font-size:13px; font-weight:800; color:var(--ct); margin-bottom:4px;">
+              📐 動態探究：滑動常數 $c$ 觀察拋物線在 $[0, 3]$ 區間之頂點最大值
+            </div>
+            <div id="vis-quad-svg" style="width:100%; max-width:380px;"></div>
+            <div class="ictrl">
+              <label>常數 $c$：</label>
+              <input type="range" id="quadSlider" min="0" max="6" value="3" step="0.5">
+              <span class="ival" id="quadVal">3.0</span>
+            </div>
+            <div class="step-txt" id="quadInfo" style="text-align:center; margin-top:4px;"></div>
+          `;
+
+          const svgHost = host.querySelector('#vis-quad-svg');
+          const slider = host.querySelector('#quadSlider');
+          const valLabel = host.querySelector('#quadVal');
+          const infoEl = host.querySelector('#quadInfo');
+
+          function draw(c) {
+            valLabel.textContent = c.toFixed(1);
+            const maxVal = c + 4;
+            infoEl.innerHTML = `頂點坐標 $(2, ${maxVal.toFixed(1)})$，區間最大值 $f(2) = c + 4 = <b>${maxVal.toFixed(1)}</b>$ ${c === 3 ? '🎯 (最大值剛好為 7，得 c = 3！)' : ''}`;
+            if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([infoEl]).catch(() => {});
+
+            const W = 360, H = 220;
+            const ox = 110, oy = 160, kx = 32, ky = 14;
+
+            let s = `<svg viewBox="0 0 ${W} ${H}">`;
+            s += SVG.axes(W, H, ox, oy, { stroke: '#cbd5e1', labelColor: '#94a3b8' });
+
+            // 區間 [0, 3] 陰影高亮
+            const segX0 = ox, segX3 = ox + 3 * kx;
+            s += `<rect x="${segX0}" y="20" width="${segX3 - segX0}" height="150" fill="rgba(5,150,105,0.06)" stroke="none"/>`;
+            s += SVG.line(segX0, 20, segX0, 170, { color: '#94a3b8', strokeDash: '2,2', strokeWidth: 1 });
+            s += SVG.line(segX3, 20, segX3, 170, { color: '#94a3b8', strokeDash: '2,2', strokeWidth: 1 });
+
+            // 拋物線
+            const fn = x => - x * x + 4 * x + c;
+            s += SVG.func(fn, -0.5, 4.2, { ox: ox, oy: oy, kx: kx, ky: ky, color: c === 3 ? '#059669' : '#2563eb', strokeWidth: 2 });
+
+            // 頂點
+            const vtxX = ox + 2 * kx, vtxY = oy - maxVal * ky;
+            s += SVG.point(vtxX, vtxY, { color: '#e11d48', size: 4.5, label: `頂點(2, ${maxVal.toFixed(1)})`, labelPos: 't' });
 
             s += `</svg>`;
             svgHost.innerHTML = s;
@@ -483,28 +565,115 @@
           draw(+slider.value);
         },
         solution: {
-          thinking: "附加卷複數常客題！第 (1) 問計算模長與主輻角；第 (2) 問直接代入棣美弗定理；第 (3) 問利用複數除法三角形式運算，或直接代數分母有理化。",
+          thinking: "對二次函數進行配方找出對稱軸與頂點，確認對稱軸落在區間 $[0, 3]$ 內，因此最大值在頂點處取得，令其等於 7 解出 $c$。",
+          steps: [
+            "將二次函數 $f(x) = -x^2 + 4x + c$ 配方：",
+            "$$f(x) = -(x^2 - 4x) + c = -(x - 2)^2 + 4 + c$$",
+            "該拋物線開口向下，對稱軸為直線 $x = 2$。",
+            "因為對稱軸 $x = 2$ 落在區間 $[0, 3]$ 內部，所以當 $x = 2$ 時，$f(x)$ 取得最大值：",
+            "$$\\max f(x) = f(2) = -(2 - 2)^2 + 4 + c = c + 4$$",
+            "已知最大值為 $7$，令 $c + 4 = 7$，解得 $c = 3$。"
+          ],
+          ans: "(C)",
+          quickTip: "秒殺思路：對稱軸公式 $x = -\\frac{b}{2a} = -\\frac{4}{-2} = 2$。在區間內開口向下，頂點必為最大值！直接代入 $f(2) = -4 + 8 + c = 4 + c = 7 \\implies c = 3$。"
+        }
+      }
+    ]
+  });
+
+  // ========================== 【2023 附加卷】 ==========================
+  DECK.push({
+    ch: "2023 附加卷",
+    year: "2023",
+    paper: "附加卷",
+    title: "2023 澳門四校聯考 數學附加卷精選",
+    color: "#d97706",
+    sections: [
+      "解答題 第1題 · 數學歸納法證明求和公式",
+      "解答題 第3題 · 三維空間向量數量積與夾角"
+    ],
+    slides: [
+      // ---------- 2023 附加卷 Q1 ----------
+      {
+        year: "2023",
+        paper: "附加卷",
+        qNum: "解答題 第1題",
+        topic: "數學歸納法 · 平方和公式規範證明",
+        score: "20分",
+        q: "用數學歸納法證明：對所有正整數 $n$，恆有：<br>$$1^2 + 2^2 + 3^2 + \\dots + n^2 = \\frac{n(n + 1)(2n + 1)}{6}$$",
+        knowledge: {
+          formulas: [
+            "P(1) \\text{ 成立} \\quad (\\text{奠基步驟})",
+            "\\text{假設 } P(k) \\text{ 成立} \\implies \\text{證明 } P(k+1) \\text{ 成立} \\quad (\\text{歸納遞推})"
+          ],
+          points: [
+            "<b>數學歸納法評分結構</b>：",
+            "1. 驗證 $n=1$ 奠基（左邊＝右邊＝1）；",
+            "2. 清楚寫出「假設當 $n=k$ 時命題成立」；",
+            "3. 考察 $n=k+1$ 時，<b>必須嚴格利用歸納假設</b>代換前 $k$ 項；",
+            "4. 提取公因式 $\\frac{k+1}{6}$ 整理出目標形式，最後下結論。"
+          ],
+          pitfall: "在 $n=k+1$ 步驟中如果沒有使用 $n=k$ 的假設，直接用其他代數方法推導，四校聯考閱卷將判定為 0 分！"
+        },
+        solution: {
+          thinking: "標準數學歸納法三部曲：先驗證基礎 $n=1$，設 $n=k$ 成立，再推導 $n=k+1$ 的等式左邊，利用歸納假設化簡並提取公因式 $(k+1)$。",
+          steps: [
+            "<b>證明：</b>",
+            "<b>第一步（奠基）：</b>當 $n = 1$ 時，",
+            "左邊 $= 1^2 = 1$；右邊 $= \\frac{1(1 + 1)(2 \\times 1 + 1)}{6} = \\frac{1 \\times 2 \\times 3}{6} = 1$。",
+            "左邊 $=$ 右邊，等式成立。",
+            "<b>第二步（歸納）：</b>假設當 $n = k$ ($k \\ge 1, k \\in \\mathbb{N}^*$) 時等式成立，即：",
+            "$$1^2 + 2^2 + 3^2 + \\dots + k^2 = \\frac{k(k + 1)(2k + 1)}{6}$$",
+            "當 $n = k + 1$ 時，等式左邊為：",
+            "$$1^2 + 2^2 + \\dots + k^2 + (k + 1)^2 = \\frac{k(k + 1)(2k + 1)}{6} + (k + 1)^2$$",
+            "$$= (k + 1) \\left[ \\frac{k(2k + 1)}{6} + (k + 1) \\right] = (k + 1) \\left[ \\frac{2k^2 + k + 6k + 6}{6} \\right]$$",
+            "$$= \\frac{(k + 1)(2k^2 + 7k + 6)}{6} = \\frac{(k + 1)(k + 2)(2k + 3)}{6}$$",
+            "$$= \\frac{(k + 1)[(k + 1) + 1][2(k + 1) + 1]}{6} = \\text{右邊}$$",
+            "因此，當 $n = k + 1$ 時等式亦成立。",
+            "<b>結論：</b>由數學歸納法可知，對所有正整數 $n$，等式恆成立。"
+          ],
+          ans: "命題得證（見詳細踩點步驟）",
+          quickTip: "數歸踩點提分要領：目標是湊出包含 $(k+1)$ 的右式。通分時直接提出公因式 $(k+1)$，切忌把整個分子全部展開成三次多項式，避免因式分解出錯。"
+        }
+      },
+
+      // ---------- 2023 附加卷 Q3 ----------
+      {
+        year: "2023",
+        paper: "附加卷",
+        qNum: "解答題 第3題",
+        topic: "向量與幾何 · 三維空間向量數量積與夾角",
+        score: "20分",
+        q: "在空間直角坐標系中，已知三點 $A(1, 0, 2)$，$B(2, 1, 0)$，$C(0, 2, 1)$。<br>(1) 求向量 $\\vec{AB}$ 與 $\\vec{AC}$ 的坐標表示；<br>(2) 求向量 $\\vec{AB}$ 與 $\\vec{AC}$ 的數量積 $\\vec{AB} \\cdot \\vec{AC}$；<br>(3) 求 $\\cos\\angle BAC$ 的值。",
+        knowledge: {
+          formulas: [
+            "\\vec{AB} = (x_B - x_A, y_B - y_A, z_B - z_A)",
+            "\\vec{u} \\cdot \\vec{v} = x_1 x_2 + y_1 y_2 + z_1 z_2",
+            "\\cos\\theta = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}| |\\vec{v}|}"
+          ],
+          points: [
+            "<b>向量坐標化</b>：終點坐標減去起點坐標。",
+            "<b>夾角餘弦公式</b>：數量積除以兩向量模長的乘積。"
+          ],
+          pitfall: "計算模長時不要漏開根號：$|\\vec{u}| = \\sqrt{x^2 + y^2 + z^2}$。"
+        },
+        solution: {
+          thinking: "第 (1) 問終點減起點；第 (2) 問對應分量乘積相加；第 (3) 問代入空間向量夾角餘弦公式。",
           steps: [
             "<b>(1) 解：</b>",
-            "複數 $z = \\sqrt{3} + i$ 的實部 $a = \\sqrt{3}$，虛部 $b = 1$。",
-            "模長 $|z| = r = \\sqrt{(\\sqrt{3})^2 + 1^2} = \\sqrt{3 + 1} = 2$。",
-            "因為 $z$ 位於第一象限，$\\cos\\theta = \\frac{\\sqrt{3}}{2}$，$\\sin\\theta = \\frac{1}{2}$，",
-            "故主輻角 $\\text{Arg}(z) = \\frac{\\pi}{6}$（即 $30^\\circ$）。",
-            "其三角形式為：$z = 2\\left(\\cos\\frac{\\pi}{6} + i\\sin\\frac{\\pi}{6}\\right)$。",
+            "$$\\vec{AB} = (2 - 1, 1 - 0, 0 - 2) = (1, 1, -2)$$",
+            "$$\\vec{AC} = (0 - 1, 2 - 0, 1 - 2) = (-1, 2, -1)$$",
             "<b>(2) 解：</b>",
-            "由棣美弗定理得：",
-            "$$z^6 = \\left[2\\left(\\cos\\frac{\\pi}{6} + i\\sin\\frac{\\pi}{6}\\right)\\right]^6 = 2^6 \\left[\\cos\\left(6 \\times \\frac{\\pi}{6}\\right) + i\\sin\\left(6 \\times \\frac{\\pi}{6}\\right)\\right]$$",
-            "$$= 64(\\cos\\pi + i\\sin\\pi) = 64(-1 + 0i) = -64$$",
+            "$$\\vec{AB} \\cdot \\vec{AC} = 1(-1) + 1(2) + (-2)(-1) = -1 + 2 + 2 = 3$$",
             "<b>(3) 解：</b>",
-            "已知 $w = 2\\left(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}\\right)$，由複數除法的三角形式：",
-            "$$\\frac{z}{w} = \\frac{2}{2}\\left[\\cos\\left(\\frac{\\pi}{6} - \\frac{\\pi}{4}\\right) + i\\sin\\left(\\frac{\\pi}{6} - \\frac{\\pi}{4}\\right)\\right] = \\cos\\left(-\\frac{\\pi}{12}\\right) + i\\sin\\left(-\\frac{\\pi}{12}\\right)$$",
-            "由三角函數誘導公式與兩角差公式：",
-            "$$\\cos\\left(-\\frac{\\pi}{12}\\right) = \\cos\\frac{\\pi}{12} = \\cos(45^\\circ - 30^\\circ) = \\frac{\\sqrt{6} + \\sqrt{2}}{4}$$",
-            "$$\\sin\\left(-\\frac{\\pi}{12}\\right) = -\\sin\\frac{\\pi}{12} = -\\sin(45^\\circ - 30^\\circ) = -\\frac{\\sqrt{6} - \\sqrt{2}}{4}$$",
-            "故代數形式為：$\\frac{z}{w} = \\frac{\\sqrt{6} + \\sqrt{2}}{4} - \\frac{\\sqrt{6} - \\sqrt{2}}{4}i$。"
+            "分別計算向量模長：",
+            "$$|\\vec{AB}| = \\sqrt{1^2 + 1^2 + (-2)^2} = \\sqrt{1 + 1 + 4} = \\sqrt{6}$$",
+            "$$|\\vec{AC}| = \\sqrt{(-1)^2 + 2^2 + (-1)^2} = \\sqrt{1 + 4 + 1} = \\sqrt{6}$$",
+            "由夾角餘弦公式：",
+            "$$\\cos\\angle BAC = \\frac{\\vec{AB} \\cdot \\vec{AC}}{|\\vec{AB}| |\\vec{AC}|} = \\frac{3}{\\sqrt{6} \\times \\sqrt{6}} = \\frac{3}{6} = \\frac{1}{2}$$"
           ],
-          ans: "(1) |z|=2, \\theta=\\pi/6, z=2(\\cos(\\pi/6)+i\\sin(\\pi/6)); (2) -64; (3) (\\sqrt{6}+\\sqrt{2})/4 - ((\\sqrt{6}-\\sqrt{2})/4)i",
-          quickTip: "代數檢驗法：$w = \\sqrt{2} + \\sqrt{2}i$。$\\frac{z}{w} = \\frac{\\sqrt{3}+i}{\\sqrt{2}+\\sqrt{2}i} = \\frac{(\\sqrt{3}+i)(\\sqrt{2}-\\sqrt{2}i)}{4} = \\frac{(\\sqrt{6}+\\sqrt{2}) + (\\sqrt{2}-\\sqrt{6})i}{4}$，與三角形式結果完全相符！"
+          ans: "(1) \\vec{AB}=(1,1,-2), \\vec{AC}=(-1,2,-1); (2) \\vec{AB}\\cdot\\vec{AC}=3; (3) \\cos\\angle BAC = 1/2",
+          quickTip: "幾何意義拓展：$\\cos\\angle BAC = \\frac{1}{2} \\implies \\angle BAC = 60^\\circ$！且兩向量模長相等，$\\triangle ABC$ 恰好為正三角形。"
         }
       }
     ]

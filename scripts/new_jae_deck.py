@@ -111,7 +111,9 @@ STANDARD_TEMPLATE = """/* ======================================================
 window.DECK = window.DECK || [];
 (function () {{
   window.DECK.push({{
-    ch: "{year}-正卷",
+    ch: "{year} 正卷",
+    year: "{year}",
+    paper: "正卷",
     title: "{year} 澳門四校聯考 數學正卷",
     color: "#2563eb",
     sections: [
@@ -168,7 +170,9 @@ SUPP_TEMPLATE = """/* ==========================================================
 window.DECK = window.DECK || [];
 (function () {{
   window.DECK.push({{
-    ch: "{year}-附加卷",
+    ch: "{year} 附加卷",
+    year: "{year}",
+    paper: "附加卷",
     title: "{year} 澳門四校聯考 數學附加卷",
     color: "#7c3aed",
     sections: [

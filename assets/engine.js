@@ -8,8 +8,22 @@
   // 攤平：每章先放一張章名分隔頁，再放內容頁
   const flat = [];
   DECK.forEach((chap, ci) => {
-    flat.push({ type: 'divider', ch: chap.ch, color: chap.color, title: chap.title, sections: chap.sections });
-    chap.slides.forEach(s => flat.push(Object.assign({ type: 'slide', ch: chap.ch, color: chap.color }, s)));
+    flat.push({
+      type: 'divider',
+      ch: chap.ch,
+      color: chap.color,
+      title: chap.title,
+      sections: chap.sections,
+      year: chap.year,
+      paper: chap.paper
+    });
+    chap.slides.forEach(s => flat.push(Object.assign({
+      type: 'slide',
+      ch: chap.ch,
+      color: chap.color,
+      year: s.year || chap.year,
+      paper: s.paper || chap.paper
+    }, s)));
   });
 
   let idx = 0;
@@ -346,7 +360,7 @@
         `;
       }
 
-      // 解答卡片（預設展開或可折疊，快速鍵 A）
+      // 解答卡片（翻到某一題時預設隱藏，點擊按鈕或按快捷鍵 A 才揭曉，方便課堂提問）
       const hasSteps = s.solution && ((s.solution.steps && s.solution.steps.length) || s.solution.thinking || s.solution.ans);
       solHtml += `
         <div class="jae-sol-card">
@@ -354,12 +368,20 @@
             <div class="jae-sol-title">💡 解題思維與規範步驟</div>
             ${hasSteps ? `
               <button class="jae-sol-toggle-btn" title="快速鍵：A">
-                <span class="btn-text">${s.showSolution ? '收起解答' : '顯示解答'}</span>
+                <span class="btn-text">揭曉解答</span>
                 <span class="btn-key">A</span>
               </button>
             ` : ''}
           </div>
-          <div class="jae-sol-content ${s.showSolution ? 'show' : ''}" id="jaeSolContent">
+          
+          <!-- 課堂提問思考提示卡（預設隱藏解答時呈現） -->
+          <div class="jae-sol-prompt" id="jaeSolPrompt">
+            <div class="prompt-icon">🎯</div>
+            <div class="prompt-title">課堂思考與提問環節</div>
+            <div class="prompt-sub">請學生先觀察左欄條件與知識點，構思解題步驟<br>按下鍵盤 <kbd>A</kbd> 或點擊右上角按鈕揭曉規範解答與秒殺訣竅</div>
+          </div>
+
+          <div class="jae-sol-content" id="jaeSolContent">
             ${s.solution && s.solution.thinking ? `
               <div class="jae-sol-thinking">
                 <div class="thinking-label">【解題思路】</div>
@@ -410,14 +432,16 @@
       const qz = info.querySelector('.jae-q-zoom');
       if (qz) qz.onclick = () => openJaeModal(s);
 
-      // 解答展開/隱藏切換
+      // 解答展開/隱藏切換（預設隱藏，點擊按鈕或按 A 鍵才揭曉）
       const solBtn = vis.querySelector('.jae-sol-toggle-btn');
       const solContent = vis.querySelector('#jaeSolContent');
+      const solPrompt = vis.querySelector('#jaeSolPrompt');
       if (solBtn && solContent) {
         solBtn.onclick = () => {
           solContent.classList.toggle('show');
           const isShow = solContent.classList.contains('show');
-          solBtn.querySelector('.btn-text').textContent = isShow ? '收起解答' : '顯示解答';
+          solBtn.querySelector('.btn-text').textContent = isShow ? '收起解答' : '揭曉解答';
+          if (solPrompt) solPrompt.style.display = isShow ? 'none' : 'flex';
           if (isShow) {
             typesetAndFit(solContent);
           } else {
@@ -427,7 +451,7 @@
       }
 
       const chLabel = typeof s.ch === 'number' || /^\d+$/.test(s.ch) ? `第 ${s.ch} 章` : s.ch;
-      crumbEl.innerHTML = `${chLabel} · ${s.paper ? s.paper + ' · ' : ''}<b>${s.qNum || s.sec || ''} ${s.topic || s.title || ''}</b>`;
+      crumbEl.innerHTML = `<b>${chLabel}</b> · ${s.qNum || s.sec || ''} <b>${s.topic || s.title || ''}</b>`;
     } else {
       slideEl.className = 'slide';
       // 左：概念欄
