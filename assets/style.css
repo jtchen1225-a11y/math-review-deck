@@ -212,6 +212,11 @@ button { font: inherit; cursor: pointer; }
   background: rgba(37, 99, 235, 0.08);
 }
 .toc-item .ti-sec { font-size: 11px; color: var(--faint); font-weight: 700; margin-right: 6px; }
+.toc-item mjx-container {
+  font-size: 100% !important;
+  line-height: 0;
+  vertical-align: -0.1em;
+}
 
 /* ------- 舞台 ------- */
 .stage { display: flex; flex-direction: column; min-height: 0; padding: 14px 24px 0; }
@@ -272,14 +277,22 @@ button { font: inherit; cursor: pointer; }
 .slide-title { font-size: clamp(23px, 2.6vw, 32px); font-weight: 900; line-height: 1.18; margin: 0 0 10px; }
 
 .formula {
+  flex-shrink: 0;
   background: color-mix(in srgb, var(--ct) 8%, #fff);
   border: 1px solid color-mix(in srgb, var(--ct) 24%, #fff);
   border-radius: 12px;
-  padding: 10px 14px;
+  padding: 8px 14px;
   margin-bottom: 12px;
   overflow-x: auto;
+  overflow-y: hidden;
 }
 .formula .formula-label { font-size: 12px; font-weight: 900; color: var(--ct); letter-spacing: 0.06em; margin-bottom: 4px; }
+.formula mjx-container[display="true"],
+.formula mjx-container {
+  margin: 4px 0 !important;
+  display: block;
+  text-align: center;
+}
 
 .points { list-style: none; margin: 0 0 16px; padding: 0; }
 .points li {

@@ -106,10 +106,24 @@
   let idx = 0;
   let subStep = 0; // 0: 題目審題, 1: 核心考點&公式, 2: 規範步驟與解答
 
-  // ---- MathJax 排版（載入前先重試，載入後自動補排版）----
+  // ---- MathJax 排版（以 Promise 鏈佇列化，載入前自動重試，避免並發衝突）----
+  let mathPromise = Promise.resolve();
+  function queueTypeset(el) {
+    if (!el) return Promise.resolve();
+    const els = Array.isArray(el) ? el.filter(Boolean) : [el];
+    if (!els.length) return Promise.resolve();
+    mathPromise = mathPromise.catch(() => {}).then(() => {
+      if (window.MathJax && MathJax.typesetPromise) {
+        return MathJax.typesetPromise(els);
+      }
+    }).catch(err => console.warn('MathJax error:', err));
+    return mathPromise;
+  }
+
   function typeset(el, tries = 0) {
+    if (!el) return;
     if (window.MathJax && MathJax.typesetPromise) {
-      MathJax.typesetPromise([el]).catch(() => {});
+      queueTypeset(el);
     } else if (tries < 60) {
       setTimeout(() => typeset(el, tries + 1), 200);
     }
@@ -144,8 +158,9 @@
   }
   // MathJax 排版完成後才量高縮放（公式高度需排版後才確定）
   function typesetAndFit(el, tries = 0) {
+    if (!el) return;
     if (window.MathJax && MathJax.typesetPromise) {
-      MathJax.typesetPromise([el]).then(fitSlide).catch(fitSlide);
+      queueTypeset(el).then(fitSlide).catch(fitSlide);
     } else if (tries < 60) {
       setTimeout(() => typesetAndFit(el, tries + 1), 200);
     } else { fitSlide(); }
@@ -385,6 +400,7 @@
       wrap.appendChild(items);
       tocEl.appendChild(wrap);
     });
+    typeset(tocEl);
   }
 
   function markTOC() {
@@ -408,6 +424,7 @@
           <div class="dv-list">${(s.sections || []).map(x => `<span class="dv-chip">${x}</span>`).join('')}</div>
         </div>`;
       crumbEl.innerHTML = `${chLabel}　<b>${s.title}</b>`;
+      typeset(crumbEl);
     } else if (s.q) {
       // ===== 澳門四校聯考（JAE）試題專屬版面 =====
       // 一頁一題：左上題目，左下核心知識點&必背公式，右側解題思維與規範步驟
@@ -634,6 +651,7 @@
 
       const chLabel = typeof s.ch === 'number' || /^\d+$/.test(s.ch) ? `第 ${s.ch} 章` : s.ch;
       crumbEl.innerHTML = `<b>${chLabel}</b> · ${s.qNum || s.sec || ''} <b>${s.topic || s.title || ''}</b>`;
+      typeset(crumbEl);
     } else {
       slideEl.className = 'slide';
       // 左：概念欄
@@ -708,6 +726,7 @@
       if (exZoom) exZoom.onclick = () => openExampleModal(s);
 
       crumbEl.innerHTML = `第 ${s.ch} 章 · ${s.sec} <b>${s.title}</b>`;
+      typeset(crumbEl);
     }
 
     // 進度
