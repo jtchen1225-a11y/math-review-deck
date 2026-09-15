@@ -3,28 +3,105 @@
    讀取 window.DECK（各章 push 進來），攤平成投影片序列。
    ============================================================ */
 (function () {
-  const DECK = window.DECK || [];
+  const RAW_DECK = (window.DECK || []).slice();
 
-  // 攤平：每章先放一張章名分隔頁，再放內容頁
+  // 試卷註冊表（5 年 10 卷元資料）
+  const PAPER_REGISTRY = [
+    { id: '2025-std', year: '2025', paper: '正卷', name: '2025 澳門四校聯考 數學正卷', ch: '2025 正卷', count: 20, color: '#2563eb' },
+    { id: '2025-sup', year: '2025', paper: '附加卷', name: '2025 澳門四校聯考 數學附加卷', ch: '2025 附加卷', count: 5, color: '#7c3aed' },
+    { id: '2024-std', year: '2024', paper: '正卷', name: '2024 澳門四校聯考 數學正卷', ch: '2024 正卷', count: 20, color: '#059669' },
+    { id: '2024-sup', year: '2024', paper: '附加卷', name: '2024 澳門四校聯考 數學附加卷', ch: '2024 附加卷', count: 5, color: '#d97706' },
+    { id: '2023-std', year: '2023', paper: '正卷', name: '2023 澳門四校聯考 數學正卷', ch: '2023 正卷', count: 20, color: '#0284c7' },
+    { id: '2023-sup', year: '2023', paper: '附加卷', name: '2023 澳門四校聯考 數學附加卷', ch: '2023 附加卷', count: 5, color: '#e11d48' },
+    { id: '2022-std', year: '2022', paper: '正卷', name: '2022 澳門四校聯考 數學正卷', ch: '2022 正卷', count: 20, color: '#0d9488' },
+    { id: '2022-sup', year: '2022', paper: '附加卷', name: '2022 澳門四校聯考 數學附加卷', ch: '2022 附加卷', count: 5, color: '#9333ea' },
+    { id: '2021-std', year: '2021', paper: '正卷', name: '2021 澳門四校聯考 數學正卷', ch: '2021 正卷', count: 20, color: '#4f46e5' },
+    { id: '2021-sup', year: '2021', paper: '附加卷', name: '2021 澳門四校聯考 數學附加卷', ch: '2021 附加卷', count: 5, color: '#ea580c' },
+  ];
+
+  let currentAllowedIds = [];
+  let activeDeck = [];
   const flat = [];
-  DECK.forEach((chap, ci) => {
-    flat.push({
-      type: 'divider',
-      ch: chap.ch,
-      color: chap.color,
-      title: chap.title,
-      sections: chap.sections,
-      year: chap.year,
-      paper: chap.paper
+
+  // 解析初始開放試卷
+  function getInitialAllowedIds() {
+    const params = new URLSearchParams(window.location.search);
+    const papersParam = params.get('papers');
+    if (papersParam) {
+      const ids = papersParam.split(',').map(s => s.trim()).filter(Boolean);
+      if (ids.length) return ids;
+    }
+    const weekParam = params.get('week');
+    if (weekParam) {
+      if (weekParam === '1-2') return ['2025-std', '2025-sup'];
+      if (weekParam === '3-4') return ['2024-std', '2024-sup'];
+      if (weekParam === '5-6') return ['2023-std', '2023-sup'];
+      if (weekParam === '7-8') return ['2022-std', '2022-sup'];
+      if (weekParam === '9-10') return ['2021-std', '2021-sup'];
+    }
+    try {
+      const saved = localStorage.getItem('jae_allowed_papers');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length) return parsed;
+      }
+    } catch (e) {}
+    return PAPER_REGISTRY.map(p => p.id);
+  }
+
+  // 套用進度過濾並重新構建投影片序列
+  function applyDeckFilter(allowedIds, shouldSave = false) {
+    if (!allowedIds || !allowedIds.length) {
+      allowedIds = PAPER_REGISTRY.map(p => p.id);
+    }
+    currentAllowedIds = allowedIds;
+    if (shouldSave) {
+      try {
+        localStorage.setItem('jae_allowed_papers', JSON.stringify(allowedIds));
+      } catch (e) {}
+    }
+
+    const allowedSet = new Set(allowedIds);
+    activeDeck = RAW_DECK.filter(chap => {
+      const reg = PAPER_REGISTRY.find(p => p.ch === chap.ch || (p.year === String(chap.year) && p.paper === chap.paper));
+      return reg ? allowedSet.has(reg.id) : true;
     });
-    chap.slides.forEach(s => flat.push(Object.assign({
-      type: 'slide',
-      ch: chap.ch,
-      color: chap.color,
-      year: s.year || chap.year,
-      paper: s.paper || chap.paper
-    }, s)));
-  });
+
+    if (!activeDeck.length && RAW_DECK.length) {
+      activeDeck = RAW_DECK.slice(0, 1);
+    }
+
+    // 攤平：每章先放一張章名分隔頁，再放內容頁
+    flat.length = 0;
+    activeDeck.forEach((chap) => {
+      flat.push({
+        type: 'divider',
+        ch: chap.ch,
+        color: chap.color,
+        title: chap.title,
+        sections: chap.sections,
+        year: chap.year,
+        paper: chap.paper
+      });
+      chap.slides.forEach(s => flat.push(Object.assign({
+        type: 'slide',
+        ch: chap.ch,
+        color: chap.color,
+        year: s.year || chap.year,
+        paper: s.paper || chap.paper
+      }, s)));
+    });
+
+    buildCover();
+    buildTOC();
+
+    idx = Math.max(0, Math.min(flat.length - 1, idx));
+    subStep = 0;
+    const appEl = $('app');
+    if (appEl && !appEl.classList.contains('hidden')) {
+      render();
+    }
+  }
 
   let idx = 0;
   let subStep = 0; // 0: 題目審題, 1: 核心考點&公式, 2: 規範步驟與解答
@@ -262,10 +339,11 @@
   const nextBtn = $('nextBtn');
 
   // ---- 封面章節卡 ----
-  (function buildCover() {
+  function buildCover() {
     const host = $('coverChapters');
     if (!host) return;
-    DECK.forEach(c => {
+    host.innerHTML = '';
+    activeDeck.forEach(c => {
       const card = document.createElement('div');
       card.className = 'cover-card';
       card.style.setProperty('--ct', c.color);
@@ -275,13 +353,13 @@
         <div class="cc-list">${c.sections ? c.sections.join('　') : ''}</div>`;
       host.appendChild(card);
     });
-  })();
+  }
 
   // ---- 目錄 ----
   function buildTOC() {
     if (!tocEl) return;
     tocEl.innerHTML = '';
-    DECK.forEach(chap => {
+    activeDeck.forEach(chap => {
       const wrap = document.createElement('div');
       wrap.className = 'toc-chapter open';
       wrap.style.setProperty('--ct', chap.color);
@@ -910,7 +988,14 @@
     else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
     else if (e.key === 'Home') go(0, 0);
     else if (e.key === 'End') go(flat.length - 1, 0);
-    else if (e.key === 'Escape') { closeZoom(); setLaser(false); setPen(false); }
+    else if (e.key === 'Escape') {
+      closeZoom();
+      closePinModal();
+      closeTeacherModal();
+      closeQrModal();
+      setLaser(false);
+      setPen(false);
+    }
     else if (e.key === 'l' || e.key === 'L') setLaser(!laserOn);
     else if (e.key === 'p' || e.key === 'P') setPen(!penOn);
     else if (e.key === 'c' || e.key === 'C') clearPen();
@@ -930,10 +1015,300 @@
     }
   });
 
-  buildTOC();
+  /* ================= 課堂進度控制（教師面板） ================= */
+  let isTeacherAuthenticated = false;
+
+  function showToast(msg, duration = 3000) {
+    const container = $('toastContainer');
+    if (!container) return;
+    const t = document.createElement('div');
+    t.className = 'toast';
+    t.textContent = msg;
+    container.appendChild(t);
+    setTimeout(() => {
+      if (t.parentNode) t.parentNode.removeChild(t);
+    }, duration);
+  }
+
+  function openPinModal() {
+    const pinModal = $('pinModal');
+    const pinInput = $('pinInput');
+    const pinError = $('pinError');
+    if (!pinModal || !pinInput) return;
+    pinInput.value = '';
+    if (pinError) pinError.classList.add('hidden');
+    pinModal.classList.remove('hidden');
+    setTimeout(() => pinInput.focus(), 100);
+  }
+
+  function closePinModal() {
+    const pinModal = $('pinModal');
+    if (pinModal) pinModal.classList.add('hidden');
+  }
+
+  function openTeacherModal() {
+    closePinModal();
+    const teacherModal = $('teacherModal');
+    if (!teacherModal) return;
+    renderTeacherCheckboxes();
+    teacherModal.classList.remove('hidden');
+  }
+
+  function closeTeacherModal() {
+    const teacherModal = $('teacherModal');
+    if (teacherModal) teacherModal.classList.add('hidden');
+  }
+
+  function openQrModal(url, papersText) {
+    const qrModal = $('qrModal');
+    const qrContainer = $('qrCodeContainer');
+    const qrInput = $('qrUrlInput');
+    const qrInfo = $('qrActivePapersText');
+    if (!qrModal || !qrContainer) return;
+
+    if (qrInfo) qrInfo.textContent = '已開放試卷：' + (papersText || '全部試卷');
+    if (qrInput) qrInput.value = url;
+
+    qrContainer.innerHTML = '';
+    if (typeof window.qrcode === 'function') {
+      try {
+        const qr = window.qrcode(0, 'M');
+        qr.addData(url);
+        qr.make();
+        qrContainer.innerHTML = qr.createSvgTag(6, 4);
+      } catch (e) {
+        console.error('QR code generation error:', e);
+        qrContainer.innerHTML = '<p style="color:#e11d48">QR 碼生成失敗</p>';
+      }
+    } else {
+      qrContainer.innerHTML = '<p style="color:#64748b">QR 模組載入中...</p>';
+    }
+
+    qrModal.classList.remove('hidden');
+  }
+
+  function closeQrModal() {
+    const qrModal = $('qrModal');
+    if (qrModal) qrModal.classList.add('hidden');
+  }
+
+  // 渲染自由勾選清單
+  function renderTeacherCheckboxes(selectedIds = currentAllowedIds) {
+    const container = $('paperCheckboxContainer');
+    if (!container) return;
+    container.innerHTML = '';
+
+    const selectedSet = new Set(selectedIds);
+    const years = ['2025', '2024', '2023', '2022', '2021'];
+
+    years.forEach(yr => {
+      const papers = PAPER_REGISTRY.filter(p => p.year === yr);
+      const row = document.createElement('div');
+      row.className = 'year-row';
+
+      const label = document.createElement('div');
+      label.className = 'year-label';
+      label.innerHTML = `<span>📅</span> ${yr} 年`;
+      row.appendChild(label);
+
+      papers.forEach(p => {
+        const isChecked = selectedSet.has(p.id);
+        const box = document.createElement('label');
+        box.className = `paper-box ${isChecked ? 'checked' : ''}`;
+        box.style.setProperty('--paper-color', p.color);
+        box.innerHTML = `
+          <input type="checkbox" value="${p.id}" ${isChecked ? 'checked' : ''} />
+          <div class="paper-info-col">
+            <span class="paper-name">${p.paper} (${p.count} 題)</span>
+            <span class="paper-meta">${p.name}</span>
+          </div>
+        `;
+
+        const chk = box.querySelector('input');
+        chk.onchange = () => {
+          box.classList.toggle('checked', chk.checked);
+          updateTeacherStats();
+        };
+
+        row.appendChild(box);
+      });
+
+      container.appendChild(row);
+    });
+
+    updateTeacherStats();
+  }
+
+  function getTeacherSelectedIds() {
+    const container = $('paperCheckboxContainer');
+    if (!container) return [];
+    return Array.from(container.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+  }
+
+  function updateTeacherStats() {
+    const selected = getTeacherSelectedIds();
+    const countBadge = $('selectedCountBadge');
+    if (countBadge) {
+      const totalQuestions = selected.reduce((sum, id) => {
+        const p = PAPER_REGISTRY.find(x => x.id === id);
+        return sum + (p ? p.count : 0);
+      }, 0);
+      countBadge.textContent = `已選 ${selected.length} 卷 (${totalQuestions} 題)`;
+    }
+  }
+
+  function selectPreset(presetKey) {
+    let ids = [];
+    if (presetKey === 'week1-2') ids = ['2025-std', '2025-sup'];
+    else if (presetKey === 'week3-4') ids = ['2024-std', '2024-sup'];
+    else if (presetKey === 'week5-6') ids = ['2023-std', '2023-sup'];
+    else if (presetKey === 'week7-8') ids = ['2022-std', '2022-sup'];
+    else if (presetKey === 'week9-10') ids = ['2021-std', '2021-sup'];
+    else if (presetKey === 'cumul-4w') ids = ['2025-std', '2025-sup', '2024-std', '2024-sup'];
+    else if (presetKey === 'cumul-6w') ids = ['2025-std', '2025-sup', '2024-std', '2024-sup', '2023-std', '2023-sup'];
+    else if (presetKey === 'all') ids = PAPER_REGISTRY.map(p => p.id);
+    else if (presetKey === 'none') ids = [];
+
+    renderTeacherCheckboxes(ids);
+  }
+
+  function getStudentUrl(selectedIds) {
+    const base = window.location.origin + window.location.pathname;
+    if (!selectedIds || !selectedIds.length || selectedIds.length === PAPER_REGISTRY.length) {
+      return base + '?papers=' + PAPER_REGISTRY.map(p => p.id).join(',') + '#present';
+    }
+    return base + '?papers=' + selectedIds.join(',') + '#present';
+  }
+
+  function getPapersSummaryText(selectedIds) {
+    if (!selectedIds.length) return '無（尚未開放）';
+    if (selectedIds.length === PAPER_REGISTRY.length) return '全部 10 份試卷（共 125 題）';
+    return selectedIds.map(id => {
+      const p = PAPER_REGISTRY.find(x => x.id === id);
+      return p ? `${p.year} ${p.paper}` : id;
+    }).join('、');
+  }
+
+  // 綁定教師面板各按鈕事件
+  function setupTeacherControl() {
+    const onTeacherClick = () => {
+      if (isTeacherAuthenticated) {
+        openTeacherModal();
+      } else {
+        openPinModal();
+      }
+    };
+
+    if ($('coverTeacherBtn')) $('coverTeacherBtn').onclick = onTeacherClick;
+    if ($('topTeacherBtn')) $('topTeacherBtn').onclick = onTeacherClick;
+
+    if ($('pinCloseBtn')) $('pinCloseBtn').onclick = closePinModal;
+    if ($('pinModal')) {
+      $('pinModal').onclick = (e) => {
+        if (e.target === $('pinModal')) closePinModal();
+      };
+    }
+
+    const checkPin = () => {
+      const val = ($('pinInput').value || '').trim();
+      if (val === '8888') {
+        isTeacherAuthenticated = true;
+        openTeacherModal();
+      } else {
+        $('pinError').classList.remove('hidden');
+        $('pinInput').select();
+      }
+    };
+
+    if ($('pinSubmitBtn')) $('pinSubmitBtn').onclick = checkPin;
+    if ($('pinInput')) {
+      $('pinInput').onkeydown = (e) => {
+        if (e.key === 'Enter') checkPin();
+      };
+    }
+
+    if ($('teacherCloseBtn')) $('teacherCloseBtn').onclick = closeTeacherModal;
+    if ($('teacherModal')) {
+      $('teacherModal').onclick = (e) => {
+        if (e.target === $('teacherModal')) closeTeacherModal();
+      };
+    }
+
+    // 快速進度按鈕
+    document.querySelectorAll('.preset-btn').forEach(btn => {
+      btn.onclick = () => selectPreset(btn.dataset.preset);
+    });
+
+    // 📱 大螢幕 QR 碼
+    if ($('btnShowQr')) {
+      $('btnShowQr').onclick = () => {
+        const selected = getTeacherSelectedIds();
+        if (!selected.length) {
+          alert('請至少勾選一份試卷！');
+          return;
+        }
+        const url = getStudentUrl(selected);
+        const summary = getPapersSummaryText(selected);
+        openQrModal(url, summary);
+      };
+    }
+
+    if ($('qrCloseBtn')) $('qrCloseBtn').onclick = closeQrModal;
+    if ($('qrModal')) {
+      $('qrModal').onclick = (e) => {
+        if (e.target === $('qrModal')) closeQrModal();
+      };
+    }
+
+    if ($('btnCopyQrUrl')) {
+      $('btnCopyQrUrl').onclick = () => {
+        const url = $('qrUrlInput').value;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(() => {
+            showToast('✅ 學生網址已複製到剪貼簿！');
+          }).catch(() => {
+            showToast('已選取網址，請手動複製');
+          });
+        }
+      };
+    }
+
+    // 📋 複製學生網址
+    if ($('btnCopyStudentUrl')) {
+      $('btnCopyStudentUrl').onclick = () => {
+        const selected = getTeacherSelectedIds();
+        if (!selected.length) {
+          alert('請至少勾選一份試卷！');
+          return;
+        }
+        const url = getStudentUrl(selected);
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(() => {
+            showToast(`✅ 學生專用網址已複製！已鎖定 ${selected.length} 份試卷。`);
+          }).catch(() => {
+            showToast('複製失敗，請使用大螢幕 QR 碼複製');
+          });
+        }
+      };
+    }
+
+    // 💾 儲存並在當前生效
+    if ($('btnSaveApply')) {
+      $('btnSaveApply').onclick = () => {
+        const selected = getTeacherSelectedIds();
+        if (!selected.length) {
+          alert('請至少勾選一份試卷！');
+          return;
+        }
+        applyDeckFilter(selected, true);
+        closeTeacherModal();
+        showToast(`💾 課堂進度已在本機生效！目前開放 ${selected.length} 份試卷。`);
+      };
+    }
+  }
 
   // 深連結：#present 直接進入簡報；#p=N 直接跳到第 N 頁
-  (function bootFromHash() {
+  function bootFromHash() {
     const hash = location.hash || '';
     const m = hash.match(/#p=(\d+)/);
     if (hash === '#present' || m) {
@@ -942,6 +1317,11 @@
       fitPen();
       go(m ? +m[1] : 0, 0);
     }
-  })();
-  // 不自動 render，等按「開始複習」；但若直接想看也可預先 render
+  }
+
+  // 系統初始化
+  setupTeacherControl();
+  currentAllowedIds = getInitialAllowedIds();
+  applyDeckFilter(currentAllowedIds, false);
+  bootFromHash();
 })();

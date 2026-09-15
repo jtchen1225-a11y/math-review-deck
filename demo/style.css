@@ -1215,4 +1215,522 @@ svg .dim { fill: var(--muted); }
   color: #9f1239;
 }
 
+/* ============================================================
+   教師面板、PIN碼驗證、大螢幕 QR 碼與課堂進度控制樣式
+   ============================================================ */
+
+/* 封面頂部列與教師控制按鈕 */
+.cover-top-bar {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  z-index: 10;
+}
+.cover-teacher-btn {
+  background: rgba(255, 255, 255, 0.95);
+  color: #1e293b;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+.cover-teacher-btn:hover {
+  background: #f8fafc;
+  border-color: #3b82f6;
+  color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.15);
+}
+
+/* 舞台頂部列教師按鈕 */
+.teacher-ctrl-btn {
+  border: 1.5px solid #cbd5e1;
+  background: #ffffff;
+  color: #1e293b;
+  font-weight: 800;
+  font-size: 12px;
+  border-radius: 999px;
+  padding: 5px 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.18s ease;
+}
+.teacher-ctrl-btn:hover {
+  background: #eff6ff;
+  border-color: #3b82f6;
+  color: #2563eb;
+  transform: translateY(-1px);
+}
+
+/* 通用彈窗遮罩 */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(6px);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+.modal-overlay.hidden {
+  display: none !important;
+}
+
+/* 彈窗卡片本體 */
+.modal-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes modalPop {
+  0% { opacity: 0; transform: scale(0.94) translateY(10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 22px;
+  border-bottom: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+}
+.modal-title {
+  font-size: 17px;
+  font-weight: 900;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.modal-close {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  color: #64748b;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+.modal-close:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* 1. PIN 碼卡片 */
+.pin-card {
+  width: 440px;
+}
+.pin-body {
+  padding: 24px;
+}
+.pin-desc {
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+.pin-input-row {
+  display: flex;
+  gap: 10px;
+}
+.pin-input-row input {
+  flex: 1;
+  border: 2px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-align: center;
+  color: #0f172a;
+  outline: none;
+  transition: all 0.2s ease;
+}
+.pin-input-row input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+.btn-primary {
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 14.5px;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+.btn-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+.pin-err {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: #fef2f2;
+  border: 1px solid #fecdd3;
+  border-radius: 10px;
+  color: #dc2626;
+  font-size: 13px;
+  font-weight: 700;
+}
+.pin-err.hidden {
+  display: none !important;
+}
+
+/* 2. 教師進度控制面板本體 */
+.teacher-card {
+  width: 840px;
+  max-height: 90vh;
+}
+.teacher-body {
+  padding: 20px 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.teacher-tip {
+  background: #eff6ff;
+  border-left: 4px solid #3b82f6;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 13px;
+  color: #1e40af;
+  line-height: 1.6;
+}
+
+/* 快速進度按鈕 */
+.preset-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.section-label {
+  font-size: 13.5px;
+  font-weight: 900;
+  color: #334155;
+}
+.preset-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.preset-btn {
+  background: #f8fafc;
+  color: #0f172a;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.preset-btn:hover {
+  background: #eff6ff;
+  border-color: #3b82f6;
+  color: #1d4ed8;
+  transform: translateY(-1px);
+}
+.preset-btn.preset-secondary {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  color: #334155;
+}
+.preset-btn.preset-secondary:hover {
+  background: #e2e8f0;
+}
+.preset-btn.preset-all {
+  background: #ecfdf5;
+  border-color: #10b981;
+  color: #047857;
+}
+.preset-btn.preset-all:hover {
+  background: #10b981;
+  color: #fff;
+}
+.preset-btn.preset-clear {
+  background: #fff1f2;
+  border-color: #f43f5e;
+  color: #be123c;
+}
+.preset-btn.preset-clear:hover {
+  background: #e11d48;
+  color: #fff;
+}
+
+/* 試卷自由勾選清單 */
+.papers-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.papers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.selected-count {
+  font-size: 12.5px;
+  font-weight: 900;
+  color: #2563eb;
+  background: #dbeafe;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.paper-year-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 290px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+.year-row {
+  display: grid;
+  grid-template-columns: 85px 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 8px 12px;
+}
+.year-label {
+  font-weight: 900;
+  font-size: 13.5px;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.paper-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+.paper-box:hover {
+  border-color: var(--paper-color, #2563eb);
+  background: #fdfdfd;
+}
+.paper-box.checked {
+  border-color: var(--paper-color, #2563eb);
+  background: color-mix(in srgb, var(--paper-color, #2563eb) 8%, #ffffff);
+}
+.paper-box input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  accent-color: var(--paper-color, #2563eb);
+}
+.paper-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.paper-name {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.paper-meta {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* 操作按鈕列 */
+.teacher-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  gap: 12px;
+  margin-top: 4px;
+  padding-top: 14px;
+  border-top: 1.5px solid #e2e8f0;
+}
+.btn-action {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 13.5px;
+  font-weight: 900;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+.btn-qr {
+  background: #f1f5f9;
+  color: #0f172a;
+  border: 1.5px solid #cbd5e1;
+}
+.btn-qr:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+.btn-copy {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1.5px solid #bfdbfe;
+}
+.btn-copy:hover {
+  background: #dbeafe;
+  border-color: #3b82f6;
+  transform: translateY(-1px);
+}
+.btn-save {
+  background: #16a34a;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.25);
+}
+.btn-save:hover {
+  background: #15803d;
+  transform: translateY(-1px);
+}
+
+/* 3. 大螢幕 QR 碼彈窗 */
+.qr-card {
+  width: 520px;
+  text-align: center;
+}
+.qr-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.qr-sub {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.6;
+}
+.qr-code-box {
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+.qr-code-box svg {
+  display: block;
+  max-width: 260px;
+  max-height: 260px;
+  width: 100%;
+  height: auto;
+}
+.qr-info-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.qr-info-papers {
+  font-size: 13px;
+  font-weight: 800;
+  color: #2563eb;
+  background: #eff6ff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #bfdbfe;
+}
+.qr-url-row {
+  display: flex;
+  gap: 8px;
+}
+.qr-url-row input {
+  flex: 1;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #475569;
+  background: #f8fafc;
+  outline: none;
+}
+.btn-sm {
+  background: #0f172a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-sm:hover {
+  background: #334155;
+}
+
+/* Toast 輕量通知訊息 */
+.toast-container {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1500;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+.toast {
+  background: rgba(15, 23, 42, 0.95);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 800;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  animation: toastIn 0.25s cubic-bezier(0.16, 1, 0.3, 1), toastOut 0.25s ease 2.5s forwards;
+  pointer-events: auto;
+}
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes toastOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(12px); }
+}
+
+
 
