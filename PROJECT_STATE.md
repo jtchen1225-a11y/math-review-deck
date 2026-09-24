@@ -67,6 +67,15 @@
 
 ## 4. 跨電腦交接日誌 (Session Handover Logs)
 
+### 📅 2026-09-25 00:24 (緊急修復 vectors.html 白屏問題)
+- **問題根因**：
+  1. `vectors.html` 中浮動工具列遺漏了全螢幕按鈕 `<button id="dkFull">`，導致 `engine.js` 執行 `$('dkFull').onclick` 時拋出 `TypeError: Cannot set properties of null`，直接中斷後續的 `applyDeckFilter()` 與 `buildCover()` 執行，使頁面卡在空白狀態無章節卡片。
+  2. `vectors.html` 的進度控制彈窗與 PIN 碼彈窗結構 ID 未與 `engine.js` 完全對齊。
+- **修復方案**：
+  1. 防禦性編程：在 `engine.js` 中對所有教具列按鈕（`dkFull`, `dkSidebar`, `dkPrev`, `dkNext`, `dkLaser`, `dkPen`, `dkClear`, `dkErase`）增加存在性檢查 (`if ($('...'))`)，防止任何單一頁面缺元素時中斷整體引擎。
+  2. 補齊結構：在 `vectors.html` 的教具列中補回 `dkFull` 按鈕，並將進度控制及 PIN 碼彈窗完整標準化對齊 `calculus.html`。
+  3. 實機 CDP 驗證：透過 Chrome DevTools Protocol 進行無頭瀏覽器即時渲染驗證，確認 5 大專題卡片全數生成，且在點擊進入後 80 頁幻燈片與 75 個目錄項運作流暢，零 Console 錯誤。
+
 ### 📅 2026-09-25 00:15 (空間向量全冊 5 專題 75 題卡與 OMML 整合上線)
 - **本次完成重點**：
   1. **原書 PDF 100% 完整解析**：全面解構 `T06高三理組數學思維本(2026)_空間向量.pdf`（含課本 P.9～P.17），拆解為 5 大專題、75 道教學題卡（含 11 題立體幾何精美裁切配圖）。
