@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>高三理組數學思維本 (2026) · 空間向量篇互動教學簡報</title>
+  <meta name="description" content="澳門高三理組數學思維本空間向量篇一頁一題互動投影教學簡報" />
+  <link rel="stylesheet" href="style.css?v=20260925" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+      svg: { fontCache: 'global' },
+      startup: { typeset: false }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+</head>
+<body>
+  <!-- 封面 -->
+  <section id="cover" class="cover">
+    <div class="cover-top-bar">
+      <button class="cover-teacher-btn" id="coverTeacherBtn" title="教師專用：設定課堂開放進度">⚙️ 課堂進度控制</button>
+    </div>
+    <div class="cover-inner">
+      <p class="cover-eyebrow">澳門高三理組高等數學 · 思維本空間向量專題總複習</p>
+      <h1 class="cover-title">高三理組數學思維本<br><span style="font-size: 0.85em; opacity: 0.95; color: #38bdf8;">空間向量篇</span></h1>
+      <p class="cover-sub">向量運算 · 立體幾何線面垂直平行 · 空間解析幾何 · 平面與直線方程 · 定積分銜接 · 集合與數學歸納法</p>
+      
+      <!-- 傳送門：切換至澳門四校聯考、微積分篇與 OMML 方程式庫 -->
+      <div style="margin: 14px 0 18px 0; display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
+        <a href="index.html" class="portal-link-btn" style="display:inline-block;padding:8px 18px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.22);color:#93c5fd;text-decoration:none;border-radius:20px;font-size:0.9rem;font-weight:500;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:all .2s;">🎯 澳門四校聯考歷屆真題 ›</a>
+        <a href="calculus.html" class="portal-link-btn" style="display:inline-block;padding:8px 18px;background:rgba(59,130,246,0.2);border:1px solid rgba(96,165,250,0.4);color:#93c5fd;text-decoration:none;border-radius:20px;font-size:0.9rem;font-weight:500;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:all .2s;">📐 高三理組微積分篇 ›</a>
+        <a href="omml.html" class="portal-link-btn" style="display:inline-block;padding:8px 18px;background:rgba(124,58,237,0.25);border:1px solid rgba(167,139,250,0.4);color:#ddd6fe;text-decoration:none;border-radius:20px;font-size:0.9rem;font-weight:500;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:all .2s;">📑 OMML 數學方程式庫 ›</a>
+        <a href="高三理組數學思維本_空間向量_參考答案_OMML對照手冊.docx" class="portal-link-btn" download style="display:inline-block;padding:8px 18px;background:rgba(16,185,129,0.25);border:1px solid rgba(52,211,153,0.4);color:#a7f3d0;text-decoration:none;border-radius:20px;font-size:0.9rem;font-weight:500;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:all .2s;">📥 下載 Word 原生手冊 (.docx)</a>
+      </div>
+
+      <div class="cover-chapters" id="coverChapters"></div>
+      <button class="cover-start" id="startBtn">開始空間向量探究 →</button>
+      <p class="cover-hint">用 ← → 鍵換題 · K 鍵展開考點 · A 鍵展開解答 · Q 鍵放大題目 · 虛擬雷射筆與畫筆</p>
+    </div>
+  </section>
+
+  <!-- 主體 -->
+  <div id="app" class="app hidden">
+    <!-- 頂部列 -->
+    <header class="topbar">
+      <button class="home-btn" id="homeBtn" title="回封面">✦ 空間向量思維本</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="top-actions">
+        <button class="ghost-btn teacher-ctrl-btn" id="topTeacherBtn" title="課堂開放進度控制">⚙️ 課堂進度控制</button>
+        <button class="ghost-btn" id="tocToggle" title="目錄">☰ 目錄</button>
+      </div>
+    </header>
+
+    <div class="body">
+      <!-- 目錄側欄 -->
+      <aside class="toc" id="toc"></aside>
+
+      <!-- 舞台 -->
+      <main class="stage">
+        <div class="slide" id="slide"></div>
+
+        <!-- 底部控制列 -->
+        <div class="controlbar">
+          <button class="nav-btn" id="prevBtn">‹ 上一頁</button>
+          <div class="progress">
+            <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+            <span class="progress-text" id="progressText">1 / 1</span>
+          </div>
+          <button class="nav-btn" id="nextBtn">下一頁 ›</button>
+        </div>
+      </main>
+    </div>
+
+    <!-- 授課教具：畫筆畫布、雷射點、浮動工具列 -->
+    <canvas id="penCanvas" class="pen-canvas"></canvas>
+    <div id="laserDot" class="laser-dot hidden"></div>
+    <div id="dock" class="dock">
+      <button class="dbtn" id="dkSidebar" title="收合／展開側欄">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg>
+      </button>
+      <button class="dbtn" id="dkPrev" title="上一頁 (←)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 5 8 12 15 19"/></svg>
+      </button>
+      <button class="dbtn" id="dkNext" title="下一頁 (→)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 5 16 12 9 19"/></svg>
+      </button>
+      <div class="dsep"></div>
+      <button class="dbtn" id="dkLaser" title="雷射筆">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/></svg>
+      </button>
+      <button class="dbtn" id="dkPen" title="畫筆">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      </button>
+      <div class="dcolors hidden" id="dkColors">
+        <button class="dcolor active" data-c="#e11d48" style="--sc:#e11d48" title="紅"></button>
+        <button class="dcolor" data-c="#2563eb" style="--sc:#2563eb" title="藍"></button>
+        <button class="dcolor" data-c="#059669" style="--sc:#059669" title="綠"></button>
+        <button class="dcolor" data-c="#f59e0b" style="--sc:#f59e0b" title="黃"></button>
+        <button class="dcolor" data-c="#111827" style="--sc:#111827" title="黑"></button>
+        <button class="dbtn derase" id="dkErase" title="橡皮擦">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15l7-7 6 6-4 4H8z"/><line x1="4" y1="21" x2="20" y2="21"/></svg>
+        </button>
+      </div>
+      <button class="dbtn" id="dkClear" title="清除所有筆跡 (C)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- 黑板全螢幕放大視窗（題目、解答與圖解） -->
+  <div id="blackboardModal" class="bb-modal hidden">
+    <div class="bb-dialog">
+      <div class="bb-header">
+        <span class="bb-title" id="bbTitle">全螢幕精講黑板</span>
+        <div class="bb-actions">
+          <span class="bb-hint">按 Esc 或點擊關閉</span>
+          <button class="bb-close-btn" id="bbCloseBtn">✕ 關閉</button>
+        </div>
+      </div>
+      <div class="bb-content" id="bbContent"></div>
+    </div>
+  </div>
+
+  <!-- 教師進度控制 Modal -->
+  <div id="teacherModal" class="teacher-modal hidden">
+    <div class="teacher-dialog">
+      <div class="teacher-header">
+        <h3 class="teacher-title">⚙️ 空間向量篇 · 課堂開放進度控制</h3>
+        <button class="modal-close" id="teacherCloseBtn">✕</button>
+      </div>
+      <div class="teacher-body">
+        <div id="pinSection" class="pin-section">
+          <p class="pin-tip">請輸入教師管理 PIN 碼（預設：8888）：</p>
+          <div class="pin-input-row">
+            <input type="password" id="pinInput" maxlength="8" placeholder="輸入 PIN 碼" autocomplete="off" />
+            <button class="btn-primary" id="btnPinSubmit">驗證並進入</button>
+          </div>
+          <p id="pinError" class="pin-error hidden">PIN 碼不正確，請重新輸入</p>
+        </div>
+
+        <div id="controlSection" class="control-section hidden">
+          <div class="ctrl-group">
+            <label class="ctrl-label">🚀 快速開放進度（點擊即刻選取）：</label>
+            <div class="fast-btn-grid">
+              <button class="btn-fast" data-preset="week1-2">【專題一】空間向量概念 (13題)</button>
+              <button class="btn-fast" data-preset="week3-4">【專題二】立體幾何應用 (21題)</button>
+              <button class="btn-fast" data-preset="week5-6">【專題三】空間解析幾何 (24題)</button>
+              <button class="btn-fast" data-preset="week7-8">【專題四】定積分銜接 (9題)</button>
+              <button class="btn-fast" data-preset="week9-10">【專題五】集合與數歸 (8題)</button>
+              <button class="btn-fast btn-fast-cumul" data-preset="cumul-core">【前三專題核心】(58題)</button>
+              <button class="btn-fast btn-fast-all" data-preset="all">【全部開放】(75題)</button>
+              <button class="btn-fast btn-fast-clear" data-preset="none">【全部清空】(0題)</button>
+            </div>
+          </div>
+
+          <div class="ctrl-group">
+            <div class="ctrl-subhead">
+              <label class="ctrl-label">📋 專題自由勾選清單：</label>
+              <span class="paper-stat" id="paperStat">已選 0 / 5 專題 (0 題)</span>
+            </div>
+            <div class="papers-checklist" id="papersChecklist"></div>
+          </div>
+
+          <div class="ctrl-footer">
+            <button class="btn-qr" id="btnOpenQrModal">📱 大螢幕 QR 碼</button>
+            <button class="btn-copy-url" id="btnCopyStudentUrl">📋 複製學生專用網址</button>
+            <button class="btn-save-apply" id="btnSaveApply">💾 儲存並在當前生效</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 大螢幕 QR 碼 Modal -->
+  <div id="qrModal" class="qr-modal hidden">
+    <div class="qr-dialog">
+      <div class="qr-header">
+        <h3 class="qr-title">📱 學生端 iPad / 手機同步掃碼</h3>
+        <button class="modal-close" id="qrCloseBtn">✕</button>
+      </div>
+      <div class="qr-body">
+        <p class="qr-sub">請同學使用 iPad 或手機相機掃描，立即進入本週開放之空間向量思維本專題：</p>
+        <div class="qr-code-box" id="qrCodeContainer"></div>
+        <div class="qr-info-box">
+          <div class="qr-info-papers" id="qrActivePapersText">已開放專題：載入中...</div>
+          <div class="qr-url-row">
+            <input type="text" id="qrUrlInput" readonly />
+            <button class="btn-sm" id="btnCopyQrUrl">複製連結</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast 提示容器 -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- 純前端向量 QR 碼生成模組 -->
+  <script src="qrcode.min.js?v=20260925"></script>
+  <script src="svg.js?v=20260925"></script>
+
+  <!-- 空間向量專屬註冊表與進度控制設置 -->
+  <script>
+    window.STORAGE_KEY = 'vec_allowed_papers';
+    window.PAPER_REGISTRY = [
+      { id: 'vec-01', year: '空間向量篇', paper: '專題一', name: '專題一 空間向量的概念及運算', ch: '專題一 空間向量的概念及運算', count: 13, color: '#0284c7' },
+      { id: 'vec-02', year: '空間向量篇', paper: '專題二', name: '專題二 應用空間向量解決立體幾何問題', ch: '專題二 應用空間向量解決立體幾何問題', count: 21, color: '#0ea5e9' },
+      { id: 'vec-03', year: '空間向量篇', paper: '專題三', name: '專題三 空間解析幾何 — 平面、直線與球面', ch: '專題三 空間解析幾何', count: 24, color: '#6366f1' },
+      { id: 'vec-04', year: '銜接與複習', paper: '專題四', name: '專題四 定積分計算綜合（銜接題）', ch: '專題四 定積分計算綜合', count: 9, color: '#10b981' },
+      { id: 'vec-05', year: '銜接與複習', paper: '專題五', name: '專題五 基礎概念 — 集合與數學歸納法（總複習題）', ch: '專題五 集合與數學歸納法', count: 8, color: '#f59e0b' }
+    ];
+
+    window.CUSTOM_PRESET_HANDLER = function(presetKey, registry) {
+      if (presetKey === 'week1-2') return ['vec-01'];
+      if (presetKey === 'week3-4') return ['vec-02'];
+      if (presetKey === 'week5-6') return ['vec-03'];
+      if (presetKey === 'week7-8') return ['vec-04'];
+      if (presetKey === 'week9-10') return ['vec-05'];
+      if (presetKey === 'cumul-core') return ['vec-01', 'vec-02', 'vec-03'];
+      if (presetKey === 'all') return registry.map(p => p.id);
+      if (presetKey === 'none') return [];
+      return null;
+    };
+
+    window.CUSTOM_WEEK_PARAM_HANDLER = function(weekParam, registry) {
+      if (weekParam === '1-2') return ['vec-01'];
+      if (weekParam === '3-4') return ['vec-02'];
+      if (weekParam === '5-6') return ['vec-03'];
+      if (weekParam === '7-8') return ['vec-04'];
+      if (weekParam === '9-10') return ['vec-05'];
+      if (weekParam === 'core') return ['vec-01', 'vec-02', 'vec-03'];
+      return null;
+    };
+  </script>
+
+  <!-- 載入空間向量 5 大專題題目數據庫 -->
+  <script src="ch-vec-01.js?v=20260925"></script>
+  <script src="ch-vec-02.js?v=20260925"></script>
+  <script src="ch-vec-03.js?v=20260925"></script>
+  <script src="ch-vec-04.js?v=20260925"></script>
+  <script src="ch-vec-05.js?v=20260925"></script>
+
+  <!-- 簡報導覽與渲染引擎 -->
+  <script src="engine.js?v=20260925"></script>
+</body>
+</html>

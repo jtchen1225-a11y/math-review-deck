@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ommlCompilation title="高三理組數學思維本(2026) · 空間向量篇 參考答案 OMML 彙編" total="75" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+  <problem id="1" chapter="專題一 空間向量的概念及運算" qNum="單選題 第1題" topic="空間直角坐標系 — 關於坐標軸對稱點">
+    <latex>D</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>D</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="2" chapter="專題一 空間向量的概念及運算" qNum="單選題 第2題" topic="四點共面條件與法向量點乘">
+    <latex>B</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>B</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="3" chapter="專題一 空間向量的概念及運算" qNum="單選題 第3題" topic="空間向量垂直、平行與模長計算">
+    <latex>B</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>B</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="4" chapter="專題一 空間向量的概念及運算" qNum="單選題 第4題" topic="空間向量共線條件">
+    <latex>D</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>D</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="5" chapter="專題一 空間向量的概念及運算" qNum="單選題 第5題" topic="四面體中向量的線性運算與中點分解">
+    <latex>B</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>B</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="6" chapter="專題一 空間向量的概念及運算" qNum="單選題 第6題" topic="向量夾角為鈍角的條件與反向共線陷阱">
+    <latex>B</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>B</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="7" chapter="專題一 空間向量的概念及運算" qNum="單選題 第7題" topic="空間向量垂直條件與數量積">
+    <latex>A</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>A</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="8" chapter="專題一 空間向量的概念及運算" qNum="單選題 第8題" topic="向量數量積定義與夾角求解參數">
+    <latex>A</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>A</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="9" chapter="專題一 空間向量的概念及運算" qNum="單選題 第9題" topic="空間向量基底的判斷（線性無關性）">
+    <latex>D</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>D</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="10" chapter="專題一 空間向量的概念及運算" qNum="單選題 第10題" topic="空間向量平行垂直與模長計算綜合">
+    <latex>C</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>C</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="11" chapter="專題一 空間向量的概念及運算" qNum="單選題 第11題" topic="空間坐標對稱點、中點坐標與兩點間距離">
+    <latex>C</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>C</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="12" chapter="專題一 空間向量的概念及運算" qNum="解答題 第12題" topic="空間向量的加減、數量積與向量積 (叉積)">
+    <latex>(a) (-2, 1, -2)；(b) (1, 5, -11)；(c) -2；(d) (3, 10, 2)</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(a)(−2,1,−2)；(b)(1,5,−11)；(c)−2；(d)(3,10,2)</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="13" chapter="專題一 空間向量的概念及運算" qNum="解答題 第13題" topic="平行六面體的體積（混合積公式）">
+    <latex>15</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>15</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="14" chapter="專題二 應用空間向量解決立體幾何問題" qNum="單選題 第1題" topic="長方體中異面直線所成角的餘弦值">
+    <latex>D</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>D</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="15" chapter="專題二 應用空間向量解決立體幾何問題" qNum="單選題 第2題" topic="正方體中異面直線夾角餘弦值">
+    <latex>B</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>B</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="16" chapter="專題二 應用空間向量解決立體幾何問題" qNum="單選題 第3題" topic="斜三棱柱中異面直線所成角的餘弦值">
+    <latex>D</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>D</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="17" chapter="專題二 應用空間向量解決立體幾何問題" qNum="單選題 第4題" topic="正四棱柱中異面直線夾角">
+    <latex>C</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>C</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="18" chapter="專題二 應用空間向量解決立體幾何問題" qNum="單選題 第5題" topic="直三棱柱中異面直線夾角">
+    <latex>A</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>A</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="19" chapter="專題二 應用空間向量解決立體幾何問題" qNum="單選題 第6題" topic="正方體中直線與平面所成角的正弦值">
+    <latex>D</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>D</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="20" chapter="專題二 應用空間向量解決立體幾何問題" qNum="單選題 第7題" topic="直三棱柱中直線與側面所成角">
+    <latex>C</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>C</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="21" chapter="專題二 應用空間向量解決立體幾何問題" qNum="單選題 第8題" topic="長方體中體對角線與頂面所成角正弦值">
+    <latex>D</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>D</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="22" chapter="專題二 應用空間向量解決立體幾何問題" qNum="單選題 第9題" topic="斜三棱柱中體斜線與底面所成角正弦值">
+    <latex>B</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>B</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="23" chapter="專題二 應用空間向量解決立體幾何問題" qNum="單選題 第10題" topic="正四棱柱面面距離與斜線傾角">
+    <latex>D</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>D</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="24" chapter="專題二 應用空間向量解決立體幾何問題" qNum="解答題 第11題" topic="線面平行證明與線面角正弦值求解">
+    <latex>(a) 見步驟證明；(b) \frac{\sqrt{21}}{7}</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(a)見步驟證明；(b)</m:t></m:r><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:rad><m:radPr><m:degHide m:val="on"/></m:radPr><m:deg/><m:e><m:r><m:t>21</m:t></m:r></m:e></m:rad></m:num><m:den><m:r><m:t>7</m:t></m:r></m:den></m:f></m:oMath>
+  </problem>
+  <problem id="25" chapter="專題二 應用空間向量解決立體幾何問題" qNum="解答題 第12題" topic="直三棱柱中異面垂直證明與二面角求解">
+    <latex>(a) 見步驟證明；(b) \arccos\frac{\sqrt{15}}{5}</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(a)見步驟證明；(b)</m:t></m:r><m:r><m:rPr><m:sty m:val="p"/></m:rPr><m:t>arccos</m:t></m:r><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:rad><m:radPr><m:degHide m:val="on"/></m:radPr><m:deg/><m:e><m:r><m:t>15</m:t></m:r></m:e></m:rad></m:num><m:den><m:r><m:t>5</m:t></m:r></m:den></m:f></m:oMath>
+  </problem>
+  <problem id="26" chapter="專題二 應用空間向量解決立體幾何問題" qNum="解答題 第13題" topic="四棱錐中中點證明與二面角計算">
+    <latex>(a) 見步驟證明；(b) \arccos\left(-\frac{2\sqrt{30}}{15}\right)</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(a)見步驟證明；(b)</m:t></m:r><m:r><m:rPr><m:sty m:val="p"/></m:rPr><m:t>arccos</m:t></m:r><m:r><m:t>(−</m:t></m:r><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:r><m:t>2</m:t></m:r><m:rad><m:radPr><m:degHide m:val="on"/></m:radPr><m:deg/><m:e><m:r><m:t>30</m:t></m:r></m:e></m:rad></m:num><m:den><m:r><m:t>15</m:t></m:r></m:den></m:f><m:r><m:t>)</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="27" chapter="專題二 應用空間向量解決立體幾何問題" qNum="解答題 第14題" topic="四棱錐中線面平行、線面垂直與線面角正切值">
+    <latex>(a) 見步驟證明；(b) 見步驟證明；(c) \frac{1}{3}</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(a)見步驟證明；(b)見步驟證明；(c)</m:t></m:r><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f></m:oMath>
+  </problem>
+  <problem id="28" chapter="專題二 應用空間向量解決立體幾何問題" qNum="解答題 第15題" topic="四棱錐二面角與公共部分體積計算">
+    <latex>(a) 60^\circ；(b) \frac{4\sqrt{2}}{9}</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(a)</m:t></m:r><m:sSup><m:e><m:r><m:t>60</m:t></m:r></m:e><m:sup><m:r><m:t>∘</m:t></m:r></m:sup></m:sSup><m:r><m:t>；(b)</m:t></m:r><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:r><m:t>4</m:t></m:r><m:rad><m:radPr><m:degHide m:val="on"/></m:radPr><m:deg/><m:e><m:r><m:t>2</m:t></m:r></m:e></m:rad></m:num><m:den><m:r><m:t>9</m:t></m:r></m:den></m:f></m:oMath>
+  </problem>
+  <problem id="29" chapter="專題二 應用空間向量解決立體幾何問題" qNum="解答題 第16題" topic="面面垂直性質、線面平行與線面垂直點到直線距離">
+    <latex>(a) 見步驟證明；(b) 距離分別為 \frac{9}{4}, \frac{15}{4}</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(a)見步驟證明；(b)距離分別為</m:t></m:r><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:r><m:t>9</m:t></m:r></m:num><m:den><m:r><m:t>4</m:t></m:r></m:den></m:f><m:r><m:t>,</m:t></m:r><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:r><m:t>15</m:t></m:r></m:num><m:den><m:r><m:t>4</m:t></m:r></m:den></m:f></m:oMath>
+  </problem>
+  <problem id="30" chapter="專題二 應用空間向量解決立體幾何問題" qNum="解答題 第17題" topic="五面體中異面直線夾角、面面垂直證明與二面角餘弦值">
+    <latex>(a) 60^\circ；(b) 見步驟證明；(c) \frac{\sqrt{6}}{3}</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(a)</m:t></m:r><m:sSup><m:e><m:r><m:t>60</m:t></m:r></m:e><m:sup><m:r><m:t>∘</m:t></m:r></m:sup></m:sSup><m:r><m:t>；(b)見步驟證明；(c)</m:t></m:r><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:rad><m:radPr><m:degHide m:val="on"/></m:radPr><m:deg/><m:e><m:r><m:t>6</m:t></m:r></m:e></m:rad></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f></m:oMath>
+  </problem>
+  <problem id="31" chapter="專題二 應用空間向量解決立體幾何問題" qNum="解答題 第18題" topic="垂直正方形中線面角正弦值求解">
+    <latex>\frac{2\sqrt{5}}{5}</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:r><m:t>2</m:t></m:r><m:rad><m:radPr><m:degHide m:val="on"/></m:radPr><m:deg/><m:e><m:r><m:t>5</m:t></m:r></m:e></m:rad></m:num><m:den><m:r><m:t>5</m:t></m:r></m:den></m:f></m:oMath>
+  </problem>
+  <problem id="32" chapter="專題二 應用空間向量解決立體幾何問題" qNum="解答題 第19題" topic="三棱錐線面垂直、線面角與直二面角存在性探究">
+    <latex>(a) 見步驟證明；(b) 30^\circ；(c) 存在，當點 E 為 PC 的中點時</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(a)見步驟證明；(b)</m:t></m:r><m:sSup><m:e><m:r><m:t>30</m:t></m:r></m:e><m:sup><m:r><m:t>∘</m:t></m:r></m:sup></m:sSup><m:r><m:t>；(c)存在，當點E為PC的中點時</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="33" chapter="專題二 應用空間向量解決立體幾何問題" qNum="解答題 第20題" topic="正三棱柱面面垂直證明與線面角正弦值求解">
+    <latex>(a) 見步驟證明；(b) \frac{\sqrt{30}}{10}</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(a)見步驟證明；(b)</m:t></m:r><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:rad><m:radPr><m:degHide m:val="on"/></m:radPr><m:deg/><m:e><m:r><m:t>30</m:t></m:r></m:e></m:rad></m:num><m:den><m:r><m:t>10</m:t></m:r></m:den></m:f></m:oMath>
+  </problem>
+  <problem id="34" chapter="專題二 應用空間向量解決立體幾何問題" qNum="解答題 第21題" topic="直三棱柱中線面垂直推導等腰與二面角求線面角">
+    <latex>(a) 見步驟證明；(b) 30^\circ</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(a)見步驟證明；(b)</m:t></m:r><m:sSup><m:e><m:r><m:t>30</m:t></m:r></m:e><m:sup><m:r><m:t>∘</m:t></m:r></m:sup></m:sSup></m:oMath>
+  </problem>
+  <problem id="35" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="單選題 第1題" topic="兩平面的法向量夾角與面面銳二面角">
+    <latex>A</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>A</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="36" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="單選題 第2題" topic="平面點法式方程與點在平面內的判定">
+    <latex>C</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>C</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="37" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="單選題 第3題" topic="點到平面的距離公式">
+    <latex>C</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>C</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="38" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="單選題 第4題" topic="直線方向向量與平面法向量的位置關係">
+    <latex>C</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>C</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="39" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第5題" topic="平行平面的方程求解">
+    <latex>x + 2y - 3z + 3 = 0</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>x+2y−3z+3=0</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="40" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第6題" topic="空間三點確定平面方程式">
+    <latex>2x - 2y + z = 0</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>2x−2y+z=0</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="41" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第7題" topic="過三點的平面方程式">
+    <latex>x - 4y + z + 4 = 0</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>x−4y+z+4=0</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="42" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第8題" topic="線段的垂直平分面方程式">
+    <latex>x + y - z = 0</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>x+y−z=0</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="43" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第9題" topic="截距式平面方程與原點到平面距離">
+    <latex>\frac{12}{7}</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:r><m:t>12</m:t></m:r></m:num><m:den><m:r><m:t>7</m:t></m:r></m:den></m:f></m:oMath>
+  </problem>
+  <problem id="44" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第10題" topic="過定點垂直於兩已知平面的平面方程">
+    <latex>x - 3y - 4z - 2 = 0</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>x−3y−4z−2=0</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="45" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第11題" topic="過兩定點且垂直於已知平面的平面方程">
+    <latex>7x - y - 3z - 4 = 0</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>7x−y−3z−4=0</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="46" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第12題" topic="平行平面族與坐標軸截距和求解方程">
+    <latex>3x + 2y - 6z - 9 = 0</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>3x+2y−6z−9=0</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="47" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第13題" topic="兩平行平面間的距離公式">
+    <latex>\frac{5}{2}</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:r><m:t>5</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f></m:oMath>
+  </problem>
+  <problem id="48" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第14題" topic="過定點垂直於兩平面的平面方程">
+    <latex>x + z - 2 = 0</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>x+z−2=0</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="49" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第15題" topic="空間直線與各坐標面交點的坐標">
+    <latex>xOy面: (-5, 11, 0)；yOz面: (0, 7/2, 5/2)；zOx面: (7/3, 0, 11/3)</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>xOy面:(−5,11,0)；yOz面:(0,7/2,5/2)；zOx面:(7/3,0,11/3)</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="50" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第16題" topic="點關於平面的對稱點坐標">
+    <latex>(-5, 11, 0)</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(−5,11,0)</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="51" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第17題" topic="兩直線位置關係（相交與交點求解）">
+    <latex>(1) 不相交 (異面)；(2) 不相交 (異面)</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(1)不相交(異面)；(2)不相交(異面)</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="52" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第18題" topic="空間直線對稱式、方向向量與參數式判定">
+    <latex>(1), (3), (4) 正確</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(1),(3),(4)正確</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="53" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第19題" topic="求兩點確定的直線參數式與對稱式">
+    <latex>參數式: x=1+2t, y=5-t, z=-3+4t；對稱式: (x-1)/2 = (y-5)/(-1) = (z+3)/4</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>參數式:x=1+2t,y=5−t,z=−3+4t；對稱式:(x−1)/2=(y−5)/(−1)=(z+3)/4</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="54" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第20題" topic="求兩平面交線的對稱式與參數式方程">
+    <latex>對稱式: x/1 = (y-1)/(-2) = z/1</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>對稱式:x/1=(y−1)/(−2)=z/1</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="55" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第21題" topic="兩平行直線間距離求解">
+    <latex>\frac{2\sqrt{122}}{3}</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:r><m:t>2</m:t></m:r><m:rad><m:radPr><m:degHide m:val="on"/></m:radPr><m:deg/><m:e><m:r><m:t>122</m:t></m:r></m:e></m:rad></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f></m:oMath>
+  </problem>
+  <problem id="56" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第22題" topic="求兩相交直線的交點坐標">
+    <latex>(-2, 0, 1)</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(−2,0,1)</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="57" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第23題" topic="由兩相交直線確定平面方程">
+    <latex>3x - 5y - 4z - 15 = 0</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>3x−5y−4z−15=0</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="58" chapter="專題三 空間解析幾何 — 平面、直線與球面" qNum="解答題 第24題" topic="空間球面方程化標準式求球心與半徑">
+    <latex>球心坐標: (1, -2, 5/2)；半徑: \frac{\sqrt{85}}{2}</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>球心坐標:(1,−2,5/2)；半徑:</m:t></m:r><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:rad><m:radPr><m:degHide m:val="on"/></m:radPr><m:deg/><m:e><m:r><m:t>85</m:t></m:r></m:e></m:rad></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f></m:oMath>
+  </problem>
+  <problem id="59" chapter="專題四 定積分計算綜合（銜接題）" qNum="計算題 第5題" topic="二次函數待定係數與定積分計算">
+    <latex>\frac{16}{3}</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:r><m:t>16</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f></m:oMath>
+  </problem>
+  <problem id="60" chapter="專題四 定積分計算綜合（銜接題）" qNum="計算題 第6題" topic="拋物線及其兩條切線圍成圖形的面積">
+    <latex>\frac{16}{3}</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:r><m:t>16</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f></m:oMath>
+  </problem>
+  <problem id="61" chapter="專題四 定積分計算綜合（銜接題）" qNum="計算題 第7題" topic="拋物線切線與坐標軸圍成面積">
+    <latex>9</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>9</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="62" chapter="專題四 定積分計算綜合（銜接題）" qNum="計算題 第8題" topic="曲線繞 y 軸旋轉體積（碗狀立體）">
+    <latex>(a) \frac{81\pi}{2}；(b) \frac{81\pi}{10}</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(a)</m:t></m:r><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:r><m:t>81π</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:t>；(b)</m:t></m:r><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:r><m:t>81π</m:t></m:r></m:num><m:den><m:r><m:t>10</m:t></m:r></m:den></m:f></m:oMath>
+  </problem>
+  <problem id="63" chapter="專題四 定積分計算綜合（銜接題）" qNum="計算題 第9題" topic="旋轉體體積計算（繞 y 軸）">
+    <latex>\frac{122\pi}{3}</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:r><m:t>122π</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f></m:oMath>
+  </problem>
+  <problem id="64" chapter="專題四 定積分計算綜合（銜接題）" qNum="計算題 第10題" topic="多曲線圍成區域繞 x 軸旋轉體積">
+    <latex>\frac{16\pi(9\sqrt{3} - 4\sqrt{2} - 1)}{15}</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:r><m:t>16π(9</m:t></m:r><m:rad><m:radPr><m:degHide m:val="on"/></m:radPr><m:deg/><m:e><m:r><m:t>3</m:t></m:r></m:e></m:rad><m:r><m:t>−4</m:t></m:r><m:rad><m:radPr><m:degHide m:val="on"/></m:radPr><m:deg/><m:e><m:r><m:t>2</m:t></m:r></m:e></m:rad><m:r><m:t>−1)</m:t></m:r></m:num><m:den><m:r><m:t>15</m:t></m:r></m:den></m:f></m:oMath>
+  </problem>
+  <problem id="65" chapter="專題四 定積分計算綜合（銜接題）" qNum="B部 第11題" topic="黎曼和極限轉化為定積分計算">
+    <latex>(1) \frac{2}{3}；(2) 32</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(1)</m:t></m:r><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:r><m:t>2</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>；(2)32</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="66" chapter="專題四 定積分計算綜合（銜接題）" qNum="B部 第12題" topic="變上限積分方程與多項式係數確定">
+    <latex>(a) f(x) = 3x^2 + 2x + 2, g(x) = 6x^2 - 2x - 1；(b) a = -8, b = -4</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(a)f(x)=3</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>+2x+2,g(x)=6</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>−2x−1；(b)a=−8,b=−4</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="67" chapter="專題四 定積分計算綜合（銜接題）" qNum="B部 第13題" topic="含參三次多項式面積函數與極值求解">
+    <latex>(a) A(k) = 1 + \frac{1}{2}k^2；(b) 最大值 3/2，最小值 1</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>(a)A(k)=1+</m:t></m:r><m:f><m:fPr><m:type m:val="bar"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:sSup><m:e><m:r><m:t>k</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>；(b)最大值3/2，最小值1</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="68" chapter="專題五 基礎概念 — 集合與數學歸納法（總複習題）" qNum="四校聯考 2023 正卷" topic="二次不等式解集與集合交集運算">
+    <latex>E</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>E</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="69" chapter="專題五 基礎概念 — 集合與數學歸納法（總複習題）" qNum="UMB (2013) 第1題" topic="四次整係數不等式整數解集合">
+    <latex>A = \{-3, -2, -1, 0, 3, 4, 5\}</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>A={−3,−2,−1,0,3,4,5}</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="70" chapter="專題五 基礎概念 — 集合與數學歸納法（總複習題）" qNum="UMB (2014) 第2題" topic="倍數計數與容斥原理應用">
+    <latex>85</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>85</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="71" chapter="專題五 基礎概念 — 集合與數學歸納法（總複習題）" qNum="內地聯招 (2014) 第3題" topic="二次不等式與開區間交集為空集判定">
+    <latex>B</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>B</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="72" chapter="專題五 基礎概念 — 集合與數學歸納法（總複習題）" qNum="內地聯招 (2015) 第4題" topic="有限集合滿足條件的子集個數組合計數">
+    <latex>C</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>C</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="73" chapter="專題五 基礎概念 — 集合與數學歸納法（總複習題）" qNum="內地聯招 (2016) 第5題" topic="絕對值不等式與指數不等式交集">
+    <latex>A</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>A</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="74" chapter="專題五 基礎概念 — 集合與數學歸納法（總複習題）" qNum="澳門科大 (2014) 第6題" topic="指數增長與多項式增長大小比較及數學歸納法證明">
+    <latex>2^n > (n + 1)^2 \quad (n \ge 6)</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:sSup><m:e><m:r><m:t>2</m:t></m:r></m:e><m:sup><m:r><m:t>n</m:t></m:r></m:sup></m:sSup><m:r><m:t>&gt;(n+1</m:t></m:r><m:sSup><m:e><m:r><m:t>)</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>(n≥6)</m:t></m:r></m:oMath>
+  </problem>
+  <problem id="75" chapter="專題五 基礎概念 — 集合與數學歸納法（總複習題）" qNum="澳門科大 (2015) 第7題" topic="整除性命題的數學歸納法證明">
+    <latex>見步驟完整證明</latex>
+    <m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML"><m:r><m:t>見步驟完整證明</m:t></m:r></m:oMath>
+  </problem>
+</ommlCompilation>
