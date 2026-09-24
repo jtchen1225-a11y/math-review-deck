@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>澳門四校聯考（JAE）數學總複習 · 正卷與附加卷互動教學簡報</title>
-  <meta name="description" content="澳門四校聯合入學考試數學正卷與附加卷一頁一題互動複習簡報" />
-  <link rel="stylesheet" href="style.css?v=20260914" />
+  <title>高三理組數學思維本 (2026) · 微積分篇互動教學簡報</title>
+  <meta name="description" content="澳門高三理組數學思維本微積分篇一頁一題互動投影教學簡報" />
+  <link rel="stylesheet" href="style.css?v=20260924" />
   <script>
     window.MathJax = {
       tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
@@ -22,18 +22,18 @@
       <button class="cover-teacher-btn" id="coverTeacherBtn" title="教師專用：設定課堂開放進度">⚙️ 課堂進度控制</button>
     </div>
     <div class="cover-inner">
-      <p class="cover-eyebrow">澳門四校聯合入學考試 · 數學科高三總複習</p>
-      <h1 class="cover-title">四校聯考 數學總複習</h1>
-      <p class="cover-sub">正卷（選擇題＋解答題） · 附加卷（微積分＋複數） · 一頁一題 · 左題右解 · 動態探究</p>
+      <p class="cover-eyebrow">澳門高三理組高等數學 · 思維本微積分專題總複習</p>
+      <h1 class="cover-title">高三理組數學思維本<br><span style="font-size: 0.85em; opacity: 0.95; color: #60a5fa;">微積分篇</span></h1>
+      <p class="cover-sub">導數運算 · 切線極值最優化 · 物理應用 · 不定積分技巧 · 定積分與旋轉體 · 空間向量</p>
       
-      <!-- 傳送門：切換至高三理組數學思維本微積分篇 -->
+      <!-- 傳送門：切換至澳門四校聯考歷屆真題 -->
       <div style="margin: 14px 0 18px 0;">
-        <a href="calculus.html" class="portal-link-btn" style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.22);color:#93c5fd;text-decoration:none;border-radius:20px;font-size:0.9rem;font-weight:500;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:all .2s;">📐 切換至：高三理組數學思維本(2026) 微積分篇 ›</a>
+        <a href="index.html" class="portal-link-btn" style="display:inline-block;padding:8px 20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.22);color:#93c5fd;text-decoration:none;border-radius:20px;font-size:0.9rem;font-weight:500;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:all .2s;">🎯 切換至：澳門四校聯考（JAE）歷屆真題 ›</a>
       </div>
 
       <div class="cover-chapters" id="coverChapters"></div>
-      <button class="cover-start" id="startBtn">開始試題探究 →</button>
-      <p class="cover-hint">用 ← → 鍵換題 · A 鍵展開解答 · 投影全螢幕 · 虛擬雷射筆與畫筆</p>
+      <button class="cover-start" id="startBtn">開始微積分探究 →</button>
+      <p class="cover-hint">用 ← → 鍵換題 · K 鍵展開考點 · A 鍵展開解答 · Q 鍵放大題目 · 虛擬雷射筆與畫筆</p>
     </div>
   </section>
 
@@ -41,7 +41,7 @@
   <div id="app" class="app hidden">
     <!-- 頂部列 -->
     <header class="topbar">
-      <button class="home-btn" id="homeBtn" title="回封面">✦ 複習範本</button>
+      <button class="home-btn" id="homeBtn" title="回封面">✦ 微積分思維本</button>
       <div class="crumb" id="crumb"></div>
       <div class="top-actions">
         <button class="ghost-btn teacher-ctrl-btn" id="topTeacherBtn" title="課堂開放進度控制">⚙️ 課堂進度控制</button>
@@ -117,7 +117,7 @@
         <button class="modal-close" id="pinCloseBtn">✕</button>
       </div>
       <div class="pin-body">
-        <p class="pin-desc">請輸入教師管理 PIN 碼（預設：<b>8888</b>），以切換課堂進度與試卷開放權限：</p>
+        <p class="pin-desc">請輸入教師管理 PIN 碼（預設：<b>8888</b>），以切換微積分進度與章節開放權限：</p>
         <div class="pin-input-row">
           <input type="password" id="pinInput" maxlength="8" placeholder="請輸入 4 位數 PIN 碼" autocomplete="off" />
           <button class="btn-primary" id="pinSubmitBtn">進入面板</button>
@@ -131,26 +131,25 @@
   <div id="teacherModal" class="modal-overlay hidden">
     <div class="modal-card teacher-card">
       <div class="modal-head">
-        <div class="modal-title">⚙️ 課堂實驗開放進度控制</div>
+        <div class="modal-title">⚙️ 微積分思維本 · 課堂進度控制</div>
         <button class="modal-close" id="teacherCloseBtn">✕</button>
       </div>
       <div class="teacher-body">
         <div class="teacher-tip">
-          💡 <b>以學生進度為第一原則</b>：僅勾選當前課堂開放的試卷，學生開啟後僅能查看許可試卷，未解鎖試卷與解答完全隱藏。
+          💡 <b>以學生進度為第一原則</b>：僅勾選當前課堂開放的專題，學生開啟後僅能查看許可專題，未解鎖章節與解答完全隱藏。
         </div>
 
         <!-- 快速進度按鈕 -->
         <div class="preset-section">
           <div class="section-label">⚡ 快速進度選取（依教學週次）：</div>
           <div class="preset-grid">
-            <button class="preset-btn" data-preset="week1-2">【第 1、2 週】2025 全卷</button>
-            <button class="preset-btn" data-preset="week3-4">【第 3、4 週】2024 全卷</button>
-            <button class="preset-btn" data-preset="week5-6">【第 5、6 週】2023 全卷</button>
-            <button class="preset-btn" data-preset="week7-8">【第 7、8 週】2022 全卷</button>
-            <button class="preset-btn" data-preset="week9-10">【第 9、10 週】2021 全卷</button>
-            <button class="preset-btn preset-secondary" data-preset="cumul-4w">【前 4 週累計】25+24</button>
-            <button class="preset-btn preset-secondary" data-preset="cumul-6w">【前 6 週累計】25+24+23</button>
-            <button class="preset-btn preset-all" data-preset="all">【全部開放 (10 卷)】</button>
+            <button class="preset-btn" data-preset="week1-2">【第 1、2 週】專題一 導數與微分</button>
+            <button class="preset-btn" data-preset="week3-4">【第 3、4 週】專題二 導數的應用</button>
+            <button class="preset-btn" data-preset="week5-6">【第 5、6 週】物理應用 + 不定積分</button>
+            <button class="preset-btn" data-preset="week7-8">【第 7、8 週】定積分與幾何旋轉體</button>
+            <button class="preset-btn" data-preset="week9-10">【第 9、10 週】空間向量</button>
+            <button class="preset-btn preset-secondary" data-preset="cumul-4w">【前 4 週累計】專題一 + 專題二</button>
+            <button class="preset-btn preset-all" data-preset="all">【全部開放 (6 專題)】</button>
             <button class="preset-btn preset-clear" data-preset="none">【全部清空】</button>
           </div>
         </div>
@@ -158,11 +157,11 @@
         <!-- 自由勾選清單 -->
         <div class="papers-section">
           <div class="papers-header">
-            <div class="section-label">📋 5 年試卷自由勾選（共 10 卷 · 125 題）：</div>
-            <span class="selected-count" id="selectedCountBadge">已選 0 卷 (0 題)</span>
+            <div class="section-label">📋 6 大微積分專題自由勾選（共 94 題組 · 涵蓋全冊 122 題）：</div>
+            <span class="selected-count" id="selectedCountBadge">已選 0 專題 (0 題)</span>
           </div>
           <div class="paper-year-grid" id="paperCheckboxContainer">
-            <!-- 由 JS 動態生成 5 年 10 卷卡片與勾選框 -->
+            <!-- 由 JS 動態生成專題卡片與勾選框 -->
           </div>
         </div>
 
@@ -190,10 +189,10 @@
         <button class="modal-close" id="qrCloseBtn">✕</button>
       </div>
       <div class="qr-body">
-        <p class="qr-sub">請同學使用 iPad 或手機相機掃描，立即進入本週開放之四校聯考複習試卷：</p>
+        <p class="qr-sub">請同學使用 iPad 或手機相機掃描，立即進入本週開放之微積分思維本專題：</p>
         <div class="qr-code-box" id="qrCodeContainer"></div>
         <div class="qr-info-box">
-          <div class="qr-info-papers" id="qrActivePapersText">已開放試卷：載入中...</div>
+          <div class="qr-info-papers" id="qrActivePapersText">已開放專題：載入中...</div>
           <div class="qr-url-row">
             <input type="text" id="qrUrlInput" readonly />
             <button class="btn-sm" id="btnCopyQrUrl">複製連結</button>
@@ -209,17 +208,50 @@
   <!-- 純前端向量 QR 碼生成模組 -->
   <script src="qrcode.min.js?v=20260915"></script>
   <script src="svg.js?v=20260914"></script>
-  <!-- 澳門四校聯考（JAE）2021~2025 歷屆正卷與附加卷完整題庫 (10 卷 · 共 125 題) -->
-  <script src="ch-2025-standard.js?v=20260914"></script>
-  <script src="ch-2025-supp.js?v=20260914"></script>
-  <script src="ch-2024-standard.js?v=20260914"></script>
-  <script src="ch-2024-supp.js?v=20260914"></script>
-  <script src="ch-2023-standard.js?v=20260914"></script>
-  <script src="ch-2023-supp.js?v=20260914"></script>
-  <script src="ch-2022-standard.js?v=20260914"></script>
-  <script src="ch-2022-supp.js?v=20260914"></script>
-  <script src="ch-2021-standard.js?v=20260914"></script>
-  <script src="ch-2021-supp.js?v=20260914"></script>
-  <script src="engine.js?v=20260915"></script>
+
+  <!-- 微積分專屬註冊表與進度控制設置 -->
+  <script>
+    window.STORAGE_KEY = 'calc_allowed_papers';
+    window.PAPER_REGISTRY = [
+      { id: 'calc-01', year: '微積分篇', paper: '專題一', name: '專題一 導數的定義、常見函數的導數與運算法則', ch: '專題一 導數與微分', count: 33, color: '#2563eb' },
+      { id: 'calc-02', year: '微積分篇', paper: '專題二', name: '專題二 導數的應用 — 曲線的切線、單調性、極值、拐點與最優化', ch: '專題二 導數的應用', count: 23, color: '#059669' },
+      { id: 'calc-03', year: '微積分篇', paper: '專題三', name: '專題三 微積分在物理上的應用 — 運動學、做功與流量', ch: '專題三 物理應用', count: 8, color: '#d97706' },
+      { id: 'calc-04', year: '微積分篇', paper: '專題四', name: '專題四 不定積分的定義、運算法則與積分技巧', ch: '專題四 不定積分', count: 10, color: '#7c3aed' },
+      { id: 'calc-05', year: '微積分篇', paper: '專題五', name: '專題五 定積分的運算、幾何面積與旋轉體體積', ch: '專題五 定積分與幾何', count: 14, color: '#e11d48' },
+      { id: 'calc-06', year: '微積分篇', paper: '專題六', name: '專題六 空間向量的概念與運算（進階拓展）', ch: '專題六 空間向量', count: 6, color: '#0284c7' }
+    ];
+
+    window.CUSTOM_PRESET_HANDLER = function(presetKey, registry) {
+      if (presetKey === 'week1-2') return ['calc-01'];
+      if (presetKey === 'week3-4') return ['calc-02'];
+      if (presetKey === 'week5-6') return ['calc-03', 'calc-04'];
+      if (presetKey === 'week7-8') return ['calc-05'];
+      if (presetKey === 'week9-10') return ['calc-06'];
+      if (presetKey === 'cumul-4w') return ['calc-01', 'calc-02'];
+      if (presetKey === 'all') return registry.map(p => p.id);
+      if (presetKey === 'none') return [];
+      return null;
+    };
+
+    window.CUSTOM_WEEK_PARAM_HANDLER = function(weekParam, registry) {
+      if (weekParam === '1-2') return ['calc-01'];
+      if (weekParam === '3-4') return ['calc-02'];
+      if (weekParam === '5-6') return ['calc-03', 'calc-04'];
+      if (weekParam === '7-8') return ['calc-05'];
+      if (weekParam === '9-10') return ['calc-06'];
+      return null;
+    };
+  </script>
+
+  <!-- 載入微積分 6 大專題題目數據庫 -->
+  <script src="ch-calc-01.js?v=20260924"></script>
+  <script src="ch-calc-02.js?v=20260924"></script>
+  <script src="ch-calc-03.js?v=20260924"></script>
+  <script src="ch-calc-04.js?v=20260924"></script>
+  <script src="ch-calc-05.js?v=20260924"></script>
+  <script src="ch-calc-06.js?v=20260924"></script>
+
+  <!-- 簡報導覽與渲染引擎 -->
+  <script src="engine.js?v=20260924"></script>
 </body>
 </html>

@@ -5,8 +5,8 @@
 (function () {
   const RAW_DECK = (window.DECK || []).slice();
 
-  // 試卷註冊表（5 年 10 卷元資料）
-  const PAPER_REGISTRY = [
+  // 試卷註冊表（5 年 10 卷元資料，亦可由頁面 window.PAPER_REGISTRY 自訂注入）
+  const PAPER_REGISTRY = window.PAPER_REGISTRY || [
     { id: '2025-std', year: '2025', paper: '正卷', name: '2025 澳門四校聯考 數學正卷', ch: '2025 正卷', count: 20, color: '#2563eb' },
     { id: '2025-sup', year: '2025', paper: '附加卷', name: '2025 澳門四校聯考 數學附加卷', ch: '2025 附加卷', count: 5, color: '#7c3aed' },
     { id: '2024-std', year: '2024', paper: '正卷', name: '2024 澳門四校聯考 數學正卷', ch: '2024 正卷', count: 20, color: '#059669' },
@@ -33,6 +33,10 @@
     }
     const weekParam = params.get('week');
     if (weekParam) {
+      if (typeof window.CUSTOM_WEEK_PARAM_HANDLER === 'function') {
+        const customIds = window.CUSTOM_WEEK_PARAM_HANDLER(weekParam, PAPER_REGISTRY);
+        if (customIds) return customIds;
+      }
       if (weekParam === '1-2') return ['2025-std', '2025-sup'];
       if (weekParam === '3-4') return ['2024-std', '2024-sup'];
       if (weekParam === '5-6') return ['2023-std', '2023-sup'];
@@ -40,7 +44,8 @@
       if (weekParam === '9-10') return ['2021-std', '2021-sup'];
     }
     try {
-      const saved = localStorage.getItem('jae_allowed_papers');
+      const storageKey = window.STORAGE_KEY || 'jae_allowed_papers';
+      const saved = localStorage.getItem(storageKey);
       if (saved) {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length) return parsed;
@@ -57,7 +62,8 @@
     currentAllowedIds = allowedIds;
     if (shouldSave) {
       try {
-        localStorage.setItem('jae_allowed_papers', JSON.stringify(allowedIds));
+        const storageKey = window.STORAGE_KEY || 'jae_allowed_papers';
+        localStorage.setItem(storageKey, JSON.stringify(allowedIds));
       } catch (e) {}
     }
 
@@ -1118,16 +1124,16 @@
     container.innerHTML = '';
 
     const selectedSet = new Set(selectedIds);
-    const years = ['2025', '2024', '2023', '2022', '2021'];
+    const years = Array.from(new Set(PAPER_REGISTRY.map(p => p.year || '專題')));
 
     years.forEach(yr => {
-      const papers = PAPER_REGISTRY.filter(p => p.year === yr);
+      const papers = PAPER_REGISTRY.filter(p => (p.year || '專題') === yr);
       const row = document.createElement('div');
       row.className = 'year-row';
 
       const label = document.createElement('div');
       label.className = 'year-label';
-      label.innerHTML = `<span>📅</span> ${yr} 年`;
+      label.innerHTML = `<span>${/^\d+$/.test(yr) ? '📅 ' + yr + ' 年' : '📚 ' + yr}</span>`;
       row.appendChild(label);
 
       papers.forEach(p => {
@@ -1177,6 +1183,13 @@
   }
 
   function selectPreset(presetKey) {
+    if (typeof window.CUSTOM_PRESET_HANDLER === 'function') {
+      const customIds = window.CUSTOM_PRESET_HANDLER(presetKey, PAPER_REGISTRY);
+      if (customIds) {
+        renderTeacherCheckboxes(customIds);
+        return;
+      }
+    }
     let ids = [];
     if (presetKey === 'week1-2') ids = ['2025-std', '2025-sup'];
     else if (presetKey === 'week3-4') ids = ['2024-std', '2024-sup'];
@@ -1201,10 +1214,13 @@
 
   function getPapersSummaryText(selectedIds) {
     if (!selectedIds.length) return '無（尚未開放）';
-    if (selectedIds.length === PAPER_REGISTRY.length) return '全部 10 份試卷（共 125 題）';
+    if (selectedIds.length === PAPER_REGISTRY.length) {
+      const totalQ = PAPER_REGISTRY.reduce((s, p) => s + (p.count || 0), 0);
+      return `全部 ${PAPER_REGISTRY.length} 個模組（共 ${totalQ} 題）`;
+    }
     return selectedIds.map(id => {
       const p = PAPER_REGISTRY.find(x => x.id === id);
-      return p ? `${p.year} ${p.paper}` : id;
+      return p ? (p.name || `${p.year} ${p.paper}`) : id;
     }).join('、');
   }
 
