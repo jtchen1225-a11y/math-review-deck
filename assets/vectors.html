@@ -105,6 +105,10 @@
       <button class="dbtn" id="dkClear" title="清除所有筆跡 (C)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
       </button>
+      <div class="dsep"></div>
+      <button class="dbtn" id="dkFull" title="全螢幕">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+      </button>
     </div>
   </div>
 
@@ -122,61 +126,83 @@
     </div>
   </div>
 
-  <!-- 教師進度控制 Modal -->
-  <div id="teacherModal" class="teacher-modal hidden">
-    <div class="teacher-dialog">
-      <div class="teacher-header">
-        <h3 class="teacher-title">⚙️ 空間向量篇 · 課堂開放進度控制</h3>
+  <!-- 教師身分驗證 PIN 碼彈窗 -->
+  <div id="pinModal" class="modal-overlay hidden">
+    <div class="modal-card pin-card">
+      <div class="modal-head">
+        <div class="modal-title">🔐 教師身分驗證</div>
+        <button class="modal-close" id="pinCloseBtn">✕</button>
+      </div>
+      <div class="pin-body">
+        <p class="pin-desc">請輸入教師管理 PIN 碼（預設：<b>8888</b>），以切換空間向量進度與專題開放權限：</p>
+        <div class="pin-input-row">
+          <input type="password" id="pinInput" maxlength="8" placeholder="請輸入 4 位數 PIN 碼" autocomplete="off" />
+          <button class="btn-primary" id="pinSubmitBtn">進入面板</button>
+        </div>
+        <div class="pin-err hidden" id="pinError">⚠️ PIN 碼不正確，請重新輸入（預設為 8888）</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 課堂實驗開放進度控制教師面板 -->
+  <div id="teacherModal" class="modal-overlay hidden">
+    <div class="modal-card teacher-card">
+      <div class="modal-head">
+        <div class="modal-title">⚙️ 空間向量篇 · 課堂進度控制</div>
         <button class="modal-close" id="teacherCloseBtn">✕</button>
       </div>
       <div class="teacher-body">
-        <div id="pinSection" class="pin-section">
-          <p class="pin-tip">請輸入教師管理 PIN 碼（預設：8888）：</p>
-          <div class="pin-input-row">
-            <input type="password" id="pinInput" maxlength="8" placeholder="輸入 PIN 碼" autocomplete="off" />
-            <button class="btn-primary" id="btnPinSubmit">驗證並進入</button>
-          </div>
-          <p id="pinError" class="pin-error hidden">PIN 碼不正確，請重新輸入</p>
+        <div class="teacher-tip">
+          💡 <b>以學生進度為第一原則</b>：僅勾選當前課堂開放的專題，學生開啟後僅能查看許可專題，未解鎖章節與解答完全隱藏。
         </div>
 
-        <div id="controlSection" class="control-section hidden">
-          <div class="ctrl-group">
-            <label class="ctrl-label">🚀 快速開放進度（點擊即刻選取）：</label>
-            <div class="fast-btn-grid">
-              <button class="btn-fast" data-preset="week1-2">【專題一】空間向量概念 (13題)</button>
-              <button class="btn-fast" data-preset="week3-4">【專題二】立體幾何應用 (21題)</button>
-              <button class="btn-fast" data-preset="week5-6">【專題三】空間解析幾何 (24題)</button>
-              <button class="btn-fast" data-preset="week7-8">【專題四】定積分銜接 (9題)</button>
-              <button class="btn-fast" data-preset="week9-10">【專題五】集合與數歸 (8題)</button>
-              <button class="btn-fast btn-fast-cumul" data-preset="cumul-core">【前三專題核心】(58題)</button>
-              <button class="btn-fast btn-fast-all" data-preset="all">【全部開放】(75題)</button>
-              <button class="btn-fast btn-fast-clear" data-preset="none">【全部清空】(0題)</button>
-            </div>
+        <!-- 快速進度按鈕 -->
+        <div class="preset-section">
+          <div class="section-label">⚡ 快速進度選取（依教學週次）：</div>
+          <div class="preset-grid">
+            <button class="preset-btn" data-preset="week1-2">【第 1、2 週】專題一 空間向量概念 (13題)</button>
+            <button class="preset-btn" data-preset="week3-4">【第 3、4 週】專題二 立體幾何應用 (21題)</button>
+            <button class="preset-btn" data-preset="week5-6">【第 5、6 週】專題三 空間解析幾何 (24題)</button>
+            <button class="preset-btn" data-preset="week7-8">【第 7、8 週】專題四 定積分銜接 (9題)</button>
+            <button class="preset-btn" data-preset="week9-10">【第 9、10 週】專題五 集合與數歸 (8題)</button>
+            <button class="preset-btn preset-secondary" data-preset="cumul-core">【前 3 專題核心】專題一～三 (58題)</button>
+            <button class="preset-btn preset-all" data-preset="all">【全部開放 (5 專題 · 75題)】</button>
+            <button class="preset-btn preset-clear" data-preset="none">【全部清空】</button>
           </div>
+        </div>
 
-          <div class="ctrl-group">
-            <div class="ctrl-subhead">
-              <label class="ctrl-label">📋 專題自由勾選清單：</label>
-              <span class="paper-stat" id="paperStat">已選 0 / 5 專題 (0 題)</span>
-            </div>
-            <div class="papers-checklist" id="papersChecklist"></div>
+        <!-- 自由勾選清單 -->
+        <div class="papers-section">
+          <div class="papers-header">
+            <div class="section-label">📋 5 大空間向量專題自由勾選（共 75 題卡 · 100% 原生 OMML）：</div>
+            <span class="selected-count" id="selectedCountBadge">已選 0 專題 (0 題)</span>
           </div>
+          <div class="paper-year-grid" id="paperCheckboxContainer">
+            <!-- 由 JS 動態生成專題卡片與勾選框 -->
+          </div>
+        </div>
 
-          <div class="ctrl-footer">
-            <button class="btn-qr" id="btnOpenQrModal">📱 大螢幕 QR 碼</button>
-            <button class="btn-copy-url" id="btnCopyStudentUrl">📋 複製學生專用網址</button>
-            <button class="btn-save-apply" id="btnSaveApply">💾 儲存並在當前生效</button>
-          </div>
+        <!-- 操作按鈕列 -->
+        <div class="teacher-actions">
+          <button class="btn-action btn-qr" id="btnShowQr">
+            <span>📱 大螢幕 QR 碼</span>
+          </button>
+          <button class="btn-action btn-copy" id="btnCopyStudentUrl">
+            <span>📋 複製學生網址</span>
+          </button>
+          <button class="btn-action btn-save" id="btnSaveApply">
+            <span>💾 儲存並在當前生效</span>
+          </button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 大螢幕 QR 碼 Modal -->
-  <div id="qrModal" class="qr-modal hidden">
-    <div class="qr-dialog">
-      <div class="qr-header">
-        <h3 class="qr-title">📱 學生端 iPad / 手機同步掃碼</h3>
+  <!-- 大螢幕 QR 碼視窗 -->
+  <div id="qrModal" class="modal-overlay hidden">
+    <div class="modal-card qr-card">
+      <div class="modal-head">
+        <div class="modal-title">📱 學生專用大螢幕掃碼同步</div>
         <button class="modal-close" id="qrCloseBtn">✕</button>
       </div>
       <div class="qr-body">

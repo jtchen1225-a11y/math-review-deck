@@ -989,13 +989,13 @@
   window.addEventListener('touchend', penEnd);
 
   // 工具列按鈕
-  $('dkSidebar').onclick = toggleSidebar;
-  $('dkPrev').onclick = prev;
-  $('dkNext').onclick = next;
-  $('dkLaser').onclick = () => setLaser(!laserOn);
-  $('dkPen').onclick = () => setPen(!penOn);
-  $('dkClear').onclick = clearPen;
-  $('dkErase').onclick = () => {
+  if ($('dkSidebar')) $('dkSidebar').onclick = toggleSidebar;
+  if ($('dkPrev')) $('dkPrev').onclick = prev;
+  if ($('dkNext')) $('dkNext').onclick = next;
+  if ($('dkLaser')) $('dkLaser').onclick = () => setLaser(!laserOn);
+  if ($('dkPen')) $('dkPen').onclick = () => setPen(!penOn);
+  if ($('dkClear')) $('dkClear').onclick = clearPen;
+  if ($('dkErase')) $('dkErase').onclick = () => {
     erasing = !erasing;
     $('dkErase').classList.toggle('active', erasing);
     if (erasing && !penOn) setPen(true);
@@ -1003,12 +1003,12 @@
   document.querySelectorAll('.dcolor').forEach(b => {
     b.onclick = () => {
       penColor = b.dataset.c; erasing = false;
-      $('dkErase').classList.remove('active');
+      if ($('dkErase')) $('dkErase').classList.remove('active');
       document.querySelectorAll('.dcolor').forEach(x => x.classList.toggle('active', x === b));
       if (!penOn) setPen(true);
     };
   });
-  $('dkFull').onclick = () => {
+  if ($('dkFull')) $('dkFull').onclick = () => {
     if (!document.fullscreenElement) (document.documentElement.requestFullscreen && document.documentElement.requestFullscreen());
     else document.exitFullscreen();
   };
