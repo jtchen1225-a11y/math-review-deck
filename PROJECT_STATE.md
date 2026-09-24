@@ -67,7 +67,14 @@
   7. 💾 儲存並在當前生效：`localStorage` 儲存並即時重組題庫、重繪封面卡與目錄樹，免重新整理。
   8. 同步至 `assets/` 與全域技能目錄。
 
-### 📅 2026-09-24 09:12 (本次更新)
+### 📅 2026-09-24 09:30 (修復 calculus.html 渲染與部署問題)
+- **本次修復焦點**：
+  1. 根因排查：在 `engine.js` 模版字串中誤用未定義變數 `${globalIdx}`（正確應為 `${idx}`），導致任何題目在執行 `render()` 時拋出 `ReferenceError: globalIdx is not defined`，畫面被中斷無法渲染題目卡片。
+  2. 實裝 `window.copyCurrentOMML` 核心函數與 `fallbackCopy` 文字區域複製邏輯，確保在 iPad、Chrome、Edge、Safari 等各類瀏覽器皆能穩定一鍵複製 Word 原生 OMML 公式。
+  3. 增強封面使用者體驗：為封面 6 大專題卡片加入點擊跳轉事件（`card.onclick`），點擊任一章節卡片即可直接開啟簡報並定位至該專題。
+  4. 經 Node.js 完整模擬 300 步 `next()` 導航、換題、放大視窗與 OMML 複製，100% 通過（零錯誤）。
+
+### 📅 2026-09-24 09:12 (前次更新)
 - **本次完成重點**：
   1. 覆查網頁版《微積分思維本（2026）》全書 6 大專題、94 張卡片（122 題組）的參考答案位置與 LaTeX 定界符，修復 57 處遺漏 `$` 導致 MathJax 未能美化渲染的問題，並修復單選題第 1 題選項 C、D。
   2. 透過微軟官方 OMML 轉換引擎（`MML2OMML.XSL` + `latex2mathml`）將全書 94 題全部參考答案轉化為微軟 Word 原生 OMML 方程式，並直接植入 `solution.omml`。

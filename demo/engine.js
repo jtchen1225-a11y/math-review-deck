@@ -285,7 +285,7 @@
          ${s.solution && s.solution.ans ? `
           <div class="zoom-ans" style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
             <span>參考答案：${s.solution.ans}</span>
-            ${s.solution.omml ? `<button class="jae-copy-omml-btn" onclick="window.copyCurrentOMML(this, ${globalIdx})" title="複製微軟 Word 原生 OMML 數學方程式代碼">📋 複製 Word OMML</button>` : ''}
+            ${s.solution.omml ? `<button class="jae-copy-omml-btn" onclick="window.copyCurrentOMML(this, ${idx})" title="複製微軟 Word 原生 OMML 數學方程式代碼">📋 複製 Word OMML</button>` : ''}
           </div>
         ` : ''}
          ${s.solution && s.solution.quickTip ? `<div class="zoom-quick-tip">⚡ <b>聯考速解訣竅：</b>${s.solution.quickTip}</div>` : ''}
@@ -374,6 +374,14 @@
       card.className = 'cover-card';
       card.style.setProperty('--ct', c.color);
       const chLabel = typeof c.ch === 'number' || /^\d+$/.test(c.ch) ? `第 ${c.ch} 章` : c.ch;
+      card.style.cursor = 'pointer';
+      card.onclick = () => {
+        const targetIdx = flat.findIndex(s => s.ch === c.ch && s.type === 'slide');
+        $('cover').classList.add('hidden');
+        app.classList.remove('hidden');
+        fitPen();
+        go(targetIdx !== -1 ? targetIdx : 0, 0);
+      };
       card.innerHTML = `<div class="cc-num">${chLabel}</div>
         <div class="cc-title">${c.title}</div>
         <div class="cc-list">${c.sections ? c.sections.join('　') : ''}</div>`;
@@ -575,7 +583,7 @@
                 <span class="jae-ans-badge">參考答案</span>
                 <span class="jae-ans-value">${s.solution.ans}</span>
                 ${s.solution.omml ? `
-                  <button class="jae-copy-omml-btn" onclick="window.copyCurrentOMML(this, ${globalIdx})" title="複製微軟 Word 原生 OMML 數學方程式代碼">
+                  <button class="jae-copy-omml-btn" onclick="window.copyCurrentOMML(this, ${idx})" title="複製微軟 Word 原生 OMML 數學方程式代碼">
                     📋 複製 Word OMML
                   </button>
                 ` : ''}
@@ -1362,6 +1370,45 @@
       fitPen();
       go(m ? +m[1] : 0, 0);
     }
+  }
+
+  // 複製微軟 Word 原生 OMML 數學方程式
+  window.copyCurrentOMML = function(btn, slideIdx) {
+    const s = flat[slideIdx];
+    if (!s || !s.solution || !s.solution.omml) return;
+    const ommlCode = s.solution.omml;
+    const onSuccess = () => {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '✓ 已複製！';
+      btn.classList.add('copied');
+      if (typeof showToast === 'function') showToast('✓ 已複製微軟 Word 原生 OMML 方程式！');
+      setTimeout(() => {
+        btn.innerHTML = orig;
+        btn.classList.remove('copied');
+      }, 2000);
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(ommlCode).then(onSuccess).catch(() => {
+        fallbackCopy(ommlCode, onSuccess);
+      });
+    } else {
+      fallbackCopy(ommlCode, onSuccess);
+    }
+  };
+
+  function fallbackCopy(text, cb) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+      if (cb) cb();
+    } catch (e) {}
+    document.body.removeChild(ta);
   }
 
   // 系統初始化
