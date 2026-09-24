@@ -1,6 +1,7 @@
-/* 2026 高三理組數學思維本 — 專題一 導數與微分 (33 題) - 支援 OMML */
+/* 2026 高三理組數學思維本 · 微積分篇 — 專題一 導數與微分 (33 題) - 支援 OMML */
 (function() {
   const DECK = window.DECK = window.DECK || [];
+
   DECK.push({
   "ch": "專題一 導數與微分",
   "year": "2026",
