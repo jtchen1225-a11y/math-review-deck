@@ -1,7 +1,6 @@
-/* 2026 高三理組數學思維本 · 微積分篇 — 專題三 物理應用 (8 題) - 支援 OMML */
+/* 2026 高三理組數學思維本 — 專題三 物理應用 (8 題) - 支援 OMML */
 (function() {
   const DECK = window.DECK = window.DECK || [];
-
   DECK.push({
   "ch": "專題三 物理應用",
   "year": "2026",

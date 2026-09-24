@@ -37,9 +37,10 @@ def check_html(path):
 
 ok1 = check_html("demo/index.html")
 ok2 = check_html("demo/calculus.html")
-ok3 = check_html("demo/omml.html")
+ok3 = check_html("demo/deck2026.html")
+ok4 = check_html("demo/omml.html")
 
-if ok1 and ok2 and ok3:
+if ok1 and ok2 and ok3 and ok4:
     print("\n🎉 All HTML dependencies verified successfully!")
 else:
     print("\n❌ Errors found in HTML dependencies!")
