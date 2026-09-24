@@ -1,4 +1,4 @@
-/* 2026 高三理組數學思維本 · 微積分篇 — 專題三 物理應用 (8 題) */
+/* 2026 高三理組數學思維本 · 微積分篇 — 專題三 物理應用 (8 題) - 支援 OMML */
 (function() {
   const DECK = window.DECK = window.DECK || [];
 
@@ -44,8 +44,9 @@
           "(2) 等加速直線運動推導：<br>給定 $s(t) = s_0 + v_0 t + \\frac{1}{2}at^2$：<br>求一階導：$v(t) = s'(t) = v_0 + at$；<br>求二階導：$a(t) = v'(t) = a$（常數，加速度恆定）。",
           "(3) 簡諧運動推導：<br>給定 $s(t) = R\\cos(\\omega t + \\varphi)$：<br>求速度：$v(t) = s'(t) = -\\omega R\\sin(\\omega t + \\varphi)$；<br>求加速度：$a(t) = v'(t) = -\\omega^2 R\\cos(\\omega t + \\varphi) = -\\omega^2 s(t)$。<br>結論：簡諧運動的加速度恆與位移成正比且反向，比例係數為 $-\\omega^2$。"
         ],
-        "ans": "(1) v = s', a = v' = s''；(2) v(t) = v_0 + at, a(t) = a；(3) a(t) = -\\omega^2 s(t)",
-        "quickTip": "位移求導是速度，速度求導是加速度；反過來加速度定積分是速度增量，速度定積分是位移！"
+        "ans": "(1) $v = s', a = v' = s''$；(2) $v(t) = v_0 + at, a(t) = a$；(3) $a(t) = -\\omega^2 s(t)$",
+        "quickTip": "位移求導是速度，速度求導是加速度；反過來加速度定積分是速度增量，速度定積分是位移！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(1)$v=</m:t></m:r><m:sSup><m:e><m:r><m:t>s</m:t></m:r></m:e><m:sup><m:r><m:t>′</m:t></m:r></m:sup></m:sSup><m:r><m:t>,a=</m:t></m:r><m:sSup><m:e><m:r><m:t>v</m:t></m:r></m:e><m:sup><m:r><m:t>′</m:t></m:r></m:sup></m:sSup><m:r><m:t>=</m:t></m:r><m:sSup><m:e><m:r><m:t>s</m:t></m:r></m:e><m:sup><m:r><m:t>″</m:t></m:r></m:sup></m:sSup><m:r><m:t>$；(2)$v(t)=</m:t></m:r><m:sSub><m:e><m:r><m:t>v</m:t></m:r></m:e><m:sub><m:r><m:t>0</m:t></m:r></m:sub></m:sSub><m:r><m:t>+at,a(t)=a$；(3)$a(t)=−</m:t></m:r><m:sSup><m:e><m:r><m:t>ω</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>s(t)$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -76,8 +77,9 @@
           "求解最高點時刻：<br>物體到達最高點時，豎直速度減小為零，即 $v(t) = 0$：<br>$49 - 9.8t = 0 \\implies 9.8t = 49 \\implies t = 5\\text{ s}$。<br>故在拋出後第 5 秒達到最高點。",
           "計算最高點離地高度：<br>$s(5) = 500 + 49(5) - 4.9(5^2) = 500 + 245 - 4.9(25) = 500 + 245 - 122.5 = 622.5\\text{ m}$。"
         ],
-        "ans": "s(t) = 500 + 49t - 4.9t^2；拋出 5 秒後達到最高點，最高離地高度為 622.5 m",
-        "quickTip": "$t = v_0/g = 49/9.8 = 5\\text{ s}$；上升高度 $h = v_0^2/(2g) = 49^2 / 19.6 = 122.5\\text{ m}$，總高度 $500 + 122.5 = 622.5\\text{ m}$！"
+        "ans": "$s(t) = 500 + 49t - 4.9t^2$；$拋出 5 秒後達到最高點，最高離地高度為 622.5 m$",
+        "quickTip": "$t = v_0/g = 49/9.8 = 5\\text{ s}$；上升高度 $h = v_0^2/(2g) = 49^2 / 19.6 = 122.5\\text{ m}$，總高度 $500 + 122.5 = 622.5\\text{ m}$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>s(t)=500+49t−4.9</m:t></m:r><m:sSup><m:e><m:r><m:t>t</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>$；$拋出5秒後達到最高點，最高離地高度為622.5m</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -105,8 +107,9 @@
           "(1) 觀察 $v\\text{-}t$ 圖像：<br>在 $0 \\le t \\le 4$ 期間，圖像為連接 $(0, 0)$ 到 $(4, 20)$ 的直線段。<br>該線段的斜率即為質點在此期間的恆定加速度：<br>$a = \\frac{\\Delta v}{\\Delta t} = \\frac{20 - 0}{4 - 0} = 5\\text{ m/s}^2$。<br>因為 $t = 2\\text{ s}$ 位於此區間內，故第 2 秒時的瞬時加速度為 $a(2) = 5\\text{ m/s}^2$。",
           "(2) 計算 7 秒內的總路程（即 $t=0$ 到 $t=7$ 曲線下的面積）：<br>區域分為兩部分：<br>① $0 \\le t \\le 4$（三角形面積）：<br>$S_1 = \\frac{1}{2} \\times \\text{底} \\times \\text{高} = \\frac{1}{2} \\times 4 \\times 20 = 40\\text{ m}$；<br>② $4 \\le t \\le 7$（梯形面積，上底為 10，下底為 20，高為 $7-4=3$）：<br>$S_2 = \\frac{20 + 10}{2} \\times (7 - 4) = 15 \\times 3 = 45\\text{ m}$；<br>總路程：$s = S_1 + S_2 = 40 + 45 = 85\\text{ m}$。"
         ],
-        "ans": "(1) 5 m/s^2；(2) 85 m",
-        "quickTip": "斜率 $= 20/4 = 5$；面積 $= \\frac{1}{2}(4)(20) + \\frac{20+10}{2}(3) = 40 + 45 = 85$！"
+        "ans": "(1) $5\\text{ m/s}^2$；(2) $85\\text{ m}$",
+        "quickTip": "斜率 $= 20/4 = 5$；面積 $= \\frac{1}{2}(4)(20) + \\frac{20+10}{2}(3) = 40 + 45 = 85$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(1)$5</m:t></m:r><m:sSup><m:e><m:r><m:rPr><m:nor/></m:rPr><m:t> m/s</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>$；(2)$85</m:t></m:r><m:r><m:rPr><m:nor/></m:rPr><m:t> m</m:t></m:r><m:r><m:t>$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -135,8 +138,9 @@
           "第二步：確定積分上下限：<br>起始狀態長度為 $25\\text{ cm}$，對應伸長量 $x_1 = 0.05\\text{ m}$；<br>終止狀態長度為 $30\\text{ cm}$，對應伸長量 $x_2 = 30 - 20 = 10\\text{ cm} = 0.10\\text{ m}$。",
           "第三步：積分計算變力所做的功：<br>$W = \\int_{0.05}^{0.10} kx dx = \\int_{0.05}^{0.10} 400x dx = \\left[ 200x^2 \\right]_{0.05}^{0.10}$<br>$= 200 \\times (0.10^2 - 0.05^2) = 200 \\times (0.0100 - 0.0025) = 200 \\times 0.0075 = 1.5\\text{ J}$。"
         ],
-        "ans": "1.5 \\text{ J}",
-        "quickTip": "彈性勢能增量：$\\Delta E_p = \\frac{1}{2}k(x_2^2 - x_1^2) = \\frac{1}{2}(400)(0.01 - 0.0025) = 200 \\times 0.0075 = 1.5\\text{ J}$，一步得解！"
+        "ans": "$1.5\\text{ J}$",
+        "quickTip": "彈性勢能增量：$\\Delta E_p = \\frac{1}{2}k(x_2^2 - x_1^2) = \\frac{1}{2}(400)(0.01 - 0.0025) = 200 \\times 0.0075 = 1.5\\text{ J}$，一步得解！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>1.5J</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -171,7 +175,8 @@
           "代入上下限：<br>$(2^2 + 2) - (1^2 + 1) = (4 + 2) - (1 + 1) = 6 - 2 = 4\\text{ m}$。"
         ],
         "ans": "D",
-        "quickTip": "平均速度 $\\bar{v} = \\frac{v(1)+v(2)}{2} = \\frac{3+5}{2} = 4\\text{ m/s}$，時間 $\\Delta t = 1\\text{ s}$，路程 $4 \\times 1 = 4\\text{ m}$，秒選 D！"
+        "quickTip": "平均速度 $\\bar{v} = \\frac{v(1)+v(2)}{2} = \\frac{3+5}{2} = 4\\text{ m/s}$，時間 $\\Delta t = 1\\text{ s}$，路程 $4 \\times 1 = 4\\text{ m}$，秒選 D！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>D</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -206,7 +211,8 @@
           "代入數值：<br>$40(2) - \\frac{10}{3}(2^3) = 80 - \\frac{10}{3}(8) = 80 - \\frac{80}{3} = \\frac{240 - 80}{3} = \\frac{160}{3}\\text{ m}$。"
         ],
         "ans": "A",
-        "quickTip": "積分算高度：$[40t - \\frac{10}{3}t^3]_0^2 = 80 - 80/3 = 160/3\\text{ m}$，秒殺選 A！"
+        "quickTip": "積分算高度：$[40t - \\frac{10}{3}t^3]_0^2 = 80 - 80/3 = 160/3\\text{ m}$，秒殺選 A！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>A</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -240,7 +246,8 @@
           "拉長 $x = 10\\text{ cm} = 0.1\\text{ m}$ 時拉力所做的功：<br>$W = \\int_0^{0.1} 100x dx = \\left[ 50x^2 \\right]_0^{0.1} = 50 \\times (0.1)^2 = 50 \\times 0.01 = 0.5\\text{ J}$。"
         ],
         "ans": "A",
-        "quickTip": "$W = \\frac{1}{2} k x^2 = \\frac{1}{2} \\times 100 \\times 0.01 = 0.5\\text{ J}$，秒選 A！"
+        "quickTip": "$W = \\frac{1}{2} k x^2 = \\frac{1}{2} \\times 100 \\times 0.01 = 0.5\\text{ J}$，秒選 A！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>A</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -271,8 +278,9 @@
           "代入上下限：<br>$\\left[ 3t^2 - \\frac{1}{3}t^3 \\right]_0^6 = 3(6^2) - \\frac{1}{3}(6^3) = 3(36) - \\frac{216}{3} = 108 - 72 = 36$。",
           "乘上截面積：<br>$Q = 4 \\times 36 = 144\\text{ cm}^3$。"
         ],
-        "ans": "144 \\text{ cm}^3",
-        "quickTip": "速度積分為 $3(36) - 72 = 36$，總水量直接 $4 \\times 36 = 144\\text{ cm}^3$！"
+        "ans": "$144\\text{ cm}^3$",
+        "quickTip": "速度積分為 $3(36) - 72 = 36$，總水量直接 $4 \\times 36 = 144\\text{ cm}^3$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:sSup><m:e><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>144cm</m:t></m:r></m:e><m:sup><m:r><m:t>3</m:t></m:r></m:sup></m:sSup></m:oMath>"
       }
     }
   ]

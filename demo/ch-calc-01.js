@@ -1,4 +1,4 @@
-/* 2026 高三理組數學思維本 · 微積分篇 — 專題一 導數與微分 (33 題) */
+/* 2026 高三理組數學思維本 · 微積分篇 — 專題一 導數與微分 (33 題) - 支援 OMML */
 (function() {
   const DECK = window.DECK = window.DECK || [];
 
@@ -27,8 +27,8 @@
       "options": [
         "A. $1 - \\cos 1$",
         "B. $1 + \\cos 1$",
-        "C. \\cos 1 - 1",
-        "D. -1 - \\cos 1"
+        "C. $\\cos 1 - 1$",
+        "D. $-1 - \\cos 1$"
       ],
       "knowledge": {
         "formulas": [
@@ -49,7 +49,8 @@
           "計算點值：$\\left.\\frac{df}{dx}\\right|_{x=1} = f'(1) = \\cos 1 + 1 = 1 + \\cos 1$。"
         ],
         "ans": "B",
-        "quickTip": "$(\\sin x + x)' = \\cos x + 1$，直接代入 1 即得 $1 + \\cos 1$，3 秒秒殺選 B！"
+        "quickTip": "$(\\sin x + x)' = \\cos x + 1$，直接代入 1 即得 $1 + \\cos 1$，3 秒秒殺選 B！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>B</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -84,7 +85,8 @@
           "因式分解得：$(t - 1)(t - 2) = 0$，解得 $t = 1$ 或 $t = 2$。"
         ],
         "ans": "D",
-        "quickTip": "求導得 $t^2 - 3t + 2 = 0$，十字相乘直接看出兩根 $t=1, 2$，選 D！"
+        "quickTip": "求導得 $t^2 - 3t + 2 = 0$，十字相乘直接看出兩根 $t=1, 2$，選 D！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>D</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -120,7 +122,8 @@
           "同除以 3：$m^2 + 6m + 9 = 0 \\implies (m + 3)^2 = 0$，解得 $m = -3$。"
         ],
         "ans": "B",
-        "quickTip": "$3m + 27/m = -18$，利用完全平方式 $(m+3)^2 = 0$ 唯一解 $m = -3$！"
+        "quickTip": "$3m + 27/m = -18$，利用完全平方式 $(m+3)^2 = 0$ 唯一解 $m = -3$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>B</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -154,7 +157,8 @@
           "計算差商：$\\frac{\\Delta y}{\\Delta x} = \\frac{2\\Delta x + (\\Delta x)^2}{\\Delta x} = 2 + \\Delta x = \\Delta x + 2$。"
         ],
         "ans": "C",
-        "quickTip": "直接展開 $(1+\\Delta x)^2 - 1 = 2\\Delta x + (\\Delta x)^2$，除以 $\\Delta x$ 得 $2 + \\Delta x$。秒選 C！"
+        "quickTip": "直接展開 $(1+\\Delta x)^2 - 1 = 2\\Delta x + (\\Delta x)^2$，除以 $\\Delta x$ 得 $2 + \\Delta x$。秒選 C！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>C</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -189,7 +193,8 @@
           "故 $f'(5) = 1$。"
         ],
         "ans": "C",
-        "quickTip": "在 $x=5$ 處 $x>0$，$f(x)=x$，導數恆為 1，秒選 C！"
+        "quickTip": "在 $x=5$ 處 $x>0$，$f(x)=x$，導數恆為 1，秒選 C！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>C</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -223,7 +228,8 @@
           "檢驗 B、C、D：$f'(x) = 4x^3 \\implies f'(1) = 4 \\ne -1$。"
         ],
         "ans": "A",
-        "quickTip": "B、C、D 求導均為 $4x^3$，在 $x=1$ 處均為 4，唯一不同的是 A，直接秒選 A！"
+        "quickTip": "B、C、D 求導均為 $4x^3$，在 $x=1$ 處均為 4，唯一不同的是 A，直接秒選 A！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>A</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -254,7 +260,8 @@
           "代入 $f'(x_0) = 2$：$-\\frac{1}{2} \\times 2 = -1$。"
         ],
         "ans": "-1",
-        "quickTip": "分子自變量係數為 $-1$，分母係數為 $2$，極限值直接就是 $\\frac{-1}{2} f'(x_0) = -\\frac{1}{2}(2) = -1$！"
+        "quickTip": "分子自變量係數為 $-1$，分母係數為 $2$，極限值直接就是 $\\frac{-1}{2} f'(x_0) = -\\frac{1}{2}(2) = -1$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>−1</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -284,7 +291,8 @@
           "代入 $x = 0$ 得：$f'(0) = \\cos 0 = 1$。"
         ],
         "ans": "1",
-        "quickTip": "本質就是 $(\\sin x)'|_{x=0} = \\cos 0 = 1$！"
+        "quickTip": "本質就是 $(\\sin x)'|_{x=0} = \\cos 0 = 1$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>1</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -313,7 +321,8 @@
           "已知 $f'(4) = 2$，得：$8 + a = 2 \\implies a = -6$。"
         ],
         "ans": "-6",
-        "quickTip": "$2(4) + a = 2 \\implies a = 2 - 8 = -6$，一步算出！"
+        "quickTip": "$2(4) + a = 2 \\implies a = 2 - 8 = -6$，一步算出！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>−6</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -344,8 +353,9 @@
           "(2) 展開：$y = (x+2a)(x^2 - 2ax + a^2) = x^3 - 3a^2 x + 2a^3$。<br>求導得：$\\frac{dy}{dx} = 3x^2 - 3a^2 = 3(x^2 - a^2)$（或用乘積法則亦可）。",
           "(3) 使用商法則：$\\frac{dy}{dx} = \\frac{(x^2)' \\sin x - x^2 (\\sin x)'}{\\sin^2 x} = \\frac{2x\\sin x - x^2\\cos x}{\\sin^2 x}$。"
         ],
-        "ans": "(1) -\\frac{x+1}{2x\\sqrt{x}}；(2) 3(x^2 - a^2)；(3) \\frac{2x\\sin x - x^2\\cos x}{\\sin^2 x}",
-        "quickTip": "遇到根式乘積，先展開化成冪函數 $x^r$，求導速度提高 3 倍且零失誤！"
+        "ans": "(1) $-\\frac{x+1}{2x\\sqrt{x}}$；(2) $3(x^2 - a^2)$；(3) $\\frac{2x\\sin x - x^2\\cos x}{\\sin^2 x}$",
+        "quickTip": "遇到根式乘積，先展開化成冪函數 $x^r$，求導速度提高 3 倍且零失誤！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(1)$−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>x+1</m:t></m:r></m:num><m:den><m:r><m:t>2x</m:t></m:r><m:rad><m:radPr><m:degHide m:val=\"on\"/></m:radPr><m:deg/><m:e><m:r><m:t>x</m:t></m:r></m:e></m:rad></m:den></m:f><m:r><m:t>$；(2)$3(</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>−</m:t></m:r><m:sSup><m:e><m:r><m:t>a</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>)$；(3)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>2x</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r><m:r><m:t>x−</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>cos</m:t></m:r><m:r><m:t>x</m:t></m:r></m:num><m:den><m:sSup><m:e><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>x</m:t></m:r></m:den></m:f><m:r><m:t>$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -375,8 +385,9 @@
           "(5) 改寫：$y = 2x^2 - 3x + 4 - 3x^{-1} + 2x^{-2}$。<br>求導得：$\\frac{dy}{dx} = 4x - 3 + 3x^{-2} - 4x^{-3} = 4x - 3 + \\frac{3}{x^2} - \\frac{4}{x^3}$。",
           "(6) 連鎖律：$\\frac{dy}{dx} = 2\\sin\\left(2x + \\frac{\\pi}{3}\\right) \\cdot \\cos\\left(2x + \\frac{\\pi}{3}\\right) \\cdot 2 = 2\\sin\\left(4x + \\frac{2\\pi}{3}\\right)$。"
         ],
-        "ans": "(4) \\frac{-x^2-6x+3}{(x^2+3)^2}；(5) 4x - 3 + \\frac{3}{x^2} - \\frac{4}{x^3}；(6) 2\\sin\\left(4x+\\frac{2\\pi}{3}\\right)",
-        "quickTip": "$2\\sin u\\cos u = \\sin(2u)$，倍角化簡一步到位！"
+        "ans": "(4) $\\frac{-x^2-6x+3}{(x^2+3)^2}$；(5) $4x - 3 + \\frac{3}{x^2} - \\frac{4}{x^3}$；(6) $2\\sin\\left(4x+\\frac{2\\pi}{3}\\right)$",
+        "quickTip": "$2\\sin u\\cos u = \\sin(2u)$，倍角化簡一步到位！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(4)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>−</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>−6x+3</m:t></m:r></m:num><m:den><m:r><m:t>(</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>+3</m:t></m:r><m:sSup><m:e><m:r><m:t>)</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup></m:den></m:f><m:r><m:t>$；(5)$4x−3+</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>3</m:t></m:r></m:num><m:den><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup></m:den></m:f><m:r><m:t>−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>4</m:t></m:r></m:num><m:den><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>3</m:t></m:r></m:sup></m:sSup></m:den></m:f><m:r><m:t>$；(6)$2</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r><m:r><m:t>(4x+</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>2π</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>)</m:t></m:r><m:r><m:t>$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -406,8 +417,9 @@
           "(8) 令 $u = x^2 + 2x + 4$，則 $u' = 2x + 2$。<br>$\\frac{dy}{dx} = \\frac{u'}{2\\sqrt{u}} = \\frac{2x+2}{2\\sqrt{x^2+2x+4}} = \\frac{x+1}{\\sqrt{x^2+2x+4}}$。",
           "(9) $\\frac{dy}{dx} = \\cos x - 2\\sin x$。"
         ],
-        "ans": "(7) \\frac{2}{3\\sqrt[3]{x}} + 30x^5 + \\frac{2}{x^3}；(8) \\frac{x+1}{\\sqrt{x^2+2x+4}}；(9) \\cos x - 2\\sin x",
-        "quickTip": "根式求導直接分子寫內層導數、分母寫 $2\\sqrt{\\text{原式}}$，再約分，5 秒寫出答案！"
+        "ans": "(7) $\\frac{2}{3\\sqrt[3]{x}} + 30x^5 + \\frac{2}{x^3}$；(8) $\\frac{x+1}{\\sqrt{x^2+2x+4}}$；(9) $\\cos x - 2\\sin x$",
+        "quickTip": "根式求導直接分子寫內層導數、分母寫 $2\\sqrt{\\text{原式}}$，再約分，5 秒寫出答案！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(7)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>2</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r><m:rad><m:radPr><m:degHide m:val=\"off\"/></m:radPr><m:deg><m:r><m:t>3</m:t></m:r></m:deg><m:e><m:r><m:t>x</m:t></m:r></m:e></m:rad></m:den></m:f><m:r><m:t>+30</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>5</m:t></m:r></m:sup></m:sSup><m:r><m:t>+</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>2</m:t></m:r></m:num><m:den><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>3</m:t></m:r></m:sup></m:sSup></m:den></m:f><m:r><m:t>$；(8)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>x+1</m:t></m:r></m:num><m:den><m:rad><m:radPr><m:degHide m:val=\"on\"/></m:radPr><m:deg/><m:e><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>+2x+4</m:t></m:r></m:e></m:rad></m:den></m:f><m:r><m:t>$；(9)$</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>cos</m:t></m:r><m:r><m:t>x−2</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r><m:r><m:t>x$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -437,8 +449,9 @@
           "(11) 拆項：$y = x^2 + 1 + x^{-1}$。<br>$\\frac{dy}{dx} = 2x - x^{-2} = 2x - \\frac{1}{x^2}$。",
           "(12) 乘積法則：$\\frac{dy}{dx} = (3x-1)' \\sin x + (3x-1)(\\sin x)' = 3\\sin x + (3x-1)\\cos x$。"
         ],
-        "ans": "(10) 30x - 17 - \\frac{6}{x^2}；(11) 2x - \\frac{1}{x^2}；(12) 3\\sin x + (3x-1)\\cos x",
-        "quickTip": "分子多項式、分母單項式時，務必「先拆項、後求導」！"
+        "ans": "(10) $30x - 17 - \\frac{6}{x^2}$；(11) $2x - \\frac{1}{x^2}$；(12) $3\\sin x + (3x-1)\\cos x$",
+        "quickTip": "分子多項式、分母單項式時，務必「先拆項、後求導」！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(10)$30x−17−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>6</m:t></m:r></m:num><m:den><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup></m:den></m:f><m:r><m:t>$；(11)$2x−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup></m:den></m:f><m:r><m:t>$；(12)$3</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r><m:r><m:t>x+(3x−1)</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>cos</m:t></m:r><m:r><m:t>x$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -469,8 +482,9 @@
           "(2) 外層 $\\sqrt{u}$，內層 $u = 3x - 1$，$u' = 3$。<br>$\\frac{dy}{dx} = \\frac{3}{2\\sqrt{3x-1}}$。",
           "(3) 外層 $u^4$，內層 $u = 5x - 4$，$u' = 5$。<br>$\\frac{dy}{dx} = 4(5x - 4)^3 \\cdot 5 = 20(5x - 4)^3$。"
         ],
-        "ans": "(1) -\\frac{1}{4}\\sin\\frac{x}{4}；(2) \\frac{3}{2\\sqrt{3x-1}}；(3) 20(5x-4)^3",
-        "quickTip": "心中默念：外導乘內導！內導 $3$ 和 $5$ 提前乘好。"
+        "ans": "(1) $-\\frac{1}{4}\\sin\\frac{x}{4}$；(2) $\\frac{3}{2\\sqrt{3x-1}}$；(3) $20(5x-4)^3$",
+        "quickTip": "心中默念：外導乘內導！內導 $3$ 和 $5$ 提前乘好。",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(1)$−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>4</m:t></m:r></m:den></m:f><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>x</m:t></m:r></m:num><m:den><m:r><m:t>4</m:t></m:r></m:den></m:f><m:r><m:t>$；(2)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>3</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r><m:rad><m:radPr><m:degHide m:val=\"on\"/></m:radPr><m:deg/><m:e><m:r><m:t>3x−1</m:t></m:r></m:e></m:rad></m:den></m:f><m:r><m:t>$；(3)$20(5x−4</m:t></m:r><m:sSup><m:e><m:r><m:t>)</m:t></m:r></m:e><m:sup><m:r><m:t>3</m:t></m:r></m:sup></m:sSup><m:r><m:t>$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -500,8 +514,9 @@
           "(5) 改寫 $y = (2x^2 - 1)^{-3}$。<br>$\\frac{dy}{dx} = -3(2x^2 - 1)^{-4} \\cdot (4x) = -\\frac{12x}{(2x^2 - 1)^4}$。",
           "(6) 外層 $\\sin u$，內層 $u = 3x - \\frac{\\pi}{4}$，$u' = 3$。<br>$\\frac{dy}{dx} = 3\\cos\\left(3x - \\frac{\\pi}{4}\\right)$。"
         ],
-        "ans": "(4) 15(2+3x)^4；(5) -\\frac{12x}{(2x^2-1)^4}；(6) 3\\cos\\left(3x-\\frac{\\pi}{4}\\right)",
-        "quickTip": "分母冪函數直接寫成 $u^{-n}$，一步求導得 $-n u^{-(n+1)} u'$！"
+        "ans": "(4) $15(2+3x)^4$；(5) $-\\frac{12x}{(2x^2-1)^4}$；(6) $3\\cos\\left(3x-\\frac{\\pi}{4}\\right)$",
+        "quickTip": "分母冪函數直接寫成 $u^{-n}$，一步求導得 $-n u^{-(n+1)} u'$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(4)$15(2+3x</m:t></m:r><m:sSup><m:e><m:r><m:t>)</m:t></m:r></m:e><m:sup><m:r><m:t>4</m:t></m:r></m:sup></m:sSup><m:r><m:t>$；(5)$−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>12x</m:t></m:r></m:num><m:den><m:r><m:t>(2</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>−1</m:t></m:r><m:sSup><m:e><m:r><m:t>)</m:t></m:r></m:e><m:sup><m:r><m:t>4</m:t></m:r></m:sup></m:sSup></m:den></m:f><m:r><m:t>$；(6)$3</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>cos</m:t></m:r><m:r><m:t>(3x−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>π</m:t></m:r></m:num><m:den><m:r><m:t>4</m:t></m:r></m:den></m:f><m:r><m:t>)</m:t></m:r><m:r><m:t>$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -532,8 +547,9 @@
           "(8) 外層 $4^u$ 導為 $4^u \\ln 4$，內層 $(x^2+3x-1)' = 2x+3$。<br>$\\frac{dy}{dx} = (2x+3) 4^{x^2+3x-1} \\ln 4$。",
           "(9) 乘積法則：$\\frac{dy}{dx} = (x)'\\cos(x^2+1) + x [\\cos(x^2+1)]'$<br>$= \\cos(x^2+1) + x [-\\sin(x^2+1) \\cdot 2x] = \\cos(x^2+1) - 2x^2\\sin(x^2+1)$。"
         ],
-        "ans": "(7) 2\\cot(2x+1)；(8) (2x+3)4^{x^2+3x-1}\\ln 4；(9) \\cos(x^2+1) - 2x^2\\sin(x^2+1)",
-        "quickTip": "$\\ln(\\sin u)$ 求導就是 $u' \\cot u$！直接口算 $2\\cot(2x+1)$。"
+        "ans": "(7) $2\\cot(2x+1)$；(8) $(2x+3)4^{x^2+3x-1}\\ln 4$；(9) $\\cos(x^2+1) - 2x^2\\sin(x^2+1)$",
+        "quickTip": "$\\ln(\\sin u)$ 求導就是 $u' \\cot u$！直接口算 $2\\cot(2x+1)$。",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(7)$2</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>cot</m:t></m:r><m:r><m:t>(2x+1)$；(8)$(2x+3)</m:t></m:r><m:sSup><m:e><m:r><m:t>4</m:t></m:r></m:e><m:sup><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>+3x−1</m:t></m:r></m:sup></m:sSup><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>ln</m:t></m:r><m:r><m:t>4$；(9)$</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>cos</m:t></m:r><m:r><m:t>(</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>+1)−2</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r><m:r><m:t>(</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>+1)$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -561,8 +577,9 @@
           "(1) 一階導數：$\\frac{dy}{dx} = 3x^2 + 3$。<br>二階導數：$\\frac{d^2y}{dx^2} = \\frac{d}{dx}(3x^2 + 3) = 6x$。",
           "(2) 對 $x^2 + y^2 = 12$ 兩邊對 $x$ 求導：$2x + 2y y' = 0 \\implies y' = -\\frac{x}{y}$。<br>對 $y' = -\\frac{x}{y}$ 兩邊再對 $x$ 求導：<br>$y'' = -\\frac{1 \\cdot y - x \\cdot y'}{y^2} = -\\frac{y - x\\left(-\\frac{x}{y}\\right)}{y^2} = -\\frac{y^2 + x^2}{y^3}$。<br>由原方程知 $x^2 + y^2 = 12$，代入得：$\\frac{d^2y}{dx^2} = -\\frac{12}{y^3}$。"
         ],
-        "ans": "(1) 6x；(2) -\\frac{12}{y^3}",
-        "quickTip": "圓方程 $x^2 + y^2 = R^2$ 的二階導數必為 $-\\frac{R^2}{y^3}$！記住這個二階經典結論秒殺全場。"
+        "ans": "(1) $6x$；(2) $-\\frac{12}{y^3}$",
+        "quickTip": "圓方程 $x^2 + y^2 = R^2$ 的二階導數必為 $-\\frac{R^2}{y^3}$！記住這個二階經典結論秒殺全場。",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(1)$6x$；(2)$−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>12</m:t></m:r></m:num><m:den><m:sSup><m:e><m:r><m:t>y</m:t></m:r></m:e><m:sup><m:r><m:t>3</m:t></m:r></m:sup></m:sSup></m:den></m:f><m:r><m:t>$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -590,8 +607,9 @@
           "(1) 兩邊對 $x$ 求導：$-\\sin\\left(\\frac{1}{5}y\\right) \\cdot \\frac{1}{5} \\frac{dy}{dx} = 2\\cos 2x$。<br>解得：$\\frac{dy}{dx} = -\\frac{10\\cos 2x}{\\sin\\frac{y}{5}}$。",
           "(2) 兩邊對 $x$ 求導：$2x - \\frac{2y}{4}\\frac{dy}{dx} + 2 - 3\\frac{dy}{dx} = 0$。<br>化簡：$2x + 2 - \\left(\\frac{y}{2} + 3\\right)\\frac{dy}{dx} = 0$。<br>$\\left(\\frac{y+6}{2}\\right)\\frac{dy}{dx} = 2(x+1) \\implies \\frac{dy}{dx} = \\frac{4(x+1)}{y+6}$。"
         ],
-        "ans": "(1) -\\frac{10\\cos 2x}{\\sin\\frac{y}{5}}；(2) \\frac{4(x+1)}{y+6}",
-        "quickTip": "公式法：$\\frac{dy}{dx} = -\\frac{F_x}{F_y}$。對 (2) $F_x = 2x+2$，$F_y = -y/2 - 3$，比值即為 $\\frac{4(x+1)}{y+6}$！"
+        "ans": "(1) $-\\frac{10\\cos 2x}{\\sin\\frac{y}{5}}$；(2) $\\frac{4(x+1)}{y+6}$",
+        "quickTip": "公式法：$\\frac{dy}{dx} = -\\frac{F_x}{F_y}$。對 (2) $F_x = 2x+2$，$F_y = -y/2 - 3$，比值即為 $\\frac{4(x+1)}{y+6}$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(1)$−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>10</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>cos</m:t></m:r><m:r><m:t>2x</m:t></m:r></m:num><m:den><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>y</m:t></m:r></m:num><m:den><m:r><m:t>5</m:t></m:r></m:den></m:f></m:den></m:f><m:r><m:t>$；(2)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>4(x+1)</m:t></m:r></m:num><m:den><m:r><m:t>y+6</m:t></m:r></m:den></m:f><m:r><m:t>$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -619,8 +637,9 @@
           "求一階導數：$\\frac{dy}{dx} = \\frac{1(x^2+1) - x(2x)}{(x^2+1)^2} = \\frac{1 - x^2}{(x^2+1)^2}$。<br>代入 $x = 1$：$\\left.\\frac{dy}{dx}\\right|_{x=1} = \\frac{1 - 1^2}{(1+1)^2} = 0$。",
           "求二階導數：<br>$\\frac{d^2y}{dx^2} = \\frac{-2x(x^2+1)^2 - (1-x^2) \\cdot 2(x^2+1)(2x)}{(x^2+1)^4} = \\frac{-2x(x^2+1) - 4x(1-x^2)}{(x^2+1)^3} = \\frac{2x^3 - 6x}{(x^2+1)^3} = \\frac{2x(x^2-3)}{(x^2+1)^3}$。<br>代入 $x = -1$：<br>$\\left.\\frac{d^2y}{dx^2}\\right|_{x=-1} = \\frac{2(-1)((-1)^2 - 3)}{((-1)^2 + 1)^3} = \\frac{-2(1 - 3)}{2^3} = \\frac{4}{8} = \\frac{1}{2}$。"
         ],
-        "ans": "\\left.\\frac{dy}{dx}\\right|_{x=1} = 0, \\quad \\left.\\frac{d^2y}{dx^2}\\right|_{x=-1} = \\frac{1}{2}",
-        "quickTip": "在 $x=1$ 處分子為 $1 - x^2 = 0$，一階導直接為 0！二階導代入 $x=-1$ 得 $4/8 = 1/2$。"
+        "ans": "$\\left.\\frac{dy}{dx}\\right|_{x=1} = 0, \\quad \\left.\\frac{d^2y}{dx^2}\\right|_{x=-1} = \\frac{1}{2}$",
+        "quickTip": "在 $x=1$ 處分子為 $1 - x^2 = 0$，一階導直接為 0！二階導代入 $x=-1$ 得 $4/8 = 1/2$。",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>dy</m:t></m:r></m:num><m:den><m:r><m:t>dx</m:t></m:r></m:den></m:f><m:sSub><m:e><m:r><m:t>|</m:t></m:r></m:e><m:sub><m:r><m:t>x=1</m:t></m:r></m:sub></m:sSub><m:r><m:t>=0,</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:sSup><m:e><m:r><m:t>d</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>y</m:t></m:r></m:num><m:den><m:r><m:t>d</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup></m:den></m:f><m:sSub><m:e><m:r><m:t>|</m:t></m:r></m:e><m:sub><m:r><m:t>x=−1</m:t></m:r></m:sub></m:sSub><m:r><m:t>=</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f></m:oMath>"
       }
     },
     {
@@ -648,8 +667,9 @@
           "一階求導：$f'(x) = 5x^4 - 15x^2$。<br>計算 $f'(2) = 5(2^4) - 15(2^2) = 5(16) - 15(4) = 80 - 60 = 20$。",
           "二階求導：$f''(x) = (5x^4 - 15x^2)' = 20x^3 - 30x$。<br>計算 $f''(1) = 20(1^3) - 30(1) = 20 - 30 = -10$。"
         ],
-        "ans": "f'(2) = 20, \\quad f''(1) = -10",
-        "quickTip": "$f'(2) = 5(16) - 15(4) = 20$；$f''(1) = 20 - 30 = -10$。心算即得！"
+        "ans": "$f'(2) = 20, \\quad f''(1) = -10$",
+        "quickTip": "$f'(2) = 5(16) - 15(4) = 20$；$f''(1) = 20 - 30 = -10$。心算即得！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:sSup><m:e><m:r><m:t>f</m:t></m:r></m:e><m:sup><m:r><m:t>′</m:t></m:r></m:sup></m:sSup><m:r><m:t>(2)=20,</m:t></m:r><m:sSup><m:e><m:r><m:t>f</m:t></m:r></m:e><m:sup><m:r><m:t>″</m:t></m:r></m:sup></m:sSup><m:r><m:t>(1)=−10</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -676,8 +696,9 @@
           "求一階導數：$\\frac{dy}{dx} = 6x^2 - 30x + 24$。<br>代入 $x = 0$：$\\left.\\frac{dy}{dx}\\right|_{x=0} = 24$。",
           "求二階導數：$\\frac{d^2y}{dx^2} = 12x - 30$。<br>代入 $x = 0$：$\\left.\\frac{d^2y}{dx^2}\\right|_{x=0} = -30$。"
         ],
-        "ans": "\\left.\\frac{dy}{dx}\\right|_{x=0} = 24, \\quad \\left.\\frac{d^2y}{dx^2}\\right|_{x=0} = -30",
-        "quickTip": "$x=0$ 處導數就是一次項係數 24，二階導就是二次項係數的 2 倍即 $2 \\times (-15) = -30$！"
+        "ans": "$\\left.\\frac{dy}{dx}\\right|_{x=0} = 24, \\quad \\left.\\frac{d^2y}{dx^2}\\right|_{x=0} = -30$",
+        "quickTip": "$x=0$ 處導數就是一次項係數 24，二階導就是二次項係數的 2 倍即 $2 \\times (-15) = -30$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>dy</m:t></m:r></m:num><m:den><m:r><m:t>dx</m:t></m:r></m:den></m:f><m:sSub><m:e><m:r><m:t>|</m:t></m:r></m:e><m:sub><m:r><m:t>x=0</m:t></m:r></m:sub></m:sSub><m:r><m:t>=24,</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:sSup><m:e><m:r><m:t>d</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>y</m:t></m:r></m:num><m:den><m:r><m:t>d</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup></m:den></m:f><m:sSub><m:e><m:r><m:t>|</m:t></m:r></m:e><m:sub><m:r><m:t>x=0</m:t></m:r></m:sub></m:sSub><m:r><m:t>=−30</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -705,8 +726,9 @@
           "求一階導：$f'(x) = 3x^2 - 12x + 9$。<br>代入 $x = -2$：$f'(-2) = 3(-2)^2 - 12(-2) + 9 = 3(4) + 24 + 9 = 12 + 24 + 9 = 45$。",
           "求二階導：$f''(x) = 6x - 12$。<br>代入 $x = 0$：$f''(0) = 6(0) - 12 = -12$。"
         ],
-        "ans": "f'(-2) = 45, \\quad f''(0) = -12",
-        "quickTip": "$f'(-2) = 12 + 24 + 9 = 45$；$f''(0) = -12$。"
+        "ans": "$f'(-2) = 45, \\quad f''(0) = -12$",
+        "quickTip": "$f'(-2) = 12 + 24 + 9 = 45$；$f''(0) = -12$。",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:sSup><m:e><m:r><m:t>f</m:t></m:r></m:e><m:sup><m:r><m:t>′</m:t></m:r></m:sup></m:sSup><m:r><m:t>(−2)=45,</m:t></m:r><m:sSup><m:e><m:r><m:t>f</m:t></m:r></m:e><m:sup><m:r><m:t>″</m:t></m:r></m:sup></m:sSup><m:r><m:t>(0)=−12</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -735,8 +757,9 @@
           "(1) 設正圓柱的高為 $h$。由體積公式：$V = \\pi x^2 h = 54\\pi \\implies h = \\frac{54}{x^2}$。<br>該圓柱的全表面面積由兩底圓和一個側面組成：<br>$S(x) = 2\\pi x^2 + 2\\pi x h = 2\\pi x^2 + 2\\pi x \\left(\\frac{54}{x^2}\\right) = 2\\pi x^2 + 2\\pi\\left(\\frac{54}{x}\\right) = 2\\pi\\left(x^2 + \\frac{54}{x}\\right), \\quad x > 0$。得證！",
           "(2) 對 $S(x)$ 求一階導數：<br>$\\frac{dS}{dx} = 2\\pi\\left(2x - \\frac{54}{x^2}\\right)$。<br>對 $S(x)$ 求二階導數：<br>$\\frac{d^2S}{dx^2} = 2\\pi\\left(2 - 54(-2x^{-3})\\right) = 2\\pi\\left(2 + \\frac{108}{x^3}\\right)$。"
         ],
-        "ans": "(1) 見步驟證明；(2) \\frac{dS}{dx} = 2\\pi\\left(2x - \\frac{54}{x^2}\\right), \\quad \\frac{d^2S}{dx^2} = 2\\pi\\left(2 + \\frac{108}{x^3}\\right)",
-        "quickTip": "令 $\\frac{dS}{dx} = 0 \\implies 2x = 54/x^2 \\implies x^3 = 27 \\implies x = 3$ 即為表面積最小的最優尺寸！"
+        "ans": "(1) 見步驟證明；(2) $\\frac{dS}{dx} = 2\\pi\\left(2x - \\frac{54}{x^2}\\right), \\quad \\frac{d^2S}{dx^2} = 2\\pi\\left(2 + \\frac{108}{x^3}\\right)$",
+        "quickTip": "令 $\\frac{dS}{dx} = 0 \\implies 2x = 54/x^2 \\implies x^3 = 27 \\implies x = 3$ 即為表面積最小的最優尺寸！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(1)見步驟證明；(2)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>dS</m:t></m:r></m:num><m:den><m:r><m:t>dx</m:t></m:r></m:den></m:f><m:r><m:t>=2π</m:t></m:r><m:r><m:t>(2x−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>54</m:t></m:r></m:num><m:den><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup></m:den></m:f><m:r><m:t>)</m:t></m:r><m:r><m:t>,</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:sSup><m:e><m:r><m:t>d</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>S</m:t></m:r></m:num><m:den><m:r><m:t>d</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup></m:den></m:f><m:r><m:t>=2π</m:t></m:r><m:r><m:t>(2+</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>108</m:t></m:r></m:num><m:den><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>3</m:t></m:r></m:sup></m:sSup></m:den></m:f><m:r><m:t>)</m:t></m:r><m:r><m:t>$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -765,8 +788,9 @@
           "(1) 圓錐表面積：$S = \\pi r^2 + \\pi r l = 4\\pi \\implies \\pi r l = 4\\pi - \\pi r^2 \\implies l = \\frac{4 - r^2}{r}$。<br>由勾股定理：$h^2 = l^2 - r^2 = \\left(\\frac{4-r^2}{r}\\right)^2 - r^2 = \\frac{16 - 8r^2 + r^4 - r^4}{r^2} = \\frac{16 - 8r^2}{r^2}$。<br>體積公式：$V = \\frac{1}{3}\\pi r^2 h \\implies V^2 = \\frac{1}{9}\\pi^2 r^4 h^2$。<br>代入 $h^2$ 得：$V^2 = \\frac{1}{9}\\pi^2 r^4 \\left(\\frac{16 - 8r^2}{r^2}\\right) = \\frac{\\pi^2}{9} r^2 (16 - 8r^2) = \\frac{8\\pi^2}{9}(2r^2 - r^4)$。",
           "(2) 對 $V^2$ 關於 $r$ 求導：<br>$\\frac{d(V^2)}{dr} = \\frac{8\\pi^2}{9}(4r - 4r^3) = \\frac{32\\pi^2}{9}r(1 - r^2)$。"
         ],
-        "ans": "(1) V^2 = \\frac{8\\pi^2}{9}(2r^2 - r^4)；(2) \\frac{d(V^2)}{dr} = \\frac{32\\pi^2}{9}(r - r^3)",
-        "quickTip": "令導數為 0 得 $r = 1\\text{ cm}$，此時體積取得最大值！"
+        "ans": "(1) $V^2 = \\frac{8\\pi^2}{9}(2r^2 - r^4)$；(2) $\\frac{d(V^2)}{dr} = \\frac{32\\pi^2}{9}(r - r^3)$",
+        "quickTip": "令導數為 0 得 $r = 1\\text{ cm}$，此時體積取得最大值！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(1)$</m:t></m:r><m:sSup><m:e><m:r><m:t>V</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>=</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>8</m:t></m:r><m:sSup><m:e><m:r><m:t>π</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup></m:num><m:den><m:r><m:t>9</m:t></m:r></m:den></m:f><m:r><m:t>(2</m:t></m:r><m:sSup><m:e><m:r><m:t>r</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>−</m:t></m:r><m:sSup><m:e><m:r><m:t>r</m:t></m:r></m:e><m:sup><m:r><m:t>4</m:t></m:r></m:sup></m:sSup><m:r><m:t>)$；(2)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>d(</m:t></m:r><m:sSup><m:e><m:r><m:t>V</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>)</m:t></m:r></m:num><m:den><m:r><m:t>dr</m:t></m:r></m:den></m:f><m:r><m:t>=</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>32</m:t></m:r><m:sSup><m:e><m:r><m:t>π</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup></m:num><m:den><m:r><m:t>9</m:t></m:r></m:den></m:f><m:r><m:t>(r−</m:t></m:r><m:sSup><m:e><m:r><m:t>r</m:t></m:r></m:e><m:sup><m:r><m:t>3</m:t></m:r></m:sup></m:sSup><m:r><m:t>)$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -795,8 +819,9 @@
           "(1) 設正圓柱的高為 $h$。由題意 $x + h = 36 \\implies h = 36 - x$。<br>體積為：$V(x) = \\pi x^2 h = \\pi x^2 (36 - x) = \\pi (36x^2 - x^3)$（其中 $0 < x < 36$）。",
           "(2) 求一階導：$V'(x) = \\pi(72x - 3x^2) = 3\\pi x(24 - x)$。<br>求二階導：$V''(x) = \\pi(72 - 6x) = 6\\pi(12 - x)$。"
         ],
-        "ans": "(1) V(x) = \\pi(36x^2 - x^3)；(2) V'(x) = 3\\pi x(24 - x), \\quad V''(x) = 6\\pi(12 - x)",
-        "quickTip": "令 $V'(x) = 0$ 得 $x = 24$，此時 $V''(24) = 6\\pi(12-24) < 0$，體積取得最大值！"
+        "ans": "(1) $V(x) = \\pi(36x^2 - x^3)$；(2) $V'(x) = 3\\pi x(24 - x), \\quad V''(x) = 6\\pi(12 - x)$",
+        "quickTip": "令 $V'(x) = 0$ 得 $x = 24$，此時 $V''(24) = 6\\pi(12-24) < 0$，體積取得最大值！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(1)$V(x)=π(36</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>−</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>3</m:t></m:r></m:sup></m:sSup><m:r><m:t>)$；(2)$</m:t></m:r><m:sSup><m:e><m:r><m:t>V</m:t></m:r></m:e><m:sup><m:r><m:t>′</m:t></m:r></m:sup></m:sSup><m:r><m:t>(x)=3πx(24−x),</m:t></m:r><m:sSup><m:e><m:r><m:t>V</m:t></m:r></m:e><m:sup><m:r><m:t>″</m:t></m:r></m:sup></m:sSup><m:r><m:t>(x)=6π(12−x)$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -834,7 +859,8 @@
           "對比選項圖形，只有 B 符合過原點且斜率為負。"
         ],
         "ans": "B",
-        "quickTip": "開口向下 $\\implies$ 導數斜率為負；頂點在 $x=0 \\implies$ 導數過原點！唯有 B 完全吻合！"
+        "quickTip": "開口向下 $\\implies$ 導數斜率為負；頂點在 $x=0 \\implies$ 導數過原點！唯有 B 完全吻合！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>B</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -872,7 +898,8 @@
           "因此符合條件的圖像只能是 (3)。"
         ],
         "ans": "C",
-        "quickTip": "開口向上排除 (2)(4)；$a \\ne 0$ 對稱軸不偏不倚必排除 (1)；秒選 (3)，答案為 C！"
+        "quickTip": "開口向上排除 (2)(4)；$a \\ne 0$ 對稱軸不偏不倚必排除 (1)；秒選 (3)，答案為 C！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>C</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -905,8 +932,9 @@
           "將 $b = 2a$ 代入 ① 式：<br>$a(2a - a) = a^2 = 1$。<br>因為題幹指明 $a$ 為正數，所以 $a = 1$。",
           "進而求得 $b = 2a = 2$。"
         ],
-        "ans": "a = 1, \\quad b = 2",
-        "quickTip": "兩式相比：$b(b-a) / [a(b-a)] = b/a = 2/1 \\implies b = 2a$；代入 $a(a) = 1 \\implies a = 1, b = 2$，秒殺！"
+        "ans": "$a = 1, \\quad b = 2$",
+        "quickTip": "兩式相比：$b(b-a) / [a(b-a)] = b/a = 2/1 \\implies b = 2a$；代入 $a(a) = 1 \\implies a = 1, b = 2$，秒殺！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>a=1,b=2</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -936,7 +964,8 @@
           "第三步，取極限：<br>$f'(x) = \\lim_{\\Delta x \\to 0} \\frac{\\Delta y}{\\Delta x} = \\lim_{\\Delta x \\to 0} (2x + 2 + \\Delta x) = 2x + 2$。"
         ],
         "ans": "f'(x) = 2x + 2",
-        "quickTip": "常規求導驗算：$(x^2 + 2x)' = 2x + 2$，定義法三步踩點滿分。"
+        "quickTip": "常規求導驗算：$(x^2 + 2x)' = 2x + 2$，定義法三步踩點滿分。",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:sSup><m:e><m:r><m:t>f</m:t></m:r></m:e><m:sup><m:r><m:t>′</m:t></m:r></m:sup></m:sSup><m:r><m:t>(x)=2x+2</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -965,7 +994,8 @@
           "取極限得瞬時變化率：<br>$f'(x) = \\lim_{\\Delta x \\to 0} (6x - 2 + 3\\Delta x) = 6x - 2$。"
         ],
         "ans": "f'(x) = 6x - 2",
-        "quickTip": "$(3x^2 - 2x)' = 6x - 2$，定義法標準得分步驟。"
+        "quickTip": "$(3x^2 - 2x)' = 6x - 2$，定義法標準得分步驟。",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:sSup><m:e><m:r><m:t>f</m:t></m:r></m:e><m:sup><m:r><m:t>′</m:t></m:r></m:sup></m:sSup><m:r><m:t>(x)=6x−2</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -996,8 +1026,9 @@
           "將含 $y'$ 的項留在左邊，其餘項移到右邊：<br>$\\left(x\\cos(xy) + \\frac{1}{y}\\right) y' = \\frac{1}{x+1} - y\\cos(xy)$。",
           "通分並解出 $y'$：<br>$\\frac{xy\\cos(xy) + 1}{y} y' = \\frac{1 - y(x+1)\\cos(xy)}{x+1}$。<br>$\\frac{dy}{dx} = \\frac{y [1 - y(x+1)\\cos(xy)]}{(x+1)[xy\\cos(xy) + 1]}$。"
         ],
-        "ans": "\\frac{dy}{dx} = \\frac{y [1 - y(x+1)\\cos(xy)]}{(x+1)[xy\\cos(xy) + 1]}",
-        "quickTip": "移項提取 $y'$ 時兩邊同乘 $y$，能快速化去繁分式！"
+        "ans": "$\\frac{dy}{dx} = \\frac{y [1 - y(x+1)\\cos(xy)]}{(x+1)[xy\\cos(xy) + 1]}$",
+        "quickTip": "移項提取 $y'$ 時兩邊同乘 $y$，能快速化去繁分式！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>dy</m:t></m:r></m:num><m:den><m:r><m:t>dx</m:t></m:r></m:den></m:f><m:r><m:t>=</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>y[1−y(x+1)</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>cos</m:t></m:r><m:r><m:t>(xy)]</m:t></m:r></m:num><m:den><m:r><m:t>(x+1)[xy</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>cos</m:t></m:r><m:r><m:t>(xy)+1]</m:t></m:r></m:den></m:f></m:oMath>"
       }
     },
     {
@@ -1026,8 +1057,9 @@
           "化簡：<br>$f'(3) = 2f'(3) - 12 + \\frac{2}{3} = 2f'(3) - \\frac{34}{3}$。",
           "移項解得：<br>$f'(3) = \\frac{34}{3}$。"
         ],
-        "ans": "f'(3) = \\frac{34}{3}",
-        "quickTip": "設 $A = f'(3)$，則 $A = 2A - 12 + 2/3 \\implies A = 12 - 2/3 = 34/3$。10 秒秒殺！"
+        "ans": "$f'(3) = \\frac{34}{3}$",
+        "quickTip": "設 $A = f'(3)$，則 $A = 2A - 12 + 2/3 \\implies A = 12 - 2/3 = 34/3$。10 秒秒殺！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:sSup><m:e><m:r><m:t>f</m:t></m:r></m:e><m:sup><m:r><m:t>′</m:t></m:r></m:sup></m:sSup><m:r><m:t>(3)=</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>34</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f></m:oMath>"
       }
     },
     {
@@ -1056,8 +1088,9 @@
           "當 $0 < x < 1$ 時：$f(x) = \\ln x \\implies f'(x) = \\frac{1}{x}$。<br>令 $f'(a) = \\frac{1}{a} = \\frac{1}{2} \\implies a = 2$。<br>檢驗：$a = 2 \\notin (0, 1)$，超出分段區間，故捨去！",
           "綜上所述，實數 $a$ 的唯一值為 $-\\ln 2$（或 $\\ln\\frac{1}{2}$）。"
         ],
-        "ans": "a = -\\ln 2 \\quad \\left(\\text{或 } \\ln\\frac{1}{2}\\right)",
-        "quickTip": "第二段 $1/a = 1/2 \\implies a=2 > 1$ 越界捨去，僅第一段 $e^a = 1/2 \\implies a = -\\ln 2$ 成立！"
+        "ans": "$a = -\\ln 2 \\quad \\left(\\text{或 } \\ln\\frac{1}{2}\\right)$",
+        "quickTip": "第二段 $1/a = 1/2 \\implies a=2 > 1$ 越界捨去，僅第一段 $e^a = 1/2 \\implies a = -\\ln 2$ 成立！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>a=−</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>ln</m:t></m:r><m:r><m:t>2</m:t></m:r><m:r><m:t>(或</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>ln</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:t>)</m:t></m:r></m:oMath>"
       }
     }
   ]

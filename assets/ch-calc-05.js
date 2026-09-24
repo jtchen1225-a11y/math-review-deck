@@ -1,4 +1,4 @@
-/* 2026 高三理組數學思維本 · 微積分篇 — 專題五 定積分與幾何 (14 題) */
+/* 2026 高三理組數學思維本 · 微積分篇 — 專題五 定積分與幾何 (14 題) - 支援 OMML */
 (function() {
   const DECK = window.DECK = window.DECK || [];
 
@@ -44,8 +44,9 @@
           "分析各區間內函數的符號（高於或低於 $x$ 軸）：<br>① 在區間 $[0, 1]$ 內：曲線在 $x$ 軸下方，即 $f(x) \\le 0$，面積為 $-\\int_0^1 f(x)dx$；<br>② 在區間 $[1, 2]$ 內：曲線在 $x$ 軸上方，即 $f(x) \\ge 0$，面積為 $\\int_1^2 f(x)dx$；<br>③ 在區間 $[2, 3]$ 內：曲線在 $x$ 軸下方，即 $f(x) \\le 0$，面積為 $-\\int_2^3 f(x)dx$。",
           "因此，所圍成之區域的總面積定積分式子為：<br>$A = -\\int_0^1 f(x)dx + \\int_1^2 f(x)dx - \\int_2^3 f(x)dx$（或統記為 $\\int_0^3 |f(x)|dx$）。"
         ],
-        "ans": "A = -\\int_0^1 f(x)dx + \\int_1^2 f(x)dx - \\int_2^3 f(x)dx \\quad \\left(\\text{或 } \\int_0^3 |f(x)|dx\\right)",
-        "quickTip": "軸下加負號、軸上取正號，分段求和：$-\\int_0^1 + \\int_1^2 - \\int_2^3$！"
+        "ans": "$A = -\\int_0^1 f(x)dx + \\int_1^2 f(x)dx - \\int_2^3 f(x)dx \\quad \\left(\\text{或 } \\int_0^3 |f(x)|dx\\right)$",
+        "quickTip": "軸下加負號、軸上取正號，分段求和：$-\\int_0^1 + \\int_1^2 - \\int_2^3$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>A=−</m:t></m:r><m:nary><m:naryPr><m:chr m:val=\"∫\"/><m:limLoc m:val=\"subSup\"/><m:grow m:val=\"1\"/><m:subHide m:val=\"off\"/><m:supHide m:val=\"off\"/></m:naryPr><m:sub><m:r><m:t>0</m:t></m:r></m:sub><m:sup><m:r><m:t>1</m:t></m:r></m:sup><m:e/></m:nary><m:r><m:t>f(x)dx+</m:t></m:r><m:nary><m:naryPr><m:chr m:val=\"∫\"/><m:limLoc m:val=\"subSup\"/><m:grow m:val=\"1\"/><m:subHide m:val=\"off\"/><m:supHide m:val=\"off\"/></m:naryPr><m:sub><m:r><m:t>1</m:t></m:r></m:sub><m:sup><m:r><m:t>2</m:t></m:r></m:sup><m:e/></m:nary><m:r><m:t>f(x)dx−</m:t></m:r><m:nary><m:naryPr><m:chr m:val=\"∫\"/><m:limLoc m:val=\"subSup\"/><m:grow m:val=\"1\"/><m:subHide m:val=\"off\"/><m:supHide m:val=\"off\"/></m:naryPr><m:sub><m:r><m:t>2</m:t></m:r></m:sub><m:sup><m:r><m:t>3</m:t></m:r></m:sup><m:e/></m:nary><m:r><m:t>f(x)dx</m:t></m:r><m:r><m:t>(或</m:t></m:r><m:nary><m:naryPr><m:chr m:val=\"∫\"/><m:limLoc m:val=\"subSup\"/><m:grow m:val=\"1\"/><m:subHide m:val=\"off\"/><m:supHide m:val=\"off\"/></m:naryPr><m:sub><m:r><m:t>0</m:t></m:r></m:sub><m:sup><m:r><m:t>3</m:t></m:r></m:sup><m:e/></m:nary><m:r><m:t>|f(x)|dx)</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -75,8 +76,9 @@
           "(3) 原函數為 $\\frac{(y-1)^4}{4}$。<br>$\\int_1^{-2} (y - 1)^3 dy = \\left[ \\frac{(y-1)^4}{4} \\right]_1^{-2} = \\frac{(-2 - 1)^4}{4} - \\frac{(1 - 1)^4}{4} = \\frac{(-3)^4}{4} - 0 = \\frac{81}{4}$。",
           "(4) 原函數為 $x^3 + \\frac{5}{2}x^2 - 8x$。<br>$\\int_3^1 (3x^2 + 5x - 8) dx = \\left[ x^3 + \\frac{5}{2}x^2 - 8x \\right]_3^1$<br>$= \\left(1 + \\frac{5}{2} - 8\\right) - \\left(27 + \\frac{5}{2}(9) - 24\\right) = \\left(-\\frac{9}{2}\\right) - \\left(3 + \\frac{45}{2}\\right) = -\\frac{9}{2} - \\frac{51}{2} = -\\frac{60}{2} = -30$。"
         ],
-        "ans": "(1) \\frac{8}{3}；(2) -\\frac{1203}{2}；(3) \\frac{81}{4}；(4) -30",
-        "quickTip": "牛頓-萊布尼茨公式一步到位，分數通分細心即得滿分！"
+        "ans": "(1) $\\frac{8}{3}$；(2) $-\\frac{1203}{2}$；(3) $\\frac{81}{4}$；(4) $-30$",
+        "quickTip": "牛頓-萊布尼茨公式一步到位，分數通分細心即得滿分！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(1)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>8</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>$；(2)$−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1203</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:t>$；(3)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>81</m:t></m:r></m:num><m:den><m:r><m:t>4</m:t></m:r></m:den></m:f><m:r><m:t>$；(4)$−30$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -104,8 +106,9 @@
           "(1) 令 $2x + 1 = 0 \\implies x = -\\frac{1}{2} \\in [-3, 3]$。<br>分兩段積分：<br>$\\int_{-3}^3 |2x + 1| dx = \\int_{-3}^{-1/2} -(2x + 1) dx + \\int_{-1/2}^3 (2x + 1) dx$<br>幾何法（兩直角三角形面積之和）：<br>左側三角形底邊為 $-1/2 - (-3) = 2.5$，高為 $|2(-3)+1| = 5$，面積為 $\\frac{1}{2} \\times 2.5 \\times 5 = 6.25 = \\frac{25}{4}$；<br>右側三角形底邊為 $3 - (-1/2) = 3.5$，高為 $2(3)+1 = 7$，面積為 $\\frac{1}{2} \\times 3.5 \\times 7 = 12.25 = \\frac{49}{4}$；<br>總值為：$\\frac{25}{4} + \\frac{49}{4} = \\frac{74}{4} = \\frac{37}{2} = 18.5$。",
           "(2) 拆開積分：$\\int_0^3 (|x - 2| + 2x) dx = \\int_0^3 |x - 2| dx + \\int_0^3 2x dx$。<br>第一部分 $\\int_0^3 |x - 2| dx$：零點在 $x = 2$，兩三角形底分別為 2 和 1，高分別為 2 和 1：<br>面積為 $\\frac{1}{2}(2)(2) + \\frac{1}{2}(1)(1) = 2 + 0.5 = 2.5 = \\frac{5}{2}$；<br>第二部分 $\\int_0^3 2x dx = [x^2]_0^3 = 9$；<br>總和：$\\frac{5}{2} + 9 = \\frac{23}{2} = 11.5$。"
         ],
-        "ans": "(1) \\frac{37}{2} \\quad (\\text{或 } 18.5)；(2) \\frac{23}{2} \\quad (\\text{或 } 11.5)",
-        "quickTip": "一次絕對值定積分直接用幾何三角形面積相加，10 秒口算得出答案！"
+        "ans": "(1) $\\frac{37}{2} \\quad (\\text{或 } 18.5)$；(2) $\\frac{23}{2} \\quad (\\text{或 } 11.5)$",
+        "quickTip": "一次絕對值定積分直接用幾何三角形面積相加，10 秒口算得出答案！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(1)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>37</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:t>(或18.5)$；(2)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>23</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:t>(或11.5)$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -136,8 +139,9 @@
           "(3) 聯立 $x^2 = 2x + 3 \\implies x^2 - 2x - 3 = 0 \\implies (x-3)(x+1) = 0 \\implies x = -1, 3$。<br>在 $[-1, 3]$ 上直線在拋物線上方：$2x + 3 \\ge x^2$。<br>定積分式：$A = \\int_{-1}^3 (2x + 3 - x^2) dx = \\left[ x^2 + 3x - \\frac{x^3}{3} \\right]_{-1}^3 = 9 - \\left(-\\frac{5}{3}\\right) = \\frac{32}{3}$。<br>（秒殺驗證：$\\frac{1}{6}(3 - (-1))^3 = \\frac{64}{6} = \\frac{32}{3}$）。",
           "(4) 交點分析：$y=2x$ 與 $y=x^2$ 交於 $(0,0)$ 和 $(2,4)$；$y=x$ 與 $y=x^2$ 交於 $(0,0)$ 和 $(1,1)$。<br>三線圍成第一象限區域，需在 $x=1$ 處分段：<br>① 在 $x \\in [0, 1]$ 內，上邊界為 $y=2x$，下邊界為 $y=x$：$A_1 = \\int_0^1 (2x - x)dx = \\int_0^1 x dx = \\frac{1}{2}$；<br>② 在 $x \\in [1, 2]$ 內，上邊界為 $y=2x$，下邊界為 $y=x^2$：$A_2 = \\int_1^2 (2x - x^2)dx = \\left[ x^2 - \\frac{x^3}{3} \\right]_1^2 = \\left(4 - \\frac{8}{3}\\right) - \\left(1 - \\frac{1}{3}\\right) = \\frac{4}{3} - \\frac{2}{3} = \\frac{2}{3}$；<br>總面積：$A = A_1 + A_2 = \\frac{1}{2} + \\frac{2}{3} = \\frac{7}{6}$。"
         ],
-        "ans": "(1) \\int_0^1 (\\sqrt{x}-x)dx = \\frac{1}{6}；(2) \\int_{-3}^1 (3-2x-x^2)dx = \\frac{32}{3}；(3) \\int_{-1}^3 (2x+3-x^2)dx = \\frac{32}{3}；(4) \\int_0^1 (2x-x)dx + \\int_1^2 (2x-x^2)dx = \\frac{7}{6}",
-        "quickTip": "阿基米德拋物線弦面積公式 $\\frac{|a|}{6}(\\Delta x)^3$ 秒殺 (2) 和 (3) 均為 $32/3$！"
+        "ans": "(1) $\\int_0^1 (\\sqrt{x}-x)dx = \\frac{1}{6}$；(2) $\\int_{-3}^1 (3-2x-x^2)dx = \\frac{32}{3}$；(3) $\\int_{-1}^3 (2x+3-x^2)dx = \\frac{32}{3}$；(4) $\\int_0^1 (2x-x)dx + \\int_1^2 (2x-x^2)dx = \\frac{7}{6}$",
+        "quickTip": "阿基米德拋物線弦面積公式 $\\frac{|a|}{6}(\\Delta x)^3$ 秒殺 (2) 和 (3) 均為 $32/3$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(1)$</m:t></m:r><m:nary><m:naryPr><m:chr m:val=\"∫\"/><m:limLoc m:val=\"subSup\"/><m:grow m:val=\"1\"/><m:subHide m:val=\"off\"/><m:supHide m:val=\"off\"/></m:naryPr><m:sub><m:r><m:t>0</m:t></m:r></m:sub><m:sup><m:r><m:t>1</m:t></m:r></m:sup><m:e/></m:nary><m:r><m:t>(</m:t></m:r><m:rad><m:radPr><m:degHide m:val=\"on\"/></m:radPr><m:deg/><m:e><m:r><m:t>x</m:t></m:r></m:e></m:rad><m:r><m:t>−x)dx=</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>6</m:t></m:r></m:den></m:f><m:r><m:t>$；(2)$</m:t></m:r><m:nary><m:naryPr><m:chr m:val=\"∫\"/><m:limLoc m:val=\"subSup\"/><m:grow m:val=\"1\"/><m:subHide m:val=\"off\"/><m:supHide m:val=\"off\"/></m:naryPr><m:sub><m:r><m:t>−3</m:t></m:r></m:sub><m:sup><m:r><m:t>1</m:t></m:r></m:sup><m:e/></m:nary><m:r><m:t>(3−2x−</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>)dx=</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>32</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>$；(3)$</m:t></m:r><m:nary><m:naryPr><m:chr m:val=\"∫\"/><m:limLoc m:val=\"subSup\"/><m:grow m:val=\"1\"/><m:subHide m:val=\"off\"/><m:supHide m:val=\"off\"/></m:naryPr><m:sub><m:r><m:t>−1</m:t></m:r></m:sub><m:sup><m:r><m:t>3</m:t></m:r></m:sup><m:e/></m:nary><m:r><m:t>(2x+3−</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>)dx=</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>32</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>$；(4)$</m:t></m:r><m:nary><m:naryPr><m:chr m:val=\"∫\"/><m:limLoc m:val=\"subSup\"/><m:grow m:val=\"1\"/><m:subHide m:val=\"off\"/><m:supHide m:val=\"off\"/></m:naryPr><m:sub><m:r><m:t>0</m:t></m:r></m:sub><m:sup><m:r><m:t>1</m:t></m:r></m:sup><m:e/></m:nary><m:r><m:t>(2x−x)dx+</m:t></m:r><m:nary><m:naryPr><m:chr m:val=\"∫\"/><m:limLoc m:val=\"subSup\"/><m:grow m:val=\"1\"/><m:subHide m:val=\"off\"/><m:supHide m:val=\"off\"/></m:naryPr><m:sub><m:r><m:t>1</m:t></m:r></m:sub><m:sup><m:r><m:t>2</m:t></m:r></m:sup><m:e/></m:nary><m:r><m:t>(2x−</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>)dx=</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>7</m:t></m:r></m:num><m:den><m:r><m:t>6</m:t></m:r></m:den></m:f><m:r><m:t>$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -168,8 +172,9 @@
           "(7) 曲線交點：$\\frac{x^2}{2} = \\frac{1}{1+x^2} \\implies x^4 + x^2 - 2 = 0 \\implies x^2 = 1 \\implies x = \\pm 1$。<br>由對稱性，總面積 $A = 2(A_1 + A_2)$：<br>在 $[0, 1]$ 內，$\\frac{1}{1+x^2} \\ge \\frac{x^2}{2}$：$A_1 = \\int_0^1 \\left(\\frac{1}{1+x^2} - \\frac{x^2}{2}\\right)dx = \\left[ \\arctan x - \\frac{x^3}{6} \\right]_0^1 = \\frac{\\pi}{4} - \\frac{1}{6}$；<br>在 $[1, \\sqrt{3}]$ 內，$\\frac{x^2}{2} \\ge \\frac{1}{1+x^2}$：$A_2 = \\int_1^{\\sqrt{3}} \\left(\\frac{x^2}{2} - \\frac{1}{1+x^2}\\right)dx = \\left[ \\frac{x^3}{6} - \\arctan x \\right]_1^{\\sqrt{3}} = \\left(\\frac{\\sqrt{3}}{2} - \\frac{\\pi}{3}\\right) - \\left(\\frac{1}{6} - \\frac{\\pi}{4}\\right) = \\frac{\\sqrt{3}}{2} - \\frac{\\pi}{12} - \\frac{1}{6}$；<br>$A_1 + A_2 = \\frac{\\sqrt{3}}{2} + \\frac{\\pi}{6} - \\frac{1}{3} \\implies A = 2(A_1 + A_2) = \\sqrt{3} + \\frac{\\pi}{3} - \\frac{2}{3}$。",
           "(8) 函數 $y = x^3 - 9x$ 與 $x$ 軸交於 $x = -3, 0, 3$。為奇函數，兩瓣面積相等：<br>$A = 2\\int_0^3 (0 - (x^3 - 9x)) dx = 2\\int_0^3 (9x - x^3) dx = 2\\left[ \\frac{9}{2}x^2 - \\frac{x^4}{4} \\right]_0^3 = 2\\left( \\frac{81}{2} - \\frac{81}{4} \\right) = 2\\left( \\frac{81}{4} \\right) = \\frac{81}{2} = 40.5$。"
         ],
-        "ans": "(5) \\frac{4}{3}；(6) \\frac{4\\sqrt{2}}{3}；(7) \\sqrt{3} + \\frac{\\pi}{3} - \\frac{2}{3}；(8) \\frac{81}{2}",
-        "quickTip": "(6) 對 y 積分，一步出 $4\\sqrt{2}/3$；(8) 奇函數算一半乘 2 得 $81/2$！"
+        "ans": "(5) $\\frac{4}{3}$；(6) $\\frac{4\\sqrt{2}}{3}$；(7) $\\sqrt{3} + \\frac{\\pi}{3} - \\frac{2}{3}$；(8) $\\frac{81}{2}$",
+        "quickTip": "(6) 對 y 積分，一步出 $4\\sqrt{2}/3$；(8) 奇函數算一半乘 2 得 $81/2$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(5)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>4</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>$；(6)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>4</m:t></m:r><m:rad><m:radPr><m:degHide m:val=\"on\"/></m:radPr><m:deg/><m:e><m:r><m:t>2</m:t></m:r></m:e></m:rad></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>$；(7)$</m:t></m:r><m:rad><m:radPr><m:degHide m:val=\"on\"/></m:radPr><m:deg/><m:e><m:r><m:t>3</m:t></m:r></m:e></m:rad><m:r><m:t>+</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>π</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>2</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>$；(8)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>81</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:t>$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -197,8 +202,9 @@
           "第一步：求二次函數解析式 $f(x)$：<br>因為 $f(1) = 0$ 且 $f(2) = 0$，故 $x = 1, 2$ 是 $f(x) = 0$ 的兩根。<br>可設 $f(x) = c(x - 1)(x - 2) = c(x^2 - 3x + 2)$（其中 $c \\ne 0$）。<br>由 $f(3) = 2$ 代入得：$c(3 - 1)(3 - 2) = 2 \\implies 2c = 2 \\implies c = 1$。<br>因此 $f(x) = (x - 1)(x - 2) = x^2 - 3x + 2$。",
           "第二步：計算定積分 $\\int_0^4 f(x) dx$：<br>$\\int_0^4 (x^2 - 3x + 2) dx = \\left[ \\frac{x^3}{3} - \\frac{3}{2}x^2 + 2x \\right]_0^4$。<br>代入上限 4：<br>$\\frac{4^3}{3} - \\frac{3}{2}(4^2) + 2(4) = \\frac{64}{3} - \\frac{3}{2}(16) + 8 = \\frac{64}{3} - 24 + 8 = \\frac{64}{3} - 16$。<br>通分得：$\\frac{64 - 48}{3} = \\frac{16}{3}$。"
         ],
-        "ans": "\\frac{16}{3}",
-        "quickTip": "$f(x) = (x-1)(x-2) = x^2-3x+2$，積分 $[x^3/3 - 1.5x^2 + 2x]_0^4 = 64/3 - 16 = 16/3$！"
+        "ans": "$\\frac{16}{3}$",
+        "quickTip": "$f(x) = (x-1)(x-2) = x^2-3x+2$，積分 $[x^3/3 - 1.5x^2 + 2x]_0^4 = 64/3 - 16 = 16/3$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>16</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f></m:oMath>"
       }
     },
     {
@@ -228,8 +234,9 @@
           "求兩切線交點：<br>聯立 $4x - 3 = -4x + 13 \\implies 8x = 16 \\implies x = 2$。代入得 $y = 4(2) - 3 = 5$。交點為 $(2, 5)$。",
           "計算面積：<br>由對稱性，總面積 $A = 2 \\int_0^2 [(4x - 3) - (-x^2 + 4x - 3)] dx$。<br>化簡被積函數：$(4x - 3) - (-x^2 + 4x - 3) = x^2$！<br>因此：$A = 2 \\int_0^2 x^2 dx = 2 \\left[ \\frac{x^3}{3} \\right]_0^2 = 2 \\times \\frac{8}{3} = \\frac{16}{3}$。<br>（注：若計算兩切點與交點組成的三角形面積 $S_{\\triangle} = \\frac{1}{2} \\times 4 \\times (5 - (-3)) = 16$，則所求面積 $A = \\frac{1}{3} S_{\\triangle} = \\frac{16}{3}$，完全吻合！）"
         ],
-        "ans": "\\frac{16}{3}",
-        "quickTip": "被積函數化簡為極簡的 $x^2$！$2 \\int_0^2 x^2 dx = 2(8/3) = 16/3$，絕美簡約！"
+        "ans": "$\\frac{16}{3}$",
+        "quickTip": "被積函數化簡為極簡的 $x^2$！$2 \\int_0^2 x^2 dx = 2(8/3) = 16/3$，絕美簡約！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>16</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f></m:oMath>"
       }
     },
     {
@@ -260,7 +267,8 @@
           "計算定積分：<br>$A = \\int_0^3 (y - 3)^2 dy = \\left[ \\frac{(y - 3)^3}{3} \\right]_0^3 = \\frac{(3 - 3)^3}{3} - \\frac{(0 - 3)^3}{3} = 0 - \\left( -\\frac{27}{3} \\right) = 9$。"
         ],
         "ans": "9",
-        "quickTip": "被積函數化簡為完美平方式 $(y-3)^2$！$\\int_0^3 (y-3)^2 dy = -(-27/3) = 9$。絕妙技巧！"
+        "quickTip": "被積函數化簡為完美平方式 $(y-3)^2$！$\\int_0^3 (y-3)^2 dy = -(-27/3) = 9$。絕妙技巧！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>9</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -290,8 +298,9 @@
           "(a) 碗狀立體的容積（即內壁旋轉所圍成的內部空腔體積）：<br>內壁方程為 $y = x^2 + 9 \\implies x^2 = y - 9$（底部位於 $y = 9$，頂部位於 $y = 45$）。<br>$V_{\\text{容積}} = \\pi \\int_9^{45} x^2 dy = \\pi \\int_9^{45} (y - 9) dy = \\pi \\left[ \\frac{(y - 9)^2}{2} \\right]_9^{45}$<br>$= \\pi \\left( \\frac{(45 - 9)^2}{2} - 0 \\right) = \\pi \\times \\frac{36^2}{2} = \\pi \\times \\frac{1296}{2} = 648\\pi$。",
           "(b) 構成碗狀立體的材料體積（即外壁旋轉體積減去內腔容積）：<br>外壁方程為 $y = \\frac{5}{4}x^2 \\implies x^2 = \\frac{4}{5}y$（底部位於 $y = 0$，頂部位於 $y = 45$）。<br>外體積為：<br>$V_{\\text{外}} = \\pi \\int_0^{45} \\frac{4}{5}y dy = \\frac{4\\pi}{5} \\left[ \\frac{y^2}{2} \\right]_0^{45} = \\frac{2\\pi}{5} \\times 45^2 = \\frac{2\\pi}{5} \\times 2025 = 810\\pi$。<br>材料體積為：<br>$V_{\\text{材料}} = V_{\\text{外}} - V_{\\text{容積}} = 810\\pi - 648\\pi = 162\\pi$。"
         ],
-        "ans": "(a) 容積為 648\\pi；(b) 材料體積為 162\\pi",
-        "quickTip": "圓柱殼法或截面圓法：內腔 $36^2 / 2 \\times \\pi = 648\\pi$，外體積 $810\\pi$，相減得 $162\\pi$！"
+        "ans": "(a) 容積為 $648\\pi$；(b) 材料體積為 $162\\pi$",
+        "quickTip": "圓柱殼法或截面圓法：內腔 $36^2 / 2 \\times \\pi = 648\\pi$，外體積 $810\\pi$，相減得 $162\\pi$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(a)容積為$648π$；(b)材料體積為$162π$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -321,8 +330,9 @@
           "計算定積分：<br>$\\int_3^5 (25x - x^3) dx = \\left[ \\frac{25}{2}x^2 - \\frac{x^4}{4} \\right]_3^5$。<br>代入上限 5：$\\frac{25}{2}(25) - \\frac{625}{4} = \\frac{625}{2} - \\frac{625}{4} = \\frac{625}{4}$；<br>代入下限 3：$\\frac{25}{2}(9) - \\frac{81}{4} = \\frac{225}{2} - \\frac{81}{4} = \\frac{450 - 81}{4} = \\frac{369}{4}$；<br>兩者相減：$\\frac{625 - 369}{4} = \\frac{256}{4} = 64$。",
           "乘上外層常數 $2\\pi$：<br>$V = 2\\pi \\times 64 = 128\\pi$。"
         ],
-        "ans": "128\\pi",
-        "quickTip": "圓柱殼法：$2\\pi \\int_3^5 (25x - x^3)dx = 2\\pi \\times 64 = 128\\pi$。運算乾淨俐落！"
+        "ans": "$128\\pi$",
+        "quickTip": "圓柱殼法：$2\\pi \\int_3^5 (25x - x^3)dx = 2\\pi \\times 64 = 128\\pi$。運算乾淨俐落！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>128π</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -353,8 +363,9 @@
           "計算第二段積分：<br>$\\int_1^2 (16 - x^4) dx = \\left[ 16x - \\frac{x^5}{5} \\right]_1^2 = \\left(32 - \\frac{32}{5}\\right) - \\left(16 - \\frac{1}{5}\\right) = 16 - \\frac{31}{5} = \\frac{49}{5}$。",
           "兩段相加：<br>$\\frac{17}{3} + \\frac{49}{5} = \\frac{85 + 147}{15} = \\frac{232}{15}$。<br>故總旋轉體積為 $V = \\frac{232\\pi}{15}$。"
         ],
-        "ans": "\\frac{232\\pi}{15}",
-        "quickTip": "墊圈法分段：$\\pi\\left(\\frac{17}{3} + \\frac{49}{5}\\right) = \\frac{232\\pi}{15}$！"
+        "ans": "$\\frac{232\\pi}{15}$",
+        "quickTip": "墊圈法分段：$\\pi\\left(\\frac{17}{3} + \\frac{49}{5}\\right) = \\frac{232\\pi}{15}$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>232π</m:t></m:r></m:num><m:den><m:r><m:t>15</m:t></m:r></m:den></m:f></m:oMath>"
       }
     },
     {
@@ -382,8 +393,9 @@
           "(1) 觀察和式結構：<br>令 $x_k = \\frac{k}{n}$，$\\Delta x = \\frac{1}{n}$，被積函數為 $f(x) = \\sqrt{1 - x^2}$。<br>由定積分定義：<br>$\\lim_{n \\to \\infty} \\frac{1}{n} \\sum_{k=1}^n \\sqrt{1 - \\left(\\frac{k}{n}\\right)^2} = \\int_0^1 \\sqrt{1 - x^2} dx$。<br>幾何意義：$y = \\sqrt{1 - x^2}$ 在 $[0, 1]$ 上的圖像為半徑為 1 的圓在第一象限的四分之一圓弧。<br>故定積分值為圓面積的 $\\frac{1}{4}$：$\\frac{1}{4} \\pi (1^2) = \\frac{\\pi}{4}$。",
           "(2) 對和式進行代數變形配湊：<br>$\\sqrt{16n^2 - (4k)^2} = \\sqrt{16n^2\\left(1 - \\left(\\frac{k}{n}\\right)^2\\right)} = 4n \\sqrt{1 - \\left(\\frac{k}{n}\\right)^2}$。<br>代入原極限：<br>$\\lim_{n \\to \\infty} \\frac{4}{n^2} \\sum_{k=1}^n 4n \\sqrt{1 - \\left(\\frac{k}{n}\\right)^2} = \\lim_{n \\to \\infty} \\frac{16}{n} \\sum_{k=1}^n \\sqrt{1 - \\left(\\frac{k}{n}\\right)^2} = 16 \\lim_{n \\to \\infty} \\frac{1}{n} \\sum_{k=1}^n \\sqrt{1 - \\left(\\frac{k}{n}\\right)^2}$。<br>由 (1) 的結論，極限值為：$16 \\int_0^1 \\sqrt{1 - x^2} dx = 16 \\times \\frac{\\pi}{4} = 4\\pi$。"
         ],
-        "ans": "(1) \\int_0^1 \\sqrt{1-x^2}dx = \\frac{\\pi}{4}；(2) 16\\int_0^1 \\sqrt{1-x^2}dx = 4\\pi",
-        "quickTip": "黎曼和轉化為定積分就是算 $1/4$ 圓面積 $\\pi/4$！(2) 提係數 16 即得 $16 \\times \\pi/4 = 4\\pi$！"
+        "ans": "(1) $\\int_0^1 \\sqrt{1-x^2}dx = \\frac{\\pi}{4}$；(2) $16\\int_0^1 \\sqrt{1-x^2}dx = 4\\pi$",
+        "quickTip": "黎曼和轉化為定積分就是算 $1/4$ 圓面積 $\\pi/4$！(2) 提係數 16 即得 $16 \\times \\pi/4 = 4\\pi$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(1)$</m:t></m:r><m:nary><m:naryPr><m:chr m:val=\"∫\"/><m:limLoc m:val=\"subSup\"/><m:grow m:val=\"1\"/><m:subHide m:val=\"off\"/><m:supHide m:val=\"off\"/></m:naryPr><m:sub><m:r><m:t>0</m:t></m:r></m:sub><m:sup><m:r><m:t>1</m:t></m:r></m:sup><m:e/></m:nary><m:rad><m:radPr><m:degHide m:val=\"on\"/></m:radPr><m:deg/><m:e><m:r><m:t>1−</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup></m:e></m:rad><m:r><m:t>dx=</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>π</m:t></m:r></m:num><m:den><m:r><m:t>4</m:t></m:r></m:den></m:f><m:r><m:t>$；(2)$16</m:t></m:r><m:nary><m:naryPr><m:chr m:val=\"∫\"/><m:limLoc m:val=\"subSup\"/><m:grow m:val=\"1\"/><m:subHide m:val=\"off\"/><m:supHide m:val=\"off\"/></m:naryPr><m:sub><m:r><m:t>0</m:t></m:r></m:sub><m:sup><m:r><m:t>1</m:t></m:r></m:sup><m:e/></m:nary><m:rad><m:radPr><m:degHide m:val=\"on\"/></m:radPr><m:deg/><m:e><m:r><m:t>1−</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup></m:e></m:rad><m:r><m:t>dx=4π$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -411,8 +423,9 @@
           "(a) 對已知兩式兩邊同時對 $x$ 求導：<br>① $\\frac{d}{dx}\\int_1^x (2f(t) - g(t))dt = \\frac{d}{dx}(3x^2 + 5x + a) \\implies 2f(x) - g(x) = 6x + 5$　…… (1)<br>② $\\frac{d}{dx}\\int_1^x (f(t) + 2g(t))dt = \\frac{d}{dx}(5x^3 - x^2 + b) \\implies f(x) + 2g(x) = 15x^2 - 2x$　…… (2)<br>消元解方程組：<br>將 (1) 式乘 2 加上 (2) 式：<br>$2(2f(x) - g(x)) + (f(x) + 2g(x)) = 2(6x + 5) + (15x^2 - 2x)$<br>$5f(x) = 12x + 10 + 15x^2 - 2x = 15x^2 + 10x + 10$。<br>兩邊同除以 5：$f(x) = 3x^2 + 2x + 2$。<br>由 (1) 式解得 $g(x)$：<br>$g(x) = 2f(x) - (6x + 5) = 2(3x^2 + 2x + 2) - 6x - 5 = 6x^2 + 4x + 4 - 6x - 5 = 6x^2 - 2x - 1$。",
           "(b) 利用變上限積分的初值條件：<br>在原方程中令 $x = 1$（定積分上限與下限相等時值恆為 0）：<br>① $\\int_1^1 (2f(t) - g(t))dt = 3(1^2) + 5(1) + a \\implies 0 = 3 + 5 + a \\implies 8 + a = 0 \\implies a = -8$；<br>② $\\int_1^1 (f(t) + 2g(t))dt = 5(1^3) - 1^2 + b \\implies 0 = 5 - 1 + b \\implies 4 + b = 0 \\implies b = -4$。"
         ],
-        "ans": "(a) f(x) = 3x^2 + 2x + 2, \\quad g(x) = 6x^2 - 2x - 1；(b) a = -8, \\quad b = -4",
-        "quickTip": "令 $x=1$ 秒得 $a = -8, b = -4$；求導消元得 $f(x)=3x^2+2x+2, g(x)=6x^2-2x-1$！"
+        "ans": "(a) $f(x) = 3x^2 + 2x + 2, \\quad g(x) = 6x^2 - 2x - 1$；(b) $a = -8, \\quad b = -4$",
+        "quickTip": "令 $x=1$ 秒得 $a = -8, b = -4$；求導消元得 $f(x)=3x^2+2x+2, g(x)=6x^2-2x-1$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(a)$f(x)=3</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>+2x+2,g(x)=6</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>−2x−1$；(b)$a=−8,b=−4$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -442,8 +455,9 @@
           "(a) 因式分解：<br>$f(x) = x^2(x - k) - (x - k) = (x^2 - 1)(x - k) = (x - 1)(x + 1)(x - k)$。<br>三根為 $x = -1, k, 1$。已知 $-1 \\le k \\le 1$，因此三根的大小順序為 $-1 \\le k \\le 1$。<br>① 當 $x \\in [-1, k]$ 時，$f(x) \\ge 0$；<br>② 當 $x \\in [k, 1]$ 時，$f(x) \\le 0$。<br>面積函數為：$A(k) = \\int_{-1}^k (x^3 - kx^2 - x + k) dx - \\int_k^1 (x^3 - kx^2 - x + k) dx$。<br>求原函數：$F(x) = \\frac{x^4}{4} - \\frac{kx^3}{3} - \\frac{x^2}{2} + kx$。<br>$A(k) = [F(k) - F(-1)] - [F(1) - F(k)] = 2F(k) - F(-1) - F(1)$。<br>代入計算：<br>$F(k) = \\frac{k^4}{4} - \\frac{k^4}{3} - \\frac{k^2}{2} + k^2 = -\\frac{k^4}{12} + \\frac{k^2}{2}$；<br>$F(1) = \\frac{1}{4} - \\frac{k}{3} - \\frac{1}{2} + k = -\\frac{1}{4} + \\frac{2}{3}k$；<br>$F(-1) = \\frac{1}{4} + \\frac{k}{3} - \\frac{1}{2} - k = -\\frac{1}{4} - \\frac{2}{3}k$；<br>$F(1) + F(-1) = -\\frac{1}{2}$。<br>代入得：$A(k) = 2\\left(-\\frac{k^4}{12} + \\frac{k^2}{2}\\right) - \\left(-\\frac{1}{2}\\right) = -\\frac{1}{6}k^4 + k^2 + \\frac{1}{2}$。",
           "(b) 求 $A(k)$ 在 $[-1, 1]$ 上的最值：<br>令 $u = k^2$。因為 $k \\in [-1, 1]$，所以 $u \\in [0, 1]$。<br>$A(u) = -\\frac{1}{6}u^2 + u + \\frac{1}{2}$。<br>此為關於 $u$ 的二次函數，對稱軸為 $u = -\\frac{1}{2(-1/6)} = 3$。<br>因為開口向下且對稱軸 $u = 3 > 1$，所以在區間 $u \\in [0, 1]$ 上，$A(u)$ 單調遞增！<br>① 當 $u = 0$（即 $k = 0$）時，取得最小值：<br>$A_{\\min} = A(0) = \\frac{1}{2}$；<br>② 當 $u = 1$（即 $k = \\pm 1$）時，取得最大值：<br>$A_{\\max} = A(1) = -\\frac{1}{6}(1) + 1 + \\frac{1}{2} = \\frac{4}{3}$。"
         ],
-        "ans": "(a) A(k) = -\\frac{1}{6}k^4 + k^2 + \\frac{1}{2}；(b) 最大值為 \\frac{4}{3} (當 k = ±1 時)，最小值為 \\frac{1}{2} (當 k = 0 時)",
-        "quickTip": "令 $u = k^2 \\in [0, 1]$，對稱軸在 $u=3$，區間內單調遞增！最小 $A(0) = 1/2$，最大 $A(1) = 4/3$！"
+        "ans": "(a) $A(k) = -\\frac{1}{6}k^4 + k^2 + \\frac{1}{2}$；(b) 最大值為 $\\frac{4}{3}$ (當 $k = \\pm 1$ 時)，最小值為 $\\frac{1}{2}$ (當 $k = 0$ 時)",
+        "quickTip": "令 $u = k^2 \\in [0, 1]$，對稱軸在 $u=3$，區間內單調遞增！最小 $A(0) = 1/2$，最大 $A(1) = 4/3$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(a)$A(k)=−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>6</m:t></m:r></m:den></m:f><m:sSup><m:e><m:r><m:t>k</m:t></m:r></m:e><m:sup><m:r><m:t>4</m:t></m:r></m:sup></m:sSup><m:r><m:t>+</m:t></m:r><m:sSup><m:e><m:r><m:t>k</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>+</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:t>$；(b)最大值為$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>4</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>$(當$k=±1$時)，最小值為$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:t>$(當$k=0$時)</m:t></m:r></m:oMath>"
       }
     }
   ]

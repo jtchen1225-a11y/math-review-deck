@@ -282,7 +282,12 @@
          <div class="zoom-sol-badge">${s.year ? s.year + '年 ' : ''}${s.paper || ''} · ${s.qNum || s.sec || ''} 【解題思維與規範步驟】</div>
          ${s.solution && s.solution.thinking ? `<div class="zoom-thinking"><b>【解題思路】：</b>${Array.isArray(s.solution.thinking) ? s.solution.thinking.join('<br>') : s.solution.thinking}</div>` : ''}
          ${stepsHtml}
-         ${s.solution && s.solution.ans ? `<div class="zoom-ans">參考答案：${s.solution.ans}</div>` : ''}
+         ${s.solution && s.solution.ans ? `
+          <div class="zoom-ans" style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+            <span>參考答案：${s.solution.ans}</span>
+            ${s.solution.omml ? `<button class="jae-copy-omml-btn" onclick="window.copyCurrentOMML(this, ${globalIdx})" title="複製微軟 Word 原生 OMML 數學方程式代碼">📋 複製 Word OMML</button>` : ''}
+          </div>
+        ` : ''}
          ${s.solution && s.solution.quickTip ? `<div class="zoom-quick-tip">⚡ <b>聯考速解訣竅：</b>${s.solution.quickTip}</div>` : ''}
        </div>`;
     showZoom(s, '規範解答放大');
@@ -569,6 +574,11 @@
               <div class="jae-ans-row">
                 <span class="jae-ans-badge">參考答案</span>
                 <span class="jae-ans-value">${s.solution.ans}</span>
+                ${s.solution.omml ? `
+                  <button class="jae-copy-omml-btn" onclick="window.copyCurrentOMML(this, ${globalIdx})" title="複製微軟 Word 原生 OMML 數學方程式代碼">
+                    📋 複製 Word OMML
+                  </button>
+                ` : ''}
               </div>
             ` : ''}
             ${s.solution && s.solution.quickTip ? `

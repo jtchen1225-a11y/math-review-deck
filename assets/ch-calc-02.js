@@ -1,4 +1,4 @@
-/* 2026 高三理組數學思維本 · 微積分篇 — 專題二 導數的應用 (23 題) */
+/* 2026 高三理組數學思維本 · 微積分篇 — 專題二 導數的應用 (23 題) - 支援 OMML */
 (function() {
   const DECK = window.DECK = window.DECK || [];
 
@@ -25,10 +25,10 @@
       "score": "4分",
       "q": "函數 $y = ax^2 + 1$ 的圖像與直線 $y = x$ 相切，則實數 $a = (\\quad)$。",
       "options": [
-        "A. $\\frac{1}{8}$",
-        "B. $\\frac{1}{4}$",
-        "C. $\\frac{1}{2}$",
-        "D. 1"
+        "A. $1 - \\cos 1$",
+        "B. $1 + \\cos 1$",
+        "C. $\\cos 1 - 1$",
+        "D. $-1 - \\cos 1$"
       ],
       "knowledge": {
         "formulas": [
@@ -49,7 +49,8 @@
           "方法二（判別式法）：<br>聯立 $\\begin{cases} y = ax^2 + 1 \\\\ y = x \\end{cases} \\implies ax^2 - x + 1 = 0$。<br>直線與拋物線相切 $\\iff \\Delta = (-1)^2 - 4(a)(1) = 0 \\implies 1 - 4a = 0 \\implies a = \\frac{1}{4}$。"
         ],
         "ans": "B",
-        "quickTip": "二次方程判別式 $\\Delta = 1 - 4a = 0 \\implies a = 1/4$，3 秒秒殺！"
+        "quickTip": "二次方程判別式 $\\Delta = 1 - 4a = 0 \\implies a = 1/4$，3 秒秒殺！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>B</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -84,7 +85,8 @@
           "由兩直線互相垂直：$k_1 \\cdot k_2 = -1$。<br>$\\left(-\\frac{1}{2}\\right)(-a) = -1 \\implies \\frac{a}{2} = -1 \\implies a = -2$。"
         ],
         "ans": "B",
-        "quickTip": "切線斜率為 $-1/2$，垂直直線斜率必為 $+2$。而直線斜率為 $-a$，故 $-a = 2 \\implies a = -2$！"
+        "quickTip": "切線斜率為 $-1/2$，垂直直線斜率必為 $+2$。而直線斜率為 $-a$，故 $-a = 2 \\implies a = -2$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>B</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -120,7 +122,8 @@
           "題目要求在 $(0, 1)$ 內有極小值：<br>$0 < \\sqrt{2}|b| < 1 \\implies 0 < |b| < \\frac{1}{\\sqrt{2}} = \\frac{\\sqrt{2}}{2}$。<br>當限定 $b > 0$ 時，即為 $0 < b < \\frac{\\sqrt{2}}{2}$。"
         ],
         "ans": "C",
-        "quickTip": "極小值點為 $\\sqrt{2}b \\in (0, 1) \\implies 0 < b < 1/\\sqrt{2} = \\sqrt{2}/2$，選 C！"
+        "quickTip": "極小值點為 $\\sqrt{2}b \\in (0, 1) \\implies 0 < b < 1/\\sqrt{2} = \\sqrt{2}/2$，選 C！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>C</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -157,7 +160,8 @@
           "故在 $(m, n)$ 內共有 3 個極值點（分別為 $a, b, d$）。"
         ],
         "ans": "C",
-        "quickTip": "數原函數波峰波谷：$a$ 谷、$b$ 峰、$d$ 谷，共 3 個，選 C！"
+        "quickTip": "數原函數波峰波谷：$a$ 谷、$b$ 峰、$d$ 谷，共 3 個，選 C！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>C</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -196,7 +200,8 @@
           "整個區間內，導函數「由負變正」的穿零點只有 1 處，故極小值點只有 1 個。"
         ],
         "ans": "A",
-        "quickTip": "導函數求極小：找「下穿上（負變正）」的零點，全圖僅 1 處，選 A！"
+        "quickTip": "導函數求極小：找「下穿上（負變正）」的零點，全圖僅 1 處，選 A！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>A</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -233,7 +238,8 @@
           "解得：$a^2 \\le 3 \\implies -\\sqrt{3} \\le a \\le \\sqrt{3}$，即 $a \\in [-\\sqrt{3}, \\sqrt{3}]$。"
         ],
         "ans": "B",
-        "quickTip": "$\\Delta = 4a^2 - 12 \\le 0 \\implies a^2 \\le 3 \\implies [-\\sqrt{3}, \\sqrt{3}]$，選 B！"
+        "quickTip": "$\\Delta = 4a^2 - 12 \\le 0 \\implies a^2 \\le 3 \\implies [-\\sqrt{3}, \\sqrt{3}]$，選 B！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>B</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -263,8 +269,9 @@
           "計算切線斜率：$k = f'(0) = 40(1 + 0)^9 = 40$。",
           "由點斜式寫出切線方程：<br>$y - 1 = 40(x - 0) \\implies y = 40x + 1$（或一般式 $40x - y + 1 = 0$）。"
         ],
-        "ans": "y = 40x + 1 \\quad (\\text{或 } 40x - y + 1 = 0)",
-        "quickTip": "切點為 $(0, 1)$，斜率 $f'(0) = 40$，切線就是 $y = 40x + 1$！"
+        "ans": "$y = 40x + 1 \\quad (\\text{或 } 40x - y + 1 = 0)$",
+        "quickTip": "切點為 $(0, 1)$，斜率 $f'(0) = 40$，切線就是 $y = 40x + 1$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>y=40x+1(或40x−y+1=0)</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -293,8 +300,9 @@
           "計算點 $P$ 處的切線斜率：<br>$k = y'\\left(\\frac{\\pi}{3}\\right) = 3\\cos\\left(3 \\cdot \\frac{\\pi}{3}\\right) = 3\\cos\\pi = 3(-1) = -3$。",
           "由點斜式寫出切線方程：<br>$y - 0 = -3\\left(x - \\frac{\\pi}{3}\\right) \\implies y = -3x + \\pi$（或一般式 $3x + y - \\pi = 0$）。"
         ],
-        "ans": "3x + y - \\pi = 0 \\quad (\\text{或 } y = -3x + \\pi)",
-        "quickTip": "斜率為 $3\\cos\\pi = -3$，方程 $y = -3(x - \\pi/3) \\implies 3x + y - \\pi = 0$。"
+        "ans": "$3x + y - \\pi = 0 \\quad (\\text{或 } y = -3x + \\pi)$",
+        "quickTip": "斜率為 $3\\cos\\pi = -3$，方程 $y = -3(x - \\pi/3) \\implies 3x + y - \\pi = 0$。",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>3x+y−π=0(或y=−3x+π)</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -325,7 +333,8 @@
           "由點斜式寫出切線方程：<br>$y - 3 = -\\frac{3}{8}(x - (-2)) \\implies 8(y - 3) = -3(x + 2)$<br>$8y - 24 = -3x - 6 \\implies 3x + 8y - 18 = 0$。"
         ],
         "ans": "3x + 8y - 18 = 0",
-        "quickTip": "代入點求導：$9 - 12 + (-12 + 4)y' = 0 \\implies y' = -3/8$，$3x + 8y - 18 = 0$ 一步到位！"
+        "quickTip": "代入點求導：$9 - 12 + (-12 + 4)y' = 0 \\implies y' = -3/8$，$3x + 8y - 18 = 0$ 一步到位！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>3x+8y−18=0</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -355,8 +364,9 @@
           "(2) 定義域：$x \\ge -2$。求導：$y' = \\frac{2}{2\\sqrt{2x+4}} - \\frac{1}{2\\sqrt{x+3}} = \\frac{1}{\\sqrt{2x+4}} - \\frac{1}{2\\sqrt{x+3}}$。<br>令 $y' = 0 \\implies 2\\sqrt{x+3} = \\sqrt{2x+4} \\implies 4(x+3) = 2x+4 \\implies 2x = -8 \\implies x = -4$。<br>但 $x = -4$ 不在定義域 $x \\ge -2$ 內！在定義域 $[-2, +\\infty)$ 內 $y' > 0$ 恆成立，函數單調遞增，無內部極值點（端點 $x=-2$ 取得最小值 $-1$）。",
           "(3) $f'(x) = 3x^2 - 6x + 6 = 3(x^2 - 2x + 2) = 3[(x-1)^2 + 1] > 0$ 恆成立。<br>因此 $f(x)$ 在 $\\mathbb{R}$ 上嚴格單調遞增，無極值。"
         ],
-        "ans": "(1) 極大值 f(-1) = -4，極小值 f(1) = 4；(2) 無內部極值（在 x=-2 處有端點最小值 -1）；(3) 無極值",
-        "quickTip": "(1) 奇函數，負處極大為 -4，正處極小為 4；(3) 判別式小於 0 恆增無極值！"
+        "ans": "(1) 極大值 $f(-1) = -4$，極小值 $f(1) = 4$；(2) 無內部極值（在 $x=-2$ 處有端點最小值 $-1$）；(3) 無極值",
+        "quickTip": "(1) 奇函數，負處極大為 -4，正處極小為 4；(3) 判別式小於 0 恆增無極值！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(1)極大值$f(−1)=−4$，極小值$f(1)=4$；(2)無內部極值（在$x=−2$處有端點最小值$−1$）；(3)無極值</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -386,7 +396,8 @@
           "二階求導：$y'' = 6x^2 - 4x - 2 = 2(3x^2 - 2x - 1) = 2(3x + 1)(x - 1)$。<br>令 $y'' = 0 \\implies x = -\\frac{1}{3}$ 或 $x = 1$。<br>兩側二階導數符號均改變，故拐點有兩處：<br>當 $x = 1$ 時，$y(1) = \\frac{1}{2} - \\frac{2}{3} - 1 + 2 + 4 = \\frac{29}{6}$，拐點 $(1, \\frac{29}{6})$；<br>當 $x = -\\frac{1}{3}$ 時，$y(-1/3) = \\frac{1}{162} + \\frac{2}{81} - \\frac{1}{9} - \\frac{2}{3} + 4 = \\frac{529}{162}$，拐點 $(-\\frac{1}{3}, \\frac{529}{162})$。"
         ],
         "ans": "單調減區間 $(-\\infty, -1]$，增區間 $[-1, +\\infty)$；極小值 $y(-1) = \\frac{13}{6}$；拐點為 $(1, \\frac{29}{6})$ 和 $(-\\frac{1}{3}, \\frac{529}{162})$",
-        "quickTip": "$x=1$ 為導函數的二重零點，函數穿過後繼續遞增，是典型的拐點而非極值點！"
+        "quickTip": "$x=1$ 為導函數的二重零點，函數穿過後繼續遞增，是典型的拐點而非極值點！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>單調減區間$(−∞,−1]$，增區間$[−1,+∞)$；極小值$y(−1)=</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>13</m:t></m:r></m:num><m:den><m:r><m:t>6</m:t></m:r></m:den></m:f><m:r><m:t>$；拐點為$(1,</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>29</m:t></m:r></m:num><m:den><m:r><m:t>6</m:t></m:r></m:den></m:f><m:r><m:t>)$和$(−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>,</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>529</m:t></m:r></m:num><m:den><m:r><m:t>162</m:t></m:r></m:den></m:f><m:r><m:t>)$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -416,8 +427,9 @@
           "計算各候選點的函數值：<br>① 左端點：$y(-1) = (-1)^4 - 8(-1)^2 + 2 = 1 - 8 + 2 = -5$；<br>② 內部駐點：$y(0) = 0 - 0 + 2 = 2$；<br>③ 內部駐點：$y(2) = 2^4 - 8(2^2) + 2 = 16 - 32 + 2 = -14$；<br>④ 右端點：$y(3) = 3^4 - 8(3^2) + 2 = 81 - 72 + 2 = 11$。",
           "比較可得：最大值為 $y(3) = 11$（最小值為 $y(2) = -14$）。"
         ],
-        "ans": "\\text{最大值為 } 11 \\quad (\\text{在 } x = 3 \\text{ 處取得})",
-        "quickTip": "令 $u = x^2 \\in [0, 9]$，原式化為二次函數 $u^2 - 8u + 2 = (u-4)^2 - 14$。當 $u=9$ 時最大，值為 $(9-4)^2 - 14 = 25 - 14 = 11$！"
+        "ans": "最大值為 $11$ (在 $x = 3$ 處取得)",
+        "quickTip": "令 $u = x^2 \\in [0, 9]$，原式化為二次函數 $u^2 - 8u + 2 = (u-4)^2 - 14$。當 $u=9$ 時最大，值為 $(9-4)^2 - 14 = 25 - 14 = 11$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>最大值為$11$(在$x=3$處取得)</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -445,8 +457,9 @@
           "(1) 函數 $y = \\frac{x}{x^2 - 1}$：<br>① 定義域 $x \\ne \\pm 1$，為奇函數（圖形關於原點對稱）。<br>② 垂直漸近線為 $x = 1$ 和 $x = -1$，水平漸近線為 $y = 0$。<br>③ 一階導：$y' = \\frac{1(x^2-1) - x(2x)}{(x^2-1)^2} = \\frac{-x^2-1}{(x^2-1)^2} < 0$ 恆成立。在各定義區間內均單調遞減，無極值點。<br>④ 二階導：$y'' = \\frac{2x(x^2+3)}{(x^2-1)^3}$。當 $x = 0$ 時 $y'' = 0$ 且兩側變號，故拐點為原點 $(0, 0)$。<br>⑤ 作圖要點：三支雙曲線型分支，分別在 $(-\\infty, -1)$, $(-1, 1)$, $(1, +\\infty)$。",
           "(2) 函數 $y = x^3 - 6x^2 + 9x - 10$：<br>① 一階導：$y' = 3x^2 - 12x + 9 = 3(x-1)(x-3)$。令 $y' = 0 \\implies x = 1$ 或 $x = 3$。<br>在 $x=1$ 處取極大值：$y(1) = 1 - 6 + 9 - 10 = -6$，極大值點為 $(1, -6)$；<br>在 $x=3$ 處取極小值：$y(3) = 27 - 54 + 27 - 10 = -10$，極小值點為 $(3, -10)$。<br>② 二階導：$y'' = 6x - 12 = 6(x-2)$。令 $y'' = 0 \\implies x = 2$。<br>拐點坐標為 $(2, y(2)) = (2, 8 - 24 + 18 - 10) = (2, -8)$。<br>③ 圖像為標準 S 型三次曲線，拐點 $(2, -8)$ 亦為其對稱中心。"
         ],
-        "ans": "(1) 無極值，拐點 (0, 0)，漸近線 x = ±1, y = 0；(2) 極大值點 (1, -6)，極小值點 (3, -10)，拐點 (2, -8)",
-        "quickTip": "三次函數拐點坐標必為兩極值點的中點：$((1+3)/2, (-6-10)/2) = (2, -8)$！"
+        "ans": "(1) 無極值，拐點 $(0, 0)$，漸近線 $x = \\pm 1, y = 0$；(2) 極大值點 $(1, -6)$，極小值點 $(3, -10)$，拐點 $(2, -8)$",
+        "quickTip": "三次函數拐點坐標必為兩極值點的中點：$((1+3)/2, (-6-10)/2) = (2, -8)$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(1)無極值，拐點$(0,0)$，漸近線$x=±1,y=0$；(2)極大值點$(1,−6)$，極小值點$(3,−10)$，拐點$(2,−8)$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -475,8 +488,9 @@
           "(b) 頂點 $P(s, t)$ 在第一象限且在曲線上，故 $t = 12 - s^2$（其中 $0 < s < 2\\sqrt{3}$）。<br>由對稱性，矩形位於 $x$ 軸上的底邊長度為 $2s$，高為 $t = 12 - s^2$。<br>因此矩形面積為：$A(s) = 2s \\cdot (12 - s^2) = 24s - 2s^3$。",
           "(c) 對 $A(s)$ 求導：$A'(s) = 24 - 6s^2$。<br>令 $A'(s) = 0 \\implies 6s^2 = 24 \\implies s^2 = 4$。<br>因為 $s > 0$，所以唯一臨界點為 $s = 2$。<br>當 $0 < s < 2$ 時 $A'(s) > 0$；當 $s > 2$ 時 $A'(s) < 0$。<br>因此在 $s = 2$ 處取得最大面積：<br>$A_{\\max} = A(2) = 24(2) - 2(2^3) = 48 - 16 = 32$。"
         ],
-        "ans": "(b) A(s) = 24s - 2s^3；(c) 最大可能面積為 32",
-        "quickTip": "$A'(s) = 24 - 6s^2 = 0 \\implies s = 2$；$A = 2(2)(12 - 4) = 4 \\times 8 = 32$！"
+        "ans": "(b) $A(s) = 24s - 2s^3$；(c) 最大可能面積為 $32$",
+        "quickTip": "$A'(s) = 24 - 6s^2 = 0 \\implies s = 2$；$A = 2(2)(12 - 4) = 4 \\times 8 = 32$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(b)$A(s)=24s−2</m:t></m:r><m:sSup><m:e><m:r><m:t>s</m:t></m:r></m:e><m:sup><m:r><m:t>3</m:t></m:r></m:sup></m:sSup><m:r><m:t>$；(c)最大可能面積為$32$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -506,8 +520,9 @@
           "(b) 盒子開口（無蓋），材料面積即為 1 個底面加上 4 個側面面積：<br>$S(x) = x^2 + 4xh = x^2 + 4x\\left(\\frac{500}{x^2}\\right) = x^2 + \\frac{2000}{x}\\text{ cm}^2$（其中 $x > 0$）。",
           "(c) 對 $S(x)$ 求導：$S'(x) = 2x - \\frac{2000}{x^2}$。<br>令 $S'(x) = 0 \\implies 2x = \\frac{2000}{x^2} \\implies x^3 = 1000 \\implies x = 10\\text{ cm}$。<br>當 $x < 10$ 時 $S'(x) < 0$；當 $x > 10$ 時 $S'(x) > 0$。<br>故在 $x = 10\\text{ cm}$ 處材料最省（表面積最小）。<br>此時高為 $h = \\frac{500}{10^2} = 5\\text{ cm}$。<br>因此，最優尺寸為：底邊長 $10\\text{ cm}$，高 $5\\text{ cm}$。"
         ],
-        "ans": "(a) h = \\frac{500}{x^2}；(b) S = x^2 + \\frac{2000}{x}；(c) 底邊長 10 cm，高 5 cm",
-        "quickTip": "無蓋最優形狀規律：底邊必為高的 2 倍！$x = 2h \\implies 4h^3 = 500 \\implies h^3 = 125 \\implies h = 5, x = 10$！"
+        "ans": "(a) $h = \\frac{500}{x^2}$；(b) $S = x^2 + \\frac{2000}{x}$；(c) 底邊長 $10\\text{ cm}$，高 $5\\text{ cm}$",
+        "quickTip": "無蓋最優形狀規律：底邊必為高的 2 倍！$x = 2h \\implies 4h^3 = 500 \\implies h^3 = 125 \\implies h = 5, x = 10$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(a)$h=</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>500</m:t></m:r></m:num><m:den><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup></m:den></m:f><m:r><m:t>$；(b)$S=</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>+</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>2000</m:t></m:r></m:num><m:den><m:r><m:t>x</m:t></m:r></m:den></m:f><m:r><m:t>$；(c)底邊長$</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>10cm</m:t></m:r><m:r><m:t>$，高$</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>5cm</m:t></m:r><m:r><m:t>$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -545,7 +560,8 @@
           "由點斜式得切線方程：<br>$y - 1 = -3(x - (-1)) \\implies y - 1 = -3x - 3 \\implies 3x + y + 2 = 0$。"
         ],
         "ans": "A",
-        "quickTip": "斜率為 $-3$，排除 C、D；直線形式為 $3x + y + C = 0$，代入切點 $(-1, 1)$ 得 $-3+1+C=0 \\implies C=2$，選 A！"
+        "quickTip": "斜率為 $-3$，排除 C、D；直線形式為 $3x + y + C = 0$，代入切點 $(-1, 1)$ 得 $-3+1+C=0 \\implies C=2$，選 A！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>A</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -581,7 +597,8 @@
           "因為在第二象限內，正切函數嚴格單調遞增，所以當 $\\tan\\alpha$ 取得最小值 $-1$（在 $x = 1$ 處）時，傾斜角 $\\alpha$ 取得最小值 $\\frac{3\\pi}{4}$。"
         ],
         "ans": "D",
-        "quickTip": "斜率 $k \\in [-1, 0)$，負斜率對應鈍角，$\\tan\\alpha = -1$ 對應最小傾斜角 $135^\\circ = 3\\pi/4$，選 D！"
+        "quickTip": "斜率 $k \\in [-1, 0)$，負斜率對應鈍角，$\\tan\\alpha = -1$ 對應最小傾斜角 $135^\\circ = 3\\pi/4$，選 D！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>D</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -612,8 +629,9 @@
           "計算最小值：$g(3) = 3^4 - 4(3^3) = 81 - 108 = -27$。",
           "由題意：$-27 \\ge 2 - a \\implies a \\ge 2 + 27 = 29$。"
         ],
-        "ans": "a \\ge 29 \\quad (\\text{或 } [29, +\\infty))",
-        "quickTip": "最小值為 $g(3) = -27$，$-27 \\ge 2 - a \\implies a \\ge 29$！"
+        "ans": "$a \\ge 29 \\quad (\\text{或 } [29, +\\infty))$",
+        "quickTip": "最小值為 $g(3) = -27$，$-27 \\ge 2 - a \\implies a \\ge 29$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>a≥29(或[29,+∞))</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -643,7 +661,8 @@
           "兩者相加：$f(5) + f'(5) = 3 + (-1) = 2$。"
         ],
         "ans": "2",
-        "quickTip": "$f(5) = 3$，$f'(5) = -1$，直接 $3 - 1 = 2$！"
+        "quickTip": "$f(5) = 3$，$f'(5) = -1$，直接 $3 - 1 = 2$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>2</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -674,8 +693,9 @@
           "兩邊同乘 $(x_0+5)^2$：<br>$-(x_0+9)(x_0+5) = 4x_0 \\implies -(x_0^2 + 14x_0 + 45) = 4x_0$。<br>移項得：$x_0^2 + 18x_0 + 45 = 0$。<br>因式分解：$(x_0 + 3)(x_0 + 15) = 0 \\implies x_0 = -3$ 或 $x_0 = -15$。",
           "分別求兩條切線方程：<br>① 當 $x_0 = -3$ 時：斜率 $k_1 = -\\frac{4}{(-3+5)^2} = -\\frac{4}{4} = -1$。切線為 $y = -x$（即 $x + y = 0$）；<br>② 當 $x_0 = -15$ 時：斜率 $k_2 = -\\frac{4}{(-15+5)^2} = -\\frac{4}{100} = -\\frac{1}{25}$。切線為 $y = -\\frac{1}{25}x$（即 $x + 25y = 0$）。"
         ],
-        "ans": "x + y = 0 \\quad \\text{或} \\quad x + 25y = 0",
-        "quickTip": "過原點斜率 $y_0/x_0 = y'_0 \\implies x_0^2 + 18x_0 + 45 = 0 \\implies x_0 = -3, -15$。對應斜率 $-1$ 和 $-1/25$！"
+        "ans": "$x + y = 0$ 或 $x + 25y = 0$",
+        "quickTip": "過原點斜率 $y_0/x_0 = y'_0 \\implies x_0^2 + 18x_0 + 45 = 0 \\implies x_0 = -3, -15$。對應斜率 $-1$ 和 $-1/25$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>x+y=0$或$x+25y=0</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -706,7 +726,8 @@
           "計算兩者之和：<br>$f(1) + f'(1) = \\frac{5}{2} + \\frac{1}{2} = \\frac{6}{2} = 3$。"
         ],
         "ans": "3",
-        "quickTip": "$f(1) = 2.5$，$f'(1) = 0.5$，$2.5 + 0.5 = 3$。5 秒心算！"
+        "quickTip": "$f(1) = 2.5$，$f'(1) = 0.5$，$2.5 + 0.5 = 3$。5 秒心算！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>3</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -736,8 +757,9 @@
           "驗證極值性：<br>將 $a = \\frac{1}{3}, b = -\\frac{1}{2}$ 代入原函數與導函數：<br>$f(x) = x^3 - x^2 - x, \\quad f'(x) = 3x^2 - 2x - 1 = (3x + 1)(x - 1)$。<br>駐點為 $x = -\\frac{1}{3}$ 和 $x = 1$。<br>二階導：$f''(x) = 6x - 2$。在 $x=1$ 處 $f''(1) = 4 > 0$，確實為極小值點！<br>而在 $x = -\\frac{1}{3}$ 處 $f''(-1/3) = -4 < 0$，取得極大值 $f(-1/3) = -\\frac{1}{27} - \\frac{1}{9} + \\frac{1}{3} = \\frac{5}{27}$。",
           "圖像特徵：通過原點 $(0, 0)$，零點為 $x(x^2 - x - 1) = 0 \\implies x = 0, \\frac{1\\pm\\sqrt{5}}{2}$；極大值點 $(-\\frac{1}{3}, \\frac{5}{27})$，極小值點 $(1, -1)$。"
         ],
-        "ans": "a = \\frac{1}{3}, \\quad b = -\\frac{1}{2}；\\text{極大值點 } \\left(-\\frac{1}{3}, \\frac{5}{27}\\right), \\text{極小值點 } (1, -1)",
-        "quickTip": "(2)-(1) 即得 $3a = 1 \\implies a = 1/3$，代入得 $b = -1/2$。一階導 $(3x+1)(x-1)$ 驗算完美！"
+        "ans": "$a = \\frac{1}{3}, \\quad b = -\\frac{1}{2}$；極大值點 $\\left(-\\frac{1}{3}, \\frac{5}{27}\\right)$，極小值點 $(1, -1)$",
+        "quickTip": "(2)-(1) 即得 $3a = 1 \\implies a = 1/3$，代入得 $b = -1/2$。一階導 $(3x+1)(x-1)$ 驗算完美！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>a=</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>,b=−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:t>$；極大值點$</m:t></m:r><m:r><m:t>(−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>,</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>5</m:t></m:r></m:num><m:den><m:r><m:t>27</m:t></m:r></m:den></m:f><m:r><m:t>)</m:t></m:r><m:r><m:t>$，極小值點$(1,−1)</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -771,7 +793,8 @@
           "故所求函數解析式為 $f(x) = 4x^3 - 3x$。"
         ],
         "ans": "f(x) = 4x^3 - 3x",
-        "quickTip": "由 $f'(1/2) = 0 \\implies c = -3a/4$；代入 $f(1/2) = a/8 - 3a/8 = -a/4 = -1 \\implies a = 4, c = -3$！"
+        "quickTip": "由 $f'(1/2) = 0 \\implies c = -3a/4$；代入 $f(1/2) = a/8 - 3a/8 = -a/4 = -1 \\implies a = 4, c = -3$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>f(x)=4</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>3</m:t></m:r></m:sup></m:sSup><m:r><m:t>−3x</m:t></m:r></m:oMath>"
       }
     }
   ]

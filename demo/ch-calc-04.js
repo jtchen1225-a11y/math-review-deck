@@ -1,4 +1,4 @@
-/* 2026 高三理組數學思維本 · 微積分篇 — 專題四 不定積分 (10 題) */
+/* 2026 高三理組數學思維本 · 微積分篇 — 專題四 不定積分 (10 題) - 支援 OMML */
 (function() {
   const DECK = window.DECK = window.DECK || [];
 
@@ -43,8 +43,9 @@
           "(b) 對 (a) 式兩邊對 $x$ 積分：<br>$\\sin^{n-1}x \\cos x = (n-1)\\int \\sin^{n-2}x dx - n\\int \\sin^n x dx$<br>即 $\\sin^{n-1}x \\cos x = (n-1)I_{n-2} - n I_n$。<br>移項整理：$n I_n = -\\sin^{n-1}x \\cos x + (n-1)I_{n-2}$。<br>兩邊同除以 $n$：$I_n = -\\frac{1}{n}\\sin^{n-1}x \\cos x + \\frac{n-1}{n}I_{n-2}$。得證！",
           "(c) 計算 $\\int \\sin^4 x dx$（即 $n = 4$）：<br>由遞推公式：$I_4 = -\\frac{1}{4}\\sin^3 x \\cos x + \\frac{3}{4}I_2$。<br>對 $n = 2$：$I_2 = -\\frac{1}{2}\\sin x \\cos x + \\frac{1}{2}I_0 = -\\frac{1}{4}\\sin 2x + \\frac{1}{2}x$（其中 $I_0 = \\int 1 dx = x$）。<br>代入 $I_4$：<br>$I_4 = -\\frac{1}{4}\\sin^3 x \\cos x + \\frac{3}{4}\\left(-\\frac{1}{2}\\sin x \\cos x + \\frac{1}{2}x\\right) + C$<br>$= \\frac{3}{8}x - \\frac{3}{8}\\sin x \\cos x - \\frac{1}{4}\\sin^3 x \\cos x + C$<br>$= \\frac{3}{8}x - \\frac{1}{4}\\sin 2x + \\frac{1}{32}\\sin 4x + C$。"
         ],
-        "ans": "\\int \\sin^4 x dx = \\frac{3}{8}x - \\frac{1}{4}\\sin 2x + \\frac{1}{32}\\sin 4x + C",
-        "quickTip": "經典三角遞推公式，兩步降階直接求解高次正弦不定積分！"
+        "ans": "$\\int \\sin^4 x dx = \\frac{3}{8}x - \\frac{1}{4}\\sin 2x + \\frac{1}{32}\\sin 4x + C$",
+        "quickTip": "經典三角遞推公式，兩步降階直接求解高次正弦不定積分！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>∫</m:t></m:r><m:sSup><m:e><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r></m:e><m:sup><m:r><m:t>4</m:t></m:r></m:sup></m:sSup><m:r><m:t>xdx=</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>3</m:t></m:r></m:num><m:den><m:r><m:t>8</m:t></m:r></m:den></m:f><m:r><m:t>x−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>4</m:t></m:r></m:den></m:f><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r><m:r><m:t>2x+</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>32</m:t></m:r></m:den></m:f><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r><m:r><m:t>4x+C</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -72,8 +73,9 @@
           "(a) 令 $y = (x^2 + 1)^{-1}$。<br>$\\frac{d}{dx}\\left(\\frac{1}{x^2+1}\\right) = -(x^2+1)^{-2} \\cdot (2x) = -\\frac{2x}{(x^2+1)^2}$。",
           "(b) 觀察 (a) 的結果：<br>$\\frac{d}{dx}\\left(\\frac{1}{x^2+1}\\right) = -2 \\cdot \\frac{x}{(1+x^2)^2}$。<br>兩邊同除以 $-2$：<br>$\\frac{x}{(1+x^2)^2} = -\\frac{1}{2} \\frac{d}{dx}\\left(\\frac{1}{x^2+1}\\right)$。<br>兩邊積分得：<br>$\\int \\frac{x}{(1+x^2)^2} dx = -\\frac{1}{2}\\left(\\frac{1}{x^2+1}\\right) + C = -\\frac{1}{2(x^2+1)} + C$。"
         ],
-        "ans": "(a) -\\frac{2x}{(x^2+1)^2}；(b) -\\frac{1}{2(x^2+1)} + C",
-        "quickTip": "湊微分法：$x dx = \\frac{1}{2}d(x^2+1)$，$\\frac{1}{2}\\int u^{-2}du = -\\frac{1}{2u} + C$！"
+        "ans": "(a) $-\\frac{2x}{(x^2+1)^2}$；(b) $-\\frac{1}{2(x^2+1)} + C$",
+        "quickTip": "湊微分法：$x dx = \\frac{1}{2}d(x^2+1)$，$\\frac{1}{2}\\int u^{-2}du = -\\frac{1}{2u} + C$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(a)$−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>2x</m:t></m:r></m:num><m:den><m:r><m:t>(</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>+1</m:t></m:r><m:sSup><m:e><m:r><m:t>)</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup></m:den></m:f><m:r><m:t>$；(b)$−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>2(</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>+1)</m:t></m:r></m:den></m:f><m:r><m:t>+C$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -105,8 +107,9 @@
           "(3) $\\int \\frac{dx}{x^2 \\sqrt{x}} = \\int x^{-5/2} dx = \\frac{x^{-5/2 + 1}}{-5/2 + 1} + C = \\frac{x^{-3/2}}{-3/2} + C = -\\frac{2}{3x\\sqrt{x}} + C$。",
           "(4) 先化簡被積函數：$\\sqrt{x\\sqrt{x}} = (x \\cdot x^{1/2})^{1/2} = (x^{3/2})^{1/2} = x^{3/4}$。<br>展開式子：$\\left(1 - x^{-2}\\right) x^{3/4} = x^{3/4} - x^{-5/4}$。<br>逐項積分：<br>$\\int (x^{3/4} - x^{-5/4})dx = \\frac{x^{7/4}}{7/4} - \\frac{x^{-1/4}}{-1/4} + C = \\frac{4}{7}x^{7/4} + 4x^{-1/4} + C = \\frac{4}{7}x\\sqrt[4]{x^3} + \\frac{4}{\\sqrt[4]{x}} + C$。"
         ],
-        "ans": "(1) \\frac{x^3}{3} + x + C；(2) \\frac{(x-2)^3}{3} + C；(3) -\\frac{2}{3x\\sqrt{x}} + C；(4) \\frac{4}{7}x^{7/4} + 4x^{-1/4} + C",
-        "quickTip": "遇到根號先化為分數指數：$x^{-5/2} \\to -\\frac{2}{3}x^{-3/2}$，運算快又準！"
+        "ans": "(1) $\\frac{x^3}{3} + x + C$；(2) $\\frac{(x-2)^3}{3} + C$；(3) $-\\frac{2}{3x\\sqrt{x}} + C$；(4) $\\frac{4}{7}x^{7/4} + 4x^{-1/4} + C$",
+        "quickTip": "遇到根號先化為分數指數：$x^{-5/2} \\to -\\frac{2}{3}x^{-3/2}$，運算快又準！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(1)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>3</m:t></m:r></m:sup></m:sSup></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>+x+C$；(2)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>(x−2</m:t></m:r><m:sSup><m:e><m:r><m:t>)</m:t></m:r></m:e><m:sup><m:r><m:t>3</m:t></m:r></m:sup></m:sSup></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>+C$；(3)$−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>2</m:t></m:r></m:num><m:den><m:r><m:t>3x</m:t></m:r><m:rad><m:radPr><m:degHide m:val=\"on\"/></m:radPr><m:deg/><m:e><m:r><m:t>x</m:t></m:r></m:e></m:rad></m:den></m:f><m:r><m:t>+C$；(4)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>4</m:t></m:r></m:num><m:den><m:r><m:t>7</m:t></m:r></m:den></m:f><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:f><m:fPr><m:type m:val=\"lin\"/></m:fPr><m:num><m:r><m:t>7</m:t></m:r></m:num><m:den><m:r><m:t>4</m:t></m:r></m:den></m:f></m:sup></m:sSup><m:r><m:t>+4</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>−1/4</m:t></m:r></m:sup></m:sSup><m:r><m:t>+C$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -138,8 +141,9 @@
           "(7) $\\int \\cos\\frac{x}{3} dx = 3\\int \\cos\\frac{x}{3} d\\left(\\frac{x}{3}\\right) = 3\\sin\\frac{x}{3} + C$。",
           "(8) 方法一：$\\int \\sin x \\cos x dx = \\int \\sin x d(\\sin x) = \\frac{1}{2}\\sin^2 x + C$；<br>方法二：$\\frac{1}{2}\\int \\sin 2x dx = -\\frac{1}{4}\\cos 2x + C_1$（兩者等價）。"
         ],
-        "ans": "(5) \\frac{x^3}{3} + x^2 + \\frac{1}{x} + C；(6) -\\frac{1}{8}(3-2x)^4 + C；(7) 3\\sin\\frac{x}{3} + C；(8) \\frac{1}{2}\\sin^2 x + C",
-        "quickTip": "$\\sin x \\cos x$ 湊微分直接寫 $\\frac{1}{2}\\sin^2 x + C$ 最簡約！"
+        "ans": "(5) $\\frac{x^3}{3} + x^2 + \\frac{1}{x} + C$；(6) $-\\frac{1}{8}(3-2x)^4 + C$；(7) $3\\sin\\frac{x}{3} + C$；(8) $\\frac{1}{2}\\sin^2 x + C$",
+        "quickTip": "$\\sin x \\cos x$ 湊微分直接寫 $\\frac{1}{2}\\sin^2 x + C$ 最簡約！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(5)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>3</m:t></m:r></m:sup></m:sSup></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>+</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>+</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>x</m:t></m:r></m:den></m:f><m:r><m:t>+C$；(6)$−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>8</m:t></m:r></m:den></m:f><m:r><m:t>(3−2x</m:t></m:r><m:sSup><m:e><m:r><m:t>)</m:t></m:r></m:e><m:sup><m:r><m:t>4</m:t></m:r></m:sup></m:sSup><m:r><m:t>+C$；(7)$3</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>x</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>+C$；(8)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:sSup><m:e><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>x+C$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -172,8 +176,9 @@
           "(11) 湊微分 $x dx = \\frac{1}{2}d(x^2)$：<br>$\\int x\\cos(x^2) dx = \\frac{1}{2}\\int \\cos(x^2) d(x^2) = \\frac{1}{2}\\sin(x^2) + C$。",
           "(12) 湊微分 $d(1 - x^4) = -4x^3 dx \\implies x^3 dx = -\\frac{1}{4}d(1 - x^4)$：<br>$\\int \\frac{3x^3}{1 - x^4} dx = 3\\left(-\\frac{1}{4}\\right)\\int \\frac{d(1 - x^4)}{1 - x^4} = -\\frac{3}{4}\\ln|1 - x^4| + C$。"
         ],
-        "ans": "(9) -\\frac{1}{2}(2-3x)^{2/3} + C；(10) -2\\cos\\sqrt{t} + C；(11) \\frac{1}{2}\\sin(x^2) + C；(12) -\\frac{3}{4}\\ln|1-x^4| + C",
-        "quickTip": "看到 $\\frac{g'(x)}{g(x)}$ 結構直接寫出 $\\ln|g(x)|$，配平係數即可！"
+        "ans": "(9) $-\\frac{1}{2}(2-3x)^{2/3} + C$；(10) $-2\\cos\\sqrt{t} + C$；(11) $\\frac{1}{2}\\sin(x^2) + C$；(12) $-\\frac{3}{4}\\ln|1-x^4| + C$",
+        "quickTip": "看到 $\\frac{g'(x)}{g(x)}$ 結構直接寫出 $\\ln|g(x)|$，配平係數即可！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(9)$−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:t>(2−3x</m:t></m:r><m:sSup><m:e><m:r><m:t>)</m:t></m:r></m:e><m:sup><m:f><m:fPr><m:type m:val=\"lin\"/></m:fPr><m:num><m:r><m:t>2</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f></m:sup></m:sSup><m:r><m:t>+C$；(10)$−2</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>cos</m:t></m:r><m:rad><m:radPr><m:degHide m:val=\"on\"/></m:radPr><m:deg/><m:e><m:r><m:t>t</m:t></m:r></m:e></m:rad><m:r><m:t>+C$；(11)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r><m:r><m:t>(</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>)+C$；(12)$−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>3</m:t></m:r></m:num><m:den><m:r><m:t>4</m:t></m:r></m:den></m:f><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>ln</m:t></m:r><m:r><m:t>|1−</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>4</m:t></m:r></m:sup></m:sSup><m:r><m:t>|+C$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -206,8 +211,9 @@
           "(15) 湊微分：$\\int \\cos^3 x dx = \\int (1 - \\sin^2 x) d(\\sin x) = \\sin x - \\frac{1}{3}\\sin^3 x + C$。",
           "(16) 降冪：$\\int \\cos^2\\frac{x}{2} dx = \\int \\frac{1 + \\cos x}{2} dx = \\frac{1}{2}x + \\frac{1}{2}\\sin x + C$。"
         ],
-        "ans": "(13) \\frac{1}{2\\cos^2 x} + C；(14) \\frac{1}{2}\\arcsin\\frac{2x}{3} + \\frac{1}{4}\\sqrt{9-4x^2} + C；(15) \\sin x - \\frac{1}{3}\\sin^3 x + C；(16) \\frac{x}{2} + \\frac{\\sin x}{2} + C",
-        "quickTip": "奇次三角留一個湊微分，偶次三角用二倍角降冪，兩大三角基本功！"
+        "ans": "(13) $\\frac{1}{2\\cos^2 x} + C$；(14) $\\frac{1}{2}\\arcsin\\frac{2x}{3} + \\frac{1}{4}\\sqrt{9-4x^2} + C$；(15) $\\sin x - \\frac{1}{3}\\sin^3 x + C$；(16) $\\frac{x}{2} + \\frac{\\sin x}{2} + C$",
+        "quickTip": "奇次三角留一個湊微分，偶次三角用二倍角降冪，兩大三角基本功！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(13)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r><m:sSup><m:e><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>cos</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>x</m:t></m:r></m:den></m:f><m:r><m:t>+C$；(14)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>arcsin</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>2x</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>+</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>4</m:t></m:r></m:den></m:f><m:rad><m:radPr><m:degHide m:val=\"on\"/></m:radPr><m:deg/><m:e><m:r><m:t>9−4</m:t></m:r><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup></m:e></m:rad><m:r><m:t>+C$；(15)$</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r><m:r><m:t>x−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:sSup><m:e><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r></m:e><m:sup><m:r><m:t>3</m:t></m:r></m:sup></m:sSup><m:r><m:t>x+C$；(16)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>x</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:t>+</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r><m:r><m:t>x</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:t>+C$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -238,8 +244,9 @@
           "(18) 改寫為正割的導函數形式：<br>$\\tan^3 x \\sec x = \\tan^2 x (\\sec x \\tan x) = (\\sec^2 x - 1) d(\\sec x)$。<br>積分：$\\int (\\sec^2 x - 1) d(\\sec x) = \\frac{1}{3}\\sec^3 x - \\sec x + C$。",
           "(19) 多項式長除法：<br>$x^3 = (x^3 + 27) - 27 = (x+3)(x^2 - 3x + 9) - 27$。<br>$\\frac{x^3}{x+3} = x^2 - 3x + 9 - \\frac{27}{x+3}$。<br>逐項積分：<br>$\\int \\left(x^2 - 3x + 9 - \\frac{27}{x+3}\\right) dx = \\frac{x^3}{3} - \\frac{3}{2}x^2 + 9x - 27\\ln|x+3| + C$。"
         ],
-        "ans": "(17) -\\frac{1}{10}\\cos 5x + \\frac{1}{2}\\cos x + C；(18) \\frac{1}{3}\\sec^3 x - \\sec x + C；(19) \\frac{x^3}{3} - \\frac{3}{2}x^2 + 9x - 27\\ln|x+3| + C",
-        "quickTip": "分式次數分子大於等於分母時，毫不猶豫先做長除法！"
+        "ans": "(17) $-\\frac{1}{10}\\cos 5x + \\frac{1}{2}\\cos x + C$；(18) $\\frac{1}{3}\\sec^3 x - \\sec x + C$；(19) $\\frac{x^3}{3} - \\frac{3}{2}x^2 + 9x - 27\\ln|x+3| + C$",
+        "quickTip": "分式次數分子大於等於分母時，毫不猶豫先做長除法！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(17)$−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>10</m:t></m:r></m:den></m:f><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>cos</m:t></m:r><m:r><m:t>5x+</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>cos</m:t></m:r><m:r><m:t>x+C$；(18)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:sSup><m:e><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sec</m:t></m:r></m:e><m:sup><m:r><m:t>3</m:t></m:r></m:sup></m:sSup><m:r><m:t>x−</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sec</m:t></m:r><m:r><m:t>x+C$；(19)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>3</m:t></m:r></m:sup></m:sSup></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>3</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>+9x−27</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>ln</m:t></m:r><m:r><m:t>|x+3|+C$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -270,8 +277,9 @@
           "(21) 展開分子 $\\cos 2x = \\cos^2 x - \\sin^2 x$：<br>$\\frac{\\cos 2x}{\\cos^2 x \\sin^2 x} = \\frac{\\cos^2 x - \\sin^2 x}{\\cos^2 x \\sin^2 x} = \\frac{1}{\\sin^2 x} - \\frac{1}{\\cos^2 x} = \\csc^2 x - \\sec^2 x$。<br>積分得：$\\int (\\csc^2 x - \\sec^2 x)dx = -\\cot x - \\tan x + C$。",
           "(22) 令 $t = \\sqrt{x} \\implies x = t^2, dx = 2t dt$：<br>$\\int \\sin\\sqrt{x} dx = \\int (\\sin t)(2t dt) = 2\\int t \\sin t dt$。<br>分部積分：令 $u = t, dv = \\sin t dt \\implies v = -\\cos t$：<br>$2\\left[ -t\\cos t - \\int (-\\cos t)dt \\right] = 2(-t\\cos t + \\sin t) + C = 2\\sin\\sqrt{x} - 2\\sqrt{x}\\cos\\sqrt{x} + C$。"
         ],
-        "ans": "(20) \\sqrt{x^2-4} - 2\\text{arcsec}\\frac{x}{2} + C；(21) -\\cot x - \\tan x + C；(22) 2\\sin\\sqrt{x} - 2\\sqrt{x}\\cos\\sqrt{x} + C",
-        "quickTip": "(21) 拆項直接得 $-\\cot x - \\tan x + C$；(22) 根號換元後分部秒出！"
+        "ans": "(20) $\\sqrt{x^2-4} - 2\\text{arcsec}\\frac{x}{2} + C$；(21) $-\\cot x - \\tan x + C$；(22) $2\\sin\\sqrt{x} - 2\\sqrt{x}\\cos\\sqrt{x} + C$",
+        "quickTip": "(21) 拆項直接得 $-\\cot x - \\tan x + C$；(22) 根號換元後分部秒出！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(20)$</m:t></m:r><m:rad><m:radPr><m:degHide m:val=\"on\"/></m:radPr><m:deg/><m:e><m:sSup><m:e><m:r><m:t>x</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:t>−4</m:t></m:r></m:e></m:rad><m:r><m:t>−2arcsec</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>x</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:t>+C$；(21)$−</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>cot</m:t></m:r><m:r><m:t>x−</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>tan</m:t></m:r><m:r><m:t>x+C$；(22)$2</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r><m:rad><m:radPr><m:degHide m:val=\"on\"/></m:radPr><m:deg/><m:e><m:r><m:t>x</m:t></m:r></m:e></m:rad><m:r><m:t>−2</m:t></m:r><m:rad><m:radPr><m:degHide m:val=\"on\"/></m:radPr><m:deg/><m:e><m:r><m:t>x</m:t></m:r></m:e></m:rad><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>cos</m:t></m:r><m:rad><m:radPr><m:degHide m:val=\"on\"/></m:radPr><m:deg/><m:e><m:r><m:t>x</m:t></m:r></m:e></m:rad><m:r><m:t>+C$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -302,8 +310,9 @@
           "(2) 拆為兩項：$\\int \\frac{x^5}{x^8+1}dx - \\int \\frac{x}{x^8+1}dx$。<br>第一項：令 $t = x^4 \\implies dt = 4x^3 dx$（或分部），改為令 $w = x^2$ 統一觀察：<br>$\\int \\frac{x^5 dx}{(x^2)^4+1} - \\int \\frac{x dx}{(x^2)^4+1}$。令 $t = x^2 \\implies dt = 2x dx$：<br>$= \\frac{1}{2}\\int \\frac{t^2 - 1}{t^4 + 1} dt = \\frac{1}{2}\\int \\frac{1 - 1/t^2}{t^2 + 1/t^2} dt$。<br>注意到分子為 $d(t + 1/t)$，分母為 $(t + 1/t)^2 - 2$：<br>$= \\frac{1}{2}\\int \\frac{d(t + 1/t)}{(t + 1/t)^2 - (\\sqrt{2})^2} = \\frac{1}{4\\sqrt{2}}\\ln\\left|\\frac{t + 1/t - \\sqrt{2}}{t + 1/t + \\sqrt{2}}\\right| + C$<br>$= \\frac{1}{4\\sqrt{2}}\\ln\\left|\\frac{x^4 - \\sqrt{2}x^2 + 1}{x^4 + \\sqrt{2}x^2 + 1}\\right| + C$。",
           "(3) 分部積分：令 $u = \\ln x \\implies du = \\frac{1}{x}dx$；$dv = x^2 dx \\implies v = \\frac{x^3}{3}$。<br>$\\int x^2 \\ln x dx = \\frac{x^3}{3}\\ln x - \\int \\frac{x^3}{3} \\cdot \\frac{1}{x} dx = \\frac{x^3}{3}\\ln x - \\frac{1}{3}\\int x^2 dx$<br>$= \\frac{x^3}{3}\\ln x - \\frac{x^3}{9} + C$。"
         ],
-        "ans": "(1) \\frac{4}{21}(x^3+1)^{7/4} - \\frac{4}{9}(x^3+1)^{3/4} + C；(2) \\frac{1}{4\\sqrt{2}}\\ln\\left|\\frac{x^4 - \\sqrt{2}x^2 + 1}{x^4 + \\sqrt{2}x^2 + 1}\\right| + C；(3) \\frac{x^3}{3}\\ln x - \\frac{x^3}{9} + C",
-        "quickTip": "(2) 歐拉技巧：分子分母同除以 $t^2$ 湊 $d(t + 1/t)$，是競賽與自主招生極具含金量的秒解招式！"
+        "ans": "(1) $\\frac{4}{21}(x^3+1)^{7/4} - \\frac{4}{9}(x^3+1)^{3/4} + C$；(2) $\\frac{1}{4\\sqrt{2}}\\ln\\left|\\frac{x^4 - \\sqrt{2}x^2 + 1}{x^4 + \\sqrt{2}x^2 + 1}\\right| + C$；(3) $\\frac{x^3}{3}\\ln x - \\frac{x^3}{9} + C$",
+        "quickTip": "(2) 歐拉技巧：分子分母同除以 $t^2$ 湊 $d(t + 1/t)$，是競賽與自主招生極具含金量的秒解招式！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>(1) $\\frac{4}{21}(x^3+1)^{7/4} - \\frac{4}{9}(x^3+1)^{3/4} + C$；(2) $\\frac{1}{4\\sqrt{2}}\\ln\\left|\\frac{x^4 - \\sqrt{2}x^2 + 1}{x^4 + \\sqrt{2}x^2 + 1}| + C$；(3) $\\frac{x^3}{3}\\ln x - \\frac{x^3}{9} + C$</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -334,8 +343,9 @@
           "(5) 令 $x = 2a\\sin^2\\theta$（$\\theta \\in [0, \\pi/2)$），則 $2a - x = 2a\\cos^2\\theta$。<br>根式化簡：$\\sqrt{\\frac{x}{2a-x}} = \\frac{\\sin\\theta}{\\cos\\theta} = \\tan\\theta$。<br>$dx = 4a\\sin\\theta\\cos\\theta d\\theta$。<br>原式 $= \\int (2a\\sin^2\\theta)(\\tan\\theta)(4a\\sin\\theta\\cos\\theta) d\\theta = 8a^2 \\int \\sin^4\\theta d\\theta$。<br>由第 1 題結論 $\\int \\sin^4\\theta d\\theta = \\frac{3}{8}\\theta - \\frac{1}{4}\\sin 2\\theta + \\frac{1}{32}\\sin 4\\theta + C$：<br>$= 8a^2\\left[\\frac{3}{8}\\theta - \\frac{1}{2}\\sin\\theta\\cos\\theta + \\frac{1}{8}\\sin\\theta\\cos\\theta(\\cos^2\\theta - \\sin^2\\theta)\\right] + C$<br>回代 $\\sin\\theta = \\sqrt{\\frac{x}{2a}}, \\cos\\theta = \\sqrt{\\frac{2a-x}{2a}}, \\theta = \\arcsin\\sqrt{\\frac{x}{2a}}$ 即得。",
           "(6) 令 $u = \\sqrt{1 + \\ln x} \\implies u^2 = 1 + \\ln x \\implies \\ln x = u^2 - 1$。<br>兩邊微分：$\\frac{dx}{x} = 2u du$。<br>代入原式：<br>$\\int \\frac{\\ln x}{\\sqrt{1+\\ln x}} \\frac{dx}{x} = \\int \\frac{u^2 - 1}{u} (2u du) = 2\\int (u^2 - 1) du$<br>$= 2\\left(\\frac{u^3}{3} - u\\right) + C = \\frac{2}{3}u^3 - 2u + C$<br>$= \\frac{2}{3}(1 + \\ln x)^{3/2} - 2\\sqrt{1 + \\ln x} + C = \\frac{2}{3}(\\ln x - 2)\\sqrt{1 + \\ln x} + C$。"
         ],
-        "ans": "(4) -\\frac{2}{17}e^{-2x}\\left(4\\sin\\frac{x}{2} + \\cos\\frac{x}{2}\\right) + C；(5) 3a^2\\arcsin\\sqrt{\\frac{x}{2a}} - \\frac{1}{2}(3a+x)\\sqrt{x(2a-x)} + C；(6) \\frac{2}{3}(\\ln x - 2)\\sqrt{1+\\ln x} + C",
-        "quickTip": "(6) 換元 $u = \\sqrt{1+\\ln x}$ 後分母 $u$ 與 $2u du$ 的 $u$ 完美對消，直接化為多項式積分！"
+        "ans": "(4) $-\\frac{2}{17}e^{-2x}\\left(4\\sin\\frac{x}{2} + \\cos\\frac{x}{2}\\right) + C$；(5) $3a^2\\arcsin\\sqrt{\\frac{x}{2a}} - \\frac{1}{2}(3a+x)\\sqrt{x(2a-x)} + C$；(6) $\\frac{2}{3}(\\ln x - 2)\\sqrt{1+\\ln x} + C$",
+        "quickTip": "(6) 換元 $u = \\sqrt{1+\\ln x}$ 後分母 $u$ 與 $2u du$ 的 $u$ 完美對消，直接化為多項式積分！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\" xmlns:mml=\"http://www.w3.org/1998/Math/MathML\"><m:r><m:t>(4)$−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>2</m:t></m:r></m:num><m:den><m:r><m:t>17</m:t></m:r></m:den></m:f><m:sSup><m:e><m:r><m:t>e</m:t></m:r></m:e><m:sup><m:r><m:t>−2x</m:t></m:r></m:sup></m:sSup><m:r><m:t>(4</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>sin</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>x</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:t>+</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>cos</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>x</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:t>)</m:t></m:r><m:r><m:t>+C$；(5)$3</m:t></m:r><m:sSup><m:e><m:r><m:t>a</m:t></m:r></m:e><m:sup><m:r><m:t>2</m:t></m:r></m:sup></m:sSup><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>arcsin</m:t></m:r><m:rad><m:radPr><m:degHide m:val=\"on\"/></m:radPr><m:deg/><m:e><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>x</m:t></m:r></m:num><m:den><m:r><m:t>2a</m:t></m:r></m:den></m:f></m:e></m:rad><m:r><m:t>−</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>1</m:t></m:r></m:num><m:den><m:r><m:t>2</m:t></m:r></m:den></m:f><m:r><m:t>(3a+x)</m:t></m:r><m:rad><m:radPr><m:degHide m:val=\"on\"/></m:radPr><m:deg/><m:e><m:r><m:t>x(2a−x)</m:t></m:r></m:e></m:rad><m:r><m:t>+C$；(6)$</m:t></m:r><m:f><m:fPr><m:type m:val=\"bar\"/></m:fPr><m:num><m:r><m:t>2</m:t></m:r></m:num><m:den><m:r><m:t>3</m:t></m:r></m:den></m:f><m:r><m:t>(</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>ln</m:t></m:r><m:r><m:t>x−2)</m:t></m:r><m:rad><m:radPr><m:degHide m:val=\"on\"/></m:radPr><m:deg/><m:e><m:r><m:t>1+</m:t></m:r><m:r><m:rPr><m:sty m:val=\"p\"/></m:rPr><m:t>ln</m:t></m:r><m:r><m:t>x</m:t></m:r></m:e></m:rad><m:r><m:t>+C$</m:t></m:r></m:oMath>"
       }
     }
   ]

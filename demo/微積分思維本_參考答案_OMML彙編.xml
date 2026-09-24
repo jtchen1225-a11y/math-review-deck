@@ -1,0 +1,1986 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CalculusSolutionsOMML title="T06高三理組數學思維本(2026)_微積分 參考答案 OMML 數學方程式彙編">
+  <QuestionGroup id="1" location="P.1 專題一 單選題 第 1 題" topic="基本初等函數的導數與求值">
+    <Context>已知函數 f(x) = sin x + x，則 df/dx |_{x=1} 的值為 ( )。</Context>
+    <AnswerItem label="選項 C">
+      <LaTeX><![CDATA[\cos 1 - 1]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:rPr>
+      <m:sty m:val="p"/>
+    </m:rPr>
+    <m:t>cos</m:t>
+  </m:r>
+  <m:r>
+    <m:t>1−1</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="選項 D">
+      <LaTeX><![CDATA[-1 - \cos 1]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>−1−</m:t>
+  </m:r>
+  <m:r>
+    <m:rPr>
+      <m:sty m:val="p"/>
+    </m:rPr>
+    <m:t>cos</m:t>
+  </m:r>
+  <m:r>
+    <m:t>1</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+  </QuestionGroup>
+  <QuestionGroup id="2" location="P.1 專題一 解答題 第 10 題 (1)~(12)" topic="求下列各函數的導數 dy/dx (和差、積、商、冪函數綜合求導)">
+    <Context>求下列函數的導數 dy/dx：包含分式、乘積、三角、根式、負指數複合多項式等 12 道小題。</Context>
+    <AnswerItem label="(1)">
+      <LaTeX><![CDATA[-\frac{x+1}{2x\sqrt{x}}]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>−</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>x+1</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>2x</m:t>
+      </m:r>
+      <m:rad>
+        <m:radPr>
+          <m:degHide m:val="on"/>
+        </m:radPr>
+        <m:deg/>
+        <m:e>
+          <m:r>
+            <m:t>x</m:t>
+          </m:r>
+        </m:e>
+      </m:rad>
+    </m:den>
+  </m:f>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(2)">
+      <LaTeX><![CDATA[3(x^2 - a^2)]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>3(</m:t>
+  </m:r>
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>x</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>2</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>−</m:t>
+  </m:r>
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>a</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>2</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>)</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(3)">
+      <LaTeX><![CDATA[\frac{2x\sin x - x^2\cos x}{\sin^2 x}]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>2x</m:t>
+      </m:r>
+      <m:r>
+        <m:rPr>
+          <m:sty m:val="p"/>
+        </m:rPr>
+        <m:t>sin</m:t>
+      </m:r>
+      <m:r>
+        <m:t>x−</m:t>
+      </m:r>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>x</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+      <m:r>
+        <m:rPr>
+          <m:sty m:val="p"/>
+        </m:rPr>
+        <m:t>cos</m:t>
+      </m:r>
+      <m:r>
+        <m:t>x</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:rPr>
+              <m:sty m:val="p"/>
+            </m:rPr>
+            <m:t>sin</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+      <m:r>
+        <m:t>x</m:t>
+      </m:r>
+    </m:den>
+  </m:f>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(4)">
+      <LaTeX><![CDATA[\frac{-x^2-6x+3}{(x^2+3)^2}]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>−</m:t>
+      </m:r>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>x</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+      <m:r>
+        <m:t>−6x+3</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>(</m:t>
+      </m:r>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>x</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+      <m:r>
+        <m:t>+3</m:t>
+      </m:r>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>)</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+    </m:den>
+  </m:f>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(5)">
+      <LaTeX><![CDATA[4x - 3 + \frac{3}{x^2} - \frac{4}{x^3}]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>4x−3+</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>3</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>x</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+    </m:den>
+  </m:f>
+  <m:r>
+    <m:t>−</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>4</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>x</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>3</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+    </m:den>
+  </m:f>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(6)">
+      <LaTeX><![CDATA[2\sin\left(4x+\frac{2\pi}{3}\right)]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>2</m:t>
+  </m:r>
+  <m:r>
+    <m:rPr>
+      <m:sty m:val="p"/>
+    </m:rPr>
+    <m:t>sin</m:t>
+  </m:r>
+  <m:r>
+    <m:t>(4x+</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>2π</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>3</m:t>
+      </m:r>
+    </m:den>
+  </m:f>
+  <m:r>
+    <m:t>)</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(7)">
+      <LaTeX><![CDATA[\frac{2}{3\sqrt[3]{x}} + 30x^5 + \frac{2}{x^3}]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>2</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>3</m:t>
+      </m:r>
+      <m:rad>
+        <m:radPr>
+          <m:degHide m:val="off"/>
+        </m:radPr>
+        <m:deg>
+          <m:r>
+            <m:t>3</m:t>
+          </m:r>
+        </m:deg>
+        <m:e>
+          <m:r>
+            <m:t>x</m:t>
+          </m:r>
+        </m:e>
+      </m:rad>
+    </m:den>
+  </m:f>
+  <m:r>
+    <m:t>+30</m:t>
+  </m:r>
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>x</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>5</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>+</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>2</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>x</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>3</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+    </m:den>
+  </m:f>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(8)">
+      <LaTeX><![CDATA[\frac{x+1}{\sqrt{x^2+2x+4}}]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>x+1</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:rad>
+        <m:radPr>
+          <m:degHide m:val="on"/>
+        </m:radPr>
+        <m:deg/>
+        <m:e>
+          <m:sSup>
+            <m:e>
+              <m:r>
+                <m:t>x</m:t>
+              </m:r>
+            </m:e>
+            <m:sup>
+              <m:r>
+                <m:t>2</m:t>
+              </m:r>
+            </m:sup>
+          </m:sSup>
+          <m:r>
+            <m:t>+2x+4</m:t>
+          </m:r>
+        </m:e>
+      </m:rad>
+    </m:den>
+  </m:f>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(9)">
+      <LaTeX><![CDATA[\cos x - 2\sin x]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:rPr>
+      <m:sty m:val="p"/>
+    </m:rPr>
+    <m:t>cos</m:t>
+  </m:r>
+  <m:r>
+    <m:t>x−2</m:t>
+  </m:r>
+  <m:r>
+    <m:rPr>
+      <m:sty m:val="p"/>
+    </m:rPr>
+    <m:t>sin</m:t>
+  </m:r>
+  <m:r>
+    <m:t>x</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(10)">
+      <LaTeX><![CDATA[30x - 17 - \frac{6}{x^2}]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>30x−17−</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>6</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>x</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+    </m:den>
+  </m:f>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(11)">
+      <LaTeX><![CDATA[2x - \frac{1}{x^2}]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>2x−</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>1</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>x</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+    </m:den>
+  </m:f>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(12)">
+      <LaTeX><![CDATA[3\sin x + (3x-1)\cos x]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>3</m:t>
+  </m:r>
+  <m:r>
+    <m:rPr>
+      <m:sty m:val="p"/>
+    </m:rPr>
+    <m:t>sin</m:t>
+  </m:r>
+  <m:r>
+    <m:t>x+(3x−1)</m:t>
+  </m:r>
+  <m:r>
+    <m:rPr>
+      <m:sty m:val="p"/>
+    </m:rPr>
+    <m:t>cos</m:t>
+  </m:r>
+  <m:r>
+    <m:t>x</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+  </QuestionGroup>
+  <QuestionGroup id="3" location="P.1 ~ P.2 專題一 解答題 第 11 題 (1)~(9)" topic="複合函數的求導法則 (鏈式法則 Chain Rule)">
+    <Context>求下列複合函數的導數 dy/dx：包含三角、根式、高次冪、負冪分式、對數、指數等 9 道小題。</Context>
+    <AnswerItem label="(1)">
+      <LaTeX><![CDATA[-\frac{1}{4}\sin\frac{x}{4}]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>−</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>1</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>4</m:t>
+      </m:r>
+    </m:den>
+  </m:f>
+  <m:r>
+    <m:rPr>
+      <m:sty m:val="p"/>
+    </m:rPr>
+    <m:t>sin</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>x</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>4</m:t>
+      </m:r>
+    </m:den>
+  </m:f>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(2)">
+      <LaTeX><![CDATA[\frac{3}{2\sqrt{3x-1}}]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>3</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>2</m:t>
+      </m:r>
+      <m:rad>
+        <m:radPr>
+          <m:degHide m:val="on"/>
+        </m:radPr>
+        <m:deg/>
+        <m:e>
+          <m:r>
+            <m:t>3x−1</m:t>
+          </m:r>
+        </m:e>
+      </m:rad>
+    </m:den>
+  </m:f>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(3)">
+      <LaTeX><![CDATA[20(5x-4)^3]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>20(5x−4</m:t>
+  </m:r>
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>)</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>3</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(4)">
+      <LaTeX><![CDATA[15(2+3x)^4]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>15(2+3x</m:t>
+  </m:r>
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>)</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>4</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(5)">
+      <LaTeX><![CDATA[-\frac{12x}{(2x^2-1)^4}]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>−</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>12x</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>(2</m:t>
+      </m:r>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>x</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+      <m:r>
+        <m:t>−1</m:t>
+      </m:r>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>)</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>4</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+    </m:den>
+  </m:f>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(6)">
+      <LaTeX><![CDATA[3\cos\left(3x-\frac{\pi}{4}\right)]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>3</m:t>
+  </m:r>
+  <m:r>
+    <m:rPr>
+      <m:sty m:val="p"/>
+    </m:rPr>
+    <m:t>cos</m:t>
+  </m:r>
+  <m:r>
+    <m:t>(3x−</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>π</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>4</m:t>
+      </m:r>
+    </m:den>
+  </m:f>
+  <m:r>
+    <m:t>)</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(7)">
+      <LaTeX><![CDATA[2\cot(2x+1)]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>2</m:t>
+  </m:r>
+  <m:r>
+    <m:rPr>
+      <m:sty m:val="p"/>
+    </m:rPr>
+    <m:t>cot</m:t>
+  </m:r>
+  <m:r>
+    <m:t>(2x+1)</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(8)">
+      <LaTeX><![CDATA[(2x+3)4^{x^2+3x-1}\ln 4]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>(2x+3)</m:t>
+  </m:r>
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>4</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>x</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+      <m:r>
+        <m:t>+3x−1</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:rPr>
+      <m:sty m:val="p"/>
+    </m:rPr>
+    <m:t>ln</m:t>
+  </m:r>
+  <m:r>
+    <m:t>4</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(9)">
+      <LaTeX><![CDATA[\cos(x^2+1) - 2x^2\sin(x^2+1)]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:rPr>
+      <m:sty m:val="p"/>
+    </m:rPr>
+    <m:t>cos</m:t>
+  </m:r>
+  <m:r>
+    <m:t>(</m:t>
+  </m:r>
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>x</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>2</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>+1)−2</m:t>
+  </m:r>
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>x</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>2</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:rPr>
+      <m:sty m:val="p"/>
+    </m:rPr>
+    <m:t>sin</m:t>
+  </m:r>
+  <m:r>
+    <m:t>(</m:t>
+  </m:r>
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>x</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>2</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>+1)</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+  </QuestionGroup>
+  <QuestionGroup id="4" location="P.2 專題一 解答題 第 12 題 (1)~(2)" topic="高階導數的計算 (二階導數 d²y/dx²)">
+    <Context>求下列函數的高階導數：(1) y = x³ - 2x；(2) 隱函數曲線二階導。</Context>
+    <AnswerItem label="(1)">
+      <LaTeX><![CDATA[6x]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>6x</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(2)">
+      <LaTeX><![CDATA[-\frac{12}{y^3}]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>−</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>12</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>y</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>3</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+    </m:den>
+  </m:f>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+  </QuestionGroup>
+  <QuestionGroup id="5" location="P.2 專題一 解答題 第 13 題 (1)~(2)" topic="隱函數求導法則 (方程兩邊對 x 求導)">
+    <Context>求下列隱函數方程確定的導數 dy/dx。</Context>
+    <AnswerItem label="(1)">
+      <LaTeX><![CDATA[-\frac{10\cos 2x}{\sin\frac{y}{5}}]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>−</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>10</m:t>
+      </m:r>
+      <m:r>
+        <m:rPr>
+          <m:sty m:val="p"/>
+        </m:rPr>
+        <m:t>cos</m:t>
+      </m:r>
+      <m:r>
+        <m:t>2x</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:rPr>
+          <m:sty m:val="p"/>
+        </m:rPr>
+        <m:t>sin</m:t>
+      </m:r>
+      <m:f>
+        <m:fPr>
+          <m:type m:val="bar"/>
+        </m:fPr>
+        <m:num>
+          <m:r>
+            <m:t>y</m:t>
+          </m:r>
+        </m:num>
+        <m:den>
+          <m:r>
+            <m:t>5</m:t>
+          </m:r>
+        </m:den>
+      </m:f>
+    </m:den>
+  </m:f>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(2)">
+      <LaTeX><![CDATA[\frac{4(x+1)}{y+6}]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>4(x+1)</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>y+6</m:t>
+      </m:r>
+    </m:den>
+  </m:f>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+  </QuestionGroup>
+  <QuestionGroup id="6" location="P.2 專題一 解答題 第 14 題" topic="曲線在特定點處的一階與二階導數值">
+    <Context>求已知曲線在 x = 1 處的一階導數 dy/dx 以及在 x = -1 處的二階導數 d²y/dx²。</Context>
+    <AnswerItem label="答案">
+      <LaTeX><![CDATA[\left.\frac{dy}{dx}\right|_{x=1} = 0, \quad \left.\frac{d^2y}{dx^2}\right|_{x=-1} = \frac{1}{2}]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>dy</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>dx</m:t>
+      </m:r>
+    </m:den>
+  </m:f>
+  <m:sSub>
+    <m:e>
+      <m:r>
+        <m:t>|</m:t>
+      </m:r>
+    </m:e>
+    <m:sub>
+      <m:r>
+        <m:t>x=1</m:t>
+      </m:r>
+    </m:sub>
+  </m:sSub>
+  <m:r>
+    <m:t>=0,</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>d</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+      <m:r>
+        <m:t>y</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>d</m:t>
+      </m:r>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>x</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+    </m:den>
+  </m:f>
+  <m:sSub>
+    <m:e>
+      <m:r>
+        <m:t>|</m:t>
+      </m:r>
+    </m:e>
+    <m:sub>
+      <m:r>
+        <m:t>x=−1</m:t>
+      </m:r>
+    </m:sub>
+  </m:sSub>
+  <m:r>
+    <m:t>=</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>1</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>2</m:t>
+      </m:r>
+    </m:den>
+  </m:f>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+  </QuestionGroup>
+  <QuestionGroup id="7" location="P.2 專題一 解答題 第 15 題" topic="特定點的導數值與二階導數值">
+    <Context>已知函數 f(x)，求 f'(2) 與 f''(1) 的值。</Context>
+    <AnswerItem label="答案">
+      <LaTeX><![CDATA[f'(2) = 20, \quad f''(1) = -10]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>f</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>′</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>(2)=20,</m:t>
+  </m:r>
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>f</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>″</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>(1)=−10</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+  </QuestionGroup>
+  <QuestionGroup id="8" location="P.2 專題一 解答題 第 16 題" topic="原點處的一階導與二階導數值">
+    <Context>求曲線在 x = 0 處的一階導與二階導值。</Context>
+    <AnswerItem label="答案">
+      <LaTeX><![CDATA[\left.\frac{dy}{dx}\right|_{x=0} = 24, \quad \left.\frac{d^2y}{dx^2}\right|_{x=0} = -30]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>dy</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>dx</m:t>
+      </m:r>
+    </m:den>
+  </m:f>
+  <m:sSub>
+    <m:e>
+      <m:r>
+        <m:t>|</m:t>
+      </m:r>
+    </m:e>
+    <m:sub>
+      <m:r>
+        <m:t>x=0</m:t>
+      </m:r>
+    </m:sub>
+  </m:sSub>
+  <m:r>
+    <m:t>=24,</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>d</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+      <m:r>
+        <m:t>y</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>d</m:t>
+      </m:r>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>x</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+    </m:den>
+  </m:f>
+  <m:sSub>
+    <m:e>
+      <m:r>
+        <m:t>|</m:t>
+      </m:r>
+    </m:e>
+    <m:sub>
+      <m:r>
+        <m:t>x=0</m:t>
+      </m:r>
+    </m:sub>
+  </m:sSub>
+  <m:r>
+    <m:t>=−30</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+  </QuestionGroup>
+  <QuestionGroup id="9" location="P.2 專題一 解答題 第 17 題" topic="高階導特定點求值">
+    <Context>求 f'(-2) 與 f''(0) 的值。</Context>
+    <AnswerItem label="答案">
+      <LaTeX><![CDATA[f'(-2) = 45, \quad f''(0) = -12]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>f</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>′</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>(−2)=45,</m:t>
+  </m:r>
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>f</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>″</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>(0)=−12</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+  </QuestionGroup>
+  <QuestionGroup id="10" location="P.2 專題一 解答題 第 18 題 (1)~(2)" topic="立體幾何與導數應用 — 圓柱表面積對半徑的變化率">
+    <Context>一底半徑為 x 的正圓柱，其體積為 54π。設該圓柱的表面面積為 S。(1) 證明 S 關於 x 的表達式；(2) 求 dS/dx 及 d²S/dx²。</Context>
+    <AnswerItem label="(1)">
+      <LaTeX><![CDATA[\text{見步驟證明}]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"><m:r><m:rPr><m:lit/></m:rPr><m:t>見步驟證明</m:t></m:r></m:oMath>
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(2)">
+      <LaTeX><![CDATA[\frac{dS}{dx} = 2\pi\left(2x - \frac{54}{x^2}\right), \quad \frac{d^2S}{dx^2} = 2\pi\left(2 + \frac{108}{x^3}\right)]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>dS</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>dx</m:t>
+      </m:r>
+    </m:den>
+  </m:f>
+  <m:r>
+    <m:t>=2π</m:t>
+  </m:r>
+  <m:r>
+    <m:t>(2x−</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>54</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>x</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+    </m:den>
+  </m:f>
+  <m:r>
+    <m:t>)</m:t>
+  </m:r>
+  <m:r>
+    <m:t>,</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>d</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+      <m:r>
+        <m:t>S</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>d</m:t>
+      </m:r>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>x</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+    </m:den>
+  </m:f>
+  <m:r>
+    <m:t>=2π</m:t>
+  </m:r>
+  <m:r>
+    <m:t>(2+</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>108</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>x</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>3</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+    </m:den>
+  </m:f>
+  <m:r>
+    <m:t>)</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+  </QuestionGroup>
+  <QuestionGroup id="11" location="P.2 專題一 解答題 第 19 題 (1)~(2)" topic="幾何最優化微元 — 正圓錐體積平方的求導">
+    <Context>已知正圓錐的底半徑為 r cm，體積為 V cm³ 及表面面積為 4π cm²。(1) 以 r 表示 V²；(2) 求 V²(r) 的一階導數。</Context>
+    <AnswerItem label="(1)">
+      <LaTeX><![CDATA[V^2 = \frac{8\pi^2}{9}(2r^2 - r^4)]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>V</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>2</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>=</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>8</m:t>
+      </m:r>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>π</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>9</m:t>
+      </m:r>
+    </m:den>
+  </m:f>
+  <m:r>
+    <m:t>(2</m:t>
+  </m:r>
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>r</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>2</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>−</m:t>
+  </m:r>
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>r</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>4</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>)</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(2)">
+      <LaTeX><![CDATA[\frac{d(V^2)}{dr} = \frac{32\pi^2}{9}(r - r^3)]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>d(</m:t>
+      </m:r>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>V</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+      <m:r>
+        <m:t>)</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>dr</m:t>
+      </m:r>
+    </m:den>
+  </m:f>
+  <m:r>
+    <m:t>=</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>32</m:t>
+      </m:r>
+      <m:sSup>
+        <m:e>
+          <m:r>
+            <m:t>π</m:t>
+          </m:r>
+        </m:e>
+        <m:sup>
+          <m:r>
+            <m:t>2</m:t>
+          </m:r>
+        </m:sup>
+      </m:sSup>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>9</m:t>
+      </m:r>
+    </m:den>
+  </m:f>
+  <m:r>
+    <m:t>(r−</m:t>
+  </m:r>
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>r</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>3</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>)</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+  </QuestionGroup>
+  <QuestionGroup id="12" location="P.2 專題一 解答題 第 20 題 (1)~(2)" topic="圓柱容積變化率與高階導數">
+    <Context>一正圓柱的底半徑和高之和為 36 cm。設底半徑為 x cm 及體積為 V(x) cm³。(1) 求 V(x)；(2) 求 V'(x) 及 V''(x)。</Context>
+    <AnswerItem label="(1)">
+      <LaTeX><![CDATA[V(x) = \pi(36x^2 - x^3)]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>V(x)=π(36</m:t>
+  </m:r>
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>x</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>2</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>−</m:t>
+  </m:r>
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>x</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>3</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>)</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+    <AnswerItem label="(2)">
+      <LaTeX><![CDATA[V'(x) = 3\pi x(24 - x), \quad V''(x) = 6\pi(12 - x)]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>V</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>′</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>(x)=3πx(24−x),</m:t>
+  </m:r>
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>V</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>″</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>(x)=6π(12−x)</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+  </QuestionGroup>
+  <QuestionGroup id="13" location="P.4 專題二 解答題 第 22 題" topic="三次多項式極值逆向求參問題">
+    <Context>已知函數 f(x) = x³ - 3ax² + 2bx 在 x = 1 處有極小值為 -1，試確定 a, b 的值，並描繪 f(x) 的圖像。</Context>
+    <AnswerItem label="答案">
+      <LaTeX><![CDATA[a = 1, \quad b = 2]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>a=1,b=2</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+  </QuestionGroup>
+  <QuestionGroup id="14" location="P.3 專題一 解答題 第 24 題" topic="二次函數導函數解析式">
+    <Context>求特定二次函數的導函數 f'(x)。</Context>
+    <AnswerItem label="答案">
+      <LaTeX><![CDATA[f'(x) = 2x + 2]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>f</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>′</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>(x)=2x+2</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+  </QuestionGroup>
+  <QuestionGroup id="15" location="P.3 專題一 解答題 第 25 題" topic="多項式函數導函數解析式">
+    <Context>求特定多項式函數的導函數 f'(x)。</Context>
+    <AnswerItem label="答案">
+      <LaTeX><![CDATA[f'(x) = 6x - 2]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>f</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>′</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>(x)=6x−2</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+  </QuestionGroup>
+  <QuestionGroup id="16" location="P.3 專題一 解答題 第 26 題" topic="超越隱函數求導 (含三角與對數混合項)">
+    <Context>求函數 sin(xy) - ln(x+1) + ln y = 1 的導數 dy/dx。</Context>
+    <AnswerItem label="答案">
+      <LaTeX><![CDATA[\frac{dy}{dx} = \frac{y [1 - y(x+1)\cos(xy)]}{(x+1)[xy\cos(xy) + 1]}]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>dy</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>dx</m:t>
+      </m:r>
+    </m:den>
+  </m:f>
+  <m:r>
+    <m:t>=</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>y[1−y(x+1)</m:t>
+      </m:r>
+      <m:r>
+        <m:rPr>
+          <m:sty m:val="p"/>
+        </m:rPr>
+        <m:t>cos</m:t>
+      </m:r>
+      <m:r>
+        <m:t>(xy)]</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>(x+1)[xy</m:t>
+      </m:r>
+      <m:r>
+        <m:rPr>
+          <m:sty m:val="p"/>
+        </m:rPr>
+        <m:t>cos</m:t>
+      </m:r>
+      <m:r>
+        <m:t>(xy)+1]</m:t>
+      </m:r>
+    </m:den>
+  </m:f>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+  </QuestionGroup>
+  <QuestionGroup id="17" location="P.3 專題一 解答題 第 27 題" topic="複合函數/分式函數特定點求導值">
+    <Context>求函數在 x = 3 處的導數值 f'(3)。</Context>
+    <AnswerItem label="答案">
+      <LaTeX><![CDATA[f'(3) = \frac{34}{3}]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:sSup>
+    <m:e>
+      <m:r>
+        <m:t>f</m:t>
+      </m:r>
+    </m:e>
+    <m:sup>
+      <m:r>
+        <m:t>′</m:t>
+      </m:r>
+    </m:sup>
+  </m:sSup>
+  <m:r>
+    <m:t>(3)=</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>34</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>3</m:t>
+      </m:r>
+    </m:den>
+  </m:f>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+  </QuestionGroup>
+  <QuestionGroup id="18" location="P.3 專題一 解答題 第 28 題" topic="指數/對數方程求參問題">
+    <Context>求參數 a 的精確值（對數形式）。</Context>
+    <AnswerItem label="答案">
+      <LaTeX><![CDATA[a = -\ln 2 \quad \left(\text{或 } \ln\frac{1}{2}\right)]]></LaTeX>
+      <OMML>
+<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  <m:r>
+    <m:t>a=−</m:t>
+  </m:r>
+  <m:r>
+    <m:rPr>
+      <m:sty m:val="p"/>
+    </m:rPr>
+    <m:t>ln</m:t>
+  </m:r>
+  <m:r>
+    <m:t>2</m:t>
+  </m:r>
+  <m:r>
+    <m:t>(或</m:t>
+  </m:r>
+  <m:r>
+    <m:rPr>
+      <m:sty m:val="p"/>
+    </m:rPr>
+    <m:t>ln</m:t>
+  </m:r>
+  <m:f>
+    <m:fPr>
+      <m:type m:val="bar"/>
+    </m:fPr>
+    <m:num>
+      <m:r>
+        <m:t>1</m:t>
+      </m:r>
+    </m:num>
+    <m:den>
+      <m:r>
+        <m:t>2</m:t>
+      </m:r>
+    </m:den>
+  </m:f>
+  <m:r>
+    <m:t>)</m:t>
+  </m:r>
+</m:oMath>
+
+      </OMML>
+    </AnswerItem>
+  </QuestionGroup>
+</CalculusSolutionsOMML>

@@ -1,4 +1,4 @@
-/* 2026 高三理組數學思維本 · 微積分篇 — 專題六 空間向量 (6 題) */
+/* 2026 高三理組數學思維本 · 微積分篇 — 專題六 空間向量 (6 題) - 支援 OMML */
 (function() {
   const DECK = window.DECK = window.DECK || [];
 
@@ -20,10 +20,10 @@
       "score": "4分",
       "q": "點 $P(2, 3, 1)$ 關於 $z$ 軸的對稱點 $P'$ 坐標為 $(\\quad)$。",
       "options": [
-        "A. $P'(-2, 3, 1)$",
-        "B. $P'(2, -3, 1)$",
-        "C. $P'(-2, 3, -1)$",
-        "D. $P'(-2, -3, 1)$"
+        "A. $1 - \\cos 1$",
+        "B. $1 + \\cos 1$",
+        "C. $\\cos 1 - 1$",
+        "D. $-1 - \\cos 1$"
       ],
       "knowledge": {
         "formulas": [
@@ -46,7 +46,8 @@
           "因此對稱點為 $P'(-2, -3, 1)$。"
         ],
         "ans": "D",
-        "quickTip": "口訣：關於 z 軸對稱，只有 z 不變，x, y 取負！$(2, 3, 1) \\to (-2, -3, 1)$，秒選 D！"
+        "quickTip": "口訣：關於 z 軸對稱，只有 z 不變，x, y 取負！$(2, 3, 1) \\to (-2, -3, 1)$，秒選 D！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>D</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -82,7 +83,8 @@
           "代入方程：<br>$(x - 4)(-4) + 2(18) = 0 \\implies -4x + 16 + 36 = 0$<br>$-4x + 52 = 0 \\implies 4x = 52 \\implies x = 13$。"
         ],
         "ans": "B",
-        "quickTip": "三階行列式按有 0 的行展開：$-4(x-4) + 36 = 0 \\implies 4x = 52 \\implies x = 13$！"
+        "quickTip": "三階行列式按有 0 的行展開：$-4(x-4) + 36 = 0 \\implies 4x = 52 \\implies x = 13$！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>B</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -120,7 +122,8 @@
           "計算模長：<br>$|2\\vec{a} + \\vec{b}| = \\sqrt{3^2 + 0^2 + 3^2} = \\sqrt{9 + 0 + 9} = \\sqrt{18} = 3\\sqrt{2}$。"
         ],
         "ans": "B",
-        "quickTip": "$2x = 2 \\implies x=1$；$y/(-4) = 1/2 \\implies y=-2$；向量為 $(3, 0, 3)$，模長 $\\sqrt{9+9} = 3\\sqrt{2}$，秒選 B！"
+        "quickTip": "$2x = 2 \\implies x=1$；$y/(-4) = 1/2 \\implies y=-2$；向量為 $(3, 0, 3)$，模長 $\\sqrt{9+9} = 3\\sqrt{2}$，秒選 B！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>B</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -154,7 +157,8 @@
           "由第二分量：<br>$\\frac{m}{2} = -2 \\implies m = 2 \\times (-2) = -4$。"
         ],
         "ans": "D",
-        "quickTip": "觀察 $x$ 坐標從 $-1$ 變為 $2$ 乘了 $-2$，所以 $m = 2 \\times (-2) = -4$。3 秒選 D！"
+        "quickTip": "觀察 $x$ 坐標從 $-1$ 變為 $2$ 乘了 $-2$，所以 $m = 2 \\times (-2) = -4$。3 秒選 D！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>D</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -189,7 +193,8 @@
           "由向量加法交換律與首尾相接三角形法則：<br>$\\vec{BG} + \\vec{AB} = \\vec{AB} + \\vec{BG} = \\vec{AG}$。"
         ],
         "ans": "B",
-        "quickTip": "中點向量即為 $\\vec{BG}$，與 $\\vec{AB}$ 相加就是 $\\vec{AB} + \\vec{BG} = \\vec{AG}$！選 B！"
+        "quickTip": "中點向量即為 $\\vec{BG}$，與 $\\vec{AB}$ 相加就是 $\\vec{AB} + \\vec{BG} = \\vec{AG}$！選 B！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>B</m:t></m:r></m:oMath>"
       }
     },
     {
@@ -224,7 +229,8 @@
           "綜合以上兩步：<br>$t < \\frac{10}{3}$ 且 $t \\ne -6$，即 $t \\in (-\\infty, -6) \\cup \\left(-6, \\frac{10}{3}\\right)$。"
         ],
         "ans": "B",
-        "quickTip": "聯考經典陷阱題！數量積負得 $t < 10/3$；反向共線比值 $-4/2 = -2 \\implies t = -6$ 必須挖掉！直接秒選 B！"
+        "quickTip": "聯考經典陷阱題！數量積負得 $t < 10/3$；反向共線比值 $-4/2 = -2 \\implies t = -6$ 必須挖掉！直接秒選 B！",
+        "omml": "<m:oMath xmlns:m=\"http://schemas.openxmlformats.org/officeDocument/2006/math\"><m:r><m:t>B</m:t></m:r></m:oMath>"
       }
     }
   ]
