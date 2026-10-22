@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>澳門四校聯考 · 微積分專題：不定積分與定積分堂上複習與練習 (100分鐘) 互動專題簡報</title>
+  <meta name="description" content="澳門四高校聯合入學考試數學科微積分專題突破 100 分鐘限時練習工作紙：不定積分、定積分定理、平面面積與 JAE 歷屆真題一頁一題互動投影簡報" />
+  <link rel="stylesheet" href="style.css?v=20261022" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
+      svg: { fontCache: 'global' },
+      startup: { typeset: false }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+</head>
+<body>
+  <!-- 封面 -->
+  <section id="cover" class="cover">
+    <div class="cover-top-bar">
+      <button class="cover-teacher-btn" id="coverTeacherBtn" title="教師專用：設定課堂開放進度">⚙️ 課堂進度控制</button>
+    </div>
+    <div class="cover-inner">
+      <p class="cover-eyebrow">澳門四高校聯合入學考試 · 數學科 100 分鐘微積分專題突破</p>
+      <h1 class="cover-title">微積分專題：不定積分與定積分<br><span style="font-size: 0.85em; opacity: 0.95; color: #38bdf8;">常用公式 · 運算化簡 · 定積分定理 · JAE 歷屆真題</span></h1>
+      <p class="cover-sub">基本初等函數求積 · 分式立方和約分 · 湊微分法 · 牛頓-萊布尼茲公式 · 變上限求導連鎖律 · 拋物線三次曲線圍合面積 · 2021-2025 JAE 真題全解析</p>
+      
+      <!-- 傳送門：切換至四校聯考真題、微積分、空間向量、複數與 OMML 方程式庫 -->
+      <div style="margin: 14px 0 18px 0; display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
+        <a href="index.html" class="portal-link-btn" style="display:inline-block;padding:8px 18px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.22);color:#93c5fd;text-decoration:none;border-radius:20px;font-size:0.9rem;font-weight:500;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:all .2s;">🎯 澳門四校聯考歷屆真題 ›</a>
+        <a href="calculus.html" class="portal-link-btn" style="display:inline-block;padding:8px 18px;background:rgba(59,130,246,0.2);border:1px solid rgba(96,165,250,0.4);color:#93c5fd;text-decoration:none;border-radius:20px;font-size:0.9rem;font-weight:500;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:all .2s;">📐 高三理組微積分篇 ›</a>
+        <a href="vectors.html" class="portal-link-btn" style="display:inline-block;padding:8px 18px;background:rgba(14,165,233,0.2);border:1px solid rgba(56,189,248,0.4);color:#7dd3fc;text-decoration:none;border-radius:20px;font-size:0.9rem;font-weight:500;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:all .2s;">📘 高三理組空間向量篇 ›</a>
+        <a href="complex.html" class="portal-link-btn" style="display:inline-block;padding:8px 18px;background:rgba(168,85,247,0.2);border:1px solid rgba(192,132,252,0.4);color:#d8b4fe;text-decoration:none;border-radius:20px;font-size:0.9rem;font-weight:500;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:all .2s;">🔮 複數與複平面篇 ›</a>
+        <a href="omml.html" class="portal-link-btn" style="display:inline-block;padding:8px 18px;background:rgba(124,58,237,0.25);border:1px solid rgba(167,139,250,0.4);color:#ddd6fe;text-decoration:none;border-radius:20px;font-size:0.9rem;font-weight:500;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:all .2s;">📑 OMML 數學方程式庫 ›</a>
+        <a href="聖若瑟五校_高三數學_微積分專題_不定積分與定積分堂上複習與練習(學生版).docx" class="portal-link-btn" download style="display:inline-block;padding:8px 18px;background:rgba(16,185,129,0.25);border:1px solid rgba(52,211,153,0.4);color:#a7f3d0;text-decoration:none;border-radius:20px;font-size:0.9rem;font-weight:500;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:all .2s;">📥 下載學生版工作紙 (.docx)</a>
+        <a href="聖若瑟五校_高三數學_微積分專題_不定積分與定積分堂上複習與練習(教師解析與評分細則).docx" class="portal-link-btn" download style="display:inline-block;padding:8px 18px;background:rgba(239,68,68,0.25);border:1px solid rgba(248,113,113,0.4);color:#fca5a5;text-decoration:none;border-radius:20px;font-size:0.9rem;font-weight:500;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:all .2s;">🎓 下載教師解析手冊 (.docx)</a>
+      </div>
+
+      <div class="cover-chapters" id="coverChapters"></div>
+      <button class="cover-start" id="startBtn">開始 100 分鐘微積分專題突破 →</button>
+      <p class="cover-hint">用 ← → 鍵換題 · K 鍵展開考點 · A 鍵展開解答 · Q 鍵放大題目 · 虛擬雷射筆與畫筆</p>
+    </div>
+  </section>
+
+  <!-- 主體 -->
+  <div id="app" class="app hidden">
+    <!-- 頂部列 -->
+    <header class="topbar">
+      <button class="home-btn" id="homeBtn" title="回封面">✦ 微積分積分專題</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="top-actions">
+        <button class="ghost-btn teacher-ctrl-btn" id="topTeacherBtn" title="課堂開放進度控制">⚙️ 課堂進度控制</button>
+        <button class="ghost-btn" id="tocToggle" title="目錄">☰ 目錄</button>
+      </div>
+    </header>
+
+    <div class="body">
+      <!-- 目錄側欄 -->
+      <aside class="toc" id="toc"></aside>
+
+      <!-- 舞台 -->
+      <main class="stage">
+        <div class="slide" id="slide"></div>
+
+        <!-- 底部控制列 -->
+        <div class="controlbar">
+          <button class="nav-btn" id="prevBtn">‹ 上一頁</button>
+          <div class="progress">
+            <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+            <span class="progress-text" id="progressText">1 / 1</span>
+          </div>
+          <button class="nav-btn" id="nextBtn">下一頁 ›</button>
+        </div>
+      </main>
+    </div>
+
+    <!-- 授課教具：畫筆畫布、雷射點、浮動工具列 -->
+    <canvas id="penCanvas" class="pen-canvas"></canvas>
+    <div id="laserDot" class="laser-dot hidden"></div>
+    <div id="dock" class="dock">
+      <button class="dbtn" id="dkSidebar" title="收合／展開側欄">
+        <span class="dicon">📖</span><span class="dlabel">目錄</span>
+      </button>
+      <button class="dbtn" id="dkKnowledge" title="顯示／隱藏考點與公式 (快捷鍵 K)">
+        <span class="dicon">💡</span><span class="dlabel">考點</span>
+      </button>
+      <button class="dbtn" id="dkAnswer" title="顯示／隱藏解答與評分標準 (快捷鍵 A)">
+        <span class="dicon">👁</span><span class="dlabel">解答</span>
+      </button>
+      <div class="dsep"></div>
+      <button class="dbtn" id="dkLaser" title="虛擬雷射筆 (快捷鍵 L)">
+        <span class="dicon">🔴</span><span class="dlabel">雷射筆</span>
+      </button>
+      <button class="dbtn" id="dkPen" title="課堂畫筆 (快捷鍵 P)">
+        <span class="dicon">✏️</span><span class="dlabel">畫筆</span>
+      </button>
+      <button class="dbtn" id="dkClearPen" title="清除所有筆跡">
+        <span class="dicon">🗑️</span><span class="dlabel">清除</span>
+      </button>
+      <div class="dsep"></div>
+      <button class="dbtn" id="dkZoom" title="滿版全螢幕黑板放大 (快捷鍵 Q)">
+        <span class="dicon">🔍</span><span class="dlabel">放大題目</span>
+      </button>
+      <button class="dbtn" id="dkFullscreen" title="瀏覽器全螢幕 (快捷鍵 F)">
+        <span class="dicon">⛶</span><span class="dlabel">全螢幕</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 滿版黑板放大視窗 -->
+  <div id="zoomModal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div class="modal-title" id="zoomTitle">題目滿版放大</div>
+        <button class="modal-close" id="zoomCloseBtn">✕</button>
+      </div>
+      <div class="zoom-body" id="zoomBody"></div>
+    </div>
+  </div>
+
+  <!-- 教師進度控制面板視窗 -->
+  <div id="teacherModal" class="modal-overlay hidden">
+    <div class="modal-card teacher-card">
+      <div class="modal-head">
+        <div class="modal-title">⚙️ 微積分積分專題 · 課堂進度控制</div>
+        <button class="modal-close" id="teacherCloseBtn">✕</button>
+      </div>
+      <div class="teacher-body">
+        <div class="teacher-tip">
+          💡 <b>以學生進度為第一原則</b>：僅勾選當前課堂開放的題型部分，學生開啟後僅能查看許可部分，未解鎖部分與解答完全隱藏。
+        </div>
+
+        <!-- 快速進度按鈕 -->
+        <div class="preset-section">
+          <div class="section-label">⚡ 快速進度選取（依題型部分）：</div>
+          <div class="preset-grid">
+            <button class="preset-btn" data-preset="part1">【第一部分】基本公式熟練 (10題 · 20分)</button>
+            <button class="preset-btn" data-preset="part2">【第二部分】運算化簡題 (8題 · 24分)</button>
+            <button class="preset-btn" data-preset="part3">【第三部分】定積分定理題 (6題 · 24分)</button>
+            <button class="preset-btn" data-preset="part4">【第四部分】JAE歷屆真題 (5題 · 42分)</button>
+            <button class="preset-btn preset-secondary" data-preset="part1-2">【基礎綜合】前兩部分 (18題 · 44分)</button>
+            <button class="preset-btn preset-secondary" data-preset="part3-4">【高階衝刺】後兩部分 (11題 · 66分)</button>
+            <button class="preset-btn preset-all" data-preset="all">【全卷開放 · 100分鐘實戰】(29題 · 110分)</button>
+            <button class="preset-btn preset-clear" data-preset="none">【全部清空】</button>
+          </div>
+        </div>
+
+        <!-- 自由勾選清單 -->
+        <div class="papers-section">
+          <div class="papers-header">
+            <div class="section-label">📋 4 大題型部分自由勾選（共 29 題卡 · 滿分 110 分 · 100% 原生 OMML）：</div>
+            <span class="selected-count" id="selectedCountBadge">已選 0 部分 (0 題)</span>
+          </div>
+          <div class="paper-year-grid" id="paperCheckboxContainer">
+            <!-- 由 JS 動態生成題型卡片與勾選框 -->
+          </div>
+        </div>
+
+        <!-- 操作按鈕列 -->
+        <div class="teacher-actions">
+          <button class="btn-action btn-qr" id="btnShowQr">
+            <span>📱 大螢幕 QR 碼</span>
+          </button>
+          <button class="btn-action btn-copy" id="btnCopyStudentUrl">
+            <span>📋 複製學生網址</span>
+          </button>
+          <button class="btn-action btn-save" id="btnSaveApply">
+            <span>💾 儲存並在當前生效</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 大螢幕 QR 碼視窗 -->
+  <div id="qrModal" class="modal-overlay hidden">
+    <div class="modal-card qr-card">
+      <div class="modal-head">
+        <div class="modal-title">📱 學生專用大螢幕掃碼同步</div>
+        <button class="modal-close" id="qrCloseBtn">✕</button>
+      </div>
+      <div class="qr-body">
+        <p class="qr-sub">請同學使用 iPad 或手機相機掃描，立即進入本週開放之微積分積分專題練習：</p>
+        <div class="qr-code-box" id="qrCodeContainer"></div>
+        <div class="qr-info-box">
+          <div class="qr-info-papers" id="qrActivePapersText">已開放題型：載入中...</div>
+          <div class="qr-url-row">
+            <input type="text" id="qrUrlInput" readonly />
+            <button class="btn-sm" id="btnCopyQrUrl">複製連結</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast 提示容器 -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- 純前端向量 QR 碼生成模組 -->
+  <script src="qrcode.min.js?v=20261022"></script>
+  <script src="svg.js?v=20261022"></script>
+
+  <!-- 積分專屬註冊表與進度控制設置 -->
+  <script>
+    window.STORAGE_KEY = 'integral_allowed_papers';
+    window.PAPER_REGISTRY = [
+      { id: 'int-01', year: '100分鐘專題', paper: '基本公式', name: '第一部分 基本初等函數積分公式熟練與直接填空 (題 01~10)', ch: '第一部分 基本公式填空', count: 10, color: '#2563eb' },
+      { id: 'int-02', year: '100分鐘專題', paper: '運算化簡', name: '第二部分 不定積分靈活運算與代數化簡 (題 01~08)', ch: '第二部分 不定積分運算化簡', count: 8, color: '#0284c7' },
+      { id: 'int-03', year: '100分鐘專題', paper: '定積分綜合', name: '第三部分 定積分綜合計算與微積分基本定理 (題 01~06)', ch: '第三部分 定積分綜合與定理', count: 6, color: '#7c3aed' },
+      { id: 'int-04', year: '100分鐘專題', paper: 'JAE歷屆真題', name: '第四部分 平面圖形面積與澳門四校聯考 JAE 歷屆真題 (大題 01~04 + 加分題)', ch: '第四部分 平面面積與真題專攻', count: 5, color: '#b91c1c' }
+    ];
+
+    window.CUSTOM_PRESET_HANDLER = function(presetKey, registry) {
+      if (presetKey === 'part1') return ['int-01'];
+      if (presetKey === 'part2') return ['int-02'];
+      if (presetKey === 'part3') return ['int-03'];
+      if (presetKey === 'part4') return ['int-04'];
+      if (presetKey === 'part1-2') return ['int-01', 'int-02'];
+      if (presetKey === 'part3-4') return ['int-03', 'int-04'];
+      if (presetKey === 'all') return registry.map(p => p.id);
+      if (presetKey === 'none') return [];
+      return null;
+    };
+
+    window.CUSTOM_WEEK_PARAM_HANDLER = function(weekParam, registry) {
+      if (weekParam === 'part1') return ['int-01'];
+      if (weekParam === 'part2') return ['int-02'];
+      if (weekParam === 'part3') return ['int-03'];
+      if (weekParam === 'part4') return ['int-04'];
+      if (weekParam === 'part1-2') return ['int-01', 'int-02'];
+      if (weekParam === 'part3-4') return ['int-03', 'int-04'];
+      return null;
+    };
+  </script>
+
+  <!-- 載入微積分積分專題 4 大題型題目數據庫 -->
+  <script src="ch-int-01.js?v=20261022"></script>
+  <script src="ch-int-02.js?v=20261022"></script>
+  <script src="ch-int-03.js?v=20261022"></script>
+  <script src="ch-int-04.js?v=20261022"></script>
+
+  <!-- 簡報導覽與渲染引擎 -->
+  <script src="engine.js?v=20261022"></script>
+</body>
+</html>
