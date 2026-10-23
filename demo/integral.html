@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>澳門四校聯考 · 微積分專題：不定積分與定積分堂上複習與練習 (100分鐘) 互動專題簡報</title>
   <meta name="description" content="澳門四高校聯合入學考試數學科微積分專題突破 100 分鐘限時練習工作紙：不定積分、定積分定理、平面面積與 JAE 歷屆真題一頁一題互動投影簡報" />
-  <link rel="stylesheet" href="style.css?v=20261022" />
+  <link rel="stylesheet" href="style.css?v=20261023b" />
   <script>
     window.MathJax = {
       tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']] },
@@ -80,42 +80,56 @@
     <div id="laserDot" class="laser-dot hidden"></div>
     <div id="dock" class="dock">
       <button class="dbtn" id="dkSidebar" title="收合／展開側欄">
-        <span class="dicon">📖</span><span class="dlabel">目錄</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg>
       </button>
-      <button class="dbtn" id="dkKnowledge" title="顯示／隱藏考點與公式 (快捷鍵 K)">
-        <span class="dicon">💡</span><span class="dlabel">考點</span>
+      <button class="dbtn" id="dkPrev" title="上一頁 (←)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 5 8 12 15 19"/></svg>
       </button>
-      <button class="dbtn" id="dkAnswer" title="顯示／隱藏解答與評分標準 (快捷鍵 A)">
-        <span class="dicon">👁</span><span class="dlabel">解答</span>
-      </button>
-      <div class="dsep"></div>
-      <button class="dbtn" id="dkLaser" title="虛擬雷射筆 (快捷鍵 L)">
-        <span class="dicon">🔴</span><span class="dlabel">雷射筆</span>
-      </button>
-      <button class="dbtn" id="dkPen" title="課堂畫筆 (快捷鍵 P)">
-        <span class="dicon">✏️</span><span class="dlabel">畫筆</span>
-      </button>
-      <button class="dbtn" id="dkClearPen" title="清除所有筆跡">
-        <span class="dicon">🗑️</span><span class="dlabel">清除</span>
+      <button class="dbtn" id="dkNext" title="下一頁 (→)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 5 16 12 9 19"/></svg>
       </button>
       <div class="dsep"></div>
-      <button class="dbtn" id="dkZoom" title="滿版全螢幕黑板放大 (快捷鍵 Q)">
-        <span class="dicon">🔍</span><span class="dlabel">放大題目</span>
+      <button class="dbtn" id="dkLaser" title="雷射筆 (L)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/></svg>
       </button>
-      <button class="dbtn" id="dkFullscreen" title="瀏覽器全螢幕 (快捷鍵 F)">
-        <span class="dicon">⛶</span><span class="dlabel">全螢幕</span>
+      <button class="dbtn" id="dkPen" title="畫筆 (P)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      </button>
+      <div class="dcolors hidden" id="dkColors">
+        <button class="dcolor active" data-c="#e11d48" style="--sc:#e11d48" title="紅"></button>
+        <button class="dcolor" data-c="#2563eb" style="--sc:#2563eb" title="藍"></button>
+        <button class="dcolor" data-c="#059669" style="--sc:#059669" title="綠"></button>
+        <button class="dcolor" data-c="#f59e0b" style="--sc:#f59e0b" title="黃"></button>
+        <button class="dcolor" data-c="#111827" style="--sc:#111827" title="黑"></button>
+        <button class="dbtn derase" id="dkErase" title="橡皮擦">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15l7-7 6 6-4 4H8z"/><line x1="4" y1="21" x2="20" y2="21"/></svg>
+        </button>
+      </div>
+      <button class="dbtn" id="dkClear" title="清除所有筆跡 (C)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 21 6"/><path d="M8 6V4h8v2"/><path d="M6 6l1 14h10l1-14"/></svg>
+      </button>
+      <div class="dsep"></div>
+      <button class="dbtn" id="dkFull" title="全螢幕 (F)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
       </button>
     </div>
   </div>
 
-  <!-- 滿版黑板放大視窗 -->
-  <div id="zoomModal" class="modal-overlay hidden">
-    <div class="modal-card">
+  <!-- 教師身分驗證 PIN 碼彈窗 -->
+  <div id="pinModal" class="modal-overlay hidden">
+    <div class="modal-card pin-card">
       <div class="modal-head">
-        <div class="modal-title" id="zoomTitle">題目滿版放大</div>
-        <button class="modal-close" id="zoomCloseBtn">✕</button>
+        <div class="modal-title">🔐 教師身分驗證</div>
+        <button class="modal-close" id="pinCloseBtn">✕</button>
       </div>
-      <div class="zoom-body" id="zoomBody"></div>
+      <div class="pin-body">
+        <p class="pin-desc">請輸入教師管理 PIN 碼（預設：<b>8888</b>），以切換微積分進度與題型開放權限：</p>
+        <div class="pin-input-row">
+          <input type="password" id="pinInput" maxlength="8" placeholder="請輸入 4 位數 PIN 碼" autocomplete="off" />
+          <button class="btn-primary" id="pinSubmitBtn">進入面板</button>
+        </div>
+        <div class="pin-err hidden" id="pinError">⚠️ PIN 碼不正確，請重新輸入（預設為 8888）</div>
+      </div>
     </div>
   </div>
 
@@ -241,6 +255,6 @@
   <script src="ch-int-04.js?v=20261022"></script>
 
   <!-- 簡報導覽與渲染引擎 -->
-  <script src="engine.js?v=20261022"></script>
+  <script src="engine.js?v=20261023b"></script>
 </body>
 </html>

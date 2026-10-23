@@ -175,35 +175,52 @@
   /* ========== 範例／圖解「放大成整頁」（方便用畫筆講解）========== */
   let zoomHost = null, zoomHostParent = null;   // 圖解模式被移入放大層的 host 及其原父節點
   function ensureZoom() {
-    if (document.getElementById('zoomModal')) return;
-    const m = document.createElement('div');
-    m.id = 'zoomModal'; m.className = 'zoom-modal hidden';
-    m.innerHTML = `<div class="zoom-body" id="zoomBody"></div>`;
-    document.body.appendChild(m);
-    const bar = document.createElement('div');
-    bar.id = 'zoomBar'; bar.className = 'zoom-bar hidden';
-    bar.innerHTML = `<div class="zoom-badge" id="zoomBadge"></div>
-      <button class="zoom-btn" id="zoomSol">顯示解答</button>
-      <button class="zoom-btn zoom-x" id="zoomClose">✕ 關閉</button>`;
-    document.body.appendChild(bar);
-    bar.querySelector('#zoomClose').onclick = closeZoom;
-    bar.querySelector('#zoomSol').onclick = () => {
-      const box = document.getElementById('zoomSolBox'); if (!box) return;
-      box.classList.toggle('show');
-      bar.querySelector('#zoomSol').textContent = box.classList.contains('show') ? '收起解答' : '顯示解答';
-      typeset(box);
-    };
+    let m = document.getElementById('zoomModal');
+    if (!m) {
+      m = document.createElement('div');
+      m.id = 'zoomModal'; m.className = 'zoom-modal hidden';
+      m.innerHTML = `<div class="zoom-body" id="zoomBody"></div>`;
+      document.body.appendChild(m);
+    } else {
+      if (!m.classList.contains('zoom-modal')) m.className = 'zoom-modal hidden';
+      if (!document.getElementById('zoomBody')) {
+        m.innerHTML = `<div class="zoom-body" id="zoomBody"></div>`;
+      }
+    }
+    let bar = document.getElementById('zoomBar');
+    if (!bar) {
+      bar = document.createElement('div');
+      bar.id = 'zoomBar'; bar.className = 'zoom-bar hidden';
+      bar.innerHTML = `<div class="zoom-badge" id="zoomBadge"></div>
+        <button class="zoom-btn" id="zoomSol" style="display:none;">顯示解答</button>
+        <button class="zoom-btn zoom-x" id="zoomClose">✕ 關閉</button>`;
+      document.body.appendChild(bar);
+      bar.querySelector('#zoomClose').onclick = closeZoom;
+      bar.querySelector('#zoomSol').onclick = () => {
+        const box = document.getElementById('zoomSolBox'); if (!box) return;
+        box.classList.toggle('show');
+        bar.querySelector('#zoomSol').textContent = box.classList.contains('show') ? '收起解答' : '顯示解答';
+        typeset(box);
+      };
+    }
   }
   function showZoom(s, badgeTail) {
     ensureZoom();
     const chLabel = typeof s.ch === 'number' || /^\d+$/.test(s.ch) ? `第 ${s.ch} 章` : s.ch;
     const secLabel = s.qNum || s.sec || '';
     const titleLabel = s.topic || s.secName || s.title || '';
-    document.getElementById('zoomBadge').innerHTML = `${chLabel} · ${secLabel} ${titleLabel}　${badgeTail}`;
-    document.getElementById('zoomModal').style.setProperty('--ct', s.color);
-    document.getElementById('zoomBar').style.setProperty('--ct', s.color);
-    document.getElementById('zoomModal').classList.remove('hidden');
-    document.getElementById('zoomBar').classList.remove('hidden');
+    const badge = document.getElementById('zoomBadge');
+    if (badge) badge.innerHTML = `${chLabel} · ${secLabel} ${titleLabel}　${badgeTail}`;
+    const zm = document.getElementById('zoomModal');
+    if (zm) {
+      zm.style.setProperty('--ct', s.color);
+      zm.classList.remove('hidden');
+    }
+    const zbar = document.getElementById('zoomBar');
+    if (zbar) {
+      zbar.style.setProperty('--ct', s.color);
+      zbar.classList.remove('hidden');
+    }
   }
   function openExampleModal(s) {
     ensureZoom();
@@ -220,7 +237,7 @@
   }
   function openJaeModal(s) {
     ensureZoom();
-    document.getElementById('zoomSol').style.display = 'none';
+    const zSol = document.getElementById('zoomSol'); if (zSol) zSol.style.display = 'none';
     let optHtml = '';
     if (s.options && s.options.length) {
       optHtml = `<div class="zoom-options ${s.options.length > 4 ? 'grid-opt-5' : ''}">${s.options.map(o => `<div class="zoom-opt-item">${o}</div>`).join('')}</div>`;
@@ -236,7 +253,7 @@
   }
   function openKpModal(s) {
     ensureZoom();
-    document.getElementById('zoomSol').style.display = 'none';
+    const zSol = document.getElementById('zoomSol'); if (zSol) zSol.style.display = 'none';
     const kn = s.knowledge;
     if (!kn) return;
     let formHtml = '';
@@ -273,7 +290,7 @@
   }
   function openSolModal(s) {
     ensureZoom();
-    document.getElementById('zoomSol').style.display = 'none';
+    const zSol = document.getElementById('zoomSol'); if (zSol) zSol.style.display = 'none';
     const stepsHtml = (s.solution && s.solution.steps && s.solution.steps.length)
       ? `<ol class="zoom-steps">${s.solution.steps.map(t => `<li>${t}</li>`).join('')}</ol>`
       : '';
@@ -322,7 +339,7 @@
   }
   function openVisualModal(s, host) {
     ensureZoom();
-    document.getElementById('zoomSol').style.display = 'none';   // 圖解不需要「顯示解答」
+    const zSol = document.getElementById('zoomSol'); if (zSol) zSol.style.display = 'none';   // 圖解不需要「顯示解答」
     const body = document.getElementById('zoomBody');
     body.innerHTML = '';
     zoomHost = host; zoomHostParent = host.parentNode;
@@ -349,7 +366,7 @@
     }
     document.getElementById('zoomBody').innerHTML = '';
     m.classList.add('hidden');
-    document.getElementById('zoomBar').classList.add('hidden');
+    const zbar = document.getElementById('zoomBar'); if (zbar) zbar.classList.add('hidden');
     if (typeof clearPen === 'function') clearPen();   // 清掉講解時的筆跡
     fitSlide();
   }
